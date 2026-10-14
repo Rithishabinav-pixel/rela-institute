@@ -1,0 +1,75 @@
+.wrapper {
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 8px;
+  background: #fafafa;
+  border-bottom: 1px solid #ebebeb;
+}
+
+.toolbar select,
+.toolbar button {
+  border: 1px solid transparent;
+  background: transparent;
+  border-radius: 6px;
+  padding: 5px 9px;
+  font-size: 13px;
+  cursor: pointer;
+  color: #1c1f26;
+}
+
+.toolbar button:hover,
+.toolbar select:hover {
+  background: #fff;
+  border-color: #e0e0e0;
+}
+
+.toolbarDivider {
+  width: 1px;
+  height: 20px;
+  background: #e0e0e0;
+  margin: 0 4px;
+}
+
+.sourceToggle {
+  margin-left: auto;
+  font-weight: 600;
+}
+
+.sourceToggleActive {
+  background: var(--orange);
+  color: #fff;
+}
+
+.editor {
+  min-height: 160px;
+  max-height: 420px;
+  overflow-y: auto;
+  padding: 12px 14px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.editor:focus {
+  outline: none;
+}
+
+.sourceTextarea {
+  width: 100%;
+  min-height: 160px;
+  max-height: 420px;
+  border: none;
+  outline: none;
+  padding: 12px 14px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px;
+  resize: vertical;
+}

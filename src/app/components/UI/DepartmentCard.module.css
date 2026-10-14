@@ -1,0 +1,108 @@
+.deptCard{
+    width: 100%;
+    background-color:var(--brown);
+}
+
+.deptCard,
+.deptCard .wrapper .top{
+    border-radius: 32px;
+}
+
+.deptCard .wrapper,
+.deptCard .wrapper .top{
+    height: 100%;
+}
+
+.deptCard .wrapper .top{
+ padding: 16px;
+    border: solid var(--orange) 1px;
+    gap: 40px;
+    background-color: white;
+}
+
+.deptCard.threeCard{
+    width: calc(33.33% - 20px);
+}
+
+.deptCard .icon img{
+    width: 80px;
+}
+
+.deptCard .content{
+    margin-top: auto;
+}
+
+.deptCard .content,
+.deptCard .specialities,
+.deptCard .wrapper,
+.deptCard .wrapper .top,
+.deptCard .wrapper .bottom{
+    display: flex;
+}
+
+.deptCard .wrapper .bottom{
+    justify-content: space-between;
+    padding: 24px 16px;
+}
+
+.deptCard .wrapper,
+.deptCard .content,
+.deptCard .wrapper .top{
+    flex-direction: column;
+}
+
+.deptCard .content,
+.deptCard .wrapper .bottom{
+    gap: 10px;
+}
+
+.deptCard .content h3{
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 600;
+}
+
+.deptCard .specialities{
+gap: 8px;
+flex-wrap: wrap;
+}
+
+.deptCard .specialities span{
+    width: fit-content;
+    padding: 4px 10px;
+    background-color: rgba(244, 119, 2, 0.1);
+    border: solid var(--orange) 1px;
+    border-radius: 50px;
+    font-size: 12px;
+    line-height: 20px;
+}
+
+/* r4esponsive  */
+
+/* laptop  */
+
+@media screen and (max-width:1200px) {
+
+    .deptCard,
+.deptCard .wrapper .top{
+    border-radius: 24px;
+}
+
+    .deptCard.threeCard{
+    width: calc(50% - 10px);
+}
+}
+
+/* mobile  */
+
+@media screen and (max-width:767px) {
+
+       .deptCard,
+.deptCard .wrapper .top{
+    border-radius: 16px;
+}
+
+    .deptCard.threeCard{
+    width: 100%;
+}
+}

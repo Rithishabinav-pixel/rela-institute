@@ -1,0 +1,260 @@
+.topSection .container,
+.topSection .container .quickSearch_container,
+.topSection .container .quickSearch_container .quickcategories,
+.topSection .container .actions,
+.articlesGrid .container,
+.articlesGrid .container .card,
+.articlesGrid .container .card .content{
+    display: flex;
+}
+
+
+.topSection .container .quickSearch_container .quickcategories,
+.articlesGrid .container{
+    flex-wrap: wrap;
+}
+
+.topSection .container,
+.topSection .container .quickSearch_container,
+.articlesGrid .container .card,
+.articlesGrid .container .card .content{
+    flex-direction: column;
+}
+
+.topSection .container{
+    gap: 40px;
+}
+
+.topSection .container .quickSearch_container,
+.topSection .container .quickSearch_container .quickcategories{
+gap: 16px;
+}
+
+.topSection .container .quickSearch_container{
+    padding: 24px;
+    border: solid var(--orange) 1px;
+    border-radius: 32px;
+}
+
+.topSection .container .quickSearch_container h2{
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 700;
+}
+
+.topSection .container .quickSearch_container .quickcategories button{
+    padding: 8px 16px;
+    border: solid #EAEAEA 1px;
+    border-radius: 50px;
+    background: none;
+}
+
+.topSection .container .quickSearch_container .quickcategories button:hover,
+.topSection .container .quickSearch_container .quickcategories button.active{
+    background-color: var(--orange);
+    color: white;
+    border-color: var(--orange);
+}
+
+.topSection .container .actions,
+.articlesGrid .container{
+    gap: 30px;
+}
+
+.topSection .container .actions .sort{
+margin-left: auto;
+}
+
+.topSection .container .actions>div{
+    border: solid var(--orange) 1px;
+    border-radius: 50px;
+    display: flex;
+    overflow: hidden;
+    min-height: 50px;
+    align-items: center;
+    padding: 0 16px 0 0;
+}
+
+
+.topSection .container .actions .search,
+.topSection .container .actions .dropdown{
+    min-width: 360px;
+    width: 360px;
+}
+
+.topSection .container .actions .dropdown select{
+    width: 100%;
+}
+
+.topSection .container .actions .sort{
+    min-width: 150px;
+    width: 150px;
+}
+
+
+.topSection .container .actions>div input,
+.topSection .container .actions>div select{
+    min-height: 100%;
+    padding: 6px 20px;
+    border: none;
+    flex-grow: 1;
+}
+
+.topSection .container .actions>div select{
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background-repeat: no-repeat;
+    background-position: center right;
+}
+
+.topSection .container .actions>div.dropdown select{
+    background-image: url(/assets/images/select-down.svg);
+}
+
+.topSection .container .actions>div img{
+    width: 32px;
+}
+
+.topSection .container .actions>div select{
+    background-size: 32px;
+}
+
+
+.topSection .container .actions>div.sort select{
+    background-image: url(/assets/images/filter.svg);
+}
+
+.topSection .container .actions>div input:focus,
+.topSection .container .actions>div select:focus{
+    outline: none;
+}
+
+
+.topSection .container .actions>div button{
+    border: none;
+    background: none;
+}
+
+.articlesGrid{
+    padding: 40px 0 120px 0;
+}
+
+.articlesGrid .container .card{
+width: calc(25% - 22.5px);
+background-color: var(--brown);
+border-radius: 32px;
+overflow: hidden;
+}
+
+.articlesGrid .container .card .image img{
+border-radius: 0 0 32px 32px;
+width: 100%;
+}
+
+.articlesGrid .container .card .content{
+    padding: 16px ;
+    gap: 10px;
+    margin-top: auto;
+}
+
+.articlesGrid .container .card .content p,
+.articlesGrid .container .card .content h3{
+    color: black;
+}
+
+.articlesGrid .container .card .content h3{
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 600;
+   display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* responsive  */
+
+/* laptop  */
+@media screen and (max-width:1600px) {
+  .topSection .container .quickSearch_container h2{
+    font-size: 20px;
+    line-height: 28px;
+}
+
+.articlesGrid .container .card .content h3{
+    font-size: 18px;
+    line-height: 26px;
+}
+
+.topSection .container{
+    gap: 30px;
+}
+
+.articlesGrid{
+    padding: 40px 0 80px 0;
+}
+
+}
+
+
+/* tablet  */
+@media screen and (max-width:1200px){
+
+    .topSection .container{
+    gap: 20px;
+}
+
+.topSection .container .actions .search,
+.topSection .container .actions .dropdown{
+    min-width: 0;
+    flex-grow: 1;
+}
+
+.articlesGrid{
+    padding: 40px 0 50px 0;
+}
+
+.articlesGrid .container,
+.topSection .container .actions{
+    gap: 20px;
+}
+
+.articlesGrid .container .card{
+width: calc(33.33% - 13.33px);
+border-radius: 16px;
+}
+
+.topSection .container .quickSearch_container{
+    padding: 20px;
+  border-radius: 16px;
+
+}
+
+} 
+
+
+/* mobile  */
+@media screen and (max-width:767px){
+
+      .topSection .container .quickSearch_container h2{
+    font-size: 18px;
+    line-height: 26px;
+}
+
+.topSection .container .actions{
+    flex-direction: column;
+}
+
+.topSection .container .actions>div,
+.topSection .container .actions>div.sort{
+    min-width: 100%;
+    width: 100%;
+}
+
+.articlesGrid .container .card{
+width: 100%;
+border-radius: 16px;
+}
+
+}

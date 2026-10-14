@@ -1,0 +1,347 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Department {
+  id             Int      @id @default(autoincrement())
+  departmentId   Int      @unique
+  name           String
+  nameNormalized String   @unique
+  slug           String?  @unique
+  icon           String?
+  showInHomepage Boolean  @default(false)
+  centerOfExcellence Boolean @default(false)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  doctorLinks       DoctorDepartment[]
+  doctorsSpeciality Doctor[]                 @relation("DoctorSpeciality")
+  symptoms          DepartmentSymptom[]
+  mediaArticles     MediaArticleDepartment[]
+  successStories    SuccessStoryDepartment[]
+  expertTalks       ExpertTalkDepartment[]
+  events            EventDepartment[]
+
+  @@map("departments")
+}
+
+model DepartmentSymptom {
+  id           Int      @id @default(autoincrement())
+  departmentId Int
+  name         String
+  sortOrder    Int      @default(0)
+  createdAt    DateTime @default(now())
+
+  department Department @relation(fields: [departmentId], references: [id], onDelete: Cascade)
+
+  @@map("department_symptoms")
+}
+
+model Doctor {
+  id             Int      @id @default(autoincrement())
+  slug           String   @unique
+  name           String
+  education      String
+  position       String
+  mainPosition   String
+  image          String?
+  specialityId   Int
+  showInHomepage Boolean  @default(false)
+  quickSearch    Boolean  @default(false)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  speciality     Department           @relation("DoctorSpeciality", fields: [specialityId], references: [id])
+  departments    DoctorDepartment[]
+  tabs           DoctorTab[]
+  mediaArticles  MediaArticleDoctor[]
+  successStories SuccessStoryDoctor[]
+  expertTalks    ExpertTalkDoctor[]
+  events         EventDoctor[]
+
+  @@map("doctors")
+}
+
+model DoctorDepartment {
+  doctorId     Int
+  departmentId Int
+
+  doctor     Doctor     @relation(fields: [doctorId], references: [id], onDelete: Cascade)
+  department Department @relation(fields: [departmentId], references: [id], onDelete: Restrict)
+
+  @@id([doctorId, departmentId])
+  @@map("doctor_departments")
+}
+
+model DoctorTab {
+  id        Int      @id @default(autoincrement())
+  doctorId  Int
+  heading   String
+  content   String   @db.Text
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  doctor Doctor @relation(fields: [doctorId], references: [id], onDelete: Cascade)
+
+  @@map("doctor_tabs")
+}
+
+model Media {
+  id        Int      @id @default(autoincrement())
+  fileName  String
+  url       String
+  altText   String
+  mimeType  String?
+  width     Int?
+  height    Int?
+  size      Int?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("media")
+}
+
+model MediaArticle {
+  id                    Int       @id @default(autoincrement())
+  title                 String
+  slug                  String    @unique
+  publishedAt           DateTime?
+  featureType           String    @default("image")
+  featureImage          String?
+  featureImageSourceUrl String?
+  youtubeUrl            String?
+  readMoreUrl           String?
+  pageLink              String?   @unique
+  content               String?   @db.Text
+  quickSearch           Boolean   @default(false)
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+
+  departments MediaArticleDepartment[]
+  doctors     MediaArticleDoctor[]
+  gallery     MediaArticleGalleryImage[]
+
+  @@map("media_articles")
+}
+
+model MediaArticleDepartment {
+  mediaArticleId Int
+  departmentId   Int
+
+  mediaArticle MediaArticle @relation(fields: [mediaArticleId], references: [id], onDelete: Cascade)
+  department   Department   @relation(fields: [departmentId], references: [id], onDelete: Restrict)
+
+  @@id([mediaArticleId, departmentId])
+  @@map("media_article_departments")
+}
+
+model MediaArticleDoctor {
+  mediaArticleId Int
+  doctorId       Int
+
+  mediaArticle MediaArticle @relation(fields: [mediaArticleId], references: [id], onDelete: Cascade)
+  doctor       Doctor       @relation(fields: [doctorId], references: [id], onDelete: Restrict)
+
+  @@id([mediaArticleId, doctorId])
+  @@map("media_article_doctors")
+}
+
+model MediaArticleGalleryImage {
+  id             Int      @id @default(autoincrement())
+  mediaArticleId Int
+  imagePath      String
+  sourceUrl      String?
+  altText        String?
+  sortOrder      Int      @default(0)
+  createdAt      DateTime @default(now())
+
+  mediaArticle MediaArticle @relation(fields: [mediaArticleId], references: [id], onDelete: Cascade)
+
+  @@map("media_article_gallery_images")
+}
+
+model SuccessStory {
+  id                    Int       @id @default(autoincrement())
+  title                 String
+  slug                  String    @unique
+  publishedAt           DateTime?
+  featureType           String    @default("image")
+  featureImage          String?
+  featureImageSourceUrl String?
+  youtubeUrl            String?
+  readMoreUrl           String?
+  pageLink              String?   @unique
+  content               String?   @db.Text
+  quickSearch           Boolean   @default(false)
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+
+  departments SuccessStoryDepartment[]
+  doctors     SuccessStoryDoctor[]
+  gallery     SuccessStoryGalleryImage[]
+
+  @@map("success_stories")
+}
+
+model SuccessStoryDepartment {
+  successStoryId Int
+  departmentId   Int
+
+  successStory SuccessStory @relation(fields: [successStoryId], references: [id], onDelete: Cascade)
+  department   Department   @relation(fields: [departmentId], references: [id], onDelete: Restrict)
+
+  @@id([successStoryId, departmentId])
+  @@map("success_story_departments")
+}
+
+model SuccessStoryDoctor {
+  successStoryId Int
+  doctorId       Int
+
+  successStory SuccessStory @relation(fields: [successStoryId], references: [id], onDelete: Cascade)
+  doctor       Doctor       @relation(fields: [doctorId], references: [id], onDelete: Restrict)
+
+  @@id([successStoryId, doctorId])
+  @@map("success_story_doctors")
+}
+
+model SuccessStoryGalleryImage {
+  id             Int      @id @default(autoincrement())
+  successStoryId Int
+  imagePath      String
+  sourceUrl      String?
+  altText        String?
+  sortOrder      Int      @default(0)
+  createdAt      DateTime @default(now())
+
+  successStory SuccessStory @relation(fields: [successStoryId], references: [id], onDelete: Cascade)
+
+  @@map("success_story_gallery_images")
+}
+
+model ExpertTalk {
+  id                    Int       @id @default(autoincrement())
+  title                 String
+  slug                  String    @unique
+  publishedAt           DateTime?
+  featureType           String    @default("image")
+  featureImage          String?
+  featureImageSourceUrl String?
+  youtubeUrl            String?
+  readMoreUrl           String?
+  pageLink              String?   @unique
+  content               String?   @db.Text
+  quickSearch           Boolean   @default(false)
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+
+  departments ExpertTalkDepartment[]
+  doctors     ExpertTalkDoctor[]
+  gallery     ExpertTalkGalleryImage[]
+
+  @@map("expert_talks")
+}
+
+model ExpertTalkDepartment {
+  expertTalkId Int
+  departmentId Int
+
+  expertTalk ExpertTalk @relation(fields: [expertTalkId], references: [id], onDelete: Cascade)
+  department Department @relation(fields: [departmentId], references: [id], onDelete: Restrict)
+
+  @@id([expertTalkId, departmentId])
+  @@map("expert_talk_departments")
+}
+
+model ExpertTalkDoctor {
+  expertTalkId Int
+  doctorId     Int
+
+  expertTalk ExpertTalk @relation(fields: [expertTalkId], references: [id], onDelete: Cascade)
+  doctor     Doctor     @relation(fields: [doctorId], references: [id], onDelete: Restrict)
+
+  @@id([expertTalkId, doctorId])
+  @@map("expert_talk_doctors")
+}
+
+model ExpertTalkGalleryImage {
+  id           Int      @id @default(autoincrement())
+  expertTalkId Int
+  imagePath    String
+  sourceUrl    String?
+  altText      String?
+  sortOrder    Int      @default(0)
+  createdAt    DateTime @default(now())
+
+  expertTalk ExpertTalk @relation(fields: [expertTalkId], references: [id], onDelete: Cascade)
+
+  @@map("expert_talk_gallery_images")
+}
+
+model Event {
+  id                    Int       @id @default(autoincrement())
+  title                 String
+  slug                  String    @unique
+  publishedAt           DateTime?
+  featureType           String    @default("image")
+  featureImage          String?
+  featureImageSourceUrl String?
+  youtubeUrl            String?
+  readMoreUrl           String?
+  pageLink              String?   @unique
+  content               String?   @db.Text
+  quickSearch           Boolean   @default(false)
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+
+  departments EventDepartment[]
+  doctors     EventDoctor[]
+  gallery     EventGalleryImage[]
+
+  @@map("events")
+}
+
+model EventDepartment {
+  eventId      Int
+  departmentId Int
+
+  event      Event      @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  department Department @relation(fields: [departmentId], references: [id], onDelete: Restrict)
+
+  @@id([eventId, departmentId])
+  @@map("event_departments")
+}
+
+model EventDoctor {
+  eventId  Int
+  doctorId Int
+
+  event  Event  @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  doctor Doctor @relation(fields: [doctorId], references: [id], onDelete: Restrict)
+
+  @@id([eventId, doctorId])
+  @@map("event_doctors")
+}
+
+model EventGalleryImage {
+  id        Int      @id @default(autoincrement())
+  eventId   Int
+  imagePath String
+  sourceUrl String?
+  altText   String?
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+
+  event Event @relation(fields: [eventId], references: [id], onDelete: Cascade)
+
+  @@map("event_gallery_images")
+}

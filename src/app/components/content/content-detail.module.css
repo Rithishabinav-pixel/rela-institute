@@ -1,0 +1,274 @@
+.articleDetail{
+    padding-bottom: 120px;
+}
+
+.articleDetail .container,
+.articleDetail .container .topContent,
+.articleDetail .container .topContent .taxonomies_container,
+.articleDetail .container .topContent .taxonomies_container>div,
+.articleDetail .container .topContent .share,
+.articleDetail .container .topContent .share ul,
+.articleDetail .container #sidebar,
+.articleDetail .container #sidebar .cards,
+.articleDetail .container .gallery,
+.articleDetail .container .gallery .cards,
+#sidebar .cards,
+#sidebar .cards .card,
+#sidebar .cards .card .content,
+.articleDetail .container .department,
+.articleDetail .container .department .cards,
+.articleDetail .container .doctors,
+.articleDetail .container .doctors .cards{
+    display: flex;
+}
+
+.articleDetail .container .gallery .cards,
+.articleDetail .container .department .cards,
+.articleDetail .container .doctors .cards{
+    flex-wrap: wrap;
+}
+
+.articleDetail .container .gallery .singleImage{
+    width: calc(33.33% - 20px);
+}
+
+.articleDetail .container .gallery .singleImage img{
+    width: 100%;
+}
+
+.articleDetail .container #sidebar,
+#sidebar .cards .card,
+#sidebar .cards .card .content,
+.articleDetail .container #sidebar,
+.articleDetail .container #sidebar .cards,
+.articleDetail .container .department,
+.articleDetail .container .doctors,
+.articleDetail .container .gallery{
+    flex-direction: column;
+}
+
+.articleDetail .container #sidebar{
+    gap: 24px;
+}
+
+.articleDetail .container #sidebar h2,
+.articleDetail .container .department h2,
+.articleDetail .container .doctors h2,
+.articleDetail .container .gallery h2{
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: 400;
+}
+
+.articleDetail .container .topContent .taxonomies_container,
+.articleDetail .container .topContent .taxonomies_container>div,
+.articleDetail .container .topContent .share,
+.articleDetail .container .topContent .share ul,
+.articleDetail .container #sidebar .cards,
+.articleDetail .container .department,
+.articleDetail .container .doctors,
+.articleDetail .container .gallery{
+    gap: 16px;
+}
+
+.articleDetail .container,
+#sidebar .cards,
+.articleDetail .container .gallery .cards,
+.articleDetail .container .department .cards,
+.articleDetail .container .doctors .cards{
+    gap: 30px;
+}
+
+.articleDetail .container .topContent .taxonomies_container>div,
+.articleDetail .container .topContent .share,
+.articleDetail .container .topContent .share ul{
+    align-items: center;
+}
+
+.articleDetail .container .topContent .taxonomies_container>div img{
+    width: 40px;
+}
+
+.articleDetail .container .topContent .taxonomies_container>div.dept{
+    padding: 0 16px;
+    border-right: solid black 1px;
+    border-left: solid black 1px;
+}
+
+.articleDetail .container .topContent .taxonomies_container,
+.articlesGrid .containe{
+    flex-wrap: wrap;
+}
+
+.articleDetail .container .topContent .taxonomies_container{
+    flex-grow: 1;
+}
+
+.articleDetail .container .topContent .taxonomies_container h1{
+    width: 100%;
+}
+
+.articleDetail .container .topContent .taxonomies_container>div{
+    min-width: fit-content;
+}
+
+
+
+.articleDetail .container .topContent .share ul li a img{
+    width: 24px;
+}
+
+.articleDetail .container .topContent .share ul li a:hover{
+    transform: scale(0.95);
+}
+
+.articleDetail .container .topContent .share p{
+    min-width: fit-content;
+}
+
+.articleDetail .container .topContent{
+    align-items: flex-end;
+}
+
+.articleDetail .container .contentArea{
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.articleDetail .container #sidebar{
+    width: 25%;
+}
+
+.articleDetail .container  .topContent{
+    gap: 30px;
+}
+
+
+#sidebar .cards .card{
+width: 100%;
+background-color: var(--brown);
+border-radius: 32px;
+overflow: hidden;
+}
+
+#sidebar .cards .card .image img{
+border-radius: 0 0 32px 32px;
+width: 100%;
+}
+
+#sidebar .cards .card .content{
+    padding: 16px ;
+    gap: 10px;
+    margin-top: auto;
+}
+
+#sidebar .cards .card .content p,
+#sidebar .cards .card .content h3{
+    color: black;
+}
+
+#sidebar .cards .card .content h3{
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 600;
+}
+
+.articleDetail .container .featureImage img,.articleDetail .container .featureImage iframe{
+    width: 100%;
+    border-radius: 32px;
+}
+
+.articleDetail .container .featureImage iframe{
+    height: auto;
+    aspect-ratio:16/9;
+}
+
+.articleDetail .container  .articleContents>*{
+  margin-bottom: 16px;
+}
+
+/* responsive  */
+
+/* laptop  */
+@media screen and (max-width:1600px) {
+
+    .articleDetail{
+    padding-bottom: 80px;
+}
+    
+    .articleDetail .container #sidebar h2{
+    font-size: 26px;
+    line-height: 34px;
+}
+
+.articleDetail .container .topContent .taxonomies_container>div img{
+    width: 32px;
+}
+
+#sidebar .cards .card .content h3{
+    font-size: 18px;
+    line-height: 26px;
+}
+
+
+}
+
+
+
+/* tablet  */
+@media screen and (max-width:1200px){
+
+    .articleDetail{
+    padding-bottom: 50px;
+}
+
+    .articleDetail .container .department .cards,
+.articleDetail .container .doctors .cards{
+    gap: 20px;
+}
+
+
+.articleDetail .container{
+    flex-direction: column;
+}
+
+.articleDetail .container .contentArea,
+.articleDetail .container #sidebar{
+    width: 100%;
+}
+
+.articleDetail .container .contentArea{
+    gap: 30px;
+}
+
+.articleDetail .container  .topContent{
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.articleDetail .container .featureImage img{
+    border-radius: 16px;
+}
+
+.articleDetail .container #sidebar .cards{
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.articleDetail .container #sidebar .cards .card{
+    width: calc(50% - 10px);
+}
+
+}
+
+
+/* mobile  */
+@media screen and (max-width:767px){
+.articleDetail .container #sidebar .cards .card{
+    width: 100%;
+}
+}

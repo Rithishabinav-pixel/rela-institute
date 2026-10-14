@@ -1,0 +1,119 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.88);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.dialog {
+  position: relative;
+  width: min(1140px, 100%);
+  height: min(80vh, 760px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+}
+
+.imageWrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.closeButton {
+  position: absolute;
+  top: -48px;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.closeButton:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.navButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 32px;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.navButton:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.prevButton {
+  left: -16px;
+}
+
+.nextButton {
+  right: -16px;
+}
+
+.counter {
+  position: absolute;
+  bottom: -36px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 767px) {
+  .backdrop {
+    padding: 12px;
+  }
+
+  .dialog {
+    height: min(70vh, 600px);
+  }
+
+  .closeButton {
+    top: -40px;
+    width: 34px;
+    height: 34px;
+    font-size: 20px;
+  }
+
+  .navButton {
+    width: 38px;
+    height: 38px;
+    font-size: 24px;
+  }
+
+  .prevButton {
+    left: -4px;
+  }
+
+  .nextButton {
+    right: -4px;
+  }
+
+  .counter {
+    bottom: -28px;
+  }
+}

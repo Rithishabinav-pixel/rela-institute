@@ -1,0 +1,148 @@
+.doctorProfile{
+    margin: 50px 0 80px 0;
+}
+
+.doctorProfile .container,
+.doctorProfile .container .content .buttons,
+.doctorProfile .container .content .doctorMainDetails,
+.tabContainer .tabContent .tabDetail,
+.tabContainer .tabContent .tabDetail>div,
+.tabContainer .tabContent .tabDetail>div ul{
+    display: flex;
+}
+
+.doctorProfile .container .content .doctorMainDetails,
+.tabContainer .tabContent .tabDetail,
+.tabContainer .tabContent .tabDetail>div,
+.tabContainer .tabContent .tabDetail>div ul{
+    flex-direction: column;
+}
+
+.doctorProfile .container{
+    gap: 30px;
+}
+
+.doctorProfile .container .content .buttons,
+.tabContainer .tabContent .tabDetail{
+    gap: 24px;
+}
+
+.doctorProfile .container .content .doctorMainDetails,
+.tabContainer .tabContent .tabDetail>div,
+.tabContainer .tabContent .tabDetail>div ul{
+    gap: 16px;
+}
+
+.tabContainer .tabContent .tabDetail>div{
+    width: 100%;
+    max-width: 1000px;
+}
+
+.tabContainer .tabContent .tabDetail>div ul{
+    list-style:circle;
+    padding-left: 40px;
+}
+
+.doctorProfile .container{
+    align-items: flex-start;
+}
+
+.doctorProfile .container .content{
+  width: calc(77.517% - 15px);
+}
+
+.doctorProfile .container .image{
+   width:calc(22.483% - 15px);
+   position: sticky;
+   top: 0;
+}
+
+.doctorProfile .container .content hr{
+    margin: 24px 0;
+    background-color: #C3C3C3;
+}
+
+
+.doctorProfile .container .content .doctorMainDetails .doctorSpecialities{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.doctorProfile .container .content .doctorMainDetails .doctorSpecialities span{
+    padding: 8px 16px;
+    border-radius: 50px;
+    background-color: var(--gray);
+    border: solid #EAEAEA 1px;
+}
+
+.tabContainer .sliderWrapper{
+     padding: 0px 47px;
+     border-radius: 8px;
+    background-color: var(--gray);
+    border: solid #A6A6A6 1px; 
+    position: relative;
+    margin: 40px 0;
+}
+
+.tabContainer :global(.swiper-slide){
+    width: fit-content;
+}
+
+.sliderWrapper :global(.nav){
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+}
+
+.sliderWrapper :global(.slide_prev){
+  left: 16px;
+}
+
+.sliderWrapper :global(.slide_next){
+  right: 16px;
+}
+
+.sliderWrapper :global(.nav) img{
+    width: 24px;
+}
+
+.tabContainer .slide{
+    cursor: pointer;
+    padding: 16px 0;
+    opacity: 0.5;
+}
+
+.tabContainer :global(.swiper-slide){
+    position: relative;
+}
+
+.tabContainer :global(.swiper-slide) .slide::before{
+position: absolute;
+content: '';
+bottom: 14px;
+left: 0;
+width: 0;
+height: auto;
+aspect-ratio: 90 / 5;
+background-image: url(/assets/images/curve-line.svg);
+background-size: cover;
+transition: var(--transition);
+}
+
+.tabContainer .slide.active::before{
+width: 90px;
+}
+
+.tabContainer .slide.active{
+    font-weight: 600;
+    opacity: 1;
+}
+
+.tabContainer .tabContent .tabDetail h2{
+font-size: 32px;
+line-height: 40px;
+font-weight: 400;
+}

@@ -1,0 +1,138 @@
+.doctorCard{
+    display: flex;
+    flex-direction: column;
+    border-radius: 32px;
+    border: solid var(--orange) 1px;
+}
+
+.doctorCard .image{
+    transform: scale(1.01);
+    background-color: var(--brown);
+    border-radius: 32px;
+overflow: hidden;
+box-shadow: 0 5px 16px rgba(0, 0, 0, 0.13);
+position: relative;
+}
+
+.doctorCard .image::before{
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: auto;
+    aspect-ratio: 361 / 422;
+     background-image: url(/assets/images/doctor-vector.svg);
+     background-size: cover;
+     background-position-y: 14px;
+     background-repeat: no-repeat;
+     transition: var(--transition);
+}
+
+.doctorCard:hover .image::before{
+    transform: scale(0.95);
+}
+
+.doctorCard .image img{
+    width: 100%;
+    position: relative;
+    z-index: 2;
+     transition: var(--transition);
+
+}
+
+.doctorCard:hover .image img{
+    transform: scale(1.025);
+}
+
+.doctorCard .content,
+.doctorCard .content .detail{
+    display: flex;
+}
+
+.doctorCard .content{
+    padding: 16px;
+    align-items: center;
+    gap: 16px;
+}
+
+.doctorCard .content .detail{
+    flex-direction: column;
+    flex-grow: 1;
+    gap:4px;
+}
+
+.doctorCard .content .detail .name{
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 600;
+}
+
+.doctorCard .content .detail .speciality{
+    color: var(--orange);
+}
+
+.doctorCard .content .detail .position{
+    color: var(--dark-gray);
+}
+
+
+.doctorCard .content a{
+    width: fit-content;
+}
+
+.doctorCard .content a img{
+    width: 40px;
+}
+
+.doctorCard .content a:hover{
+    transform: rotate(45deg);
+}
+
+.doctorGridCard{
+    width: calc(33.33% - 20px);
+}
+
+.doctorDetailCard{
+    width: 100%;
+}
+
+/* responsive  */
+
+/* tablet  */
+
+@media screen and (max-width:1200px) {
+
+    .doctorCard .image,
+    .doctorCard{
+    border-radius: 24px;
+}
+
+}
+
+
+@media screen and (max-width:992px) {
+    
+    .doctorGridCard{
+    width: calc(50% - 10px);
+}
+
+}
+
+/* mobile  */
+
+@media screen and (max-width:767px){
+
+        .doctorCard .image,
+    .doctorCard{
+    border-radius: 16px;
+}
+
+}
+
+
+@media screen and (max-width:670px){
+    
+    .doctorGridCard{
+    width: 100%;
+}
+
+}

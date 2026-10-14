@@ -1,0 +1,151 @@
+p.wp-block-paragraph a,
+ul.wp-block-list li a{
+    display: contents;
+}
+
+h2.wp-block-heading{
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: 400;
+}
+
+h3.wp-block-heading{
+    font-size: 20px;
+    line-height: 28px;
+    color: var(--orange);
+    font-weight: 600;
+}
+
+#ez-toc-container>nav ul,
+.rank-math-list,
+.rank-math-list-item,
+.wp-block-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.rank-math-list,
+.rank-math-list-item,
+.wp-block-list{
+    gap: 16px;
+}
+
+#ez-toc-container>nav ul{
+    gap: 6px;
+}
+
+#ez-toc-container>nav ul ul{
+    margin-top: 6px;
+    margin-left: 30px;
+}
+
+#ez-toc-container>nav ul li a{
+    color: black;
+}
+
+
+
+.rank-math-list-item h3{
+    font-size: 20px;
+    line-height: 28px;
+    color: var(--orange);
+    font-weight: 600;
+}
+
+.wp-block-list li{
+    position: relative;
+    padding-left: 32px;
+}
+
+.wp-block-list li::before{
+    position: absolute;
+    content: '';
+    width: 24px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    background-image: url(/assets/images/bullet.svg);
+    background-size: cover;
+    top: 0;
+    left: 0;
+}
+
+#ez-toc-container{
+    width: 100%;
+    max-width: 550px;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+#ez-toc-container .ez-toc-title-container,
+#ez-toc-container>nav>ul{
+padding: 16px;
+    background-color: var(--gray);
+}
+
+#ez-toc-container>nav{
+    max-height: 0;
+    overflow: hidden;
+    border-top: solid rgba(0, 0, 0, 0.1) 1px;
+    transition: 1s all;
+    visibility: hidden;
+}
+
+#ez-toc-container>nav.active{
+    max-height: 10000px;
+    visibility: visible;
+}
+
+#ez-toc-container .ez-toc-title-container{
+    background-color: var(--gray);
+    cursor: pointer;
+    color: var(--orange);
+    font-weight: 600;
+    position: relative;
+}
+
+#ez-toc-container .ez-toc-title-container::before,
+#ez-toc-container .ez-toc-title-container::after{
+    position: absolute;
+    content: '';
+    top: 50%;
+    right: 32px;
+    transform: translateY(-50%);
+    height: 16px;
+    width: 2px;
+    background-color: var(--orange);
+    transform-origin: center center;
+}
+
+#ez-toc-container .ez-toc-title-container::after{
+    transform: translateY(-50%) rotate(-90deg);
+
+}
+
+#ez-toc-container .ez-toc-title-toggle{
+    display: none;
+}
+
+/* responsive  */
+
+/* laptop  */
+@media screen and (max-width:1600px) {
+
+    h2.wp-block-heading{
+    font-size: 26px;
+    line-height: 34px;
+}
+
+h3.wp-block-heading{
+    font-size: 18px;
+    line-height: 26px;
+}
+
+}
+
+/* mobile  */
+@media screen and (max-width:767px){
+   h2.wp-block-heading{
+    font-size: 22px;
+    line-height: 30px;
+}
+}

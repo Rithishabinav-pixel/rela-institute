@@ -1,0 +1,364 @@
+#footer{
+    background-color: #3F3F3F;
+}
+
+.ctaSection{
+    background-image: url(/assets/images/footer_heart.svg);
+    background-size: 100% auto;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    padding: 80px 0 40px 0;
+}
+
+.ctaSection .container{
+ display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ctaSection .left{
+    width: 50%;
+}
+
+.ctaSection .left p{
+    width: 70%;
+}
+
+.mainMenu{
+    padding: 40px 0 80px 0;
+}
+
+.mainMenu .container{
+    display: flex;
+    flex-wrap: wrap;
+    gap:30px;
+}
+
+.mainMenu .container .menuColumn{
+    width: calc(25% - 22.5px);
+}
+
+.mainMenu .container .menuColumn,
+.mainMenu .container .menuColumn ul{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.mainMenu .container .menuColumn ul li a,
+.mainMenu .container .menuColumn h3,
+.otherLinks .container h3,
+.otherLinks .container h4,
+.otherLinks .container .otherMenuCard ul li a,
+.bottomLinks li a{
+    color: white;
+}
+
+.mainMenu .container .menuColumn h3,
+.otherLinks .container h3{
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 400;
+
+}
+
+.otherLinks .container h4{
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 600;
+}
+
+.mainMenu .container .menuColumn h3,
+.otherLinks .container h3,
+.otherLinks .container h4{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 30px;
+    position: relative;
+}
+
+.mainMenu .container .menuColumn h3 button,
+.otherLinks .container h4 button{
+    background: none;
+    border: none;
+    height: 16px;
+    width: auto;
+    aspect-ratio: 1 / 1;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.mainMenu .container .menuColumn h3 button::before,
+.mainMenu .container .menuColumn h3 button::after,
+.otherLinks .container h4 button::before,
+.otherLinks .container h4 button::after{
+    position: absolute;
+    content: '';
+    width: 1px;
+    height: 100%;
+    background-color: white;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: var(--transition);
+}
+
+.mainMenu .container .menuColumn h3 button::before,
+.otherLinks .container h4 button::before{
+    transform: rotate(90deg) translateX(-50%);
+}
+
+.mainMenu .container .menuColumn:has(ul.active) h3 button::after,
+.otherLinks .container .otherMenuCard .card:has(ul.active) h4 button::after{
+        transform: rotate(90deg) translateX(-50%);
+
+}
+
+.mainMenu .container .menuColumn ul li a:hover,
+.otherLinks .container .otherMenuCard ul li a:hover,
+.bottomLinks li a:hover{
+    color: var(--orange);
+}
+
+.mainMenu .container .menuColumn ul li a:hover{
+    transform: translateX(5px);
+}
+
+.otherLinks .container,
+.staticSection .container,
+.bottomBar .container{
+    position: relative;
+    padding: 40px 20px;
+   
+}
+
+.otherLinks .container::before,
+.otherLinks .container::after,
+.staticSection .container::after{
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 2px;
+    left: 0;
+    background: linear-gradient(270deg, rgba(252, 74, 26, 0.00) 0%, #FC4A1A 21.55%, #F7B733 81.51%, rgba(247, 183, 51, 0.00) 97.43%);
+}
+
+.otherLinks .container::before{
+    top: 0;
+}
+
+.otherLinks .container::after,
+.staticSection .container::after{
+    bottom: 0;
+}
+
+.otherLinks .container,
+.otherLinks .container .otherMenuCard,
+.otherLinks .container .otherMenuCard .card,
+.otherLinks .container .otherMenuCard ul,
+.bottomBar .container ul{
+ display: flex;  
+}
+
+.otherLinks .container .otherMenuCard ul{
+    flex-wrap: wrap;
+}
+
+.otherLinks .container,
+.otherLinks .container .otherMenuCard .card,
+.otherLinks .container .otherMenuCard{
+flex-direction: column;
+    gap: 16px;
+}
+
+
+
+.otherLinks .container .otherMenuCard ul,
+.bottomLinks{
+    gap: 4px 8px;
+}
+
+.otherLinks .container .otherMenuCard ul li:not(:last-child),
+.bottomLinks li:not(:last-child){
+    padding-right: 8px;
+    border-right: solid white 1px;
+}
+
+.otherLinks .container .otherMenuCard ul li,
+.otherLinks .container .otherMenuCard ul li a{
+    min-width: fit-content; 
+}
+
+.staticSection .container,
+.bottomBar .container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.staticSection .container .logo,
+.staticSection .container .certificate{
+    width: fit-content;
+}
+
+.staticSection .container .logo img{
+    width: 230px;
+}
+
+.staticSection .container .certificate img{
+    width: 300px;
+}
+
+.staticSection .container p{
+    width: 45%;
+}
+
+.bottomBar .container ul.socialLinks {
+    gap: 30px;
+}
+
+.bottomBar .container ul.socialLinks li a img{
+    width: 30px;
+    filter: invert(1) brightness(100);
+}
+
+.bottomBar .container ul.socialLinks li a:hover img{
+    filter: unset;
+}
+
+/* responsive  */
+
+/* laptop  */
+@media screen and (max-width:1500px){
+
+    .bottomBar .container{
+        flex-wrap: wrap;
+        gap: 30px 0;
+    }
+
+    .bottomBar .container p{
+        width: fit-content;
+    }
+
+    .bottomBar .container .bottomLinks{
+        width: 100%;
+        justify-content: center;
+    }
+
+}
+
+
+
+/* tablet  */
+@media screen and (max-width:1200px) {
+
+     .mainMenu .container .menuColumn h3,
+.otherLinks .container h3{
+    font-size: 20px;
+    line-height: 28px;
+}
+    
+    .staticSection .container p{
+    width: 100%;
+}
+
+.staticSection .container {
+    gap: 30px 20px;
+}
+    .staticSection .container .logo img{
+    width: 180px;
+}
+
+.staticSection .container .certificate img{
+    width: 250px;
+}
+
+    .staticSection .container{
+        flex-wrap: wrap;
+    }
+    
+
+.mainMenu,
+    .ctaSection{
+    padding:50px 0;
+}
+
+.otherLinks .container{
+    padding: 50px 20;
+}
+
+    .mainMenu .container{
+    gap:40px 20px;
+}
+
+.mainMenu .container .menuColumn{
+    width: calc(50% - 10px);
+}
+
+}
+
+
+/* mobile  */
+@media screen and (max-width:767px){
+
+
+    .mainMenu .container .menuColumn ul,
+.otherLinks .container ul{
+    max-height: 0;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+  .mainMenu .container .menuColumn ul.active,
+.otherLinks .container ul.active{
+    max-height: 1000px;
+    margin-bottom: 24px;
+
+}
+
+    .ctaSection{
+        background-position: 0 100%;
+        background-size: 140% auto;
+    }
+
+    .mainMenu .container .menuColumn{
+    width: 100%;
+}
+
+
+     .mainMenu .container{
+        flex-direction: column;
+        gap: 8px;
+     }
+
+     .otherLinks .container .otherMenuCard{
+        gap: 0;
+        margin-top: 8px;
+     }
+
+    .ctaSection .container{
+flex-direction: column;
+gap: 16px;
+align-items: flex-start;
+}
+
+  .ctaSection .container .left{
+    width: 100%;
+  }
+
+   .ctaSection .container .left p{
+    width: 100%;
+    margin-top: -10px;
+   }
+
+    .bottomBar .container .bottomLinks{
+       flex-wrap: wrap;
+       align-items: flex-start;
+       justify-content: flex-start;
+    }
+
+}
