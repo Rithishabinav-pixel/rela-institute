@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import style from "./footer.module.css"
 import Button from '../UI/Button'
 import Link from 'next/link'
@@ -21,6 +21,27 @@ export default function Footer() {
     const showMenu = (i) =>{
         activeMenu===i?setActiveMenu(null):setActiveMenu(i)       ;
     }
+
+    
+      const [mobile,setMobile] = useState(false);
+    
+      useEffect(()=>{
+    
+        const checkDevice = () =>{
+        setMobile(window.innerWidth<767);
+        }
+    
+        checkDevice();
+        window.addEventListener("resize",checkDevice);
+    
+        return(()=>{
+        window.removeEventListener("resize",checkDevice);
+        })
+    
+    
+      },[])
+
+
 
 
   return (
@@ -49,7 +70,9 @@ export default function Footer() {
                 {mainMenuLinks.map((menu,i)=>(
 
  <div className={style.menuColumn} key={i}>
-                <h3>{menu.heading} <button onClick={()=>showMenu(i)}></button> </h3>
+                <h3>{menu.heading}
+                    {mobile &&  <button onClick={()=>showMenu(i)}></button> }
+                     </h3>
                 <ul className={activeMenu===i?style.active:""}>
                     {menu.links.map((link,index)=>(
                     <li key={index}> <Link href={link.link}>{link.label}</Link> </li>
@@ -72,7 +95,11 @@ export default function Footer() {
         <div className={style.otherMenuCard}>
         {otherLinks.map((item,i)=>(
             <div className={style.card} key={i}>
-<h4>{item.heading} <button onClick={()=>showMenu(i+20)}></button></h4>
+<h4>{item.heading}  
+    
+    {mobile &&  <button onClick={()=>showMenu(i+20)}></button>
+    }
+    </h4>
 
 <ul className={`${style.linksList} ${activeMenu===i+20?style.active:""}`}>
 {item.links.map((link,index)=>(

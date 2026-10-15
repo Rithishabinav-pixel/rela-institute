@@ -1,8 +1,13 @@
+:global(.swiper-slide):has(.doctorCard){
+    height: auto;
+}
+
 .doctorCard{
     display: flex;
     flex-direction: column;
     border-radius: 32px;
     border: solid var(--orange) 1px;
+    height: 100%;
 }
 
 .doctorCard .image{

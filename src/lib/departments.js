@@ -10,10 +10,15 @@ const DEPARTMENT_COLUMN_INDEX = 2 // Column C: Department
 const FIRST_DEPARTMENT_ID = 1001
 const MAX_ID_ASSIGN_ATTEMPTS = 5
 
+const PUBLIC_DEPARTMENTS_REVALIDATE_SECONDS = 3600
+const HOMEPAGE_DEPARTMENTS_MAX = 30
+const HOMEPAGE_COE_MAX = 10
+
 function revalidateDepartmentCaches() {
   revalidateTag('departments')
   revalidateTag('doctors') // doctor listings/cards embed department & speciality names
   revalidatePath('/doctors')
+  revalidatePath('/') // homepage reads showInHomepage/centerOfExcellence
 }
 
 export function extractDepartmentNamesFromCsv(csvText) {
@@ -275,6 +280,80 @@ export async function updateDepartmentAdmin(id, input) {
   revalidateDepartmentCaches()
 
   return prisma.department.findUnique({ where: { id } })
+}
+
+async function getHomepageDepartmentCardsUncached() {
+  const departments = await prisma.department.findMany({
+    where: { showInHomepage: true },
+    orderBy: { name: 'asc' },
+    take: HOMEPAGE_DEPARTMENTS_MAX,
+    select: {
+      id: true,
+      name: true,
+      slug: true,
+      icon: true,
+      symptoms: { select: { name: true }, orderBy: { sortOrder: 'asc' } },
+    },
+  })
+
+  if (departments.length === 0) return []
+
+  const doctors = await prisma.doctor.findMany({
+    where: { specialityId: { in: departments.map((d) => d.id) } },
+    select: { slug: true, specialityId: true },
+  })
+
+  const doctorSlugBySpeciality = new Map()
+  for (const doctor of doctors) {
+    if (!doctorSlugBySpeciality.has(doctor.specialityId)) {
+      doctorSlugBySpeciality.set(doctor.specialityId, doctor.slug)
+    }
+  }
+
+  return departments.map((department) => ({
+    icon: department.icon || '/assets/images/sample-ceo-icon.svg',
+    name: department.name,
+    specialities: department.symptoms.map((s) => s.name),
+    departmentLink: `/departments/${department.slug || slugify(department.name)}`,
+    doctorLink: doctorSlugBySpeciality.has(department.id)
+      ? `/doctors/${doctorSlugBySpeciality.get(department.id)}`
+      : '/doctors',
+  }))
+}
+
+const cachedGetHomepageDepartmentCards = unstable_cache(
+  getHomepageDepartmentCardsUncached,
+  ['departments-homepage-cards'],
+  { tags: ['departments', 'doctors'], revalidate: PUBLIC_DEPARTMENTS_REVALIDATE_SECONDS }
+)
+
+export async function getHomepageDepartmentCards() {
+  return cachedGetHomepageDepartmentCards()
+}
+
+async function getCenterOfExcellenceCardsUncached() {
+  const departments = await prisma.department.findMany({
+    where: { centerOfExcellence: true },
+    orderBy: { name: 'asc' },
+    take: HOMEPAGE_COE_MAX,
+    select: { name: true, slug: true, icon: true },
+  })
+
+  return departments.map((department) => ({
+    icon: department.icon || '/assets/images/sample-ceo-icon.svg',
+    title: department.name,
+    link: `/departments/${department.slug || slugify(department.name)}`,
+  }))
+}
+
+const cachedGetCenterOfExcellenceCards = unstable_cache(
+  getCenterOfExcellenceCardsUncached,
+  ['departments-coe-cards'],
+  { tags: ['departments'], revalidate: PUBLIC_DEPARTMENTS_REVALIDATE_SECONDS }
+)
+
+export async function getCenterOfExcellenceCards() {
+  return cachedGetCenterOfExcellenceCards()
 }
 
 export async function getDepartmentUsage(id) {

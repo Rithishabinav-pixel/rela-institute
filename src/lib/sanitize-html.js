@@ -23,3 +23,13 @@ export function sanitizeRichHtml(html) {
     ALLOWED_URI_REGEXP: /^(?:(?:https?|mailto|tel):|[^a-z]|[a-z+.-]+(?:[^a-z+.:-]|$))/i,
   }).trim()
 }
+
+// Strips <script> tags and event-handler attributes (onload, onclick, ...)
+// from an uploaded SVG before it's written to disk. SVGs are served as
+// static files, so navigating to one directly would otherwise execute any
+// embedded script in the page's own origin.
+export function sanitizeSvg(svgText) {
+  if (!svgText || typeof svgText !== 'string') return ''
+
+  return DOMPurify.sanitize(svgText, { USE_PROFILES: { svg: true, svgFilters: true } })
+}

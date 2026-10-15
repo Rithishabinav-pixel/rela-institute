@@ -8,7 +8,7 @@ export default function DoctorCard({doctor,cardStyle}) {
     <div className={`${style.doctorCard} ${style[cardStyle]}`} >
 
 <div className={style.image}>
-    <Image src={doctor.image || "/assets/images/doc-sample-img.png"} alt='' width={361} height={423}/>
+    <Image src={doctor.image || "/assets/images/doc-sample-img.png"} alt={doctor.name || ''} width={361} height={423}/>
 </div>
 
 
@@ -21,7 +21,7 @@ export default function DoctorCard({doctor,cardStyle}) {
     <p className={style.position}>{doctor.position}</p>
 </div>
 
-<Link href={doctor.link}>
+<Link href={doctor.link} aria-label={doctor.name ? `View ${doctor.name}'s profile` : 'View doctor profile'}>
 <Image src="/assets/images/doctor-arrow.svg" width={40} height={40} alt=''/>
 </Link>
 

@@ -1,6 +1,11 @@
+:global(.swiper-slide):has(.deptCard){
+    height: auto;
+}
+
 .deptCard{
     width: 100%;
     background-color:var(--brown);
+    height: 100%;
 }
 
 .deptCard,

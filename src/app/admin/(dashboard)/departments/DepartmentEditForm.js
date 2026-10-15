@@ -132,11 +132,11 @@ export default function DepartmentEditForm({ mode, department }) {
             {icon && <Image src={icon} alt="" width={80} height={80} />}
           </span>
           <div>
-            <input type="file" accept="image/png,image/jpeg,image/webp" onChange={handleIconChange} />
+            <input type="file" accept="image/png,image/jpeg,image/webp,image/svg+xml" onChange={handleIconChange} />
             {iconUploading && <p className={style.hint}>Uploading…</p>}
             {iconError && <p className={style.hint} style={{ color: '#c0392b' }}>{iconError}</p>}
             {!iconError && !iconUploading && (
-              <p className={style.hint}>Exactly 80×80px. Leave empty for no icon.</p>
+              <p className={style.hint}>PNG/JPEG/WEBP must be exactly 80×80px. SVG is accepted at any size. Leave empty for no icon.</p>
             )}
           </div>
         </div>

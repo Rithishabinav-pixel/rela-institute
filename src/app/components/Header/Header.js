@@ -59,28 +59,42 @@ export default function Header() {
     const [showMenu,setShowMenu] = useState(false);
     const [searchBar,setSearchBar] = useState(false);
     const [search,setSearch] = useState("");
-    const searchContainer = useRef(null);
+    // Two separate containers (desktop search bar + the "tablet" variant
+    // rendered alongside it) previously shared one ref, so whichever mounted
+    // last silently won — any click inside the OTHER one then registered as
+    // "outside" and closed the panel mid-interaction. Each gets its own ref
+    // now, and a click only counts as outside when it's outside both.
+    const desktopSearchContainer = useRef(null);
+    const mobileSearchContainer = useRef(null);
 
 
 useEffect(() => {
   const clickOutSearch = (event) => {
-    const container = searchContainer.current;
     const target = event.target;
+    if (!(target instanceof Node)) return;
 
-    if (
-      container &&
-      target instanceof Node &&
-      !container.contains(target)
-    ) {
-      setSearch(" ");
+    const insideDesktop = desktopSearchContainer.current?.contains(target);
+    const insideMobile = mobileSearchContainer.current?.contains(target);
+
+    if (!insideDesktop && !insideMobile) {
+      setSearch("");
+      setSearchBar(false);
+    }
+  };
+
+  const closeOnEscape = (event) => {
+    if (event.key === "Escape") {
+      setSearch("");
       setSearchBar(false);
     }
   };
 
   document.addEventListener("mousedown", clickOutSearch);
+  document.addEventListener("keydown", closeOnEscape);
 
   return () => {
     document.removeEventListener("mousedown", clickOutSearch);
+    document.removeEventListener("keydown", closeOnEscape);
   };
 }, []);
 
@@ -230,17 +244,17 @@ useEffect(() => {
             <div className={style.actions}>
 {/* search for desktop */}
 
-<div className={`${style.searchBar} ${searchBar?style.active:""}`} ref={searchContainer}>
-    {!mobile && <input type='text' placeholder='Search...' value={search} onChange={(e)=>setSearch(e.target.value)}/>}
-    <button onClick={()=>setSearchBar(true)} className={style.searchBtn}> <Image src="/assets/images/search.svg" width={32} height={32} alt=''/>  </button>
+<div className={`${style.searchBar} ${searchBar?style.active:""}`} ref={desktopSearchContainer}>
+    {!mobile && <input type='text' placeholder='Search...' aria-label='Search' value={search} onChange={(e)=>setSearch(e.target.value)}/>}
+    <button onClick={()=>setSearchBar(true)} className={style.searchBtn} aria-label='Open search' aria-expanded={searchBar}> <Image src="/assets/images/search.svg" width={32} height={32} alt=''/>  </button>
 
-    {search && searchBar && !mobile && <button className={style.searchClose} onClick={(e)=>setSearch("")}> <Image src="/assets/images/menu-close.svg" width={12} height={12} alt=''/> </button>}
+    {search && searchBar && !mobile && <button className={style.searchClose} aria-label='Close search' onClick={()=>{setSearch("");setSearchBar(false);}}> <Image src="/assets/images/menu-close.svg" width={12} height={12} alt=''/> </button>}
 </div>
 
 {/* translate  */}
 
 <div className={style.translator}>
-    <select value={currentLocale} onChange={handleLanguageChange}>
+    <select value={currentLocale} onChange={handleLanguageChange} aria-label='Select language'>
         <option value="en" className='notranslate'>English</option>
         <option value="ta" className='notranslate'>Tamil</option>
         <option value="hi" className='notranslate'>Hindi</option>
@@ -251,7 +265,7 @@ useEffect(() => {
 </div>
 
 {mobile && 
-            <button className={style.hamburgerMenu} onClick={()=>setShowMenu(!showMenu)}>
+            <button className={style.hamburgerMenu} onClick={()=>setShowMenu(!showMenu)} aria-label='Toggle menu' aria-expanded={showMenu}>
                 <Image src="/assets/images/hamburger.svg" width={32} height={32} alt=''/>
             </button>
             }
@@ -264,7 +278,7 @@ useEffect(() => {
 {/* nav + cta */}
 
 <div className={`${style.navigations} ${showMenu ? style.active : ""}`}>
-        {mobile && <button className={style.menuClose} onClick={()=>setShowMenu(!showMenu)}> <Image src="/assets/images/menu-close.svg" width={24} height={24} alt='' /> </button>}
+        {mobile && <button className={style.menuClose} onClick={()=>setShowMenu(!showMenu)} aria-label='Close menu'> <Image src="/assets/images/menu-close.svg" width={24} height={24} alt='' /> </button>}
     <div className={`container ${style.container}`}>
         <nav>
         <ul>
@@ -284,9 +298,9 @@ useEffect(() => {
 {/* search for tablet */}
 
 {searchBar &&
-<div className={`${style.searchBar} ${style.mobileSearch} ${searchBar?style.active:""}`} ref={searchContainer}>
-    {mobile && <input type='text' placeholder='Search...' value={search} onChange={(e)=>setSearch(e.target.value)}/>}
-    {search &&  <button className={style.searchClose} onClick={(e)=>setSearch("")}> <Image src="/assets/images/menu-close.svg" width={12} height={12} alt=''/> </button>}
+<div className={`${style.searchBar} ${style.mobileSearch} ${searchBar?style.active:""}`} ref={mobileSearchContainer}>
+    {mobile && <input type='text' placeholder='Search...' aria-label='Search' value={search} onChange={(e)=>setSearch(e.target.value)}/>}
+    {search &&  <button className={style.searchClose} aria-label='Close search' onClick={()=>{setSearch("");setSearchBar(false);}}> <Image src="/assets/images/menu-close.svg" width={12} height={12} alt=''/> </button>}
 </div>
 }
 

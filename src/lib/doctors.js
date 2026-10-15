@@ -12,6 +12,7 @@ const PUBLIC_DOCTORS_REVALIDATE_SECONDS = 3600
 function revalidateDoctorPaths(slugs) {
   revalidateTag(DOCTORS_CACHE_TAG)
   revalidatePath('/doctors')
+  revalidatePath('/') // homepage reads showInHomepage
   for (const slug of new Set(slugs.filter(Boolean))) {
     revalidatePath(`/doctors/${slug}`)
   }
@@ -475,4 +476,30 @@ const cachedGetQuickSearchDepartments = unstable_cache(
 
 export async function getQuickSearchDepartments() {
   return cachedGetQuickSearchDepartments()
+}
+
+async function getHomepageDoctorCardsUncached() {
+  const doctors = await prisma.doctor.findMany({
+    where: { showInHomepage: true },
+    orderBy: { name: 'asc' },
+    select: { slug: true, name: true, image: true, position: true, speciality: { select: { name: true } } },
+  })
+
+  return doctors.map((doctor) => ({
+    image: doctor.image,
+    name: doctor.name,
+    speciality: doctor.speciality?.name ?? '',
+    position: doctor.position,
+    link: `/doctors/${doctor.slug}`,
+  }))
+}
+
+const cachedGetHomepageDoctorCards = unstable_cache(
+  getHomepageDoctorCardsUncached,
+  ['doctors-homepage-cards'],
+  { tags: [DOCTORS_CACHE_TAG], revalidate: PUBLIC_DOCTORS_REVALIDATE_SECONDS }
+)
+
+export async function getHomepageDoctorCards() {
+  return cachedGetHomepageDoctorCards()
 }

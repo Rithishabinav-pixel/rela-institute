@@ -231,6 +231,7 @@ opacity: 0.2;
 
 .excellenceSection .container .right .card .icon{
   width: 40px;
+  min-width: 40px;
 }
 
 .excellenceSection .container .right .card .icon img{
@@ -258,6 +259,11 @@ opacity: 0.2;
   background-size:auto 100%;
   background-position: -0% 0;
   background-repeat: no-repeat;
+}
+
+.deptSection .slide,
+.doctorSection .slide{
+  height: 100%;
 }
 
 .doctorSection :global(.swiper-wrapper){
