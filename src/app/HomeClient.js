@@ -956,6 +956,7 @@ slidesPerView: 1.5,
 
 
 {/* robotic section  */}
+testtttttttt
 <section className={`common_section gray_bg ${style.roboticSection}`}>
 <div className={`container section_container column ${style.container}`}>
   <div className={`top_heading ${style.content}`} data-aos="fade-left">
