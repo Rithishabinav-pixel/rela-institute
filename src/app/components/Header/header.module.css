@@ -305,6 +305,17 @@
 /* mobile  */
 @media screen and (max-width:767px) {
 
+    .searchBar .searchBtn img,
+    .translator::before{
+        width: 24px;
+    }
+
+    .translator select{
+    padding: 8px ;
+    text-indent: -999px;
+    width: 80px;
+}
+
     .topbarCta ul li a .content .label{
    display: none;
 }
