@@ -6,6 +6,153 @@ import Link from 'next/link'
 import Image from 'next/image'
 import Button from '../UI/Button'
 import { usePathname, useRouter } from 'next/navigation'
+import WomenChildrenMegaMenu, {
+  SpecialitiesMegaMenu,
+} from "./MegaMenu";
+
+
+
+const coeMenu = [
+  { label: "Liver Disease & Transplantation", link: "/" },
+  { label: "Advanced Paediatrics", link: "/" },
+  { label: "Anaesthesia & Critical Care", link: "/" },
+  { label: "Cardiac Sciences", link: "/" },
+  { label: "Gastro Sciences", link: "/" },
+  { label: "Neuroscience", link: "/" },
+  { label: "Cancer Centre", link: "/" },
+  { label: "Orthopaedics", link: "/" },
+  { label: "Renal Sciences", link: "/" },
+  { label: "Trauma Centre and Care", link: "/" },
+  { label: "Reproductive Medicine", link: "/" },
+  { label: "Women’s Health", link: "/" },
+  { label: "Intensive Care Unit", link: "/" },
+  { label: "Intestine Rehabilitation Unit", link: "/" },
+];
+
+const departmentMenu = [
+  { label: "Pulmonary Medicine", link: "/" },
+  { label: "Ear, Nose & Throat", link: "/" },
+  { label: "Ophthalmology", link: "/" },
+  { label: "Bariatric and Metabolic Surgeon", link: "/" },
+  { label: "Vascular surgery", link: "/" },
+  { label: "Infectious Disease", link: "/" },
+  { label: "Plastic and Reconstructive Surgery", link: "/" },
+  {
+    label: "Interventional Radiology and Imaging Services",
+    link: "/",
+  },
+  { label: "Internal Medicine", link: "/" },
+  { label: "Endocrinology and Diabetology", link: "/" },
+  { label: "Dermatology", link: "/" },
+  { label: "Urology", link: "/" },
+  { label: "Dental Surgery", link: "/" },
+  { label: "Psychiatry and Psychotherapy", link: "/" },
+  { label: "Clinical Laboratory", link: "/" },
+  { label: "Transfusion Medicine", link: "/" },
+  { label: "Nuclear Medicine", link: "/" },
+  { label: "Hearing, communication & swallow sciences", link: "/" },
+];
+
+const specialitiesFeatureMenu = {
+
+  ceo:{
+    image:"/assets/images/megamenu-img.svg",
+    label:"Liver Disease & Transplantation",
+    link:"/"
+  },
+  department:{
+    image:"/assets/images/megamenu-img.svg",
+    label:"Liver Disease & Transplantation",
+    link:"/"
+  },
+
+}
+
+
+const womenMenu = {
+  "Obstetrics": [
+    { label: "Painless Labour and Delivery", link: "/" },
+    { label: "High Risk Pregnancy", link: "/" },
+    { label: "Vaginal Birth After C Section", link: "/" },
+    { label: "Lactation Counselling", link: "/" },
+    { label: "Antenatal Classes", link: "/" },
+  ],
+  "Cosmetology": [
+    { label: "Cosmetology", link: "/" },
+  ],
+
+  "Breast Care": [
+    { label: "Breast Care", link: "/" },
+  ],
+  "Gynaecology": [
+    { label: "Gynaecology", link: "/" },
+    { label: "Robotic Surgeries", link: "/" },
+    { label: "Laparoscopic Surgeries", link: "/" },
+    { label: "Endoscopic Surgeries", link: "/" },
+    { label: "Uro-Gynecology", link: "/" },
+    { label: "Gynae-Oncology", link: "/" },
+  ],
+   "Fetal Medicine": [
+    { label: "Fetal Medicine", link: "/" },
+  ],
+
+  "Reproductive Medicine": [
+    { label: "Reproductive Medicine", link: "/" },
+    { label: "Ovulation Induction", link: "/" },
+    { label: "In Vitro Fertilization (IVF) Treatment", link: "/" },
+    { label: "Intrauterine Insemination (IUI) Treatment", link: "/" },
+    { label: "Intracytoplasmic Sperm Injection (ICSI)", link: "/" },
+    { label: "Cryopreservation", link: "/" },
+    { label: "Frozen Embryo Transfer", link: "/" },
+    { label: "Preconception Counselling", link: "/" },
+    { label: "Infertility", link: "/" },
+  ],
+
+ 
+
+
+};
+
+const childrenMenu = {
+  "Paediatric Specialities": [
+    { label: "Paediatric Gastroenterology & Hepatology", link: "/" },
+    { label: "Paediatric Hematology", link: "/" },
+    { label: "Paediatric Hemato Oncology", link: "/" },
+    { label: "Paediatric Cardiology", link: "/" },
+    { label: "Paediatric Endocrinology", link: "/" },
+    { label: "Paediatric Infectious Disease", link: "/" },
+    { label: "Paediatric Intensive Care Unit", link: "/" },
+    { label: "Paediatric Nephrology", link: "/" },
+    { label: "Paediatric Neurology", link: "/" },
+    { label: "Paediatric Orthopaedics", link: "/" },
+    { label: "Paediatric Trauma", link: "/" },
+    { label: "Pediatric Surgery and Urology", link: "/" },
+  ],
+
+  "Paediatrics Transplantation": [
+    {
+      label: "Paediatric Liver Transplant at Rela Hospital: Care, Process & Recovery",
+      link: "/",
+    },
+    { label: "Paediatric Bone Marrow Transplantation", link: "/" },
+    { label: "Paediatric Kidney Transplantation", link: "/" },
+    { label: "Paediatric Small Bowel Transplantation", link: "/" },
+  ],
+
+  "Paediatric Faciomaxillary Surgery": [
+    { label: "Paediatric Faciomaxillary Surgery", link: "/" },
+  ],
+    "General Paediatrics": [
+    { label: "General Paediatrics", link: "/" },
+  ],
+
+  Newborn: [
+    { label: "Neonatology", link: "/" },
+  ],
+};
+
+
+
 
 const SUPPORTED_LANGUAGES = ['ta', 'hi', 'te', 'bn', 'ar']
 const RTL_LANGUAGES = ['ar']
@@ -21,26 +168,15 @@ function splitLocaleFromPathname(pathname) {
     return { locale: 'en', pathWithoutLocale: pathname || '/' }
 }
 
-// GTranslate's generated widget script defines `window.doGTranslate(langPair)`
-// globally (it sets Google's underlying translate-combo element and fires a
-// change event). This is the widget's long-standing de-facto trigger — it is
-// not part of GTranslate's documented public API, so we check it exists
-// before calling it and retry briefly while the widget script is still
-// loading, rather than assuming it is ready.
 function triggerGTranslate(locale, attempt = 0) {
     if (typeof window === 'undefined') return
 
     if (typeof window.doGTranslate === 'function') {
-        // The widget's own minified code can throw ("__GT is not defined") if
-        // called before its internal state has finished initializing, even
-        // though doGTranslate itself already exists — this is a quirk of the
-        // third-party script, not something we control, so a failed call is
-        // treated as "not ready yet" and retried rather than left to crash.
+        
         try {
             window.doGTranslate(`en|${locale}`)
             return
         } catch {
-            // fall through to retry below
         }
     }
 
@@ -53,20 +189,49 @@ function triggerGTranslate(locale, attempt = 0) {
 
 export default function Header() {
 
+
     const pathname = usePathname();
     const router = useRouter();
     const [mobile,setMobile] = useState(false);
+    const [laptop,setLaptop] = useState(false)
     const [showMenu,setShowMenu] = useState(false);
     const [searchBar,setSearchBar] = useState(false);
     const [search,setSearch] = useState("");
-    // Two separate containers (desktop search bar + the "tablet" variant
-    // rendered alongside it) previously shared one ref, so whichever mounted
-    // last silently won — any click inside the OTHER one then registered as
-    // "outside" and closed the panel mid-interaction. Each gets its own ref
-    // now, and a click only counts as outside when it's outside both.
+    
     const desktopSearchContainer = useRef(null);
     const mobileSearchContainer = useRef(null);
 
+    const [megaMenuTab,setMegaMenuTab] = useState("")
+    const [activeMenu,setActiveMenu] = useState("");
+    const [navFixed, setNavFixed] = useState(false);
+    const [revScroll, setRevScroll] = useState(false);
+    const [subMenu,setSubMenu] = useState("")
+
+useEffect(() => {
+  let lastScrollY = window.scrollY;
+
+  const handleScroll = () => {
+    const currentScrollY = window.scrollY;
+
+    setNavFixed(currentScrollY >= 76);
+
+    if (currentScrollY < lastScrollY) {
+      setRevScroll(currentScrollY >= 76);
+    } else if (currentScrollY > lastScrollY) {
+      setRevScroll(false);
+    }
+
+    lastScrollY = currentScrollY;
+  };
+
+  window.addEventListener("scroll", handleScroll, { passive: true });
+
+  handleScroll();
+
+  return () => {
+    window.removeEventListener("scroll", handleScroll);
+  };
+}, []);
 
 useEffect(() => {
   const clickOutSearch = (event) => {
@@ -104,7 +269,8 @@ useEffect(() => {
     useEffect(()=>{
 
         const checkDevice = () =>{
-            setMobile(window.innerWidth<1200)
+            setMobile(window.innerWidth<1200);
+            setLaptop(window.innerWidth<1500);
         }
 
         checkDevice();
@@ -147,7 +313,7 @@ useEffect(() => {
   return (
     <>
     
-    <header>
+    <header className={revScroll?style.fixedHeader:""} id={style.header}>
 
         {/* mobile top  */}
 {mobile &&
@@ -277,18 +443,58 @@ useEffect(() => {
 
 {/* nav + cta */}
 
-<div className={`${style.navigations} ${showMenu ? style.active : ""}`}>
+<div className={`${style.navigations} ${navFixed && !revScroll && !mobile?style.navFixed:""} ${showMenu ? style.active : ""}`}>
         {mobile && <button className={style.menuClose} onClick={()=>setShowMenu(!showMenu)} aria-label='Close menu'> <Image src="/assets/images/menu-close.svg" width={24} height={24} alt='' /> </button>}
     <div className={`container ${style.container}`}>
         <nav>
-        <ul>
-            <li> <Link href="#" className={style.hasMenu}>Specialities</Link> </li>
-            <li> <Link href="#" className={style.hasMenu}>Patient Services</Link> </li>
-            <li> <Link href="#" className={style.hasMenu}>Find a Doctor</Link> </li>
-            <li> <Link href="#">Health Packages</Link> </li>
-            <li> <Link href="#">Patient Care</Link> </li>
-            <li> <Link href="#">Loaction</Link> </li>
-            <li> <Link href="#" className={style.hasMenu}>About Rela</Link> </li>
+        <ul className={style.mainMenu}>
+
+            {/* menu with sub menu */}
+            <li className={style.menuItem} onMouseEnter={()=>{setActiveMenu("specialities"); setMegaMenuTab("center-of-excellence")}} onMouseLeave={()=>setActiveMenu("")}> <Link href="#" className={style.hasMenu} >Specialities</Link> 
+            {mobile && <button></button>}
+            </li>
+
+
+
+
+
+
+            <li className={style.menuItem}> <Link href="#">Robotic Surgery</Link></li>
+            <li className={style.menuItem}> <Link href="#">Find a Doctor</Link> </li>
+            <li className={style.menuItem} onMouseEnter={()=>{setActiveMenu("women-children");setMegaMenuTab("women")}} onMouseLeave={()=>setActiveMenu("")}> <Link href="#" className={style.hasMenu}>Women & Children’s Hospital</Link> {mobile && <button></button>} </li>
+            <li className={style.menuItem}> <Link href="#">Health Packages</Link></li>
+
+             {/* menu with sub menu */}
+            <li className={style.menuItem} onClick={() => { if (mobile) { setSubMenu( subMenu === "patient-service" ? "" : "patient-service" ); } }} onMouseEnter={() => { if (!mobile) setSubMenu("patient-service"); }} onMouseLeave={() => { if (!mobile) setSubMenu(""); }}> <Link href="#" onClick={(e) => e.preventDefault()} className={style.hasMenu}>Patient Services </Link> {mobile && <button></button>}
+            {/* sub menu */}
+            <ul className={`${style.subMenu} ${subMenu==="patient-service"?style.active:""}`}>
+                <li className={style.subMenuItem}> <Link href="#">Evening Clinic</Link>  </li>
+                <li className={style.subMenuItem}> <Link href="#">International Patients</Link>  </li>
+                <li className={style.subMenuItem}> <Link href="#">Patient Care</Link>  </li>
+                <li className={style.subMenuItem}> <Link href="#">Emergency Care</Link>  </li>
+                <li className={style.subMenuItem}> <Link href="#">Second Opinion</Link>  </li>
+            </ul>
+             </li>
+
+{!laptop && 
+            <li className={style.menuItem}> <Link href="#">Loaction</Link> </li>
+            }
+
+            {mobile && 
+            <li className={style.menuItem}> <Link href="#">Loaction</Link> </li>
+            }
+
+          <li className={style.menuItem} onClick={() => { if (mobile) { setSubMenu((prev) => prev === "about-rela" ? "" : "about-rela"); } }} onMouseEnter={()=>{if (!mobile) setSubMenu("about-rela")}} onMouseLeave={()=>{if (!mobile) setSubMenu("")}}> <Link href="#" onClick={(e) => e.preventDefault()} className={style.hasMenu}>About Rela </Link> {mobile && <button type="button"></button>} 
+             {/* sub menu */}
+            <ul className={`${style.subMenu} ${subMenu==="about-rela"?style.active:""}`}>
+                <li className={style.subMenuItem}> <Link href="#">Overview </Link>  </li>
+                <li className={style.subMenuItem}> <Link href="#">Leadership Team</Link>  </li>
+                <li className={style.subMenuItem}> <Link href="#">Awards</Link>  </li>
+                <li className={style.subMenuItem}> <Link href="#">Academics</Link>  </li>
+                <li className={style.subMenuItem}> <Link href="#">Careers</Link>  </li>
+                <li className={style.subMenuItem}> <Link href="#">Contact Us</Link>  </li>
+            </ul>
+             </li>
         </ul>
         </nav>
         <Button link="#" classname={`white_btn`} text="Book an Appointment" type="call"/>
@@ -305,6 +511,20 @@ useEffect(() => {
 }
 
     </header>
+
+
+{/* ----------------------------------------------------- */}
+
+    {/* mega menu  */}
+
+    {/* specialities  */}
+
+{!mobile && <SpecialitiesMegaMenu activeMenu={activeMenu} setActiveMenu={setActiveMenu} megaMenuTab ={megaMenuTab} coeMenu={coeMenu} setMegaMenuTab ={setMegaMenuTab} departmentMenu={departmentMenu } specialitiesFeatureMenu={specialitiesFeatureMenu} /> }
+
+
+   {/* women and child  */}
+{!mobile && <WomenChildrenMegaMenu activeMenu={activeMenu} setActiveMenu={setActiveMenu} megaMenuTab ={megaMenuTab} womenMenu={womenMenu} setMegaMenuTab ={setMegaMenuTab} childrenMenu={childrenMenu } /> }
+
     
     </>
   )

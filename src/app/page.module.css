@@ -1421,6 +1421,7 @@ padding: 50px 0 0 0px;
 flex-direction: column;
 gap: 20px;
 align-items: center;
+overflow: hidden;
 }
 
 .yourCare_section .container .content{
@@ -1451,7 +1452,7 @@ align-items: center;
 }
 
  .heroSection{
-  aspect-ratio: 393 / 656;
+  aspect-ratio: 786 / 1312;
    height: auto;
   max-height: calc(100vh - 125.7px);
   min-height: unset;
@@ -1491,12 +1492,33 @@ padding-top: 50px;
   width: 100%;
 }
 
+  .internationalSection .container .right .userMarqueeWrapper .card{
+  padding: 8px 20px 8px 8px;
+}
+
 }
 
 
 /* mobile  */
 
 @media screen and (max-width:767px) {
+
+
+
+    .internationalSection .container .right .userMarqueeWrapper .card .detail .name{
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.internationalSection .container .right .userMarqueeWrapper .card .detail p{
+  font-size: 14px;
+  line-height: 16px;
+}
+
+  .yourCare_section .container .stats .card p{
+    font-size: 14px;
+    line-height: 16px;
+  }
 
   .heroSection{
   max-height: unset;
@@ -1614,6 +1636,7 @@ right: -2%;
 
   .excellenceSection .section_container .right .card{
   flex-wrap: wrap;
+  align-items: flex-start;
 }
 
  .excellenceSection .section_container .right .card .icon{
@@ -1626,6 +1649,7 @@ right: -2%;
 
     .excellenceSection .section_container .right .card .title{
       width: calc(100% - 40px);
+      margin-top: auto;
     }
 
     .excellenceSection .section_container .right .card button{

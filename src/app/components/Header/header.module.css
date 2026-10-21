@@ -1,3 +1,59 @@
+.topBar .container,
+.topbarCta ul,
+.topbarCta ul li a,
+.topbarCta ul li a .content,
+.navigations ul,
+.navigations .container,
+.topBar .container .actions,
+.topBar .container .actions .searchBar,
+.navigations .container nav ul li ul.subMenu,
+.menuTab ul,
+.menuTabContent .menuColumn,
+.menuTabContent .menuColumn ul,
+.menuTabContent .menuFeature,
+.menuTabContent .menuFeature .content,
+.navigations
+{
+    display: flex;
+}
+
+.navigations.navFixed,
+#header.fixedHeader{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+#header.fixedHeader{
+    background-color: white;
+    transform: translateY(-100%);
+    animation: fixedHeader 0.3s forwards ease-in-out;
+}
+
+@keyframes fixedHeader {
+    to{
+        transform: translateY(0);
+    }
+}
+
+.topbarCta ul li a .content,
+.navigations .container nav ul li ul.subMenu,
+.menuTab ul,
+.menuTabContent .menuColumn,
+.menuTabContent .menuFeature,
+.menuTabContent .menuFeature .content{
+    flex-direction: column;
+}
+
+.topbarCta ul li a,
+.navigations .container nav ul.mainMenu,
+.navigations .container,
+.menuTabContent .menuColumn{
+    gap: 16px;
+}
+
+
 .topBar{
     padding: 8px 0;
 }
@@ -20,17 +76,7 @@
     width: 117px;
 }
 
-.topBar .container,
-.topbarCta ul,
-.topbarCta ul li a,
-.topbarCta ul li a .content,
-.navigations ul,
-.navigations .container,
-.topBar .container .actions,
-.topBar .container .actions .searchBar
-{
-    display: flex;
-}
+
 
 .topBar .container,
 .topbarCta ul,
@@ -38,24 +84,26 @@
 .navigations ul,
 .navigations .container,
 .topBar .container .actions,
-.topBar .container .actions .searchBar
+.topBar .container .actions .searchBar,
+.navigations
 {
     align-items: center;
 }
 
+
+.navigations,
+.navigations ul{
+    align-items: stretch;
+}
 
 
 .topbarCta ul{
     gap: 80px;
 }
 
-.topbarCta ul li a .content{
-    flex-direction: column;
-}
 
-.topbarCta ul li a{
-    gap: 16px;
-}
+
+
 
 .topbarCta ul li a:hover{
     color: var(--orange);
@@ -78,22 +126,73 @@
 
 .navigations{
     background-color: var(--orange);
-    padding: 8px 0;
+    min-height: 60px;
 }
 
 .navigations .container nav{
     width: 100%;
     flex-grow: 1;
+    height: 100%;
 }
 
+.navigations .container nav ul li{
+    position: relative;
+    transition: var(--transition);
+}
+
+.navigations .container nav ul li .subMenu{
+    position: absolute;
+    z-index: 2;
+    top: 100%;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: var(--transition);
+    visibility: hidden;
+}
+
+.navigations .container nav ul li .subMenu.active{
+    animation: showSubMenu 0.3s forwards;
+    visibility: visible;
+}
+
+@keyframes showSubMenu {
+    to{
+ opacity: 1;
+    transform: translateY(0);
+    }
+}
+
+.navigations .container nav ul li .subMenu li a{
+    padding: 8px 12px;
+    min-width: 180px;
+    color: black;
+    background-color: white;
+}
+
+.navigations .container nav ul li .subMenu li a:hover{
+    color: var(--orange);
+}
+
+.mainMenu,
+.mainMenu>li>a{
+    height: 100%;
+}
+
+.mainMenu>li>a{
+align-items: center;
+color: white;
+
+}
+
+
 .navigations .container nav ul li a{
-    color: white;
     position: relative;
 }
 
 .navigations .container nav ul li a.hasMenu{
     padding-right: 32px
 }
+
 
 .navigations .container nav ul li a.hasMenu::before{
     position: absolute;
@@ -114,9 +213,6 @@
    transform: translateY(-50%) rotate(180deg);
 }
 
-.navigations .container{
-    gap: 65px;
-}
 
 
 .topBar .container .actions{
@@ -213,12 +309,297 @@
     background-position: calc(100% - 16px) center;
 }
 
+/* mega menu  */
+
+.megaMenu_wrapper{
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+    top: 136px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: var(--transition);
+    z-index: 9;
+}
+
+.megaMenu_wrapper.show{
+       animation: showMegaMenu 0.3s forwards;
+
+}
+
+@keyframes showMegaMenu {
+    to{
+        opacity: 1;
+    transform: translateY(0px);
+    }
+}
+
+.megaMenu{
+    background: linear-gradient(to right,#EFEFEF 15%, white 15%);
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.menuVector{
+    position: absolute;
+    height: auto;
+    width: 22.5vw;
+    aspect-ratio: 447 /522;
+    left: -16vw;
+    top: 10px;
+    opacity: 0.5;
+}
+
+
+
+.megaMenu .container{
+    display: flex;
+    align-items: stretch;
+    position: relative;
+    z-index: 2;
+}
+
+
+
+.menuTabContent{
+    width: 75%;
+}
+
+.menuTab,
+.menuTabContent{
+    padding: 40px 0;
+}
+
+.menuTab{
+    width: 25%;
+    background-color: #EFEFEF;
+    position: relative;
+}
+
+.menuTabContent{
+    padding-left: 30px;
+}
+
+.menuTab ul li{
+    padding-right: 30px;
+    position: relative;
+}
+
+.menuTab ul li:has(button.active)::before{
+    position: absolute;
+    content: '';
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+  height: 0;
+  border-top: 20px solid transparent;  
+  border-bottom: 20px solid transparent;
+  border-right: 20px solid white; 
+}
+
+
+
+.menuTab ul li button{
+    padding: 20px 0;
+    font-size: 24px;
+    line-height: 32px;
+    color: black;
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+}
+
+.menuTab ul li:not(:last-child) button{
+    border-bottom: solid var(--orange) 1px;
+}
+
+.menuTab ul li button.active,
+.menuTab ul li button:hover{
+    color: var(--orange);
+}
+
+.menuTabContent{
+       flex-flow: column wrap;
+    height: 550px;
+    align-items: flex-start;
+    gap: 30px;
+    display: flex;
+}
+
+.menuTabContent .menuColumn,
+.menuTabContent .menuFeature{
+    width: calc(33.33% - 20px);
+}
+
+.menuTabContent .menuColumn .menuColumnHeading{
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 600;
+}
+
+.menuTabContent .menuColumn ul{
+    flex-direction: column;
+    gap: 10px 30px;
+}
+
+.menuTabContent.coeTabContent .menuColumn ul{
+    flex-flow: column wrap;
+    height: 350px;
+}
+
+.menuTabContent.coeTabContent .menuColumn ul li{
+    width: calc(50% - 15px);
+}
+
+.menuTabContent .menuColumn ul li a{
+    color: black;
+}
+
+.menuTabContent .menuColumn ul li a:hover{
+    color: var(--orange);
+}
+
+.menuTabContent.coeTabContent .menuColumn{
+    width: calc(66.66% - 15px);
+}
+
+.menuTabContent .menuFeature{
+    background-color: #4E5F69;
+    border-radius: 16px;
+}
+
+.menuTabContent .menuFeature .content{
+    gap: 24px;
+    padding: 16px;
+}
+
+.menuTabContent .menuFeature .content p{
+    font-size: 32px;
+    line-height: 40px;
+    color: white;
+}
+
+.menuTabContent .menuFeature .image img{
+    width: 100%;
+}
 
 
 /* responsive  */
 
+/* laptop */
+
+@media screen and (max-width:1500px) {
+
+    .navigations .container nav ul li a.hasMenu{
+    padding-right: 26px
+}
+
+    .navigations .container nav ul li a.hasMenu::before{
+    width: 18px;
+}
+
+.navigations .container nav ul.mainMenu{
+    gap: 0;
+}
+
+.menuVector{
+    width: 22.5vw;
+    left: -8vw;
+    bottom: 0;
+    top: unset;
+}
+
+}
+
+
 /* tablet  */
 @media screen and (max-width:1200px) {
+
+    .mainMenu,
+.mainMenu>li>a{
+    height: fit-content;
+}
+
+    .navigations .container nav ul li .subMenu li a{
+    padding: 0;
+    background: none;
+    color: white;
+}
+
+    .navigations .container nav ul li .subMenu{
+    position: static;
+    transform: translateY(0px) translateX(24px);
+    opacity: 1;
+    visibility: visible;
+    margin-top: -16px;
+}
+
+    .navigations .container nav ul li:has(.hasMenu){
+        flex-direction: column;
+    }
+
+
+    .navigations .container nav ul li,
+    .navigations .container nav ul li a{
+    width: 100%;
+}
+
+.navigations .container nav ul li a{
+    padding-right: 0;
+}
+
+.navigations .container nav ul li{
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: center;
+    padding-right: 32px;
+}
+
+.navigations .container nav ul li button{
+    height: auto;
+    width: 16px;
+    aspect-ratio: 1 / 1;
+    border: none;
+    background: none;
+    position: absolute;
+    right: 0;
+    top:0;
+    transform: translateY(5px);
+}
+
+.navigations .container nav ul li button::before,
+.navigations .container nav ul li button::after{
+    position: absolute;
+    content: '';
+    width: 2px;
+    height: 100%;
+    background-color: white;
+    left: 50%;
+    top: 0;
+    border-radius: 2px;
+}
+
+.navigations .container nav ul li button::after{
+    transform: rotate(90deg);
+}
+
+    .navigations .container nav ul li a.hasMenu::before{
+        content: unset;
+    }
+
+    .navigations .container nav ul.mainMenu{
+    gap: 16px;
+    justify-content: unset;
+}
+
+.navigations .container nav{
+    flex-grow: unset;
+    height: fit-content;
+}
 
     .searchBar .searchClose{
    right: 20px;
@@ -280,6 +661,21 @@
     gap: 16px;
 }
 
+.navigations ul.subMenu{
+    gap: 10px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s;
+}
+
+.navigations .container nav ul li .subMenu.active{
+    max-height: 2000px;
+    animation: none;
+    transform: translateY(0px) translateX(24px);
+    margin-top: 0;
+    transition: max-height 0.3s;
+}
+
 .navigations .menuClose{
     position: absolute;
     top: 20px;
@@ -336,7 +732,7 @@
     padding: 0;
 }
 
- .searchBar{
+ .searchBar:has(button){
     border: none;
  }
 

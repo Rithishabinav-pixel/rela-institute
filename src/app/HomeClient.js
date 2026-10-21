@@ -415,7 +415,7 @@ export default function HomeClient({ coeData, deptData, doctorsData }) {
     <div className={style.image}>
       {mobile?<Image src="/assets/images/your-care-m.svg" width={347} height={299} alt=""/>
       :
-      <Image src="/assets/images/your-care.svg" width={305} height={297} alt=""/>
+      <Image src="/assets/images/your-care.svg" width={700} height={679} alt=""/>
       }
     </div>
     <div className={style.stats} data-aos="fade-left">
@@ -1078,7 +1078,7 @@ slidesPerView: 1.5,
   </div>
 
 
-{/* locations cards for desktop   */}
+{/* locations cards for mobile   */}
   {mobile &&
 <div className={style.locationCards} data-aos="fade-up">
 
@@ -1102,7 +1102,7 @@ slidesPerView: 1.5,
           loop={true}
           breakpoints={{
             0:{
-slidesPerView: 1.3,
+slidesPerView: 1.1,
             },
           700: {
             slidesPerView: 2.3,
