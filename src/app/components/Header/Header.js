@@ -151,8 +151,12 @@ const childrenMenu = {
   ],
 };
 
+const specialitiesMenuCategories = [
+  { label: "Centres of Excellence", items: coeMenu },
+  { label: "Departments", items: departmentMenu },
+];
 
-
+const womenChildrenMenuCategories = Object.entries({ ...womenMenu, ...childrenMenu });
 
 const SUPPORTED_LANGUAGES = ['ta', 'hi', 'te', 'bn', 'ar']
 const RTL_LANGUAGES = ['ar']
@@ -206,6 +210,7 @@ export default function Header() {
     const [navFixed, setNavFixed] = useState(false);
     const [revScroll, setRevScroll] = useState(false);
     const [subMenu,setSubMenu] = useState("")
+    const [subMenuCategory,setSubMenuCategory] = useState("")
 
 useEffect(() => {
   let lastScrollY = window.scrollY;
@@ -315,7 +320,6 @@ useEffect(() => {
     
     <header className={revScroll?style.fixedHeader:""} id={style.header}>
 
-        {/* mobile top  */}
 {mobile &&
             <div className={`${style.topbarCta} ${searchBar?style.hide:""}`}>
                 <ul>
@@ -354,7 +358,6 @@ useEffect(() => {
             }
 
 
-        {/* top bar  */}
 
     <div className={style.topBar}>
         <div className={`container ${style.container}`}>
@@ -367,7 +370,7 @@ useEffect(() => {
             </Link>
             </div>
 
-
+{mobile && showMenu && <div className={style.mobileMenuOverlay} onClick={()=>setShowMenu(false)}></div>}
 
 {!searchBar && !mobile &&
             <div className={`${style.topbarCta} ${searchBar?style.hide:""}`}>
@@ -408,7 +411,6 @@ useEffect(() => {
             }
 
             <div className={style.actions}>
-{/* search for desktop */}
 
 <div className={`${style.searchBar} ${searchBar?style.active:""}`} ref={desktopSearchContainer}>
     {!mobile && <input type='text' placeholder='Search...' aria-label='Search' value={search} onChange={(e)=>setSearch(e.target.value)}/>}
@@ -417,7 +419,6 @@ useEffect(() => {
     {search && searchBar && !mobile && <button className={style.searchClose} aria-label='Close search' onClick={()=>{setSearch("");setSearchBar(false);}}> <Image src="/assets/images/menu-close.svg" width={12} height={12} alt=''/> </button>}
 </div>
 
-{/* translate  */}
 
 <div className={style.translator}>
     <select value={currentLocale} onChange={handleLanguageChange} aria-label='Select language'>
@@ -441,7 +442,6 @@ useEffect(() => {
         </div>
     </div>
 
-{/* nav + cta */}
 
 <div className={`${style.navigations} ${navFixed && !revScroll && !mobile?style.navFixed:""} ${showMenu ? style.active : ""}`}>
         {mobile && <button className={style.menuClose} onClick={()=>setShowMenu(!showMenu)} aria-label='Close menu'> <Image src="/assets/images/menu-close.svg" width={24} height={24} alt='' /> </button>}
@@ -449,9 +449,23 @@ useEffect(() => {
         <nav>
         <ul className={style.mainMenu}>
 
-            {/* menu with sub menu */}
-            <li className={style.menuItem} onMouseEnter={()=>{setActiveMenu("specialities"); setMegaMenuTab("center-of-excellence")}} onMouseLeave={()=>setActiveMenu("")}> <Link href="#" className={style.hasMenu} >Specialities</Link> 
+            <li className={style.menuItem} onClick={() => { if (mobile) { setSubMenu(subMenu === "specialities" ? "" : "specialities"); } }} onMouseEnter={()=>{setActiveMenu("specialities"); setMegaMenuTab("center-of-excellence")}} onMouseLeave={()=>setActiveMenu("")}> <Link href="#" onClick={(e) => mobile && e.preventDefault()} className={style.hasMenu} >Specialities</Link>
             {mobile && <button></button>}
+            {mobile && 
+            <ul className={`${style.subMenu} ${subMenu==="specialities"?style.active:""}`}>
+                {specialitiesMenuCategories.map((category) => (
+                    <li className={style.subMenuItem} key={category.label} onClick={(e) => { if (mobile) { e.stopPropagation(); setSubMenuCategory(subMenuCategory === category.label ? "" : category.label); } }}>
+                        <Link href="#" onClick={(e) => mobile && e.preventDefault()} className={style.hasMenu}>{category.label}</Link>
+                        {mobile && <button></button>}
+                        <ul className={`${style.subMenu} ${subMenuCategory===category.label?style.active:""}`}>
+                            {category.items.map((item,index) => (
+                                <li className={style.subMenuItem} key={index}> <Link href={item.link}>{item.label}</Link> </li>
+                            ))}
+                        </ul>
+                    </li>
+                ))}
+            </ul>
+            }
             </li>
 
 
@@ -461,12 +475,26 @@ useEffect(() => {
 
             <li className={style.menuItem}> <Link href="#">Robotic Surgery</Link></li>
             <li className={style.menuItem}> <Link href="#">Find a Doctor</Link> </li>
-            <li className={style.menuItem} onMouseEnter={()=>{setActiveMenu("women-children");setMegaMenuTab("women")}} onMouseLeave={()=>setActiveMenu("")}> <Link href="#" className={style.hasMenu}>Women & Children’s Hospital</Link> {mobile && <button></button>} </li>
+            <li className={style.menuItem} onClick={() => { if (mobile) { setSubMenu(subMenu === "women-children" ? "" : "women-children"); } }} onMouseEnter={()=>{setActiveMenu("women-children");setMegaMenuTab("women")}} onMouseLeave={()=>setActiveMenu("")}> <Link href="#" onClick={(e) => mobile && e.preventDefault()} className={style.hasMenu}>Women & Children’s Hospital</Link> {mobile && <button></button>}
+            {mobile && 
+            <ul className={`${style.subMenu} ${subMenu==="women-children"?style.active:""}`}>
+                {womenChildrenMenuCategories.map(([category,items]) => (
+                    <li className={style.subMenuItem} key={category} onClick={(e) => { if (mobile) { e.stopPropagation(); setSubMenuCategory(subMenuCategory === category ? "" : category); } }}>
+                        <Link href="#" onClick={(e) => mobile && e.preventDefault()} className={style.hasMenu}>{category}</Link>
+                        {mobile && <button></button>}
+                        <ul className={`${style.subMenu} ${subMenuCategory===category?style.active:""}`}>
+                            {items.map((item,index) => (
+                                <li className={style.subMenuItem} key={index}> <Link href={item.link}>{item.label}</Link> </li>
+                            ))}
+                        </ul>
+                    </li>
+                ))}
+            </ul>
+            }
+            </li>
             <li className={style.menuItem}> <Link href="#">Health Packages</Link></li>
 
-             {/* menu with sub menu */}
             <li className={style.menuItem} onClick={() => { if (mobile) { setSubMenu( subMenu === "patient-service" ? "" : "patient-service" ); } }} onMouseEnter={() => { if (!mobile) setSubMenu("patient-service"); }} onMouseLeave={() => { if (!mobile) setSubMenu(""); }}> <Link href="#" onClick={(e) => e.preventDefault()} className={style.hasMenu}>Patient Services </Link> {mobile && <button></button>}
-            {/* sub menu */}
             <ul className={`${style.subMenu} ${subMenu==="patient-service"?style.active:""}`}>
                 <li className={style.subMenuItem}> <Link href="#">Evening Clinic</Link>  </li>
                 <li className={style.subMenuItem}> <Link href="#">International Patients</Link>  </li>
@@ -485,7 +513,6 @@ useEffect(() => {
             }
 
           <li className={style.menuItem} onClick={() => { if (mobile) { setSubMenu((prev) => prev === "about-rela" ? "" : "about-rela"); } }} onMouseEnter={()=>{if (!mobile) setSubMenu("about-rela")}} onMouseLeave={()=>{if (!mobile) setSubMenu("")}}> <Link href="#" onClick={(e) => e.preventDefault()} className={style.hasMenu}>About Rela </Link> {mobile && <button type="button"></button>} 
-             {/* sub menu */}
             <ul className={`${style.subMenu} ${subMenu==="about-rela"?style.active:""}`}>
                 <li className={style.subMenuItem}> <Link href="#">Overview </Link>  </li>
                 <li className={style.subMenuItem}> <Link href="#">Leadership Team</Link>  </li>
@@ -501,7 +528,6 @@ useEffect(() => {
     </div>
 </div>
 
-{/* search for tablet */}
 
 {searchBar &&
 <div className={`${style.searchBar} ${style.mobileSearch} ${searchBar?style.active:""}`} ref={mobileSearchContainer}>
@@ -513,16 +539,12 @@ useEffect(() => {
     </header>
 
 
-{/* ----------------------------------------------------- */}
 
-    {/* mega menu  */}
 
-    {/* specialities  */}
 
 {!mobile && <SpecialitiesMegaMenu activeMenu={activeMenu} setActiveMenu={setActiveMenu} megaMenuTab ={megaMenuTab} coeMenu={coeMenu} setMegaMenuTab ={setMegaMenuTab} departmentMenu={departmentMenu } specialitiesFeatureMenu={specialitiesFeatureMenu} /> }
 
 
-   {/* women and child  */}
 {!mobile && <WomenChildrenMegaMenu activeMenu={activeMenu} setActiveMenu={setActiveMenu} megaMenuTab ={megaMenuTab} womenMenu={womenMenu} setMegaMenuTab ={setMegaMenuTab} childrenMenu={childrenMenu } /> }
 
     

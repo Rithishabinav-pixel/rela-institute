@@ -362,7 +362,8 @@ export default function HomeClient({ coeData, deptData, doctorsData }) {
         >
           {heroSliderContent.map((slide, i) => (
             <SwiperSlide key={i}>
-              <div className={`${style.slide}`} style={{backgroundImage:`url(${mobile?slide.mobileImage:slide.image})`}}>
+              {/* image type  */}
+              <Link href="/" className={`${style.slide}`} style={{backgroundImage:`url(${mobile?slide.mobileImage:slide.image})`}}>
               <div className={`container ${style.container}`}>
 <div className={style.content}>
   <div className={`${style.title} common_heading`} dangerouslySetInnerHTML={{ __html: slide.title }} />
@@ -370,7 +371,20 @@ export default function HomeClient({ coeData, deptData, doctorsData }) {
   <Button type="call" classname="white_btn" text="Book an Appointment"/>
 </div>
               </div>
+              </Link>
+
+              {/* conten type  */}
+
+               {/* <div className={`${style.slide}`} style={{backgroundImage:`url(${mobile?slide.mobileImage:slide.image})`}}>
+              <div className={`container ${style.container}`}>
+<div className={style.content}>
+  <div className={`${style.title} common_heading`} dangerouslySetInnerHTML={{ __html: slide.title }} />
+  <p className="white_text">{slide.content}</p>
+  <Button type="call" classname="white_btn" text="Book an Appointment"/>
+</div>
               </div>
+              </div> */}
+
             </SwiperSlide>
           ))}
         </Swiper>
