@@ -18,27 +18,6 @@ import useSectionInView from "./components/UI/useSectionInView";
 import React from "react";
 
 
-// banner content
-const heroSliderContent = [
-{
-    title:`<h1>Find the Right Specialist for <span>Your Health</span></h1>`,
-  content:"Search by doctor, speciality, symptom or treatment and take the next step towards better care.",
-  link:"",
-  image:"/assets/images/hero-banner.png",
-  mobileImage:"/assets/images/hero-banner-mobile.png"
-
-},
-{
-    title:`<h2>Find the Right Specialist for <span>Your Health</span></h2>`,
-  content:"Search by doctor, speciality, symptom or treatment and take the next step towards better care.",
-  link:"",
-  image:"/assets/images/hero-banner.png",
-  mobileImage:"/assets/images/hero-banner-mobile.png"
-},
-]
-
-
-// stats content
 const stats = [
   {
     icon:"/assets/images/doctor.svg",
@@ -73,7 +52,6 @@ const stats = [
 
 ]
 
-// packages
 
 const healthPackages = [
 {
@@ -151,7 +129,6 @@ const healthPackages = [
 ]
 
 
-// international patients
 
 const internationalPatients = [
   {
@@ -228,7 +205,6 @@ const internationalPatients = [
 ]
 
 
-// testimonial data
 
 const testData = [
   {
@@ -270,7 +246,6 @@ const testData = [
 ]
 
 
-// locations data
 const locationData = [
   {
     name: "Dr. Rela Institute & Medical Center",
@@ -313,7 +288,7 @@ const locationData = [
   },
 ];
 
-export default function HomeClient({ coeData, deptData, doctorsData }) {
+export default function HomeClient({ coeData, deptData, doctorsData, heroBanners }) {
 
   const [mobile,setMobile] = useState(false);
   const [strictMobile,setStrictMobile] = useState(false);
@@ -340,7 +315,6 @@ export default function HomeClient({ coeData, deptData, doctorsData }) {
   return (
    <>
 
-   {/* hero section  */}
 
    <section className={`${style.heroSection}`}>
 
@@ -360,33 +334,37 @@ export default function HomeClient({ coeData, deptData, doctorsData }) {
           className=''
           loop={true}
         >
-          {heroSliderContent.map((slide, i) => (
-            <SwiperSlide key={i}>
-              {/* image type  */}
-              <Link href="/" className={`${style.slide}`} style={{backgroundImage:`url(${mobile?slide.mobileImage:slide.image})`}}>
-              <div className={`container ${style.container}`}>
+          {heroBanners.map((slide, i) => {
+            const HeadingTag = i === 0 ? 'h1' : 'h2'
+
+            if (slide.type === 'image') {
+              return (
+                <SwiperSlide key={slide.id}>
+                  <Link href={slide.link || "/"} className={`${style.slide} ${style.imageSlide}`} style={{backgroundImage:`url(${mobile?slide.mobileImage:slide.image})`}}>
+                  <div className={`container ${style.container}`}>
+
+                  </div>
+                  </Link>
+                </SwiperSlide>
+              )
+            }
+
+            return (
+              <SwiperSlide key={slide.id}>
+                <div className={`${style.slide}`} style={{backgroundImage:`url(${mobile?slide.mobileImage:slide.image})`}}>
+                <div className={`container ${style.container}`}>
 <div className={style.content}>
-  <div className={`${style.title} common_heading`} dangerouslySetInnerHTML={{ __html: slide.title }} />
-  <p className="white_text">{slide.content}</p>
-  <Button type="call" classname="white_btn" text="Book an Appointment"/>
+  <div className={`${style.title} common_heading`}>
+    <HeadingTag>{slide.title} <span>{slide.fancyText}</span></HeadingTag>
+  </div>
+  <p className="white_text">{slide.description}</p>
+  <Button {...(slide.buttonType === 'call' ? { type: 'call' } : {})} classname="white_btn" text={slide.buttonText} link={slide.buttonLink}/>
 </div>
-              </div>
-              </Link>
-
-              {/* conten type  */}
-
-               {/* <div className={`${style.slide}`} style={{backgroundImage:`url(${mobile?slide.mobileImage:slide.image})`}}>
-              <div className={`container ${style.container}`}>
-<div className={style.content}>
-  <div className={`${style.title} common_heading`} dangerouslySetInnerHTML={{ __html: slide.title }} />
-  <p className="white_text">{slide.content}</p>
-  <Button type="call" classname="white_btn" text="Book an Appointment"/>
-</div>
-              </div>
-              </div> */}
-
-            </SwiperSlide>
-          ))}
+                </div>
+                </div>
+              </SwiperSlide>
+            )
+          })}
         </Swiper>
 
         <div className={`container ${style.navContainer} `}>
@@ -414,7 +392,6 @@ export default function HomeClient({ coeData, deptData, doctorsData }) {
 
    </section>
 
-   {/* your care section  */}
 
 <section className={`common_section ${style.yourCare_section}`}>
   <div className={`container ${style.container}`}>
@@ -445,7 +422,6 @@ export default function HomeClient({ coeData, deptData, doctorsData }) {
   </div>
 </section>
 
-{/* center of excellence  */}
 
 <section className={`common_section no_padding_top ${style.excellenceSection}`}>
   <div className={`container ${style.container}`}>
@@ -476,7 +452,6 @@ export default function HomeClient({ coeData, deptData, doctorsData }) {
   </div>
 </section>
 
-{/* department section  */}
 <section className={`common_section gray_bg ${style.deptSection}`}>
 
 <div className={`section_container column ${style.section_container}`}>
@@ -487,7 +462,6 @@ export default function HomeClient({ coeData, deptData, doctorsData }) {
       </div>
     </div>
 
-    {/* dept slider  */}
     <div className="padding_left_only" data-aos="fade-up">
       <div className="sliderContainer">
         <Swiper
@@ -571,7 +545,6 @@ slidesPerView: 1.5,
 </section>
 
 
-{/* doctor section  */}
 <section className={`common_section ${style.doctorSection}`}>
 
 <div className={`section_container column ${style.section_container}`}>
@@ -582,7 +555,6 @@ slidesPerView: 1.5,
       </div>
     </div>
 
-    {/* doctors slider  */}
     <div className="padding_left_only" data-aos="fade-up">
       <div className="sliderContainer">
         <Swiper
@@ -666,7 +638,6 @@ slidesPerView: 1.8,
 </section>
 
 
-{/* health package section */}
 <section className={`gray_bg ${style.packageSection}`}>
 <div className={`container ${style.container}`}>
   <div className={style.content}>
@@ -687,12 +658,10 @@ slidesPerView: 1.8,
     </div>
   </div>
 
-{/* packages  */}
 
 {mobile &&
 <div className={style.packages} data-aos="fade-up">
 
-  {/* package slider  */}
 
       <div className="sliderContainer">
         <Swiper
@@ -765,14 +734,12 @@ slidesPerView: 1.5,
 </div>
 }
 
-{/* for desktop  */}
 
 {!mobile &&
 <div className={style.packages} data-aos="fade-left">
 
 
 
-{/* normal packages  */}
 { healthPackages.filter((item)=>item.special===false).slice(0,6).map((packageItem,index)=>(
 <div className={style.card} key={index}>
   <div className={style.pricing}>
@@ -785,7 +752,6 @@ slidesPerView: 1.5,
 )
 )}
 
-{/* sepcial packages  */}
 {healthPackages.filter((item)=>item.special===true).slice(0,1).map((packageItem,index)=>(
 <div className={`${style.card} ${style.fullCard}`} key={index}>
   <div className={style.detail}>
@@ -807,7 +773,6 @@ slidesPerView: 1.5,
 </section>
 
 
-{/* advanced medicine section  */}
 
 <section className={`common_section ${style.advancedSection}`} ref={advancedSectionRef}>
 
@@ -826,7 +791,6 @@ slidesPerView: 1.5,
 
 <div className={style.center} data-aos="zoom-in" data-aos-delay="500">
 <div className="" data-aos="zoom-in" data-aos-delay="500">
-  {/* counter - 32+ */}
 <h3 className="white_text"><AnimatedCounter target={32} start={countersInView} /><span>+</span></h3>
 <p className="white_text">Years of Clinical Expertise</p>
 </div>
@@ -834,19 +798,16 @@ slidesPerView: 1.5,
 
 <div className={style.right}>
   <div className={style.counter} data-aos="zoom-in">
-     {/* counter - 500+ */}
     <h3 className="orange_text"><AnimatedCounter target={500} start={countersInView} /><span>+</span></h3>
 <p className="">Specialist Doctors</p>
   </div>
 
    <div className={style.counter} data-aos="zoom-in" >
-     {/* counter - 6000+ */}
     <h3 className="orange_text"><AnimatedCounter target={6000} start={countersInView} /><span>+</span></h3>
 <p className="">Liver Transplants</p>
   </div>
 
    <div className={style.counter} data-aos="zoom-in">
-     {/* counter - 98% */}
     <h3 className="orange_text"><AnimatedCounter target={98} start={countersInView} /><span>%</span></h3>
 <p className="">Patient Satisfaction</p>
   </div>
@@ -865,7 +826,6 @@ slidesPerView: 1.5,
 </section>
 
 
-{/* desk section  */}
 
 <section className={`gray_bg ${style.deskSection}`}>
 
@@ -900,7 +860,6 @@ slidesPerView: 1.5,
 </section>
 
 
-{/* international section  */}
 <section className={`common_section gray_bg ${style.internationalSection}`}>
 
 <div className={`section_container column ${style.section_container}`}>
@@ -969,7 +928,6 @@ slidesPerView: 1.5,
 </section>
 
 
-{/* robotic section  */}
 <section className={`common_section gray_bg ${style.roboticSection}`}>
 <div className={`container section_container column ${style.container}`}>
   <div className={`top_heading ${style.content}`} data-aos="fade-left">
@@ -986,7 +944,6 @@ slidesPerView: 1.5,
 
 
 
-{/* testimonial section  */}
 <section className={`common_section ${style.testimonialSection}`}>
   <div className={`container ${style.container}`}>
 
@@ -1081,7 +1038,6 @@ slidesPerView: 1.5,
 
 
 
-{/* location section  */}
 
 <section className={`common_section gray_bg ${style.locationSection}`}>
   <div className={`container ${style.container}`}>
@@ -1092,11 +1048,9 @@ slidesPerView: 1.5,
   </div>
 
 
-{/* locations cards for mobile   */}
   {mobile &&
 <div className={style.locationCards} data-aos="fade-up">
 
-  {/* package slider  */}
 
       <div className="sliderContainer">
         <Swiper
@@ -1197,7 +1151,6 @@ slidesPerView: 1.1,
 </div>
 }
 
-  {/* locations cards for desktop   */}
     {!mobile &&
 <div className={style.locationCards} data-aos="fade-up">
 

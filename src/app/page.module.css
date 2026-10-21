@@ -18,7 +18,7 @@ background-position: center center;
 position: relative;
 }
 
-.heroSection .slide::before{
+.heroSection .slide:not(.imageSlide)::before{
   position: absolute;
   background: linear-gradient(90deg, #23262F 0%, rgba(35, 38, 47, 0.00) 100%);
 width: 70%;

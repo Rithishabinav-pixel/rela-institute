@@ -345,3 +345,22 @@ model EventGalleryImage {
 
   @@map("event_gallery_images")
 }
+
+model HeroBanner {
+  id            Int      @id @default(autoincrement())
+  type          String   @default("content")
+  title         String?
+  fancyText     String?
+  description   String?  @db.Text
+  buttonText    String?
+  buttonType    String?  @default("common")
+  buttonLink    String?
+  desktopImage  String?
+  mobileImage   String?
+  bannerLink    String?
+  sortOrder     Int      @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@map("hero_banners")
+}

@@ -1,6 +1,7 @@
 import { preload } from "react-dom";
 import { getCenterOfExcellenceCards, getHomepageDepartmentCards } from "@/lib/departments";
 import { getHomepageDoctorCards } from "@/lib/doctors";
+import { listHeroBannersPublic } from "@/lib/hero-banners";
 import HomeClient from "./HomeClient";
 
 export const revalidate = 3600;
@@ -169,22 +170,23 @@ const FALLBACK_DOCTORS_DATA = [
 ];
 
 export default async function Home() {
-  // Hero banner is the LCP element (CSS background-image, not <Image>), so it
-  // can't take the next/image `preload` prop — this gives the browser the
-  // same early fetch hint without changing any markup/visual output. The
-  // desktop variant is what SSR/initial paint shows before the client-side
-  // `mobile` check (see HomeClient.js) can swap in the mobile image.
-  preload("/assets/images/hero-banner.png", { as: "image" });
-
-  const [coeDataResult, deptDataResult, doctorsDataResult] = await Promise.all([
+  const [coeDataResult, deptDataResult, doctorsDataResult, heroBanners] = await Promise.all([
     getCenterOfExcellenceCards().catch(() => []),
     getHomepageDepartmentCards().catch(() => []),
     getHomepageDoctorCards().catch(() => []),
+    listHeroBannersPublic().catch((error) => {
+      console.error('[hero-banners] failed to load:', error.message);
+      return [];
+    }),
   ]);
 
   const coeData = coeDataResult.length > 0 ? coeDataResult : FALLBACK_COE_DATA;
   const deptData = deptDataResult.length > 0 ? deptDataResult : FALLBACK_DEPT_DATA;
   const doctorsData = doctorsDataResult.length > 0 ? doctorsDataResult : FALLBACK_DOCTORS_DATA;
 
-  return <HomeClient coeData={coeData} deptData={deptData} doctorsData={doctorsData} />;
+  if (heroBanners[0]?.image) {
+    preload(heroBanners[0].image, { as: "image" });
+  }
+
+  return <HomeClient coeData={coeData} deptData={deptData} doctorsData={doctorsData} heroBanners={heroBanners} />;
 }
