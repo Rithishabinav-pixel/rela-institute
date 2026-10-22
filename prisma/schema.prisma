@@ -364,3 +364,55 @@ model HeroBanner {
 
   @@map("hero_banners")
 }
+
+model JobTitle {
+  id             Int      @id @default(autoincrement())
+  name           String
+  nameNormalized String   @unique
+  createdAt      DateTime @default(now())
+
+  jobs Job[]
+
+  @@map("job_titles")
+}
+
+model JobCategory {
+  id             Int      @id @default(autoincrement())
+  name           String
+  nameNormalized String   @unique
+  createdAt      DateTime @default(now())
+
+  jobs Job[]
+
+  @@map("job_categories")
+}
+
+model JobLocation {
+  id             Int      @id @default(autoincrement())
+  name           String
+  nameNormalized String   @unique
+  createdAt      DateTime @default(now())
+
+  jobs Job[]
+
+  @@map("job_locations")
+}
+
+model Job {
+  id            Int      @id @default(autoincrement())
+  slug          String   @unique
+  jobTitleId    Int
+  jobCategoryId Int
+  jobLocationId Int
+  experience    String
+  education     String
+  content       String   @db.Text
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  jobTitle    JobTitle    @relation(fields: [jobTitleId], references: [id], onDelete: Restrict)
+  jobCategory JobCategory @relation(fields: [jobCategoryId], references: [id], onDelete: Restrict)
+  jobLocation JobLocation @relation(fields: [jobLocationId], references: [id], onDelete: Restrict)
+
+  @@map("jobs")
+}

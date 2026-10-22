@@ -1,0 +1,606 @@
+
+.topbarCta ul,
+.topbarCta ul li a,
+.topbarCta ul li a .content,
+.contactSection .container,
+.faq_section .container,
+.faq_section .faq,
+.faq_section .faq .card,
+.faq_section .faq .card .head
+{
+    display: flex;
+}
+
+.topbarCta ul li a .content,
+.faq_section .faq,
+.topbarCta ul li a,
+.faq_section .faq .card{
+    flex-direction: column;
+}
+
+
+.topbarCta ul li a,
+.faq_section .faq,
+.faq_section .faq .card .head{
+    gap: 16px;
+}
+
+.topbarCta ul,
+.faq_section .faq .card .head
+{
+    align-items: center;
+}
+
+.topbarCta ul{
+    gap: 80px;
+}
+
+
+.topbarCta ul li a:hover{
+    color: var(--orange);
+}
+
+.topbarCta ul li a img{
+    width: 40px;
+}
+
+.topbarCta ul li a .content .label{
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.topbarCta ul li a .content .text{
+    color: black;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 600;
+}
+
+.contactSection .container .contentArea,
+.faq_section .container .faq{
+    width: 50%;
+}
+
+.contactSection .container{
+    align-items: flex-start;
+}
+
+.contactSection .container .formArea{
+    width: 40%;
+     position: sticky;
+    top: 65px;
+}
+
+
+:global(body:has(header[class*="__fixedHeader"])) .contactSection .container .formArea {
+  top: 136px;
+}
+
+.contactSection .container,
+.faq_section .container,
+.faq_section .faq .card .head{
+    justify-content: space-between;
+}
+
+.faq_section .container .title{
+    width: 40%;
+}
+
+.contactSection .container .contentArea .topSection{
+width: 100%;
+max-width: 650px;
+}
+
+.topSection .emergency{
+    margin: 30px 0 24px 0;
+
+}
+
+.locationContainer{
+    margin-top: 80px;
+}
+
+.topSection .emergency h2,
+.locationContainer h2{
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: 400;
+}
+
+.locationCards .card,
+.locationCards .card .top{
+  border-radius: 32px;
+}
+
+.locationCards{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.locationCards .card{
+width: calc(50% - 15px);
+display: flex;
+flex-direction: column;
+background-color: var(--brown);
+box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.075);
+}
+
+.locationCards .card,
+.locationCards .card .top img{
+  transition: var(--transition);
+}
+
+.locationCards .card,
+.locationCards .card .top{
+overflow: hidden;
+}
+
+.locationCards .card .top{
+position: relative;
+}
+
+.locationCards .card .top .image{
+  display: flex;
+  position: relative;
+}
+
+.locationCards .card .top .image::before{
+ position: absolute;
+ content: '';
+ inset: 0; 
+ background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 61.21%, #000 100%), rgba(211, 211, 211, 0) 50% / cover no-repeat;
+z-index: 3;
+}
+
+.locationCards .card .top .content{
+  position: absolute;
+  width: calc(100% - (16px*2));
+  left: 16px;
+  bottom: 16px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.locationCards .card .top .content h3{
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 500;
+}
+
+.locationCards .card .top img{
+  width: 100%;
+}
+
+.locationCards .card:hover .top img{
+  transform: scale(1.025);
+}
+
+.locationCards .card .detail{
+  padding: 16px;
+}
+
+.locationCards .card .detail ul{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.locationCards .card .detail ul li{
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.locationCards .card .detail ul li a{
+  color: black;
+}
+
+.locationCards .card .detail ul li a:hover{
+  color: var(--orange);
+}
+
+.locationCards .card .detail ul li .icon{
+  width: 32px;
+  min-width: 32px;
+  display: flex;
+}
+
+.locationCards .card .detail ul li .icon img{
+  width: 100%;
+}
+
+.yourCare_section .container .blurLayer,
+.yourCare_section .statsArea{
+  border-radius: 24px;
+}
+
+
+.yourCare_section .statsArea{
+background: #23262F;
+padding: 0 60px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 30px;
+position: relative;
+}
+
+.yourCare_section .container .blurLayer{
+  position: absolute;
+  overflow: hidden;
+  inset: 0;
+}
+
+.yourCare_section .container .content{
+  width: 30%;
+}
+
+.yourCare_section .container .stats{
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 3;
+}
+
+.yourCare_section .container .image{
+  width: 20%;
+  transform-origin: bottom center;
+  position: relative;
+  z-index: 2;
+  transform: scale(1.145);
+margin-top: auto;
+}
+
+.yourCare_section .container .blurLayer .center,
+.yourCare_section .container .blurLayer .right{
+position: absolute;
+width: 350px;
+height: auto;
+aspect-ratio: 1 / 1;
+background-color: var(--orange);
+filter: blur(50);
+z-index: 1;
+opacity: 0.2;
+}
+
+.yourCare_section .container .blurLayer .center{
+  top: 50%;
+  left: 50%;
+  transform: translate(-80%,-50%);
+}
+
+.yourCare_section .container .blurLayer .right{
+  right: 0;
+  top: 0;
+  transform: translate(10%,-30%);
+}
+
+.yourCare_section .container .image img{
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.yourCare_section .container .stats .card{
+  display: flex;
+  flex-direction: column;
+  width: 33.33%;
+  padding: 16px;
+  gap: 16px;
+  text-align: center;
+  align-items: center;
+  position: relative;
+  justify-content: flex-end;
+}
+
+.yourCare_section .container .stats .card,
+.yourCare_section .container .stats .card p{
+  transition: var(--transition);
+}
+
+.yourCare_section .container .stats .card:hover img{
+  transform: scaleX(-1) scale(0.9);
+}
+
+.yourCare_section .container .stats .card img{
+  width: 40px;
+  transition: var(--transition);
+}
+
+.yourCare_section .container .stats .card:hover p{
+  color: var(--orange);
+}
+
+.yourCare_section .container .stats .card:nth-child(-n+3){
+  border-bottom: solid rgba(255, 255, 255, 0.2) 1px;
+}
+
+.yourCare_section .container .stats .card::before{
+  position: absolute;
+  content: '';
+  width: 1px;
+  height: 75%;
+  background-color: rgba(255, 255, 255, 0.2);
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+}
+
+.yourCare_section .container .stats .card:nth-child(3n)::before{
+  opacity: 0;
+}
+
+.faq_section .faq .card{
+    padding: 16px 24px;
+    border-radius: 16px;
+    background-color: var(--gray);
+}
+
+.faq_section .faq .card .head h3{
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 600;
+}
+
+.faq_section .faq .card.active .head h3{
+    color: var(--orange);
+    transition: var(--transition);
+}
+
+.faq_section .faq .card .head button{
+    background: none;
+    border: none;
+    transition: var(--transition);
+}
+
+.faq_section .faq .card.active .head button{
+    transform: rotate(180deg);
+}
+
+.faq_section .faq .card .head button img{
+    width: 32px;
+}
+
+.faq_section .faq .card .body{
+    padding-right: 50px;
+    max-height: 0;
+    overflow: hidden;
+}
+
+.faq_section .faq .card.active .body{
+animation: openFaq 3s forwards;
+}
+
+@keyframes openFaq {
+    to{
+max-height: 2500px;
+
+    }
+}
+
+.faq_section .faq .card .body div{
+    padding-top: 12px;
+}
+
+.faq_section .faq .card .head {
+    cursor: pointer;
+}
+
+
+
+/* responsive  */
+
+/* laptop  */
+
+@media screen and (max-width:1600px) {
+      .yourCare_section .container .content{
+  width: 25%;
+}
+}
+
+@media screen and (max-width:1400px) {
+  .yourCare_section .container .image{
+  transform: scale(1.21);
+}
+}
+
+/* tablet  */
+@media screen and (max-width:1200px) {
+
+.faq_section .faq .card{
+    padding: 16px 20px;
+}
+
+.contactSection .container,
+    .faq_section .container{
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    
+
+     .yourCare_section .statsArea{
+    border-radius: 24px;
+  }
+
+   .yourCare_section .container .blurLayer .center{
+  top: unset;
+  bottom: 0;
+  transform: translate(-50%,0%);
+  width: 70%;
+}
+
+.yourCare_section .container .blurLayer .right{
+  display: none;
+}
+
+
+  .yourCare_section .statsArea{
+padding: 50px 0 0 0px;
+flex-direction: column;
+gap: 20px;
+align-items: center;
+overflow: hidden;
+}
+
+.yourCare_section .container .content{
+  text-align: center;
+}
+
+.faq_section .container .title,
+.faq_section .container .faq,
+.yourCare_section .container .content,
+.yourCare_section .container .image,
+.yourCare_section .container .stats,
+.contactSection .container .formArea{
+  width: 100%;
+}
+
+.yourCare_section .container .content,
+.yourCare_section .container .stats{
+  padding: 0 20px;
+}
+
+.yourCare_section .container .image{
+  order: 3;
+}
+
+.yourCare_section .container .stats{
+  order: 2;
+}
+
+.yourCare_section .container .image{
+  transform: scale(1);
+}
+
+.faq_section{
+    padding-top: 0;
+}
+
+    .locationContainer{
+    margin-top: 50px;
+}
+
+    .topSection .emergency h2,
+.locationContainer h2{
+    font-size: 24px;
+    line-height: 32px;
+}
+
+    .contactSection .container .contentArea,
+     .contactSection .container .contentArea .topSection{
+    width: 100%;
+}
+
+.faq_section .container .title,
+    .contactSection .container .contentArea .topSection{
+max-width: 500px;
+}
+
+     .locationCards .card,
+.locationCards .card .top{
+    border-radius: 24px;
+  }
+
+  .locationCards{
+    gap: 20px;
+}
+  .locationCards :global(.swiper-slide){
+    height: auto;
+  }
+
+  .locationCards .card{
+    width: calc(50% - 10px);
+  }
+
+    .topbarCta{
+        width: 100%;
+        padding-bottom: 50px;
+        border-bottom: solid var(--orange) 1px;
+    }
+
+.topbarCta ul{
+    display: flex;
+        justify-content: space-between;
+}
+
+
+
+ .topbarCta ul{
+    gap: 0;
+ }
+
+
+.topbarCta ul li a .content .text{
+    color: var(--orange);
+   }
+
+}
+
+/* mobile  */
+@media screen and (max-width:767px){
+
+      .topSection .emergency h2,
+.locationContainer h2{
+    font-size: 20px;
+    line-height: 28px;
+}
+
+     .topbarCta ul{
+        flex-wrap: wrap;
+        gap: 30px 20px;
+     }
+
+    .topbarCta ul li a .content .text{
+    font-size: 16px;
+    line-height: 20px;
+}
+
+    .topbarCta ul li a img{
+    width: 32px;
+}
+
+    .topbarCta ul li{
+        width: calc(50% - 10px);
+    }
+
+      .locationCards .card{
+    width: 100%;
+  }
+
+    .faq_section .faq .card .head h3{
+    font-size: 18px;
+    line-height: 26px;
+}
+
+.faq_section .faq .card .head button img{
+    width: 24px;
+}
+
+.faq_section .faq .card .body{
+    padding-right: 30px;
+}
+
+     .yourCare_section .container .stats .card p{
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  .yourCare_section .statsArea{
+    border-radius: 16px;
+  }
+
+      .locationCards .card .top .content h3{
+  font-size: 16px;
+  line-height: 24px;
+}
+
+    .locationCards .card,
+.locationCards .card .top{
+    border-radius: 16px;
+  }
+
+}

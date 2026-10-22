@@ -675,7 +675,7 @@ export function createContentModule(config) {
     importFromCsv,
     listPublic: ({ search = '', departmentId = '' } = {}) => cachedListPublic(search, departmentId),
     getBySlugPublic: (slug) => cachedGetBySlugPublic(slug),
-    getRelated: (id, departmentIds, limit = 5) => cachedGetRelated(id, departmentIds, limit),
+    getRelated: (id, departmentIds, limit = 3) => cachedGetRelated(id, departmentIds, limit),
     getDepartmentsForFilter: () => cachedGetDepartmentsForFilter(),
     getDepartmentsForDropdown: () => cachedGetDepartmentsForDropdown(),
     listAdmin,

@@ -1,0 +1,172 @@
+.careerTable th,
+.careerTable tr,
+.bannerSection .container .buttons,
+.careerAbout_section .cards,
+.careerAbout_section .cards .card{
+    display: flex;
+}
+
+.careerAbout_section .cards .card{
+    flex-direction: column;
+}
+
+.bannerSection{
+    background-image: url('/assets/images/career-banner.png');
+    background-size: cover;
+    min-height: 500px;
+    display: grid;
+    place-items: center;
+    position: relative;
+}
+
+.bannerSection::before{
+    position: absolute;
+    inset: 0;
+    content: '';
+background: rgba(0, 0, 0, 0.3);
+}
+
+.bannerSection .container{
+    position: relative;
+    z-index: 2;
+}
+
+.bannerSection .container .buttons{
+    align-items: center;
+    gap: 24px;
+}
+
+.bannerSection .container h1{
+    margin-bottom: -24px;
+}
+
+.careerAbout_section .cards{
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.careerAbout_section .cards .card{
+    width: calc(25% - 22.5px);
+    gap: 16px;
+    border: solid #CCCCCC 1px;
+    padding: 16px 24px;
+    border-radius: 32px;
+    transition: var(--transition);
+}
+
+.careerAbout_section .cards .card .icon{
+    width: 80px;
+    margin-bottom: 8px;
+    transition: var(--transition);
+}
+
+.careerAbout_section .cards .card:hover{
+    transform: translateY(-5px);
+}
+
+.careerAbout_section .cards .card:hover .icon{
+    transform: scaleX(-1);
+}
+
+.careerAbout_section .cards .card h3{
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 600;
+}
+
+.careerTable th,
+.careerTable td{
+    width: 100%;
+    min-width: fit-content;
+    padding: 16px;
+}
+
+.careerTable tr{
+    gap: 8px;
+}
+
+.careerTable th{
+    align-items: center;
+    gap: 8px;
+    font-weight: 400;
+    color: white;
+}
+
+.careerTable th img{
+    width: 32px;
+}
+
+.careerTable thead{
+    background-color: #6B7280;
+}
+
+.careerTable tbody tr{
+    background-color: #F3F3F3;
+    border-top: solid white 4px;
+}
+
+.careerTable td span{
+    opacity: 0.5;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.careersList_section .container>a{
+    margin: auto;
+}
+
+
+/* responsive  */
+
+/* tablet  */
+
+@media screen and (max-width:1200px) {
+
+    .careerTable th img{
+    width: 24px;
+}
+
+    .bannerSection{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.bannerSection :global(.top_heading){
+    max-width: 500px;
+}
+
+.careerAbout_section .cards{
+    gap: 20px;
+}
+
+.careerAbout_section .cards .card{
+    width: calc(50% - 10px);
+}
+
+}
+
+@media screen and (max-width:767px) {
+
+.careerTable{
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    max-width: 100%;
+}
+
+.careerTable thead,
+.careerTable tbody{
+    display: block;
+}
+
+.careerTable th,
+.careerTable td{
+    min-width: 160px;
+}
+
+.careerTable td:last-child,
+.careerTable th:last-child{
+    min-width: 140px;
+}
+
+}

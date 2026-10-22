@@ -28,6 +28,25 @@ color: var(--orange);
     padding: 12px 0;
 }
 
+.formContainer form .inputCont{
+    display: flex;
+}
+
+.formContainer form .inputCont label{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.formContainer form .note{
+    font-size: 12px;
+    line-height: 16px;
+    margin-top: -8px;
+    opacity: 0.75;
+}
+
 .formContainer form *:focus{
     outline: none;
 }
@@ -47,4 +66,50 @@ color: var(--orange);
 
 .formContainer form button[type="submit"]{
     margin-top: 8px;
+}
+
+
+/* responsive */
+
+/* laptop  */
+
+@media screen and (min-width:1200px) and (max-height:800px) {
+    
+    .formContainer form .inputCont,
+.formContainer form .inputCont input,
+.formContainer form .inputCont select,
+.formContainer form .inputCont textarea{
+    padding: 4px 0 4px 12px;
+}
+
+.formContainer form .inputCont{
+    min-height: 0px;
+}
+
+.formContainer form .inputCont:has(textarea){
+    height: 90px;
+}
+
+}
+
+
+/* tablet  */
+
+@media screen and (max-width:1200px) {
+    
+    .formContainer{
+    padding: 20px;
+    border-radius: 24px;
+}
+
+}
+
+/* mobile  */
+
+@media screen and (max-width:767px) {
+    
+    .formContainer{
+    border-radius: 16px;
+}
+
 }

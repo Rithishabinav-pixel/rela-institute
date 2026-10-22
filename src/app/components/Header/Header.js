@@ -321,7 +321,7 @@ useEffect(() => {
     <header className={revScroll?style.fixedHeader:""} id={style.header}>
 
 {mobile &&
-            <div className={`${style.topbarCta} ${searchBar?style.hide:""}`}>
+            <div className={`${style.topbarCta} ${searchBar?style.hide:""} `}>
                 <ul>
                     <li> 
                         <a href='tel:04422006001'>
@@ -359,7 +359,7 @@ useEffect(() => {
 
 
 
-    <div className={style.topBar}>
+    <div className={`${style.topBar} ${mobile && !revScroll && navFixed?style.fixedMobileNav:""}`}>
         <div className={`container ${style.container}`}>
 
             

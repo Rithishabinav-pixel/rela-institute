@@ -1,0 +1,84 @@
+"use client";
+
+import React, { useState } from "react";
+import style from "../UI/form.module.css";
+import PhoneInput from "react-phone-number-input";
+import "react-phone-number-input/style.css";
+import Image from "next/image";
+
+export default function ContentForm() {
+  const [phone, setPhone] = useState("");
+ 
+
+  return (
+    <div className={style.formContainer}>
+      <form>
+        <h2>Enquire Now</h2>
+
+        <div className={style.inputCont}>
+          <input
+            type="text"
+            name="name"
+            placeholder="Name"
+          />
+        </div>
+
+        <div className={style.inputCont}>
+          <input
+            type="email"
+            name="email"
+            placeholder="Email Address"
+          />
+        </div>
+
+        <div className={style.inputCont}>
+          <PhoneInput
+            international
+            defaultCountry="US"
+            value={phone}
+            onChange={setPhone}
+            placeholder="Enter phone number"
+          />
+        </div>
+
+        <div className={style.inputCont}>
+        <select>
+  <option value="">Country</option>
+<option   value="Country">Country</option>
+<option   value="Country">Country</option>
+<option   value="Country">Country</option>
+</select>
+        </div>
+
+        <div className={style.inputCont}>
+        <select>
+  <option value="">State</option>
+<option   value="State">State</option>
+<option   value="State">State</option>
+<option   value="State">State</option>
+</select>
+        </div>
+
+         <div className={style.inputCont}>
+        <select>
+  <option value="">I have an enquiry</option>
+<option   value="State">Specialities</option>
+<option   value="State">Symptoms</option>
+<option   value="State">International Patients</option>
+<option   value="State">Appointments</option>
+<option   value="State">Health Packages</option>
+<option   value="State">Others</option>
+</select>
+        </div>
+
+        <div className={style.inputCont}>
+         <textarea placeholder="Your Query"/>
+        </div>
+
+        <button className="common_btn orange_btn" type="submit">Submit <Image src="/assets/images/btn-arrow.svg" width={24} height={24} alt=''/> </button>
+
+      </form>
+    </div>
+  );
+}
+

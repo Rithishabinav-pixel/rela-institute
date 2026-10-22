@@ -17,6 +17,14 @@
     display: flex;
 }
 
+:global(body):has(.navFixed){
+    padding-top: 60px;
+}
+
+:global(body):has(.fixedHeader){
+    padding-top: 136px;
+}
+
 .navigations.navFixed,
 #header.fixedHeader{
     position: fixed;
@@ -518,6 +526,28 @@ color: white;
 /* tablet  */
 @media screen and (max-width:1200px) {
 
+    :global(body):has(.fixedMobileNav){
+    padding-top: 64.7px;
+}
+
+:global(body):has(.fixedHeader){
+    padding-top: 125.7px;
+}
+
+.fixedMobileNav,
+#header.fixedHeader{
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.topBar.fixedMobileNav{
+   position: fixed;
+   width: 100%;
+   top: 0;
+   left: 0;
+   z-index: 66;
+   background-color: white;
+}
+
     .navigations .mainMenu>.menuItem{
         transform: translateX(20px);
         opacity: 0;
@@ -751,6 +781,14 @@ color: white;
 
 /* mobile  */
 @media screen and (max-width:767px) {
+
+        :global(body):has(.fixedMobileNav){
+    padding-top: 64.7px;
+}
+
+:global(body):has(.fixedHeader){
+    padding-top: 105.7px;
+}
 
     .searchBar .searchBtn img,
     .translator::before{

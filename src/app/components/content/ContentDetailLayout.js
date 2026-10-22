@@ -10,6 +10,7 @@ import DepartmentCard from '@/app/components/UI/DepartmentCard'
 import DoctorCard from '@/app/components/UI/DoctorCard'
 import GalleryLightbox from '@/app/components/GalleryLightbox'
 import { slugify } from '@/lib/slug'
+import ContentForm from '../ContentForm/ContentForm'
 
 const FEATURE_FALLBACK_IMAGE = '/assets/images/sample-article-img.png'
 
@@ -206,6 +207,11 @@ export default async function ContentDetailLayout({ item, relatedItems, basePath
                   </Link>
                 ))}
               </div>
+
+              <div className={style.formArea}>
+                  <ContentForm/>
+              </div>
+
             </aside>
           )}
         </div>

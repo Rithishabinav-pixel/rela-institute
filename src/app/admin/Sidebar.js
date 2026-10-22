@@ -6,6 +6,7 @@ import style from './admin.module.css'
 
 const NAV_ITEMS = [
   { label: 'Hero Banners', href: '/admin/hero-banners' },
+  { label: 'Careers / Jobs', href: '/admin/jobs' },
   { label: 'Department', href: '/admin/departments' },
   { label: 'Doctors', href: '/admin/doctors' },
   { label: 'Media', href: '/admin/media' },
