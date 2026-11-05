@@ -1,0 +1,229 @@
+.trust_section .container .cards .card,
+.trust_section .container .cards,
+.locationCards .card .detail ul li .icon,
+.locationCards .card .detail ul,
+.locationCards .card .detail ul li,
+.locationCards .card .top .content,
+.locationCards .card .top .image,
+.locationCards,
+.locationCards .card .detail,
+.locationCards .card{
+    display: flex;
+}
+
+.trust_section .container .cards .card,
+.locationCards .card .detail,
+.locationCards .card .detail ul,
+.locationCards .card .top .content,
+.locationCards .card{
+    flex-direction: column;
+}
+
+.locationCards .card,
+.locationCards .card .top{
+  border-radius: 32px;
+}
+
+.locationCards{
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.locationCards .card{
+width: calc(25% - 22.5px);
+background-color: var(--brown);
+box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.075);
+}
+
+.locationCards .card,
+.locationCards .card .top img{
+  transition: var(--transition);
+}
+
+.locationCards .card,
+.locationCards .card .top{
+overflow: hidden;
+}
+
+.locationCards .card .top{
+position: relative;
+}
+
+.locationCards .card .top .image{
+  position: relative;
+}
+
+.locationCards .card .top .image::before{
+ position: absolute;
+ content: '';
+ inset: 0; 
+ background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 61.21%, #000 100%), rgba(211, 211, 211, 0) 50% / cover no-repeat;
+z-index: 3;
+}
+
+.locationCards .card .top .content{
+  position: absolute;
+  width: calc(100% - (16px*2));
+  left: 16px;
+  bottom: 16px;
+  z-index: 3;
+  gap: 8px;
+}
+
+.locationCards .card .top .content h3{
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 500;
+}
+
+.locationCards .card .top img{
+  width: 100%;
+}
+
+.locationCards .card:hover .top img{
+  transform: scale(1.025);
+}
+
+.locationCards .card .detail{
+  padding: 16px;
+  flex-grow: 1;
+}
+
+.locationCards .card .detail,
+.locationCards .card .detail ul{
+  gap: 16px;
+}
+
+.locationCards .card .detail .locationLink{
+    margin-top: auto;
+}
+
+.locationCards .card .detail ul li{
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.locationCards .card .detail ul li a{
+  color: black;
+}
+
+.locationCards .card .detail ul li a:hover{
+  color: var(--orange);
+}
+
+.locationCards .card .detail ul li .icon{
+  width: 32px;
+  min-width: 32px;
+}
+
+.locationCards .card .detail ul li .icon img{
+  width: 100%;
+}
+
+  .locationSection .top_heading{
+   max-width: 750px;
+  }
+
+    .locationSection .top_heading p{
+        width: 100%;
+        max-width: 600px;
+    }
+
+    .trust_section .container .top_heading{
+    max-width: 900px;
+}
+
+.trust_section .container .cards{
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.trust_section .container .cards .card{
+    width: calc(25% - 22.5px);
+    padding: 16px 24px;
+    gap: 16px;
+    border-radius: 32px;
+    border: solid #CCCCCC 1px;
+    transition: var(--transition);
+    background-color: white;
+}
+
+.trust_section .container .cards .card img{
+    width: 80px;
+    margin-bottom: 8px;
+    transition: var(--transition);
+}
+
+.trust_section .container .cards .card:hover img{
+    transform: scaleX(-1);
+}
+
+.trust_section .container .cards .card h3{
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 600;
+}
+
+/* tablet  */
+
+@media screen and (max-width:1200px) {
+
+.trust_section .container .cards{
+    gap: 20px;
+}
+
+.trust_section .container .cards .card{
+    width: calc(50% - 10px);
+    padding: 16px 20px;
+}
+
+
+ .trust_section .container .cards .card img{
+    margin-bottom: 4px;
+ }
+
+
+ .trust_section .container .cards .card,
+     .locationCards .card,
+.locationCards .card .top{
+    border-radius: 24px;
+  }
+
+.locationCards{
+  gap: 20px;
+}
+
+.locationCards .card{
+width: calc(50% - 10px);
+}
+
+
+}
+
+
+/* mobile  */
+
+@media screen and (max-width:767px) {
+    
+     .locationCards .card .top .content h3{
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.trust_section .container .cards .card,
+    .locationCards .card,
+.locationCards .card .top{
+    border-radius: 16px;
+  }
+
+   .trust_section .container .cards .card img{
+    width: 60px;
+}
+
+    .trust_section .container .cards .card,
+    .locationCards .card{
+width:100%;
+}
+
+
+    }

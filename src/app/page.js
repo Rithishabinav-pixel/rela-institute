@@ -2,6 +2,7 @@ import { preload } from "react-dom";
 import { getCenterOfExcellenceCards, getHomepageDepartmentCards } from "@/lib/departments";
 import { getHomepageDoctorCards } from "@/lib/doctors";
 import { listHeroBannersPublic } from "@/lib/hero-banners";
+import { getHomepageHealthPackageCards } from "@/lib/health-packages";
 import HomeClient from "./HomeClient";
 
 export const revalidate = 3600;
@@ -169,8 +170,83 @@ const FALLBACK_DOCTORS_DATA = [
   },
 ];
 
+const FALLBACK_HEALTH_PACKAGES_DATA = [
+  {
+    packageName:"Essential Health Check",
+    tests:"7 tests with consultations",
+    actualPrice:"2,500",
+    offerPrice:"1,800",
+    link:"/",
+    special:false
+  },
+  {
+    packageName:"Essential Health Check",
+    tests:"7 tests with consultations",
+    actualPrice:"2,500",
+    offerPrice:"1,800",
+    link:"/",
+    special:false
+  },
+  {
+    packageName:"Essential Health Check",
+    tests:"7 tests with consultations",
+    actualPrice:"2,500",
+    offerPrice:"1,800",
+    link:"/",
+    special:false
+  },
+  {
+    packageName:"Essential Health Check",
+    tests:"7 tests with consultations",
+    actualPrice:"2,500",
+    offerPrice:"1,800",
+    link:"/",
+    special:false
+  },
+  {
+    packageName:"Essential Health Check",
+    tests:"7 tests with consultations",
+    actualPrice:"2,500",
+    offerPrice:"1,800",
+    link:"/",
+    special:false
+  },
+  {
+    packageName:"Essential Health Check",
+    tests:"7 tests with consultations",
+    actualPrice:"2,500",
+    offerPrice:"1,800",
+    link:"/",
+    special:false
+  },
+  {
+    packageName:"Essential Health Check",
+    tests:"7 tests with consultations",
+    actualPrice:"2,500",
+    offerPrice:"1,800",
+    link:"/",
+    special:false
+  },
+  {
+    packageName:"Essential Health Check",
+    tests:"7 tests with consultations",
+    actualPrice:"2,500",
+    offerPrice:"1,800",
+    link:"/",
+    special:true
+  },
+  {
+    packageName:"Essential Health Check",
+    tests:"7 tests with consultations",
+    actualPrice:"2,500",
+    offerPrice:"1,800",
+    link:"/",
+    special:true
+  },
+];
+
 export default async function Home() {
-  const [coeDataResult, deptDataResult, doctorsDataResult, heroBanners] = await Promise.all([
+  const [coeDataResult, deptDataResult, doctorsDataResult, heroBanners, healthPackagesResult] = await Promise.all([
     getCenterOfExcellenceCards().catch(() => []),
     getHomepageDepartmentCards().catch(() => []),
     getHomepageDoctorCards().catch(() => []),
@@ -178,15 +254,17 @@ export default async function Home() {
       console.error('[hero-banners] failed to load:', error.message);
       return [];
     }),
+    getHomepageHealthPackageCards().catch(() => []),
   ]);
 
   const coeData = coeDataResult.length > 0 ? coeDataResult : FALLBACK_COE_DATA;
   const deptData = deptDataResult.length > 0 ? deptDataResult : FALLBACK_DEPT_DATA;
   const doctorsData = doctorsDataResult.length > 0 ? doctorsDataResult : FALLBACK_DOCTORS_DATA;
+  const healthPackages = healthPackagesResult.length > 0 ? healthPackagesResult : FALLBACK_HEALTH_PACKAGES_DATA;
 
   if (heroBanners[0]?.image) {
     preload(heroBanners[0].image, { as: "image" });
   }
 
-  return <HomeClient coeData={coeData} deptData={deptData} doctorsData={doctorsData} heroBanners={heroBanners} />;
+  return <HomeClient coeData={coeData} deptData={deptData} doctorsData={doctorsData} heroBanners={heroBanners} healthPackages={healthPackages} />;
 }

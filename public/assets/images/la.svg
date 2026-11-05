@@ -1,0 +1,16 @@
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M6.25 18.4375V9.0625C6.25 5.6107 9.0482 2.8125 12.5 2.8125H7.8125C4.3607 2.8125 1.5625 5.6107 1.5625 9.0625V18.4375C1.5625 21.8893 4.3607 24.6875 7.8125 24.6875H12.5C9.0482 24.6875 6.25 21.8893 6.25 18.4375Z" fill="#F47502"/>
+<path d="M7.8125 18.4375V12.1875C7.8125 10.4616 9.21164 9.0625 10.9375 9.0625C12.6634 9.0625 14.0625 10.4616 14.0625 12.1875V18.4375" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" stroke="white"/>
+<path d="M7.8125 15.3125H14.0625" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" stroke="white"/>
+<path d="M14.0625 24.6875H7.8125C4.3607 24.6875 1.5625 21.8893 1.5625 18.4375V9.0625C1.5625 5.6107 4.3607 2.8125 7.8125 2.8125H14.0625C17.5143 2.8125 20.3125 5.6107 20.3125 9.0625V18.4375C20.3125 21.8893 17.5143 24.6875 14.0625 24.6875Z" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" stroke="white"/>
+<path d="M25.9375 15.3125H32.1875C35.6393 15.3125 38.4375 18.1107 38.4375 21.5625V30.9375C38.4375 34.3893 35.6393 37.1875 32.1875 37.1875H25.9375C22.4857 37.1875 19.6875 34.3893 19.6875 30.9375V29.2599" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" stroke="white"/>
+<path d="M29.0625 21.5625V27.8125C29.0625 29.5384 27.6634 30.9375 25.9375 30.9375" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" stroke="#F47502"/>
+<path d="M29.0625 27.8125C29.0625 29.5384 30.4616 30.9375 32.1875 30.9375" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" stroke="#F47502"/>
+<path d="M25.9375 24.6875H32.1875" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" stroke="#F47502"/>
+<circle cx="26.25" cy="2.8125" r="1.5625" fill="white"/>
+<circle cx="32.5" cy="2.8125" r="1.5625" fill="white"/>
+<circle cx="32.5" cy="9.0625" r="1.5625" fill="white"/>
+<circle cx="13.75" cy="37.1875" r="1.5625" fill="white"/>
+<circle cx="7.5" cy="37.1875" r="1.5625" fill="white"/>
+<circle cx="7.5" cy="30.9375" r="1.5625" fill="white"/>
+</svg>

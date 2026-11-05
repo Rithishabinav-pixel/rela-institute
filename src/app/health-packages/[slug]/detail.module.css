@@ -1,0 +1,340 @@
+.faq_section .container,
+.faq .card .body div,
+.packageDetail_section .container .content .packageCard .packageDetailImage,
+.packageDetail_section .container,
+.packageDetail_section .container .content .packageCard,
+.packageDetail_section .container .content,
+.packageDetail_section .container .content .detail,
+.packageDetail_section .container .content .detail .cards,
+.packageDetail_section .container .content .detail .price,
+.packageDetail_section .container .content .detail .cards .card,
+.faq,
+.faq .card .head{
+    display: flex;
+}
+
+.faq,
+.faq .card,
+.faq .card .body div,
+.packageDetail_section .container .content .detail .cards .card,
+.packageDetail_section .container .content .packageCard,
+.packageDetail_section .container .content,
+.packageDetail_section .container .content .detail{
+    flex-direction: column;
+}
+
+
+.packageDetail_section .container .content .packageCard,
+.packageDetail_section .container .content .detail{
+    gap: 20px;
+}
+
+.faq_section .container,
+.packageDetail_section .container{
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.packageDetail_section .container .content .detail .disclaimer{
+    font-size: 12px;
+    line-height: 20px;
+    color: #6B7280;
+    font-style: italic;
+}
+
+.packageDetail_section .container .content .detail .cards{
+    flex-wrap: wrap;
+}
+
+.packageDetail_section .container .content,
+.faq_section .container .faq{
+    width: 50%;
+}
+.packageDetail_section .container .content{
+    gap: 80px;
+}
+
+.faq_section .container .title{
+    width: 40%;
+}
+
+.packageDetail_section .container .formArea{
+    width: 42%;
+     position: sticky;
+    top: 65px;
+}
+
+:global(body:has(header[class*="__fixedHeader"])) .packageDetail_section .container .formArea {
+  top: 136px;
+}
+
+.packageDetail_section .container .content .detail .cards{
+    gap: 24px;
+}
+
+.packageDetail_section .container .content .detail .cards .card{
+    width: calc(50% - 12px);
+}
+
+.packageDetail_section .container .content .detail{
+width: 50%;
+}
+
+.packageDetail_section .container .content .packageCard .packageDetailImage{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50%;
+}
+
+.packageDetail_section .container .content .packageCard .packageDetailImage img{
+    width: 100%;
+}
+
+.packageDetail_section .container .content .packageCard{
+    padding: 20px;
+    background-color: rgba(244, 119, 2, 0.1);
+    border-radius: 24px;
+    background-image: url(/assets/images/fill-vector.svg);
+    background-size: auto 100%;
+    background-position: calc(100% + 50px) 0;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.packageDetail_section .container .content .packageCard h1{
+    width: 70%;
+}
+
+
+
+.packageDetail_section .container .content .detail .price{
+    gap: 8px;
+    align-items: flex-end;
+}
+
+.packageDetail_section .container .content .detail .price .offerPrice{
+    font-size: 48px;
+    line-height: 56px;
+    color: var(--orange);
+    font-weight: 600;
+}
+
+.packageDetail_section .container .content .detail .price  .actualPrice{
+    font-size: 24px;
+    line-height: 32px;
+    color: #6B7280;
+    opacity: 0.6;
+}
+
+.packageDetail_section .container .content .detail .cards .card img{
+    width: 40px;
+    margin-bottom: 16px;
+}
+
+.packageDetail_section .container .content .detail .cards .card p.label{
+    opacity: 0.5;
+}
+
+.packageDetail_section .container .content .detail .cards .card h3{
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 600;
+}
+
+.faq .card .head{
+    gap: 16px;
+}
+
+.faq .card .head
+{
+    align-items: center;
+}
+.faq{
+    width: 100%;
+    gap: 16px 30px;
+}
+
+.faq .card .head{
+    justify-content: space-between;
+}
+
+.faq .cards{
+    width: calc(50% - 15px);
+    gap: 16px;
+}
+
+.faq .card{
+    padding: 16px 24px;
+    border-radius: 16px;
+    background-color:var(--gray);
+}
+
+.faq .card.white{
+    background-color: white;
+}
+
+.faq .card .head h3{
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 600;
+}
+
+.faq .card.active .head h3{
+    color: var(--orange);
+    transition: var(--transition);
+}
+
+.faq .card .head button{
+    background: none;
+    border: none;
+    transition: var(--transition);
+}
+
+.faq .card.active .head button{
+    transform: rotate(180deg);
+}
+
+.faq .card .head button img{
+    width: 32px;
+}
+
+.faq .card .body{
+    padding-right: 50px;
+    max-height: 0;
+    overflow: hidden;
+}
+
+.faq .card.active .body{
+animation: openFaq 3s forwards;
+}
+
+@keyframes openFaq {
+    to{
+max-height: 2500px;
+
+    }
+}
+
+.faq .card .body div{
+    padding-top: 12px;
+    gap: 16px;
+}
+
+.faq .card .body div ul{
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 16px 30px;
+}
+
+
+.faq .card .body div ul li{
+    width: calc(50% - 15px);
+}
+
+.faq .card .head {
+    cursor: pointer;
+}
+
+
+/* tablet  */
+
+@media screen and (max-width:1200px) {
+
+    .packageDetail_section .container .content .detail .price .offerPrice{
+    font-size: 32px;
+    line-height: 40px;
+}
+
+.packageDetail_section .container .content .detail .price  .actualPrice{
+    font-size: 20px;
+    line-height: 28px;
+}
+
+
+.packageDetail_section .container,
+    .faq,
+    .faq_section .container{
+            flex-direction: column;
+
+}
+
+.faq_section .container{
+    gap: 30px;
+}
+
+
+
+    .faq .card{
+    padding: 16px 20px;
+}
+
+.packageDetail_section .container,
+.packageDetail_section .container .content{
+    gap: 50px;
+}
+
+
+
+.faq_section .faq,
+.packageDetail_section .container .content,
+.packageDetail_section .container .formArea,
+   .faq .cards,
+    .faq_section .container .title,
+.faq_section .container .faq{
+  width: 100%;
+}
+
+ .faq .card .head h3{
+    font-size: 18px;
+    line-height: 26px;
+}
+
+.faq .card .head button img{
+    width: 24px;
+}
+
+.faq .card .body{
+    padding-right: 30px;
+}
+
+}
+
+
+
+/* mobile  */
+
+@media screen and (max-width:767px) {
+
+.packageDetail_section .container .content .packageCard{
+     background-size: 100% auto;
+     background-position: 0 100%;
+     padding: 0;
+     }
+
+     .packageDetail_section .container .content .packageCard .detail{
+        padding: 0 20px ;
+     }
+
+     
+.packageDetail_section .container .content .packageCard h1{
+    width: 100%;
+}
+
+     .packageDetail_section .container .content .packageCard h1{
+        padding: 20px 20px 0 20px;
+     }
+
+    .packageDetail_section .container .content .detail{
+width: 100%;
+}
+
+.packageDetail_section .container .content .packageCard .packageDetailImage{
+    position: static;
+    width: 100%;
+}
+
+}

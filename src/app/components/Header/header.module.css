@@ -330,6 +330,10 @@ color: white;
     z-index: 9;
 }
 
+:global(body):has(.navFixed) .megaMenu_wrapper {
+    top: 60px;
+}
+
 .megaMenu_wrapper.show{
        animation: showMegaMenu 0.3s forwards;
 

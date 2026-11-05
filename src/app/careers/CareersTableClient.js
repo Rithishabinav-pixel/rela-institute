@@ -36,7 +36,7 @@ export default function CareersTableClient({ jobs }) {
 
   return (
     <>
-      <table className={style.careerTable}>
+      <table className={style.careerTable} data-aos="fade-up">
         <thead>
           <tr>
             <th> <Image src="/assets/images/job-title.svg" width={32} height={32} alt='' /> Job title </th>

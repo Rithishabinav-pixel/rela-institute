@@ -1,0 +1,493 @@
+.faq_section .container,
+.faq_section .faq .cards,
+.faq_section .container .faq,
+.faq_section .faq .card,
+.faq_section .faq .card .head,
+.yourCare_section .container .content .actions,
+.yourCare_section .container .content,
+.packageCards,
+.healthCheck_section .cards,
+.checkup_section .container,
+.bannerSection .container .buttons{
+    display: flex;
+}
+
+.faq_section .faq .card,
+.faq_section .faq .cards,
+.yourCare_section .container .content{
+    flex-direction: column;
+}
+
+
+.checkup_section .container{
+    justify-content: space-between;
+}
+
+.checkup_section .container{
+    align-items: center;
+}
+
+.checkup_section .container .image img{
+    width: 100%;
+}
+
+.packageCards,
+.healthCheck_section .cards{
+    gap: 30px;
+}
+
+
+.healthCheck_section .cards .card{
+    border-radius: 32px;
+}
+
+.bannerSection{
+    background-image: url('/assets/images/hp-bg.png');
+    background-size: cover;
+    min-height: 500px;
+    display: grid;
+    place-items: center;
+    position: relative;
+    background-position: center;
+}
+
+.bannerSection::before{
+    position: absolute;
+    inset: 0;
+    content: '';
+background: rgba(0, 0, 0, 0.3);
+}
+
+.bannerSection .container{
+    position: relative;
+    z-index: 2;
+}
+
+.bannerSection .container .buttons{
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.bannerSection .container h1{
+    margin-bottom: -24px;
+}
+
+.checkup_section .container .image{
+    width: 50%;
+}
+
+.checkup_section .container .content{
+    width: 42%;
+}
+
+.healthCheck_section .cards .card{
+    width: calc(25% - 22.5px);
+    padding: 16px 24px;
+    background-color: white;
+}
+
+.healthCheck_section .cards .card .icon{
+    width: 80px;
+}
+
+.healthCheck_section .cards .card h3{
+    font-size: 20px;
+    line-height: 28px;
+    margin-top: 8px;
+    font-weight: 600;
+}
+
+
+.packageCards{
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+.yourCare_section .container .blurLayer,
+.yourCare_section .statsArea{
+  border-radius: 24px;
+}
+
+
+.yourCare_section .statsArea{
+background: #23262F;
+padding: 30px 40px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 30px;
+position: relative;
+}
+
+.yourCare_section .container .blurLayer{
+  position: absolute;
+  overflow: hidden;
+  inset: 0;
+}
+
+.yourCare_section .container .content{
+  width: 42%;
+  position: relative;
+  z-index: 2;
+}
+
+.yourCare_section .container .content .actions{
+    gap:16px;
+}
+
+.yourCare_section .container .stats{
+  width: 55%;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  align-items: flex-start;
+  z-index: 3;
+  gap: 20px;
+}
+
+
+
+.yourCare_section .container .blurLayer .center,
+.yourCare_section .container .blurLayer .right{
+position: absolute;
+width: 350px;
+height: auto;
+aspect-ratio: 1 / 1;
+background-color: var(--orange);
+filter: blur(50);
+z-index: 1;
+opacity: 0.2;
+}
+
+.yourCare_section .container .blurLayer .center{
+  top: 50%;
+  left: 50%;
+  transform: translate(-80%,-50%);
+}
+
+.yourCare_section .container .blurLayer .right{
+  right: 0;
+  top: 0;
+  transform: translate(10%,-30%);
+}
+
+
+
+.yourCare_section .container .stats .card{
+  display: flex;
+  flex-direction: column;
+  width: calc(33.33% - 13.33px);
+  gap: 8px;
+  text-align: center;
+  align-items: center;
+  position: relative;
+  justify-content: flex-end;
+}
+
+.yourCare_section .container .stats .card:not(:last-child):before{
+    position: absolute;
+    content: '';
+    width: 36px;
+    height: 32px;
+    background-image: url(/assets/images/stats-arrow.svg);
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    top: 85px;
+    right: 0;
+    transform: translateX(100%);
+}
+
+.yourCare_section .container .stats .card,
+.yourCare_section .container .stats .card p{
+  transition: var(--transition);
+}
+
+.yourCare_section .container .stats .card h3{
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 500;
+    margin-top: 8px;
+}
+
+.yourCare_section .container .stats .card:hover img{
+  transform: scaleX(-1) scale(0.9);
+}
+
+.yourCare_section .container .stats .card img{
+  width: 80px;
+  transition: var(--transition);
+}
+
+.faq_section .faq .card .head{
+    gap: 16px;
+}
+
+.faq_section .faq .card .head
+{
+    align-items: center;
+}
+.faq_section .container .faq{
+    width: 100%;
+    gap: 16px 30px;
+}
+
+.faq_section .container,
+.faq_section .faq .card .head{
+    justify-content: space-between;
+}
+
+.faq_section .container .top_heading{
+    max-width: 850px;
+}
+
+.faq_section .faq .cards{
+    width: calc(50% - 15px);
+    gap: 16px;
+}
+
+.faq_section .faq .card{
+    padding: 16px 24px;
+    border-radius: 16px;
+    background-color: white;
+}
+
+.faq_section .faq .card .head h3{
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 600;
+}
+
+.faq_section .faq .card.active .head h3{
+    color: var(--orange);
+    transition: var(--transition);
+}
+
+.faq_section .faq .card .head button{
+    background: none;
+    border: none;
+    transition: var(--transition);
+}
+
+.faq_section .faq .card.active .head button{
+    transform: rotate(180deg);
+}
+
+.faq_section .faq .card .head button img{
+    width: 32px;
+}
+
+.faq_section .faq .card .body{
+    padding-right: 50px;
+    max-height: 0;
+    overflow: hidden;
+}
+
+.faq_section .faq .card.active .body{
+animation: openFaq 3s forwards;
+}
+
+@keyframes openFaq {
+    to{
+max-height: 2500px;
+
+    }
+}
+
+.faq_section .faq .card .body div{
+    padding-top: 12px;
+}
+
+.faq_section .faq .card .head {
+    cursor: pointer;
+}
+
+
+
+/* responsive  */
+
+
+
+/* tablet  */
+
+@media screen and (max-width:1200px) {
+
+    .faq_section .container .faq,
+    .checkup_section .container,
+    .faq_section .container{
+            flex-direction: column;
+
+}
+
+    .faq_section .faq .card{
+    padding: 16px 20px;
+}
+
+.packageCards,
+.healthCheck_section .cards{
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+
+
+.checkup_section .container,
+    .faq_section .container{
+        gap: 30px;
+    }
+
+    .checkup_section:global(.no_padding_bottom){
+        padding-bottom: 50px;
+    }
+
+
+     .faq_section .container .faq .cards,
+    .yourCare_section .container .content,
+.yourCare_section .container .stats,
+    .checkup_section .container .image,
+.checkup_section .container .content,
+    .faq_section .container .title,
+.faq_section .container .faq{
+  width: 100%;
+}
+
+.checkup_section .container .top_heading{
+    max-width: 100%;
+}
+
+
+.faq_section .container .title{
+max-width: 500px;
+}
+
+
+.healthCheck_section .cards .card,
+     .yourCare_section .statsArea{
+    border-radius: 24px;
+  }
+
+   .yourCare_section .container .blurLayer .center{
+  top: unset;
+  bottom: 0;
+  transform: translate(-50%,0%);
+  width: 70%;
+}
+
+.yourCare_section .container .blurLayer .right{
+  display: none;
+}
+
+.healthCheck_section .cards .card{
+    width: calc(50% - 10px);
+}
+
+.healthCheck_section .cards .card{
+    padding:20px;
+}
+
+  .yourCare_section .statsArea{
+padding: 50px 20px;
+flex-direction: column;
+gap: 30px;
+align-items: center;
+overflow: hidden;
+}
+
+.yourCare_section .container .content{
+  text-align: center;
+}
+
+
+.yourCare_section .container .stats .card img{
+  width: 60px;
+}
+
+.yourCare_section .container .stats .card:not(:last-child):before{
+    top: 45px;
+}
+
+.yourCare_section .container .content,
+.yourCare_section .container .stats{
+  align-items: center;
+}
+
+
+
+
+
+     .bannerSection{
+    display: flex;
+    justify-content: flex-start;
+    min-height: fit-content;
+    padding: 50px 0;
+}
+
+.bannerSection :global(.top_heading){
+    max-width: 500px;
+}
+
+}
+
+
+/* mobile  */
+@media screen and (max-width:767px) {
+
+    .yourCare_section .container .stats {
+gap:70px 0;
+    }
+
+    .yourCare_section .container .stats .card{
+width: 100%;
+}
+
+.yourCare_section .container .stats .card:not(:last-child):before{
+    background-position: center;
+    right: 50%;
+    transform: translate(50%,50%) rotate(90deg);
+    top: 100%;
+}
+
+    .yourCare_section .container .content .actions{
+   flex-direction: column;
+   align-items: center;
+}
+
+    .healthCheck_section .cards .card{
+  width: 100%;
+}
+
+.healthCheck_section .cards .card .icon{
+    width: 60px;
+}
+
+
+
+       .faq_section .faq .card .head h3{
+    font-size: 18px;
+    line-height: 26px;
+}
+
+.faq_section .faq .card .head button img{
+    width: 24px;
+}
+
+.faq_section .faq .card .body{
+    padding-right: 30px;
+}
+
+     .yourCare_section .container .stats .card p{
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+.healthCheck_section .cards .card,
+     .yourCare_section .statsArea{
+        border-radius: 16px;
+     }
+
+    .bannerSection .container .buttons{
+        gap: 16px;
+    }
+
+}

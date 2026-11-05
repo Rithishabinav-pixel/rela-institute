@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { listJobsPublic } from '@/lib/jobs'
 import CareersTableClient from './CareersTableClient'
 
+
 export const revalidate = 3600
 
 const careerCards = [
@@ -39,9 +40,9 @@ export default async function page() {
   return (
     <>
     
-    <section className={style.bannerSection}>
+    <section className={`${style.bannerSection}`}>
         <div className={`${style.container} container`}>
-            <div className='top_heading center'>
+            <div className='top_heading center' data-aos="fade-up">
                 <h1 className='white_text common_heading'>Build Your Career Where <span>Care Comes First</span></h1>
                 <p className='white_text'>Join a healthcare environment where clinical expertise, advanced technology and a commitment to patient care come together to create meaningful work every day.</p>
                 <div className={style.buttons}>
@@ -58,12 +59,12 @@ export default async function page() {
 
     <section className={`common_section ${style.careerAbout_section}`} >
         <div className={`container ${style.container} section_container column`}>
-            <div className='top_heading center'>
+            <div className='top_heading center' data-aos="fade-up">
                 <h2 className='common_heading'>More Than a Job. A Role in Better Healthcare.</h2>
                 <p>Healthcare is built by people. At Rela, your expertise becomes part of a multidisciplinary environment where people work together to deliver advanced and compassionate care.</p>
             </div>
 
-<div className={style.cards}>
+<div className={style.cards} data-aos="fade-up">
     {careerCards.map((card,i)=>(
         <div className={style.card} key={i}>
             <Image className={style.icon} src={card.icon} width={80} height={80} alt={card.title}/>
@@ -81,11 +82,11 @@ export default async function page() {
 
      <section className={`common_section no_padding_top ${style.careersList_section}`} id='explore'>
         <div className={`container ${style.container} section_container column`}>
-            <div className='top_heading center'>
+            <div className='top_heading center' data-aos="fade-up">
                 <h2 className='common_heading'>Find Your Next Opportunity</h2>
                 <p>Whether you are an experienced healthcare professional or building your career in healthcare, explore opportunities across Rela.</p>
             </div>
-<CareersTableClient jobs={jobs}/>
+<CareersTableClient jobs={jobs} />
 
         </div>
     </section>

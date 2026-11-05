@@ -1,0 +1,773 @@
+.faq_section .container,
+.faq_section .faq,
+.faq_section .faq .card,
+.faq_section .faq .card .head,
+.journey_section .journeyContainer .cards,
+.journey_section .journeyContainer .cards .card,
+.journey_section .journeyContainer,
+.yourCare_section .container .stats .card,
+.bannerSection .container .buttons,
+.yourCare_section .statsArea,
+.yourCare_section .container .stats,
+.expertise_section .cards,
+.expertise_section .cards .card{
+    display: flex;
+}
+
+
+.faq_section .faq,
+.faq_section .faq .card,
+.journey_section .journeyContainer .cards .card,
+.journey_section .journeyContainer .cards,
+.expertise_section .cards .card{
+    flex-direction: column;
+}
+
+.faq_section .faq,
+.faq_section .faq .card .head{
+    gap: 16px;
+}
+
+.faq_section .faq .card .head
+{
+    align-items: center;
+}
+
+
+.faq_section .container .faq{
+    width: 50%;
+}
+.faq_section .container,
+.faq_section .faq .card .head{
+    justify-content: space-between;
+}
+
+.faq_section .container .title{
+    width: 40%;
+}
+
+.faq_section .faq .card{
+    padding: 16px 24px;
+    border-radius: 16px;
+    background-color: var(--gray);
+}
+
+.faq_section .faq .card .head h3{
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 600;
+}
+
+.faq_section .faq .card.active .head h3{
+    color: var(--orange);
+    transition: var(--transition);
+}
+
+.faq_section .faq .card .head button{
+    background: none;
+    border: none;
+    transition: var(--transition);
+}
+
+.faq_section .faq .card.active .head button{
+    transform: rotate(180deg);
+}
+
+.faq_section .faq .card .head button img{
+    width: 32px;
+}
+
+.faq_section .faq .card .body{
+    padding-right: 50px;
+    max-height: 0;
+    overflow: hidden;
+}
+
+.faq_section .faq .card.active .body{
+animation: openFaq 3s forwards;
+}
+
+@keyframes openFaq {
+    to{
+max-height: 2500px;
+
+    }
+}
+
+.faq_section .faq .card .body div{
+    padding-top: 12px;
+}
+
+.faq_section .faq .card .head {
+    cursor: pointer;
+}
+
+.bannerSection{
+    background-image: url('/assets/images/international-patients-bg.png');
+    background-size: cover;
+    min-height: 500px;
+    display: grid;
+    place-items: center;
+    position: relative;
+    background-position: center right;
+
+}
+
+.bannerSection::before{
+    position: absolute;
+    inset: 0;
+    content: '';
+background: linear-gradient(94deg, #242424 43.25%, rgba(102, 102, 102, 0.00) 69.21%), rgba(211, 211, 211, 0) 0.104px -0.031px / 99.993% 100.012% no-repeat;
+}
+
+.bannerSection .container{
+    position: relative;
+    z-index: 2;
+}
+
+.bannerSection .container .buttons{
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.bannerSection .container h1{
+    margin-bottom: -24px;
+}
+
+.bannerSection .container .top_heading{
+    width: 100%;
+    max-width: 686px;
+}
+
+.yourCare_section .container .blurLayer,
+.yourCare_section .statsArea{
+  border-radius: 24px;
+}
+
+
+.yourCare_section .statsArea{
+background: #23262F;
+padding: 0 60px;
+align-items: center;
+justify-content: space-between;
+gap: 30px;
+position: relative;
+}
+
+.yourCare_section .container .blurLayer{
+  position: absolute;
+  overflow: hidden;
+  inset: 0;
+}
+
+.yourCare_section .container .content{
+  width: 30%;
+}
+
+.yourCare_section .container .stats{
+  width: 50%;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 3;
+}
+
+.yourCare_section .container .image{
+  width: 20%;
+  transform-origin: bottom center;
+  position: relative;
+  z-index: 2;
+  transform: scale(1.145);
+margin-top: auto;
+}
+
+.yourCare_section .container .blurLayer .center,
+.yourCare_section .container .blurLayer .right{
+position: absolute;
+width: 350px;
+height: auto;
+aspect-ratio: 1 / 1;
+background-color: var(--orange);
+filter: blur(50);
+z-index: 1;
+opacity: 0.2;
+}
+
+.yourCare_section .container .blurLayer .center{
+  top: 50%;
+  left: 50%;
+  transform: translate(-80%,-50%);
+}
+
+.yourCare_section .container .blurLayer .right{
+  right: 0;
+  top: 0;
+  transform: translate(10%,-30%);
+}
+
+.yourCare_section .container .image img{
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.yourCare_section .container .stats .card{
+  flex-direction: column;
+  width: 33.33%;
+  padding: 16px;
+  gap: 16px;
+  text-align: center;
+  align-items: center;
+  position: relative;
+  justify-content: flex-end;
+}
+
+.yourCare_section .container .stats .card,
+.yourCare_section .container .stats .card p{
+  transition: var(--transition);
+}
+
+.yourCare_section .container .stats .card:hover img{
+  transform: scaleX(-1) scale(0.9);
+}
+
+.yourCare_section .container .stats .card img{
+  width: 40px;
+  transition: var(--transition);
+}
+
+.yourCare_section .container .stats .card:hover p{
+  color: var(--orange);
+}
+
+.yourCare_section .container .stats .card:nth-child(-n+3){
+  border-bottom: solid rgba(255, 255, 255, 0.2) 1px;
+}
+
+.yourCare_section .container .stats .card::before{
+  position: absolute;
+  content: '';
+  width: 1px;
+  height: 75%;
+  background-color: rgba(255, 255, 255, 0.2);
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+}
+
+.yourCare_section .container .stats .card:nth-child(3n)::before{
+  opacity: 0;
+}
+
+.countersSection .content{
+    width: calc(42% - 20px);
+}
+
+.countersSection .counterContainer{
+    width: calc(58% - 20px);
+    position: relative;
+}
+
+.countersSection .counterContainer img.map{
+    width: 100%;
+}
+
+
+.countersSection .counterContainer .counter{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 192px;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  border: solid var(--orange) 1px;
+  border-radius: 100%;
+  gap: 24px;
+  background-color: white;
+  position: absolute;
+    padding: 10px;
+}
+
+.countersSection .counterContainer .counter:nth-of-type(1){
+    top: 0;
+    left: 5%;
+}
+
+.countersSection .counterContainer .counter:nth-of-type(2){
+    top:8%;
+    right: 22%;
+}
+
+.countersSection .counterContainer .counter:nth-of-type(3){
+    bottom: 11%;
+    left: 28%;
+}
+
+.countersSection .counterContainer .counter:nth-of-type(4){
+    bottom: 12%;
+    right: 0%;
+}
+
+.countersSection .counterContainer .counter h3{
+    font-size: 80px;
+  line-height: 80px;
+    font-family:"shelby";
+    margin-bottom: -40px;
+}
+
+.countersSection .counterContainer .counter p{
+    width: 80%;
+}
+
+
+.expertise_section .cards{
+    gap: 30px;
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+
+.expertise_section .cards .card{
+    width: calc(25% - 22.5px);
+    gap: 16px;
+    border: solid #CCCCCC 1px;
+    padding: 16px 24px;
+    border-radius: 32px;
+    transition: var(--transition);
+    background-color: white;
+    height: auto;
+}
+
+.expertise_section.care_section .cards .card:nth-child(1),
+.expertise_section.care_section .cards .card:nth-child(2){
+    width: calc(50% - 15px);
+}
+
+.expertise_section .cards .card .icon{
+    width: 80px;
+    margin-bottom: 8px;
+    transition: var(--transition);
+}
+
+.expertise_section .cards .card button{
+    margin-top: auto;
+}
+
+.expertise_section .cards .card:hover{
+    transform: translateY(-5px);
+}
+
+.expertise_section .cards .card:hover .icon{
+    transform: scaleX(-1);
+}
+
+.expertise_section .cards .card h3{
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 600;
+}
+
+.journey_section .journeyContainer{
+    gap: 30px;
+    align-items: stretch;
+}
+
+.journey_section .journeyContainer .image{
+    width: calc(45% - 20px);
+    margin: auto 0;
+}
+
+.journey_section .journeyContainer .image img{
+    width: 100%;
+}
+.journey_section .journeyContainer .cards{
+    width:calc(27.5% - 20px) ;
+    justify-content: space-between;
+    gap: 30px;
+
+}
+
+.journey_section .journeyContainer .cards .card{
+    gap: 24px;
+}
+
+.journey_section .journeyContainer .cards .count{
+    font-family:"shelby";
+    font-size: 120px;
+    line-height: 120px;
+    color: var(--orange);
+    margin-bottom: -34px;
+}
+
+.journey_section .journeyContainer .cards p,
+.journey_section .journeyContainer .cards .title{
+    font-size: 20px;
+    line-height: 28px;
+}
+
+.journey_section .journeyContainer .cards .title{
+font-weight: 600;
+}
+
+.care_section{
+    background-image: url(/assets/images/rela_vector.svg);
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-position: -20% 0;
+}
+
+.care_section .top_heading{
+    max-width: 550px;
+}
+
+.deptSection .slide{
+  height: 100%;
+}
+
+.whyChoose_section{
+  background-image: url(/assets/images/int-why-choose.png);
+  background-size: cover;
+  background-position: top right;
+  position: relative;
+}
+
+.whyChoose_section::before{
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 46%;
+  border-radius: 0 80px 80px 0;
+  background-color: white;
+}
+
+.whyChoose_section .container{
+  position: relative;
+  z-index: 2;
+}
+
+.whyChoose_section .container .content{
+  width: 100%;
+  max-width: 630px;
+  padding: 0px 0;
+}
+
+
+
+/* responsive  */
+
+/* laptop  */
+
+@media screen and (max-width:1600px) {
+      .yourCare_section .container .content{
+  width: 25%;
+}
+}
+
+@media screen and (max-width:1400px) {
+  .yourCare_section .container .image{
+  transform: scale(1.21);
+}
+
+
+}
+
+/* tablet  */
+
+@media screen and (max-width:1200px) {
+
+  .faq_section .faq .card{
+    padding: 16px 20px;
+}
+
+    .faq_section .container{
+        flex-direction: column;
+        gap: 30px;
+    }
+
+   
+
+    .faq_section .container .title,
+.faq_section .container .faq{
+          width: 100%;
+        }
+
+        .faq_section{
+    padding-top: 0;
+}
+
+.faq_section .container{
+max-width: 500px;
+}
+
+  .whyChoose_section{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  padding-top: 0;
+
+  }
+
+  .whyChoose_section img.mobileImg{
+    width: 100%;
+  }
+
+  .whyChoose_section .container .content{
+    width: 100%;
+    background-color: white;
+  }
+
+  .whyChoose_section::before{
+    content: unset;
+  }
+
+  .whyChoose_section,
+  .care_section{
+    background-image: none;
+}
+
+    .journey_section .journeyContainer{
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .journey_section .journeyContainer .cards,
+    .journey_section .journeyContainer .image{
+        width: 100%;
+    }
+
+     .journey_section .journeyContainer .image{
+        margin: 10px 0;
+     }
+
+    .journey_section .journeyContainer .cards{
+        padding-top: 0;
+        gap: 20px;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .journey_section .journeyContainer .cards .card{
+        width: calc(50% - 10px);
+        gap: 16px;
+    }
+
+    .yourCare_section .container .stats .card{
+  justify-content: flex-start;
+}
+
+    .expertise_section .cards{
+    gap: 20px;
+}
+
+.expertise_section .cards .card{
+    width: calc(50% - 10px);
+    border-radius: 24px;
+}
+
+    .countersSection .content,
+    .countersSection .counterContainer{
+    width: 100%;
+}
+
+    .countersSection .container{
+        flex-direction: column;
+    }
+
+      .countersSection .counterContainer .counter h3{
+    font-size: 60px;
+  line-height: 60px;
+  margin-bottom: -30px;
+}
+
+    .yourCare_section .statsArea{
+    border-radius: 24px;
+  }
+
+   .yourCare_section .container .blurLayer .center{
+  top: unset;
+  bottom: 0;
+  transform: translate(-50%,0%);
+  width: 70%;
+}
+
+.yourCare_section .container .blurLayer .right{
+  display: none;
+}
+
+
+  .yourCare_section .statsArea{
+padding: 50px 0 0 0px;
+flex-direction: column;
+gap: 20px;
+align-items: center;
+overflow: hidden;
+}
+
+.yourCare_section .container .content{
+  text-align: center;
+}
+
+.yourCare_section .container .content,
+.yourCare_section .container .image,
+.yourCare_section .container .stats{
+  width: 100%;
+}
+
+.yourCare_section .container .content,
+.yourCare_section .container .stats{
+  padding: 0 20px;
+}
+
+.yourCare_section .container .image{
+  order: 3;
+}
+
+.yourCare_section .container .stats{
+  order: 2;
+}
+
+.yourCare_section .container .image{
+  transform: scale(1);
+}
+
+     .bannerSection{
+    display: flex;
+    justify-content: flex-start;
+     min-height: fit-content;
+    padding: 50px 0;
+}
+
+.bannerSection::before{
+    background:black;
+    opacity: 0.7;
+}
+
+.bannerSection :global(.top_heading){
+    max-width: 500px;
+}
+
+}
+
+
+/* mobile  */
+@media screen and (max-width:767px) {
+
+   .faq_section .faq .card .head h3{
+    font-size: 18px;
+    line-height: 26px;
+}
+
+.faq_section .faq .card .head button img{
+    width: 24px;
+}
+
+.faq_section .faq .card .body{
+    padding-right: 30px;
+}
+
+   
+
+  
+ 
+
+    .expertise_section .cards .card .icon{width: 60px;}
+
+
+
+.expertise_section .cards .card,
+    .expertise_section.care_section .cards .card:nth-child(1),
+.expertise_section.care_section .cards .card:nth-child(2),
+     .journey_section .journeyContainer .cards .card{
+        width:100%;
+    }
+
+    .journey_section .journeyContainer .cards .card{
+        gap: 8px;
+    }
+
+    .journey_section .journeyContainer .cards .card .count{
+        font-size: 80px;
+        line-height: 80px;
+        margin-bottom: -20px;
+    }
+
+    .journey_section .journeyContainer .cards .title{
+        font-size: 18px;
+        line-height: 26px;
+    }
+
+    .journey_section .journeyContainer .cards p{
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+
+    .expertise_section .cards .card{
+    width: 100%;
+}
+
+.countersSection .counterContainer .counter:nth-of-type(1),
+    .countersSection .counterContainer .counter:nth-of-type(2){
+    top:0%;
+}
+
+    .countersSection .counterContainer .counter:nth-of-type(4),
+    .countersSection .counterContainer .counter:nth-of-type(3){
+    bottom: 0%;
+}
+
+     .countersSection .counterContainer .counter {
+      width: 100px;
+    }
+
+  .countersSection .counterContainer .counter h3{
+    font-size: 32px;
+  line-height: 32px;
+    margin-bottom: -30px;
+}
+
+.countersSection .counterContainer .counter p{
+      font-size: 12px;
+      line-height: 16px;
+      width: 100%;
+     }
+
+    .yourCare_section .container .stats .card p{
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  .yourCare_section .statsArea{
+    border-radius: 16px;
+  }
+
+    .bannerSection .container .buttons{
+        gap: 16px;
+    }
+
+       .bannerSection{
+        background-position-x:80% ;
+       }
+
+}
+
+@media screen and (max-width:400px) {
+  .yourCare_section .container .stats .card{
+ width: calc(50%);
+}
+.yourCare_section .container .stats .card:nth-child(3n)::before{
+  opacity: 1;
+}
+
+.yourCare_section .container .stats .card:nth-child(even)::before{
+  opacity: 0;
+}
+
+.yourCare_section .container .stats .card:not(:nth-last-child(-n+2)) {
+  border-bottom: solid rgba(255, 255, 255, 0.2) 1px;
+}
+
+}

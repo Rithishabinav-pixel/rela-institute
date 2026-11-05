@@ -54,7 +54,7 @@ export default async function Page({ params }) {
           <div className={style.content} dangerouslySetInnerHTML={{ __html: job.content }} />
 
           <div className={style.formArea} id='form'>
-            <CareerForm />
+            <CareerForm job={job} />
           </div>
         </div>
       </section>

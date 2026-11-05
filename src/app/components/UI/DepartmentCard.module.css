@@ -102,6 +102,10 @@ flex-wrap: wrap;
 
 @media screen and (max-width:767px) {
 
+    .deptCard .icon img{
+    width: 60px;
+}
+
        .deptCard,
 .deptCard .wrapper .top{
     border-radius: 16px;

@@ -1,0 +1,94 @@
+.animation{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: auto;
+    aspect-ratio: 1920 / 600;
+}
+
+.animation svg{
+    width: 100%;
+    height: auto;
+}
+
+.points{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.arrow,
+.points{
+    position: absolute;
+}
+
+.points span{
+    padding: 8px 10px;
+    border: solid var(--orange) 2px;
+    border-radius: 50px;
+    font-size: 12px;
+    line-height: 12px;
+} 
+
+.points1{
+    top: 0;
+}
+
+.points3,
+.points4{
+    bottom: 0;
+}
+
+.points1{
+    width: 201px;
+    left: 45%;
+}
+
+.points2{
+    right: 20%;
+    width: 120px;
+    top: 4%;
+}
+
+.points2{
+    right: 11%;
+    width: 120px;
+}
+
+.points3{
+    left: 23%;
+    width: 350px;
+}
+
+.points4{
+    left: 50%;
+    width: 190px;
+}
+
+.arrow1{
+    width: 120px;
+    top: 7%;
+    left: 38%;
+}
+
+.arrow2{
+    width: 145px;
+     top: 5%;
+    right: 18%;
+}
+
+.arrow3{
+    width: 95px;
+    left:17%;
+    bottom: 2%;
+}
+
+.arrow4{
+    width: 75px;
+    bottom: 13%;
+    left: 55%;
+}
+
+
+

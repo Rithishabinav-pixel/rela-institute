@@ -1,0 +1,47 @@
+.banner{
+    background-color: var(--gray);
+    padding: 80px 20px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    min-height: 350px;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6{
+    margin-top: 8px;
+    color: var(--orange);
+}
+
+.content ol{
+    list-style: none;
+}
+
+.content a{
+    color: var(--orange);
+    display: inline-block;
+}
+
+
+/* responsive  */
+
+/* tablet  */
+
+@media screen and (max-width:1200px) {
+    .banner{
+        min-height: fit-content;
+        padding: 50px 20px;
+    }
+}

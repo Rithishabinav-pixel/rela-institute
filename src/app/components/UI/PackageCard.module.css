@@ -1,0 +1,256 @@
+.cardTop .discount,
+.cardTop,
+.actions,
+.card,
+.cardTop .main,
+.cardTop .main .price,
+.cardTop .detail,
+.cardTop .detail .tests{
+    display: flex;
+}
+
+.card,
+.cardTop .discount,
+.cardTop,
+.cardTop .main,
+.cardTop .detail{
+    flex-direction: column;
+}
+
+.actions{
+    justify-content: space-between;
+}
+
+.cardTop{
+    flex-grow: 1;
+}
+
+.card,
+.cardTop{
+    border-radius: 32px;
+}
+
+.card{
+width: calc(33.33% - 20px);
+background-color:var(--brown);
+}
+
+:global(.swiper-slide) .card{
+    width: 100%;
+}
+
+.cardTop{
+padding: 24px;
+border: solid var(--orange) 1px;
+background-color: white;
+position: relative;
+}
+
+.cardTop .tag,
+.cardTop .discount{
+    position: absolute;
+}
+
+.cardTop .tag{
+    top: 0;
+    right: 55px;
+    color: white;
+    padding: 8px 16px;
+    background-color: var(--orange);
+border-radius: 0 0 8px 8px;
+}
+
+.cardTop .discount{
+    width: 112px;
+    aspect-ratio: 1 / 1;
+    height: auto;
+    top: 50px;
+    right: 30px;
+    align-items: center;
+    text-align: center;
+    background-image: url(/assets/images/hp-discount-bg.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    justify-content: center;
+    padding: 20px;
+    transform: rotate(15deg);
+    font-weight: 500;
+    animation: discount 3s infinite linear;
+}
+
+@keyframes discount {
+    0%,5%,10%,15%,20%,25%,30%,35%,40%,45%,50%{
+    transform: rotate(14.5deg);
+    }
+    2.5%,7.5%,12.5%,17.5%,22.5%,27.5%,32.5%,37.5%,42.5%,47.5%{
+    transform: rotate(15.5deg) scale(0.99);
+    } 60%{
+    transform: rotate(15deg);
+    }
+}
+
+.cardTop .discount span{
+    font-size: 30px;
+    line-height: 30px;
+}
+
+.cardTop .main{
+    width: 300px;
+}
+
+.cardTop .price{
+    align-items: flex-end;
+    gap: 8px;
+}
+
+.cardTop .price .offerPrice,
+.cardTop .testName{
+    font-weight: 600;
+}
+
+.cardTop .price .offerPrice{
+    font-size: 40px;
+    line-height: 48px;
+    color: var(--orange);
+}
+
+.cardTop .price .actualPrice,
+.cardTop .testName{
+    font-size: 20px;
+    line-height: 28px;
+}
+
+
+.cardTop .price .actualPrice{
+    opacity: 0.2;
+}
+
+.cardTop .testName{
+margin:16px 0 8px 0; 
+}
+
+.cardTop .test{
+    color: var(--orange);
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.cardTop .disclaimer{
+    font-size: 12px;
+    line-height: 20px;
+    font-style: italic;
+    color: #6B7280;
+}
+
+.cardTop .detail{
+    padding-top: 16px;
+    margin-top: 16px;
+    border-top: solid #CCCCCC 1px;
+}
+
+.cardTop .detail .tests{
+    gap: 8px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+
+.cardTop .detail .tests li{
+    padding: 4px 10px;
+    background-color: rgba(244, 119, 2, 0.1);
+    border: solid var(--orange) 1px;
+    border-radius: 50px;
+    min-width: fit-content;
+    font-size: 14px;
+    line-height: 22px;
+}
+
+.cardTop .detail .tests li:last-child{
+    background-color: var(--orange);
+    color: white;
+}
+
+.actions{
+    padding: 24px;
+}
+
+
+/* responsive  */
+
+
+/* laptop  */
+
+@media screen and (max-width:1600px) {
+
+}
+
+@media screen and (max-width:1400px) {
+
+    .cardTop .discount{
+        width: 100px;
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .cardTop .discount span{
+    font-size: 22px;
+    line-height: 22px;
+}
+
+}
+
+/* tablet  */
+
+@media screen and (max-width:1200px) {
+
+
+.actions{
+    padding: 20px;
+}
+
+.card,
+.cardTop{
+    border-radius: 24px;
+  }
+
+  .card{
+    width: calc(50% - 10px);
+}
+
+}
+
+@media screen and (max-width:992px) {
+
+     .cardTop .tag{
+    right: 24px
+}
+
+    .cardTop .price .actualPrice,
+.cardTop .testName{
+    font-size: 18px;
+    line-height: 26px;
+}
+
+    .cardTop .price .offerPrice{
+    font-size: 30px;
+    line-height: 38px;
+}
+
+    .card{
+    width: 100%;
+}
+
+}
+
+/* mobile  */
+@media screen and (max-width:767px) {
+    .cardTop .main{
+    width: 230px;
+}
+
+
+ .card,
+.cardTop{
+        border-radius: 16px;
+     }
+
+}

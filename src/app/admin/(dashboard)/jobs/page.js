@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import { listJobsAdmin } from '@/lib/jobs'
-import { jobTitles, jobCategories, jobLocations } from '@/lib/job-options'
 import JobsPageClient from './JobsPageClient'
 import style from '../../content/content-admin.module.css'
 
@@ -9,12 +8,7 @@ export const metadata = {
 }
 
 export default async function JobsPage() {
-  const [jobs, titleOptions, categoryOptions, locationOptions] = await Promise.all([
-    listJobsAdmin(),
-    jobTitles.list(),
-    jobCategories.list(),
-    jobLocations.list(),
-  ])
+  const jobs = await listJobsAdmin()
 
   return (
     <>
@@ -24,12 +18,7 @@ export default async function JobsPage() {
           + Add Job
         </Link>
       </div>
-      <JobsPageClient
-        initialJobs={jobs}
-        initialTitleOptions={titleOptions}
-        initialCategoryOptions={categoryOptions}
-        initialLocationOptions={locationOptions}
-      />
+      <JobsPageClient initialJobs={jobs} />
     </>
   )
 }

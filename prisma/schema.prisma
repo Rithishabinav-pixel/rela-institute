@@ -413,6 +413,160 @@ model Job {
   jobTitle    JobTitle    @relation(fields: [jobTitleId], references: [id], onDelete: Restrict)
   jobCategory JobCategory @relation(fields: [jobCategoryId], references: [id], onDelete: Restrict)
   jobLocation JobLocation @relation(fields: [jobLocationId], references: [id], onDelete: Restrict)
+  careerEnquiries CareerEnquiry[]
 
   @@map("jobs")
+}
+
+model ContactEnquiry {
+  id                Int      @id @default(autoincrement())
+  name              String
+  email             String
+  phone             String
+  preferredLocation String?
+  lookingFor        String?
+  message           String?  @db.Text
+  pageUrl           String?
+  emailStatus       String   @default("pending")
+  createdAt         DateTime @default(now())
+
+  @@map("contact_enquiries")
+}
+
+model CareerEnquiry {
+  id                  Int      @id @default(autoincrement())
+  name                String
+  email               String
+  phone               String
+  jobId               Int?
+  jobTitleSnapshot    String?
+  jobCategorySnapshot String?
+  jobLocationSnapshot String?
+  resumePath          String?
+  resumeOriginalName  String?
+  message             String?  @db.Text
+  pageUrl             String?
+  emailStatus         String   @default("pending")
+  createdAt           DateTime @default(now())
+
+  job Job? @relation(fields: [jobId], references: [id], onDelete: SetNull)
+
+  @@map("career_enquiries")
+}
+
+model ContentEnquiry {
+  id          Int      @id @default(autoincrement())
+  name        String
+  email       String
+  phone       String
+  country     String?
+  state       String?
+  enquiryType String?
+  message     String?  @db.Text
+  pageUrl     String?
+  emailStatus String   @default("pending")
+  createdAt   DateTime @default(now())
+
+  @@map("content_enquiries")
+}
+
+model DoctorEnquiry {
+  id          Int      @id @default(autoincrement())
+  name        String
+  email       String
+  phone       String
+  country     String?
+  state       String?
+  enquiryType String?
+  message     String?  @db.Text
+  pageUrl     String?
+  emailStatus String   @default("pending")
+  createdAt   DateTime @default(now())
+
+  @@map("doctor_enquiries")
+}
+
+model HealthPackage {
+  id              Int      @id @default(autoincrement())
+  slug            String   @unique
+  testName        String
+  isPopular       Boolean  @default(false)
+  discount        String?
+  discountText    String?
+  offerPrice      String
+  actualPrice     String
+  testCount       String
+  disclaimer      String?
+  ageGroup        String?
+  gender          String?
+  fastingFor      String?
+  reportsWithin   String?
+  packageImage    String?
+  metaTitle       String?
+  metaDescription String?
+  canonicalUrl    String?
+  isActive        Boolean  @default(true)
+  sortOrder       Int      @default(0)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  testGroups HealthPackageTestGroup[]
+  faqs       HealthPackageFaq[]
+  enquiries  PackageEnquiry[]
+
+  @@map("health_packages")
+}
+
+model HealthPackageTestGroup {
+  id              Int    @id @default(autoincrement())
+  healthPackageId Int
+  heading         String
+  sortOrder       Int    @default(0)
+
+  healthPackage HealthPackage       @relation(fields: [healthPackageId], references: [id], onDelete: Cascade)
+  tests         HealthPackageTest[]
+
+  @@map("health_package_test_groups")
+}
+
+model HealthPackageTest {
+  id        Int    @id @default(autoincrement())
+  groupId   Int
+  name      String
+  sortOrder Int    @default(0)
+
+  group HealthPackageTestGroup @relation(fields: [groupId], references: [id], onDelete: Cascade)
+
+  @@map("health_package_tests")
+}
+
+model HealthPackageFaq {
+  id              Int      @id @default(autoincrement())
+  healthPackageId Int
+  heading         String
+  answer          String   @db.Text
+  sortOrder       Int      @default(0)
+
+  healthPackage HealthPackage @relation(fields: [healthPackageId], references: [id], onDelete: Cascade)
+
+  @@map("health_package_faqs")
+}
+
+model PackageEnquiry {
+  id                  Int      @id @default(autoincrement())
+  name                String
+  email               String
+  phone               String
+  preferredLocation   String?
+  message             String?  @db.Text
+  packageId           Int?
+  packageNameSnapshot String?
+  packageSlugSnapshot String?
+  pageUrl             String?
+  emailStatus         String   @default("pending")
+  createdAt           DateTime @default(now())
+
+  package HealthPackage? @relation(fields: [packageId], references: [id], onDelete: SetNull)
+
+  @@map("package_enquiries")
 }

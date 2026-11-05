@@ -4,7 +4,7 @@ import Image from "next/image";
 import style from "./page.module.css";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination,Navigation, Mousewheel, Autoplay } from "swiper/modules";
+import { Pagination,Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -16,6 +16,7 @@ import DoctorCard from "./components/UI/DoctorCard";
 import AnimatedCounter from "./components/UI/AnimatedCounter";
 import useSectionInView from "./components/UI/useSectionInView";
 import React from "react";
+import TestimonialSection from "./components/TestimonialSection/TestimonialSection";
 
 
 const stats = [
@@ -51,83 +52,6 @@ const stats = [
   },
 
 ]
-
-
-const healthPackages = [
-{
-  packageName:"Essential Health Check",
-  tests:"7 tests with consultations",
-  actualPrice:"2,500",
-  offerPrice:"1,800",
-  link:"/",
-  special:false
-},
-{
-  packageName:"Essential Health Check",
-  tests:"7 tests with consultations",
-  actualPrice:"2,500",
-  offerPrice:"1,800",
-  link:"/",
-  special:false
-},
-{
-  packageName:"Essential Health Check",
-  tests:"7 tests with consultations",
-  actualPrice:"2,500",
-  offerPrice:"1,800",
-  link:"/",
-  special:false
-},
-{
-  packageName:"Essential Health Check",
-  tests:"7 tests with consultations",
-  actualPrice:"2,500",
-  offerPrice:"1,800",
-  link:"/",
-  special:false
-},
-{
-  packageName:"Essential Health Check",
-  tests:"7 tests with consultations",
-  actualPrice:"2,500",
-  offerPrice:"1,800",
-  link:"/",
-  special:false
-},
-{
-  packageName:"Essential Health Check",
-  tests:"7 tests with consultations",
-  actualPrice:"2,500",
-  offerPrice:"1,800",
-  link:"/",
-  special:false
-},
-{
-  packageName:"Essential Health Check",
-  tests:"7 tests with consultations",
-  actualPrice:"2,500",
-  offerPrice:"1,800",
-  link:"/",
-  special:false
-},
-{
-  packageName:"Essential Health Check",
-  tests:"7 tests with consultations",
-  actualPrice:"2,500",
-  offerPrice:"1,800",
-  link:"/",
-  special:true
-},
-{
-  packageName:"Essential Health Check",
-  tests:"7 tests with consultations",
-  actualPrice:"2,500",
-  offerPrice:"1,800",
-  link:"/",
-  special:true
-},
-]
-
 
 
 const internationalPatients = [
@@ -206,44 +130,6 @@ const internationalPatients = [
 
 
 
-const testData = [
-  {
-    content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.",
-    name:"John Doe",
-    image:"/assets/images/usr.png"
-  },
-    {
-    content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.",
-    name:"John Doe",
-    image:"/assets/images/usr.png"
-  },
-    {
-    content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.",
-    name:"John Doe",
-    image:"/assets/images/usr.png"
-  },
-    {
-    content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.",
-    name:"John Doe",
-    image:"/assets/images/usr.png"
-  },
-    {
-    content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.",
-    name:"John Doe",
-    image:"/assets/images/usr.png"
-  },
-    {
-    content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.",
-    name:"John Doe",
-    image:"/assets/images/usr.png"
-  },
-    {
-    content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.",
-    name:"John Doe l",
-    image:"/assets/images/usr.png"
-  },
-
-]
 
 
 const locationData = [
@@ -255,6 +141,7 @@ const locationData = [
     locationLink: "https://maps.app.goo.gl/vc9dp3FrmSMmMy7g6",
     contact: ["044 66667777", "044 71111117"],
     mail: "info@relainstitute.com",
+    link:"/"
   },
   {
     name: "Kumaran Hospitals & Rela Institute",
@@ -265,6 +152,7 @@ const locationData = [
     locationLink: "",
     contact: ["+91 98410 04625"],
     mail: "kumaranhospitals@hotmail.com",
+    link:"/"
   },
   {
     name: "Rela MS Hospital - Red Hills",
@@ -275,6 +163,7 @@ const locationData = [
     locationLink: "",
     contact: ["044-7111 1111"],
     mail: "info@rimshospitals.com",
+    link:"/"
   },
   {
     name: "Rela Clinics, Nanganallur",
@@ -285,10 +174,11 @@ const locationData = [
     locationLink: "",
     contact: ["044 66667777", "044 71111117"],
     mail: "nanganallur@relainstitute.com",
+    link:"/"
   },
 ];
 
-export default function HomeClient({ coeData, deptData, doctorsData, heroBanners }) {
+export default function HomeClient({ coeData, deptData, doctorsData, heroBanners, healthPackages }) {
 
   const [mobile,setMobile] = useState(false);
   const [strictMobile,setStrictMobile] = useState(false);
@@ -563,8 +453,8 @@ slidesPerView: 1.5,
           speed={800}
           slidesPerView={4.5}
           navigation={{
-            prevEl: ".slide_prev",
-            nextEl: ".slide_next",
+            prevEl: ".prev_nav",
+            nextEl: ".next_nav",
           }}
           pagination={{
           type: 'fraction',
@@ -609,7 +499,7 @@ slidesPerView: 1.8,
         </Swiper>
 
 <div className="slider_nav_container center orange">
-        <button className="slide_prev slider_nav " aria-label="Previous slide">
+        <button className=" prev_nav slider_nav " aria-label="Previous slide">
           <Image
             src="/assets/images/slider-prev-arrow.svg"
             width={32}
@@ -619,7 +509,7 @@ slidesPerView: 1.8,
         </button>
       <div className="fraction_pagination doct_fraction_pagination"/>
 
-        <button className="slide_next slider_nav" aria-label="Next slide">
+        <button className="next_nav slider_nav" aria-label="Next slide">
           <Image
             src="/assets/images/slider-next-arrow.svg"
             width={32}
@@ -860,7 +750,7 @@ slidesPerView: 1.5,
 </section>
 
 
-<section className={`common_section gray_bg ${style.internationalSection}`}>
+<section className={`common_section  ${style.internationalSection}`}>
 
 <div className={`section_container column ${style.section_container}`}>
  <div className={`container ${style.container}`}>
@@ -943,96 +833,8 @@ slidesPerView: 1.5,
 
 
 
+<TestimonialSection/>
 
-<section className={`common_section ${style.testimonialSection}`}>
-  <div className={`container ${style.container}`}>
-
-<div className={`section_container column ${style.left}`}>
-  <div className="top_heading" data-aos="fade-right">
-    <h2 className="common_heading">Trusted Care, Shared Experiences</h2>
-    <Button link="/" classname="orange_btn" text="Discover Rela Hospital"/>
-  </div>
-
-  <div className={style.featureTestimonial} data-aos="fade-up">
-    <div className={style.content}>
-    <Image src="/assets/images/quote.svg" className={style.quote} width={78} height={55} alt="" />
-    <p className="white_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse</p>
-    <div className={style.testUser}>
-      <Image src="/assets/images/usr.png" width={40} height={40} alt=""/>
-      <h3 className="white_text">John Doe</h3>
-      </div>
-    </div>
-
-    <div className={style.image}>
-      {strictMobile?
-    <Image src="/assets/images/feature_test_m.svg" width={361} height={230} alt=""/>:
-    <Image src="/assets/images/feature_test.svg" width={427} height={415} alt=""/>
-    }
-
-    </div>
-
-  </div>
-
-</div>
-
-
-
-
-
-<div className={style.right}>
-  <Swiper
-    modules={[Autoplay]}
-    direction={mobile?"horizontal":"vertical"}
-    slidesPerView={3}
-    spaceBetween={16}
-    grabCursor={true}
-    allowTouchMove={true}
-    loop={true}
-    loopAdditionalSlides={3}
-    speed={600}
-    autoplay={{
-      delay: 4000,
-      disableOnInteraction: false,
-      pauseOnMouseEnter: true,
-    }}
-    className={style.testSwiper}
-    breakpoints={{
-          0: {
-            slidesPerView: 1,
-          },
-          600: {
-            slidesPerView: 2,
-          },
-          1200: {
-            slidesPerView: 3,
-          },
-        }}
-  >
-    {testData.map((item, index) => (
-      <SwiperSlide key={item.id ?? index}>
-        <div className={style.testSlide}>
-          <p>{item.content}</p>
-
-          <div className={style.testUser}>
-            <Image
-              src={item.image}
-              width={40}
-              height={40}
-              alt={item.name || "User"}
-            />
-            <h3>{item.name}</h3>
-          </div>
-        </div>
-      </SwiperSlide>
-    ))}
-  </Swiper>
-</div>
-
-
-
-
-  </div>
-</section>
 
 
 
@@ -1116,6 +918,8 @@ slidesPerView: 1.1,
 
           </li>
       </ul>
+            <Button type="link" link={item.link} classname={`orange_btn ${style.locationLink}`} text="View location"/>
+
     </div>
 
   </div>
@@ -1132,7 +936,7 @@ slidesPerView: 1.1,
             alt=""
           />
         </button>
-      <div className="location_fraction_pagination package_fraction_pagination"/>
+      <div className="location_fraction_pagination fraction_pagination"/>
 
         <button className="slide_next slider_nav" aria-label="Next slide">
           <Image
@@ -1191,6 +995,8 @@ slidesPerView: 1.1,
 
           </li>
       </ul>
+            <Button type="link" link={item.link} classname={`orange_btn ${style.locationLink}`} text="View location"/>
+
     </div>
 
   </div>

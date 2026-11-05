@@ -508,9 +508,7 @@ useEffect(() => {
             <li className={style.menuItem}> <Link href="#">Loaction</Link> </li>
             }
 
-            {mobile && 
-            <li className={style.menuItem}> <Link href="#">Loaction</Link> </li>
-            }
+           
 
           <li className={style.menuItem} onClick={() => { if (mobile) { setSubMenu((prev) => prev === "about-rela" ? "" : "about-rela"); } }} onMouseEnter={()=>{if (!mobile) setSubMenu("about-rela")}} onMouseLeave={()=>{if (!mobile) setSubMenu("")}}> <Link href="#" onClick={(e) => e.preventDefault()} className={style.hasMenu}>About Rela </Link> {mobile && <button type="button"></button>} 
             <ul className={`${style.subMenu} ${subMenu==="about-rela"?style.active:""}`}>
@@ -518,6 +516,9 @@ useEffect(() => {
                 <li className={style.subMenuItem}> <Link href="#">Leadership Team</Link>  </li>
                 <li className={style.subMenuItem}> <Link href="#">Awards</Link>  </li>
                 <li className={style.subMenuItem}> <Link href="#">Academics</Link>  </li>
+                 {laptop && 
+            <li className={style.menuItem}> <Link href="#">Loaction</Link> </li>
+            }
                 <li className={style.subMenuItem}> <Link href="#">Careers</Link>  </li>
                 <li className={style.subMenuItem}> <Link href="#">Contact Us</Link>  </li>
             </ul>

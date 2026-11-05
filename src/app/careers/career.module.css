@@ -17,6 +17,7 @@
     display: grid;
     place-items: center;
     position: relative;
+    background-position: center;
 }
 
 .bannerSection::before{
@@ -33,6 +34,7 @@ background: rgba(0, 0, 0, 0.3);
 
 .bannerSection .container .buttons{
     align-items: center;
+    flex-wrap: wrap;
     gap: 24px;
 }
 
@@ -129,6 +131,8 @@ background: rgba(0, 0, 0, 0.3);
     .bannerSection{
     display: flex;
     justify-content: flex-start;
+    min-height: fit-content;
+    padding: 50px 0;
 }
 
 .bannerSection :global(.top_heading){
@@ -141,11 +145,24 @@ background: rgba(0, 0, 0, 0.3);
 
 .careerAbout_section .cards .card{
     width: calc(50% - 10px);
+    border-radius: 24px;
 }
 
 }
 
+/* mobile  */
 @media screen and (max-width:767px) {
+
+    .careerAbout_section .cards .card .icon{width: 60px;}
+
+    .careerAbout_section .cards .card{
+    width: 100%;
+    border-radius: 16px;
+}
+
+    .bannerSection .container .buttons{
+        gap: 16px;
+    }
 
 .careerTable{
     display: block;

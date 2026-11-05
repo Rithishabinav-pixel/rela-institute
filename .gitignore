@@ -34,6 +34,9 @@ yarn-error.log*
 .env*
 !.env.example
 
+# user-submitted files (never commit resumes/PII)
+/private-uploads/
+
 # vercel
 .vercel
 

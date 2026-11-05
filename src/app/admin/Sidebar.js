@@ -7,8 +7,11 @@ import style from './admin.module.css'
 const NAV_ITEMS = [
   { label: 'Hero Banners', href: '/admin/hero-banners' },
   { label: 'Careers / Jobs', href: '/admin/jobs' },
+  { label: 'Manage Jobs Setting', href: '/admin/manage-jobs-setting' },
+  { label: 'Enquiries', href: '/admin/enquiries' },
   { label: 'Department', href: '/admin/departments' },
   { label: 'Doctors', href: '/admin/doctors' },
+  { label: 'Health Package', href: '/admin/health-packages' },
   { label: 'Media', href: '/admin/media' },
   { label: 'Media Articles', href: '/admin/media-articles' },
   { label: 'Success Stories', href: '/admin/success-stories' },

@@ -1,0 +1,429 @@
+.map_section .container .content ul,
+  .map_section .container .content ul li .detail,
+   .map_section .container .content ul li .icon,
+ .map_section .container .content ul li,
+.why_section .container .cards,
+.why_section .container .cards .card,
+.about_section .container .stats,
+.about_section .container .stats .card,
+.about_section .container .content .text{
+    display: flex;
+}
+
+.map_section .container .content ul,
+.why_section .container .cards .card,
+.about_section .container .stats .card,
+.about_section .container .content .text{
+    flex-direction: column;
+}
+
+.about_section .container{
+    align-items: center;
+}
+
+    .map_section .container .content ul li,
+.excellenceSection .container .section_container{
+    align-items: flex-start;
+}
+
+.about_section .container{
+    justify-content: space-between;
+}
+
+
+     .map_section .container .content ul li .icon img,
+.about_section .container .image img{
+    width: 100%;
+}
+
+.why_section .container .cards .card,
+.about_section .container .image img{
+    border-radius: 24px;
+}
+
+.bannerSection{
+    background-size: cover;
+    min-height: 500px;
+    display: grid;
+    place-items: center;
+    position: relative;
+    background-position: right center;
+}
+
+.bannerSection::before{
+    position: absolute;
+    inset: 0;
+    content: '';
+background:linear-gradient(to right,rgba(0, 0, 0, 0.9) 0,transparent 100%);
+}
+
+.bannerSection .container{
+    position: relative;
+    z-index: 2;
+}
+
+.bannerSection .container .top_heading{
+    max-width: 700px;
+}
+
+.bannerSection .container h1{
+    margin-bottom: -24px;
+}
+
+.bannerSection .container .top_heading .locationName{
+    font-size: 20px;
+    line-height: 28px;
+    padding: 5px 0 5px 52px;
+    background-image: url(/assets/images/location.svg);
+    background-size: 40px;
+    background-repeat: no-repeat;
+}
+
+.bannerSection .container .top_heading .ratingImg{
+    width: 231px;
+}
+
+.about_section .container .content{
+    width: 42%;
+}
+
+.about_section .container .stats {
+    gap: 30px;
+    width: 100%;
+}
+
+.about_section .container .stats .card{
+    width: calc(33.33% - 13.33px);
+    text-align: left;
+}
+
+.about_section .container .stats .card,
+.about_section .container .content .text{
+    gap: 16px;
+}
+
+.about_section .container .stats .card p{
+    opacity: 0.5;
+}
+.about_section .container .stats .card h2{
+    font-size: 40px;
+    line-height: 48px;
+    font-weight: 600;
+}
+
+.about_section .container .image{
+    width: 50%;
+}
+
+.excellenceSection{
+    background-image: url(/assets/images/rela_vector.svg);
+    background-size: 40% auto;
+    background-position: -25% 0;
+    background-repeat: no-repeat;
+}
+
+
+.excellenceSection .container .section_container{
+  display: flex;
+  justify-content: space-between;
+}
+
+.excellenceSection .container .left{
+  width: 35%;
+  position: sticky;
+  top: 180px;
+}
+.excellenceSection .container .right{
+  width: 55%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px 30px;
+}
+
+.excellenceSection .container .left p{
+  width: 80%;
+}
+
+.excellenceSection .container .right .card{
+  width: calc(50% - 15px);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-top: 24px;
+  border-top: solid rgba(0, 0, 0, 0.2) 1px;
+  color: black;
+  transition: var(--transition);
+}
+
+.excellenceSection .container .right .card:nth-child(1),
+.excellenceSection .container .right .card:nth-child(2){
+    padding-top: 0;
+    border-top: none;
+}
+
+
+.excellenceSection .container .right .card:hover{
+  transform: translateX(5px);
+}
+
+.excellenceSection .container .right .card .icon{
+  width: 40px;
+  min-width: 40px;
+}
+
+.excellenceSection .container .right .card .icon img{
+  width: 100%;
+}
+
+.excellenceSection .container .right .card h3{
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+.excellenceSection .container .right .card button{
+  margin-left: auto;
+  background: none;
+  border: none;
+}
+
+
+.excellenceSection .container .right .card button{
+  width: 16px;
+}
+
+.why_section .container .cards{
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.why_section .container .cards .card{
+    width: calc(25% - 22.5px);
+    gap: 8px;
+    padding: 16px 24px;
+    border: solid #CCCCCC 1px;
+    transition: var(--transition);
+}
+
+.why_section .container .cards .card img{
+    width: 80px;
+    transition: var(--transition);
+}
+
+.why_section .container .cards .card:hover img{
+    transform: scaleX(-1);
+}
+
+.why_section .container .cards .card h3,
+  .map_section .container .content strong{
+        font-size: 20px;
+        line-height: 28px;
+    font-weight: 600;
+    }
+
+.why_section .container .cards .card h3{
+    margin-top: 16px;
+}
+
+.map_section .container .content{
+    width: 42%;
+  }
+
+  .map_section {
+    position: relative;
+  }
+
+.map_section .mapFrame{
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    border-radius: 50px 0 0 50px;
+}
+
+  .map_section .container .content ul,
+.map_section .container .content ul li{
+        gap: 16px;
+    }
+
+      .map_section .container .content ul{
+        width: 100%;
+        max-width: 550px;
+      }
+  
+
+.map_section .container .content ul li .icon{
+        width: 32px;
+      }
+
+.map_section .container .content ul li .detail{
+        gap: 8px;
+        flex-wrap: wrap;
+       }
+
+       .map_section .container .content ul li .detail a{
+        position: relative;
+        color: black;
+       }
+       .map_section .container .content ul li .detail a:hover{
+        color: var(--orange);
+       }
+
+         .map_section .container .content ul li .detail a:not(:first-child){
+        padding-left: 16px;
+         }
+
+.map_section .container .content ul li .detail a:not(:first-child)::before {
+    content: "/";
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+     
+
+/* rsposive  */
+
+/* laptop  */
+
+@media screen and (max-width:1600px){
+
+    .bannerSection{
+    min-height: 400px;
+}
+
+}
+
+/* tablet  */
+@media screen and (max-width:1200px){
+
+      .about_section .container,
+  .excellenceSection .section_container{
+ flex-direction: column;
+}
+
+
+.map_section .container .content,
+.excellenceSection .container .right,
+.excellenceSection .container .left,
+  .excellenceSection .container .left p,
+  .about_section .container .image,
+    .about_section .container .content{
+        width: 100%;
+    }
+
+.map_section .mapFrame{
+    width: 100%;
+    height:400px;
+    position: static;
+    margin-top: 30px;
+}
+
+.about_section .container .stats .card h2{
+    font-size: 32px;
+    line-height: 40px;
+}
+
+    .why_section .container .cards .card{
+    width: calc(50% - 10px);
+    padding: 16px 20px;
+}
+
+.map_section{
+    padding-bottom: 0;
+}
+
+    .excellenceSection .container .left{
+position: relative;
+}
+
+.why_section .container .cards{
+  gap: 20px;
+}
+
+.excellenceSection .section_container .right{
+  gap: 20px 30px;
+}
+
+.excellenceSection .section_container .right .card{
+  padding-top: 20px;
+}
+
+.excellenceSection{
+    background-image: none;
+}
+
+
+     .bannerSection {
+        background-position: 70% 0;
+     }
+
+    .bannerSection .container .top_heading{
+    max-width: 500px;
+}
+
+    .bannerSection{
+    min-height: 400px;
+    padding: 50px 0;
+}
+
+.why_section .container .cards .card h3{
+    margin-top: 8px;
+}
+
+}
+
+/* mobile  */
+
+@media screen and (max-width:767px) {
+
+    .why_section .container .cards .card h3,
+  .map_section .container .content strong{
+        font-size: 18px;
+        line-height: 26px;
+    }
+    
+      .excellenceSection .section_container .right .card{
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+    .why_section .container .cards .card{
+        border-radius: 16px;
+    }
+
+    .about_section .container .stats .card{
+        gap: 8px;
+    }
+
+    .about_section .container .stats .card h2{
+    font-size: 24px;
+    line-height: 32px;
+}
+
+     .why_section .container .cards .card,
+ .excellenceSection .section_container .right .card .icon{
+  width: 100%;
+ }
+
+ .why_section .container .cards .card h3{
+    margin-top: 4px;
+}
+ 
+
+.why_section .container .cards .card img,
+  .excellenceSection .section_container .right .card .icon img{
+    width: 60px;
+  }
+
+    .excellenceSection .section_container .right .card .title{
+      width: calc(100% - 40px);
+      margin-top: auto;
+    }
+
+    .excellenceSection .section_container .right .card button{
+      margin-top: auto;
+    }
+
+}

@@ -11,6 +11,14 @@ export default function Button({ link, classname, text, type,aos }) {
     )
   }
 
+    if (type === 'download') {
+    return (
+      <a href={link} className={`common_btn ${classname}`}>
+          {text}<Image src="/assets/images/download.svg" width={24} height={24} alt=''/>
+      </a>
+    )
+  }
+
    if (type === 'link') {
     return (
       <a href={link} className={`link_btn ${classname}`}>
@@ -18,6 +26,8 @@ export default function Button({ link, classname, text, type,aos }) {
       </a>
     )
   }
+
+  
 
   return (
     <Link href={link} className={`common_btn ${classname}`} dats-aos={aos?aos:""}>
