@@ -260,7 +260,6 @@ color: black;
 
     .articlesGrid .container .actions>div.action_button.tabs{
         min-width: fit-content;
-        width: fit-content;
     }
 
        .articlesGrid .container .actions>div.action_button.tabs a{
