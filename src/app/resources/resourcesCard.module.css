@@ -1,0 +1,131 @@
+:global(.swiper-slide):has(.resourcesCard){
+    height: auto;
+}
+
+.resourcesCard{
+    display: flex;
+    flex-direction: column;
+    border-radius: 32px;
+    border: solid var(--orange) 1px;
+    height: 100%;
+}
+
+.resourcesCard .image{
+    transform: scale(1.01);
+    background-color: var(--brown);
+    border-radius: 32px;
+overflow: hidden;
+box-shadow: 0 5px 16px rgba(0, 0, 0, 0.13);
+position: relative;
+}
+
+.resourcesCard .image::before{
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: auto;
+    aspect-ratio: 361 / 422;
+     background-image: url(/assets/images/doctor-vector.svg);
+     background-size: cover;
+     background-position-y: 14px;
+     background-repeat: no-repeat;
+     transition: var(--transition);
+}
+
+.resourcesCard:hover .image::before{
+    transform: scale(0.95);
+}
+
+.resourcesCard .image img{
+    width: 100%;
+    position: relative;
+    z-index: 2;
+     transition: var(--transition);
+
+}
+
+.resourcesCard:hover .image img{
+    transform: scale(1.025);
+}
+
+.resourcesCard .content,
+.resourcesCard .content .detail{
+    display: flex;
+}
+
+
+.resourcesCard .content{
+    padding: 16px;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.resourcesCard .content .detail{
+    flex-direction: column;
+    flex-grow: 1;
+    gap:4px;
+}
+
+.resourcesCard .content .detail .title{
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 600;
+}
+
+.resourcesCard .content .detail .speciality{
+    color: var(--orange);
+}
+
+.resourcesCard .content .detail .position{
+    color: var(--dark-gray);
+}
+
+.resourcesGridCard{
+    width: calc(25% - 22.5px);
+}
+
+.doctorDetailCard{
+    width: 100%;
+}
+
+/* responsive  */
+
+/* tablet  */
+
+@media screen and (max-width:1200px) {
+
+    .resourcesCard .image,
+    .resourcesCard{
+    border-radius: 24px;
+}
+
+}
+
+
+@media screen and (max-width:992px) {
+    
+    .resourcesGridCard{
+    width: calc(50% - 10px);
+}
+
+}
+
+/* mobile  */
+
+@media screen and (max-width:767px){
+
+        .resourcesCard .image,
+    .resourcesCard{
+    border-radius: 16px;
+}
+
+}
+
+
+@media screen and (max-width:670px){
+    
+    .resourcesGridCard{
+    width: 100%;
+}
+
+}

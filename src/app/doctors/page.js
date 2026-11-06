@@ -9,6 +9,8 @@ export const metadata = {
   title: 'Find a Doctor',
 }
 
+
+
 export default async function Page() {
   const [doctors, departmentRows, quickSearchDepartments] = await Promise.all([
     listDoctorsPublic({}),

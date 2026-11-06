@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import style from "./detail.module.css";
 import Image from "next/image";
 
@@ -15,6 +15,22 @@ export default function DoctorTabs({ sliderTab }) {
   const isManualChangeRef = useRef(false);
 
   const [activeIndex, setActiveIndex] = useState(0);
+  const [mobile,setMobile] = useState(0);
+
+  useEffect(()=>{
+
+    const checkDevice = () =>{
+      setMobile(window.innerWidth<767);
+    }
+
+    checkDevice();
+    window.addEventListener("resize",checkDevice);
+
+    return(()=>window.removeEventListener("resize",checkDevice));
+
+  },[])
+
+  
 
   if (sliderTab.length === 0) return null;
 
@@ -32,7 +48,7 @@ export default function DoctorTabs({ sliderTab }) {
         <Swiper
           modules={[Navigation]}
           spaceBetween={24}
-          slidesPerView="auto"
+          slidesPerView={`${mobile?1:"auto"}`}
           navigation={{
             prevEl: ".slide_prev",
             nextEl: ".slide_next",

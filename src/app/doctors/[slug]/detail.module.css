@@ -39,8 +39,23 @@
 }
 
 .tabContainer .tabContent .tabDetail>div ul{
-    list-style:circle;
-    padding-left: 40px;
+    list-style:none;
+}
+
+.tabContainer .tabContent .tabDetail>div ul li{
+      position: relative;
+  padding-left: 32px;
+}
+
+.tabContainer .tabContent .tabDetail>div ul li::before{
+  position: absolute;
+  content: '';
+  width: 24px;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  background-image: url(/assets/images/list-icon.svg);
+  background-size: cover;
+  left: 0;
 }
 
 .doctorProfile .container{
@@ -62,10 +77,14 @@
     background-color: #C3C3C3;
 }
 
+.doctorProfile .container .content .buttons,
+.doctorProfile .container .content .doctorMainDetails .doctorSpecialities{
+    flex-wrap: wrap;
+}
+
 
 .doctorProfile .container .content .doctorMainDetails .doctorSpecialities{
     display: flex;
-    flex-wrap: wrap;
     gap: 16px;
 }
 
@@ -145,4 +164,65 @@ width: 90px;
 font-size: 32px;
 line-height: 40px;
 font-weight: 400;
+}
+
+
+/* responsive  */
+
+/* tablet  */
+
+@media screen and (max-width:1200px) {
+
+    .doctorProfile .container .content .buttons,
+.tabContainer .tabContent .tabDetail{
+    gap: 20px;
+}
+
+    .tabContainer .tabContent .tabDetail h2{
+font-size: 24px;
+line-height: 32px;
+margin-bottom: 4px;
+}
+
+    .doctorProfile .container{
+   flex-direction: column-reverse;
+}
+
+.doctorProfile .container .image,
+.doctorProfile .container .content{
+  width: 100%;
+}
+
+.doctorProfile .container .image{
+    max-width: 550px;
+}
+
+.doctorProfile .container .image{
+   position: relative;
+}
+    
+}
+
+@media screen and (max-width:767px) {
+
+    .tabContainer .tabContent .tabDetail h2{
+font-size: 20px;
+line-height: 28px;
+}
+    .tabContainer .slide{
+        text-align: center;
+    }
+
+    .tabContainer :global(.swiper-slide) .slide::before{
+bottom: 14px;
+left: 50%;
+transform: translateX(-50%);
+}
+
+
+  .doctorProfile .container .content .buttons,
+.tabContainer .tabContent .tabDetail{
+    gap: 16px;
+}
+
 }

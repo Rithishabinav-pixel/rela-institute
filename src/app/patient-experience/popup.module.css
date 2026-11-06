@@ -1,0 +1,165 @@
+.popup{
+    position: fixed;
+    z-index: 9999;
+    padding: 0 20px;
+}
+
+.popup,
+.popup .container button{
+display: grid;
+    place-items: center;
+}
+
+.popup .overlay,
+.popup{
+    inset: 0;
+}
+
+.popup .overlay{
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+.popup .container button,
+.popup .overlay{
+    position: absolute;
+}
+
+.popup .container button{
+    cursor: pointer;
+    border: none;
+}
+
+.popup .container{
+position: relative;
+z-index: 2;
+width: 100%;
+max-width: 800px;
+}
+
+.popup .container iframe{
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+}
+
+.popup .container .closeBtn,
+.popup .container .button{
+  background-color: white;
+    height: auto;
+    aspect-ratio: 1 / 1;
+}
+
+.popup .container .button{
+    border-radius: 100%;
+    top: 50%;
+    transition: var(--transition);
+    width: 40px;
+}
+
+.popup .container .button:disabled{
+    opacity: 0.75;
+}
+
+.popup .container .closeBtn{
+    top: 0;
+    right: 0;
+    width: 32px;
+}
+
+
+.popup .container .button.prev{
+    left: 0;
+    transform: translateX(-75px) translateY(-50%);
+}
+
+.popup .container .button.prev:hover{
+    transform: translateX(-75px) translateY(-50%) scale(0.975);
+background-color: rgb(225, 225, 225);
+}
+
+.popup .container .button.next{
+    right: 0;
+    transform: translateX(75px) translateY(-50%);
+}
+
+.popup .container .button.next:hover{
+    transform:  translateX(75px) translateY(-50%) scale(0.975);
+background-color: rgb(225, 225, 225);
+}
+
+.popup .container .closeBtn img,
+.popup .container .button img{
+    width: 24px;
+}
+
+
+/* responsive  */
+
+/* tablet  */
+
+@media screen and (max-width:1200px) {
+    
+    .popup .container .button{
+    top: unset;
+    bottom: -60px;
+    width: 40px;
+}
+
+.popup .container .button.prev{
+    left: 50%;
+    transform: translateX(-75px) translateY(0%);
+}
+
+.popup .container .button.prev:hover{
+    transform: translateX(-75px) translateY(0%) scale(0.95);
+}
+
+
+.popup .container .button.next{
+    right: 50%;
+    transform: translateX(75px) translateY(0%);
+}
+
+
+.popup .container .button.next:hover{
+    right: 50%;
+    transform: translateX(75px) translateY(0%) scale(0.95);
+}
+
+
+
+}
+
+/* mobile  */
+
+@media screen and (max-width:767px) {
+    
+        .popup .container .button{
+    width: 32px;
+    bottom: -45px;
+}
+
+  .popup .container .button img{
+    width: 20px;
+  }
+
+  .popup .container .button.prev{
+    transform: translateX(-50px) translateY(0%);
+}
+
+.popup .container .button.prev:hover{
+    transform: translateX(-50px) translateY(0%) scale(0.95);
+}
+
+
+.popup .container .button.next{
+    transform: translateX(50px) translateY(0%);
+}
+
+
+.popup .container .button.next:hover{
+    right: 50%;
+    transform: translateX(50px) translateY(0%) scale(0.95);
+}
+
+}

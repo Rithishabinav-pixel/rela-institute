@@ -1,0 +1,226 @@
+.tabContainer .tabContent .tabDetail,
+.tabContainer .tabContent .tabDetail>div,
+.tabContainer .tabContent .tabDetail>div ul{
+    display: flex;
+}
+
+.tabContainer .tabContent .tabDetail,
+.tabContainer .tabContent .tabDetail>div,
+.tabContainer .tabContent .tabDetail>div ul{
+    flex-direction: column;
+}
+
+
+
+.bannerSection{
+    background-image: url('/assets/images/pc-banner.png');
+    background-size: cover;
+    min-height: 500px;
+    display: grid;
+    place-items: center;
+    position: relative;
+    background-position: right center;
+}
+
+.bannerSection::before{
+    position: absolute;
+    inset: 0;
+    content: '';
+background:linear-gradient(to right,rgba(0, 0, 0, 0.7) 20%,transparent 50%);
+}
+
+.bannerSection .container{
+    position: relative;
+    z-index: 2;
+}
+
+.bannerSection .container .top_heading{
+    max-width: 650px;
+}
+
+.bannerSection .container h1{
+    margin-bottom: -18px;
+}
+
+.tabContainer {
+    width: 100%;
+    max-width: 1140px;
+    margin: auto;
+}
+
+
+.tabContainer .tabContent .tabDetail{
+    gap: 24px;
+}
+
+
+.tabContainer .tabContent .tabDetail>div,
+.tabContainer .tabContent .tabDetail>div ul{
+    gap: 16px;
+}
+
+.tabContainer .tabContent .tabDetail>div{
+    width: 100%;
+    max-width: 1000px;
+}
+
+.tabContainer .tabContent .tabDetail>div ul{
+    list-style:none;
+}
+
+.tabContainer .tabContent .tabDetail>div ul li{
+      position: relative;
+  padding-left: 32px;
+}
+
+.tabContainer .tabContent .tabDetail>div ul li::before{
+  position: absolute;
+  content: '';
+  width: 24px;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  background-image: url(/assets/images/list-icon.svg);
+  background-size: cover;
+  left: 0;
+}
+
+
+.tabContainer .sliderWrapper{
+     padding: 0px 47px;
+     border-radius: 8px;
+    background-color: var(--gray);
+    border: solid #A6A6A6 1px; 
+    position: relative;
+    margin: 0px 0 40px 0;
+}
+
+.tabContainer :global(.swiper-slide){
+    width: fit-content;
+}
+
+.sliderWrapper :global(.nav){
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+}
+
+.sliderWrapper :global(.slide_prev){
+  left: 16px;
+}
+
+.sliderWrapper :global(.slide_next){
+  right: 16px;
+}
+
+.sliderWrapper :global(.nav) img{
+    width: 24px;
+}
+
+.tabContainer .slide{
+    cursor: pointer;
+    padding: 16px 0;
+    opacity: 0.5;
+}
+
+.tabContainer :global(.swiper-slide){
+    position: relative;
+}
+
+.tabContainer :global(.swiper-slide) .slide::before{
+position: absolute;
+content: '';
+bottom: 14px;
+left: 0;
+width: 0;
+height: auto;
+aspect-ratio: 90 / 5;
+background-image: url(/assets/images/curve-line.svg);
+background-size: cover;
+transition: var(--transition);
+}
+
+.tabContainer .slide.active::before{
+width: 90px;
+}
+
+.tabContainer .slide.active{
+    font-weight: 600;
+    opacity: 1;
+}
+
+.tabContainer .tabContent .tabDetail h2{
+    font-size: 20px;
+    line-height: 28px;
+    color: var(--orange);
+    font-weight: 600;
+}
+
+
+
+/* resposive  */
+
+/* laptop  */
+
+@media screen and (max-width:1600px){
+
+    .bannerSection{
+    min-height: 400px;
+}
+
+}
+
+
+/* tablet  */
+
+@media screen and (max-width:1200px) {
+
+    
+    .doctorProfile .container .content .buttons,
+.tabContainer .tabContent .tabDetail{
+    gap: 20px;
+}
+
+
+
+      .bannerSection {
+        background-position: 70% 0;
+     }
+
+    .bannerSection .container .top_heading{
+    max-width: 500px;
+}
+
+    .bannerSection{
+    min-height: 400px;
+    padding: 50px 0;
+}
+
+.tabContainer .sliderWrapper{
+    margin: 0 0 30px 0;
+}
+
+}
+
+/* mobile  */
+
+@media screen and (max-width:767px) {
+
+
+     .tabContainer .slide{
+        text-align: center;
+    }
+
+    .tabContainer :global(.swiper-slide) .slide::before{
+bottom: 14px;
+left: 50%;
+transform: translateX(-50%);
+}
+
+
+.tabContainer .tabContent .tabDetail{
+    gap: 16px;
+}
+
+}
