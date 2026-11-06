@@ -4,7 +4,7 @@ import TestimonialClient from './TestimonialClient'
 export const revalidate = 3600
 
 export const metadata = {
-  title: 'Patient  Experience',
+  title: 'Patient  Experiences',
 }
 
 export default async function Page() {
