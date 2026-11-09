@@ -7,11 +7,18 @@
   flex-direction: column;
   justify-content: space-between;
   gap: 16px;
-  padding: 36px 16px 16px 16px;
   background-color: #f6f6f6;
   border-radius: 24px;
   position: relative;
   overflow: hidden;
+}
+
+.testSlide {
+  padding: 36px 16px 16px 16px;
+}
+
+.popup_card{
+  padding: 36px 30px 30px 30px;
 }
 
 .testimonial_grid.testSlide{
@@ -42,12 +49,11 @@
   font-weight: 500;
 }
 
-.testSlide p {
+.testSlide:not(.popup_card) p {
   color: #6b7280;
   margin: 0;
   position: relative;
   z-index: 2;
-
     display: -webkit-box;
   -webkit-line-clamp: 3;
   line-clamp: 3;
@@ -86,6 +92,10 @@
 .testSlide h3{
   font-size: 20px;
   line-height: 28px;
+}
+
+.popup_card{
+  padding: 36px 20px 20px 20px;
 }
 
 }

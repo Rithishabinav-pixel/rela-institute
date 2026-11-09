@@ -29,6 +29,7 @@ model Department {
   successStories    SuccessStoryDepartment[]
   expertTalks       ExpertTalkDepartment[]
   events            EventDepartment[]
+  wellnessNetwork    WellnessNetworkDepartment[]
 
   @@map("departments")
 }
@@ -66,6 +67,8 @@ model Doctor {
   successStories SuccessStoryDoctor[]
   expertTalks    ExpertTalkDoctor[]
   events         EventDoctor[]
+  wellnessNetwork WellnessNetworkDoctor[]
+  articles       DoctorArticle[]
 
   @@map("doctors")
 }
@@ -93,6 +96,17 @@ model DoctorTab {
   doctor Doctor @relation(fields: [doctorId], references: [id], onDelete: Cascade)
 
   @@map("doctor_tabs")
+}
+
+model DoctorArticle {
+  doctorId    Int
+  articleSlug String
+  createdAt   DateTime @default(now())
+
+  doctor Doctor @relation(fields: [doctorId], references: [id], onDelete: Cascade)
+
+  @@id([doctorId, articleSlug])
+  @@map("doctor_articles")
 }
 
 model Media {
@@ -285,6 +299,65 @@ model ExpertTalkGalleryImage {
   expertTalk ExpertTalk @relation(fields: [expertTalkId], references: [id], onDelete: Cascade)
 
   @@map("expert_talk_gallery_images")
+}
+
+model WellnessNetwork {
+  id                    Int       @id @default(autoincrement())
+  title                 String
+  slug                  String    @unique
+  publishedAt           DateTime?
+  featureType           String    @default("image")
+  featureImage          String?
+  featureImageSourceUrl String?
+  youtubeUrl            String?
+  readMoreUrl           String?
+  pageLink              String?   @unique
+  content               String?   @db.Text
+  quickSearch           Boolean   @default(false)
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+
+  departments WellnessNetworkDepartment[]
+  doctors     WellnessNetworkDoctor[]
+  gallery     WellnessNetworkGalleryImage[]
+
+  @@map("wellness_network")
+}
+
+model WellnessNetworkDepartment {
+  wellnessNetworkId Int
+  departmentId      Int
+
+  wellnessNetwork WellnessNetwork @relation(fields: [wellnessNetworkId], references: [id], onDelete: Cascade)
+  department      Department      @relation(fields: [departmentId], references: [id], onDelete: Restrict)
+
+  @@id([wellnessNetworkId, departmentId])
+  @@map("wellness_network_departments")
+}
+
+model WellnessNetworkDoctor {
+  wellnessNetworkId Int
+  doctorId          Int
+
+  wellnessNetwork WellnessNetwork @relation(fields: [wellnessNetworkId], references: [id], onDelete: Cascade)
+  doctor          Doctor          @relation(fields: [doctorId], references: [id], onDelete: Restrict)
+
+  @@id([wellnessNetworkId, doctorId])
+  @@map("wellness_network_doctors")
+}
+
+model WellnessNetworkGalleryImage {
+  id                Int      @id @default(autoincrement())
+  wellnessNetworkId Int
+  imagePath         String
+  sourceUrl         String?
+  altText           String?
+  sortOrder         Int      @default(0)
+  createdAt         DateTime @default(now())
+
+  wellnessNetwork WellnessNetwork @relation(fields: [wellnessNetworkId], references: [id], onDelete: Cascade)
+
+  @@map("wellness_network_gallery_images")
 }
 
 model Event {
@@ -569,4 +642,114 @@ model PackageEnquiry {
   package HealthPackage? @relation(fields: [packageId], references: [id], onDelete: SetNull)
 
   @@map("package_enquiries")
+}
+
+model Newsletter {
+  id           Int       @id @default(autoincrement())
+  title        String
+  publishedAt  DateTime?
+  featureImage String?
+  pdfUrl       String?
+  isActive     Boolean   @default(true)
+  sortOrder    Int       @default(0)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  @@map("newsletters")
+}
+
+model ResourceCategory {
+  id            Int      @id @default(autoincrement())
+  name          String
+  slug          String   @unique
+  categoryImage String?
+  isActive      Boolean  @default(true)
+  sortOrder     Int      @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  resources Resource[]
+
+  @@map("resource_categories")
+}
+
+model Resource {
+  id          Int      @id @default(autoincrement())
+  title       String
+  categoryId  Int
+  linkType    String   @default("url")
+  externalUrl String?
+  pdfUrl      String?
+  isActive    Boolean  @default(true)
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  category ResourceCategory @relation(fields: [categoryId], references: [id], onDelete: Restrict)
+
+  @@map("resources")
+}
+
+model PatientExperienceCategory {
+  id        Int      @id @default(autoincrement())
+  name      String
+  slug      String   @unique
+  isActive  Boolean  @default(true)
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  patientExperiences PatientExperience[]
+
+  @@map("patient_experience_categories")
+}
+
+model PatientExperience {
+  id           Int      @id @default(autoincrement())
+  patientName  String
+  categoryId   Int
+  featureImage String?
+  videoUrl     String
+  isActive     Boolean  @default(true)
+  sortOrder    Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  category PatientExperienceCategory @relation(fields: [categoryId], references: [id], onDelete: Restrict)
+
+  @@map("patient_experiences")
+}
+
+model TestimonialCategory {
+  id        Int      @id @default(autoincrement())
+  name      String
+  slug      String   @unique
+  isActive  Boolean  @default(true)
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  testimonials Testimonial[]
+
+  @@map("testimonial_categories")
+}
+
+model Testimonial {
+  id              Int      @id @default(autoincrement())
+  title           String
+  content         String   @db.Text
+  userName        String
+  userImage       String?
+  featureImage    String?
+  categoryId      Int
+  isInternational Boolean  @default(false)
+  isFeatured      Boolean  @default(false)
+  isActive        Boolean  @default(true)
+  sortOrder       Int      @default(0)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  category TestimonialCategory @relation(fields: [categoryId], references: [id], onDelete: Restrict)
+
+  @@map("testimonials")
 }

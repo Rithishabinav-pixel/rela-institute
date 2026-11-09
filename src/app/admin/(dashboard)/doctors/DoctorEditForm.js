@@ -11,7 +11,15 @@ function emptyTab() {
   return { heading: '', content: '' }
 }
 
-export default function DoctorEditForm({ mode, doctor, departments }) {
+export default function DoctorEditForm({
+  mode,
+  doctor,
+  departments,
+  articleOptions = [],
+  mediaArticleOptions = [],
+  successStoryOptions = [],
+  expertTalkOptions = [],
+}) {
   const router = useRouter()
 
   const [name, setName] = useState(doctor?.name ?? '')
@@ -30,6 +38,10 @@ export default function DoctorEditForm({ mode, doctor, departments }) {
   const [tabs, setTabs] = useState(
     doctor?.tabs?.length ? doctor.tabs.map((t) => ({ heading: t.heading, content: t.content })) : [emptyTab()]
   )
+  const [articleSlugs, setArticleSlugs] = useState(doctor?.articleSlugs ?? [])
+  const [mediaArticleIds, setMediaArticleIds] = useState(doctor?.mediaArticleIds ?? [])
+  const [successStoryIds, setSuccessStoryIds] = useState(doctor?.successStoryIds ?? [])
+  const [expertTalkIds, setExpertTalkIds] = useState(doctor?.expertTalkIds ?? [])
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState('')
 
@@ -90,6 +102,10 @@ export default function DoctorEditForm({ mode, doctor, departments }) {
       specialityDepartmentId,
       image,
       tabs,
+      articleSlugs,
+      mediaArticleIds,
+      successStoryIds,
+      expertTalkIds,
     }
 
     const url = mode === 'edit' ? `/api/admin/doctors/${doctor.id}` : '/api/admin/doctors'
@@ -277,6 +293,52 @@ export default function DoctorEditForm({ mode, doctor, departments }) {
         <button type="button" className={style.secondaryButton} onClick={addTab}>
           + Add Tab
         </button>
+      </div>
+
+      <div className={style.formRow}>
+        <div className={style.field}>
+          <label className={style.label}>Articles</label>
+          <SearchableSelect
+            multiple
+            options={articleOptions}
+            value={articleSlugs}
+            onChange={setArticleSlugs}
+            placeholder="Search articles..."
+          />
+        </div>
+        <div className={style.field}>
+          <label className={style.label}>Media</label>
+          <SearchableSelect
+            multiple
+            options={mediaArticleOptions}
+            value={mediaArticleIds}
+            onChange={setMediaArticleIds}
+            placeholder="Search media..."
+          />
+        </div>
+      </div>
+
+      <div className={style.formRow}>
+        <div className={style.field}>
+          <label className={style.label}>Success Stories</label>
+          <SearchableSelect
+            multiple
+            options={successStoryOptions}
+            value={successStoryIds}
+            onChange={setSuccessStoryIds}
+            placeholder="Search success stories..."
+          />
+        </div>
+        <div className={style.field}>
+          <label className={style.label}>Expert Talk</label>
+          <SearchableSelect
+            multiple
+            options={expertTalkOptions}
+            value={expertTalkIds}
+            onChange={setExpertTalkIds}
+            placeholder="Search expert talks..."
+          />
+        </div>
       </div>
 
       <div className={style.formActions}>

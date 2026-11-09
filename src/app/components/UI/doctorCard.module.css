@@ -94,6 +94,7 @@ position: relative;
 
 .doctorGridCard{
     width: calc(33.33% - 20px);
+    height: auto;
 }
 
 .doctorDetailCard{

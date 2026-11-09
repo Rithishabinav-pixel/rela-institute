@@ -17,6 +17,11 @@ const NAV_ITEMS = [
   { label: 'Success Stories', href: '/admin/success-stories' },
   { label: 'Expert Talks', href: '/admin/expert-talks' },
   { label: 'Events', href: '/admin/events' },
+  { label: 'Wellness Network', href: '/admin/wellness-network' },
+  { label: 'Newsletters', href: '/admin/newsletters' },
+  { label: 'Resources', href: '/admin/resources' },
+  { label: 'Patient Experience', href: '/admin/patient-experience' },
+  { label: 'Testimonials & Reviews', href: '/admin/testimonials' },
 ]
 
 export default function Sidebar() {

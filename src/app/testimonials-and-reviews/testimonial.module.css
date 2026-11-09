@@ -205,6 +205,8 @@ width: 100%;
 max-width: 800px;
 overflow: hidden;
 border-radius: 24px;
+max-height: 80vh;
+overflow: auto;
 }
 
 .popup .container iframe{

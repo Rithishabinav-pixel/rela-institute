@@ -1,7 +1,6 @@
 import React from 'react'
-import { listDoctorsPublic, getQuickSearchDepartments } from '@/lib/doctors'
-import { getPublicDepartmentList } from '@/lib/departments'
-import DoctorsListing from './TestimonialClient'
+import { listAllTestimonialsPublic } from '@/lib/testimonials'
+import { listTestimonialCategoriesPublic } from '@/lib/testimonial-categories'
 import TestimonialClient from './TestimonialClient'
 
 export const revalidate = 3600
@@ -11,9 +10,10 @@ export const metadata = {
 }
 
 export default async function Page() {
+  const [initial, categories] = await Promise.all([
+    listAllTestimonialsPublic({ cursor: 0, limit: 3 }),
+    listTestimonialCategoriesPublic(),
+  ])
 
-
-  return (
-    <TestimonialClient/>
-  )
+  return <TestimonialClient initial={initial} categories={categories} />
 }

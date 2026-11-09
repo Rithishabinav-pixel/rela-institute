@@ -9,9 +9,11 @@ export default function TestimonialCard({data,index,cardStyle,setActivePopup}) {
             <h3>{data.title}</h3>
           <p>{data.content}</p>
 
+{cardStyle !=='popup_card' && 
                   <button href="javascript:void(0)" className={`link_btn orange_btn`} onClick={()=>setActivePopup(index)}>
                             Read More<Image src="/assets/images/btn-arrow.svg" width={24} height={24} alt=''/> 
                         </button>
+                        }
 
 
           <div className={style.testUser}>

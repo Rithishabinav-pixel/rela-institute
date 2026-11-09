@@ -9,6 +9,8 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import Link from "next/link";
+import ArticleImage from "@/app/components/ArticleImage";
 
 export default function DoctorTabs({ sliderTab }) {
   const swiperRef = useRef(null);
@@ -74,8 +76,11 @@ export default function DoctorTabs({ sliderTab }) {
               >
                 {/* tab heading  */}
                 {slide.button}
+
               </div>
+
             </SwiperSlide>
+            
           ))}
         </Swiper>
 
@@ -106,13 +111,32 @@ export default function DoctorTabs({ sliderTab }) {
             {sliderTab[activeIndex]?.button}
           </h2>
 {/* tab content [rich text content, sanitized server-side] */}
-          <div
-            dangerouslySetInnerHTML={{
-              __html: sliderTab[activeIndex]?.content ?? "",
-            }}
-          />
+          {sliderTab[activeIndex]?.content && (
+            <div
+              dangerouslySetInnerHTML={{
+                __html: sliderTab[activeIndex]?.content ?? "",
+              }}
+            />
+          )}
 
         </div>
+
+        {/* content cards */}
+        {sliderTab[activeIndex]?.cards?.length > 0 && (
+          <div className={style.contentCards}>
+            {sliderTab[activeIndex].cards.map((card, i) => (
+              <Link key={i} href={card.link || "#"} className={style.card}>
+                <div className={style.image}>
+                  <ArticleImage src={card.image} alt="" />
+                </div>
+                <div className={style.content}>
+                  <p className={style.date}>{card.date}</p>
+                  <h3>{card.title}</h3>
+                </div>
+              </Link>
+            ))}
+          </div>
+        )}
       </div>
 
     </div>

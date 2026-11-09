@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation'
 import { listDepartments } from '@/lib/departments'
-import { getDoctorByIdAdmin } from '@/lib/doctors'
+import { getDoctorByIdAdmin, getDoctorContentLinkingOptions } from '@/lib/doctors'
 import DoctorEditForm from '../DoctorEditForm'
 import style from '../doctors.module.css'
 
@@ -15,13 +15,14 @@ export default async function EditDoctorPage({ params }) {
 
   const departments = await listDepartments()
   const options = departments.map((d) => ({ id: d.departmentId, name: d.name }))
+  const contentOptions = await getDoctorContentLinkingOptions()
 
   return (
     <>
       <div className={style.pageHeader}>
         <h1 className={style.pageTitle}>Edit Doctor</h1>
       </div>
-      <DoctorEditForm mode="edit" doctor={doctor} departments={options} />
+      <DoctorEditForm mode="edit" doctor={doctor} departments={options} {...contentOptions} />
     </>
   )
 }

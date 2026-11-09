@@ -1,58 +1,126 @@
 "use client"
 
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import style from './testimonial.module.css'
 import Image from 'next/image'
 import Link from 'next/link'
 import TestimonialCard from './TestimonialCard'
 
-const testData = [
-  {
-    title:"1Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.",
-    content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.",
-    name:"John Doe",
-    image:"/assets/images/usr.png"
-  },
-    {
-       title:"2Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.",
-    content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.",
-    name:"John Doe",
-    image:"/assets/images/usr.png"
-  },
-    {
-       title:"3Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.",
-    content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.",
-    name:"John Doe",
-    image:"/assets/images/usr.png"
-  },
-    
-  {
-    title:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.",
-    content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.",
-    name:"John Doe",
-    image:"/assets/images/usr.png"
-  },
-    {
-       title:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.",
-    content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.",
-    name:"John Doe",
-    image:"/assets/images/usr.png"
-  },
-    {
-       title:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.",
-    content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.",
-    name:"John Doe",
-    image:"/assets/images/usr.png"
-  },
-    
-]
+const BATCH_SIZE = 3
+const SEARCH_DEBOUNCE_MS = 300
 
-export default function TestimonialClient() {
+export default function TestimonialClient({ initial, categories }) {
 
-
+  const [searchInput, setSearchInput] = useState('')
+  const [search, setSearch] = useState('')
+  const [categoryId, setCategoryId] = useState(null)
+  const [sort, setSort] = useState('newest')
+  const [items, setItems] = useState(initial.items)
+  const [hasMore, setHasMore] = useState(initial.hasMore)
+  const [cursor, setCursor] = useState(initial.nextCursor)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
+  const [lastCard, setLastCard] = useState(null)
   const [activePopup,setActivePopup] = useState(null)
+  const fetchingRef = useRef(false)
+  const requestId = useRef(0)
 
+  const loadFirstPage = useCallback((nextSearch, nextCategoryId, nextSort) => {
+    const currentRequest = ++requestId.current
+    fetchingRef.current = true
+    setLoading(true)
+    setError('')
 
+    const params = new URLSearchParams({ search: nextSearch, sort: nextSort, cursor: '0', limit: String(BATCH_SIZE) })
+    if (nextCategoryId) params.set('categoryId', nextCategoryId)
+
+    fetch(`/api/testimonials?${params.toString()}`)
+      .then(async (res) => {
+        if (!res.ok) throw new Error('Could not load testimonials')
+        return res.json()
+      })
+      .then((data) => {
+        if (requestId.current !== currentRequest) return
+        setItems(data.items)
+        setHasMore(data.hasMore)
+        setCursor(data.nextCursor)
+      })
+      .catch(() => {
+        if (requestId.current !== currentRequest) return
+        setError('Could not load testimonials. Please try again.')
+      })
+      .finally(() => {
+        if (requestId.current !== currentRequest) return
+        setLoading(false)
+        fetchingRef.current = false
+      })
+  }, [])
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setSearch(searchInput)
+      loadFirstPage(searchInput, categoryId, sort)
+    }, SEARCH_DEBOUNCE_MS)
+
+    return () => clearTimeout(timer)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchInput])
+
+  const selectCategory = (id) => {
+    setCategoryId(id)
+    loadFirstPage(search, id, sort)
+  }
+
+  const handleSortChange = (event) => {
+    const nextSort = event.target.value
+    setSort(nextSort)
+    loadFirstPage(search, categoryId, nextSort)
+  }
+
+  const loadMore = useCallback(() => {
+    if (fetchingRef.current || !hasMore) return
+    const currentRequest = ++requestId.current
+    fetchingRef.current = true
+    setLoading(true)
+
+    const params = new URLSearchParams({ search, sort, cursor: String(cursor), limit: String(BATCH_SIZE) })
+    if (categoryId) params.set('categoryId', categoryId)
+
+    fetch(`/api/testimonials?${params.toString()}`)
+      .then(async (res) => {
+        if (!res.ok) throw new Error('Could not load testimonials')
+        return res.json()
+      })
+      .then((data) => {
+        if (requestId.current !== currentRequest) return
+        setItems((prev) => {
+          const existingIds = new Set(prev.map((item) => item.id))
+          return [...prev, ...data.items.filter((item) => !existingIds.has(item.id))]
+        })
+        setHasMore(data.hasMore)
+        setCursor(data.nextCursor)
+      })
+      .catch(() => {})
+      .finally(() => {
+        if (requestId.current !== currentRequest) return
+        setLoading(false)
+        fetchingRef.current = false
+      })
+  }, [search, sort, categoryId, cursor, hasMore])
+
+  useEffect(() => {
+    if (!lastCard || !hasMore) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) loadMore()
+      },
+      { rootMargin: '0px 0px 300px 0px' }
+    )
+
+    observer.observe(lastCard)
+    return () => observer.disconnect()
+  }, [lastCard, hasMore, loadMore])
 
   return (
       <>
@@ -65,8 +133,10 @@ export default function TestimonialClient() {
       <h2 className='orange_text'>Quick Search</h2>
 
       <div className={style.quickcategories}>
-        <button>All</button>
-
+        <button className={categoryId === null ? style.active : undefined} onClick={() => selectCategory(null)}>All</button>
+        {categories.map((c) => (
+          <button key={c.id} className={categoryId === c.id ? style.active : undefined} onClick={() => selectCategory(c.id)}>{c.name}</button>
+        ))}
       </div>
     </div>
   </div>
@@ -89,30 +159,35 @@ export default function TestimonialClient() {
 <input
   type='text'
   placeholder='Search by Name'
-  value=''
-  onChange={()=>{}}
-  
+  value={searchInput}
+  onChange={(e) => setSearchInput(e.target.value)}
+
 />
 <button type='button'> <Image src="/assets/images/search-normal.svg" width={32} height={32} alt=''/> </button>
       </div>
 
  <div className={`${style.action_button} ${style.sort}`}>
-              <select >
-                <option value="Newest">Newest</option>
-                <option value="Oldest">Oldest</option>
-                <option value="A-Z">A-Z</option>
+              <select value={sort} onChange={handleSortChange}>
+                <option value="newest">Newest</option>
+                <option value="oldest">Oldest</option>
+                <option value="az">A-Z</option>
               </select>
             </div>
 
 
     </div>
 
+{error && <p className={style.hint}>{error}</p>}
+{!error && !loading && items.length === 0 && <p className={style.hint}>No testimonials found.</p>}
+
 <div className={style.testimonialCards}>
-  {testData.map((item,index)=>(
-  <TestimonialCard data={item} key={index} index={testData.indexOf(item)} setActivePopup={setActivePopup} cardStyle={`testimonial_grid`}/>
+  {items.map((item, index) => (
+    <TestimonialCard key={item.id} data={{ title: item.title, content: item.content, name: item.userName, image: item.userImage }} index={index} setActivePopup={setActivePopup} cardStyle={`testimonial_grid`}/>
   ))}
 </div>
+<div ref={setLastCard} aria-hidden="true" />
 
+{loading && <p className={style.hint}>Loading…</p>}
 
 </div>
 
@@ -126,7 +201,7 @@ export default function TestimonialClient() {
 
 {/* popup --------------------- */}
 
-{activePopup !== null &&
+{activePopup !== null && items[activePopup] &&
     <div className={style.popup}>
       <div className={style.overlay} onClick={()=>setActivePopup(null)}></div>
 
@@ -134,14 +209,13 @@ export default function TestimonialClient() {
 
         <button  className={style.closeBtn} onClick={()=>setActivePopup(null)}> <Image src="/assets/images/close.svg" width={24} height={24} alt="Close" /> </button>
 
-     
-        <TestimonialCard data={testData[activePopup]}/>
+
+        <TestimonialCard data={{ title: items[activePopup].title, content: items[activePopup].content, name: items[activePopup].userName, image: items[activePopup].userImage }} cardStyle={`popup_card`}/>
 
       </div>
     </div>
 
 }
-
     </>
   )
 }

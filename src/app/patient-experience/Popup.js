@@ -2,7 +2,7 @@ import React from 'react'
 import style from './popup.module.css'
 import Image from 'next/image'
 
-export default function Popup({ video, activeVideo,setPopup, setActiveVideo, length }) {
+export default function Popup({ videoUrl, activeVideo,setPopup, setActiveVideo, length }) {
   return (
     <div className={style.popup}>
       <div className={style.overlay} onClick={()=>setPopup(false)}></div>
@@ -29,7 +29,13 @@ export default function Popup({ video, activeVideo,setPopup, setActiveVideo, len
           </button>
    
 
-        <div dangerouslySetInnerHTML={{ __html: video }} />
+        <iframe
+          src={videoUrl}
+          title="Patient experience video"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerPolicy="strict-origin-when-cross-origin"
+          allowFullScreen
+        />
 
       </div>
     </div>

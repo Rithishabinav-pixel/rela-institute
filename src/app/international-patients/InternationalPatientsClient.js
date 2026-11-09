@@ -153,7 +153,7 @@ const faq = [
 ]
 
 
-export default function InternationalPatientsClient({deptData}) {
+export default function InternationalPatientsClient({deptData, allTestimonials, featuredTestimonials}) {
 
      const [advancedSectionRef, countersInView] = useSectionInView();
 
@@ -477,7 +477,7 @@ slidesPerView: 1.5,
 </section>
 
 
-<TestimonialSection/>
+<TestimonialSection allTestimonials={allTestimonials} featuredTestimonials={featuredTestimonials}/>
 
 <section className={`common_section no_padding_top ${style.faq_section}`}>
 <div className={`container ${style.container}`}>

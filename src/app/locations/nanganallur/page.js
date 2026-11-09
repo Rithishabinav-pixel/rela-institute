@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Button from '@/app/components/UI/Button'
 import Link from 'next/link'
 import TestimonialSection from '@/app/components/TestimonialSection/TestimonialSection'
+import { listAllTestimonialsPublic, listFeaturedTestimonialsPublic } from '@/lib/testimonials'
 
 
 const stats = [
@@ -175,7 +176,13 @@ const locationData={
     mail:["info@rimshospitals.com"]
 }
 
-export default function page() {
+export default async function page() {
+  const [allTestimonialsResult, featuredTestimonialsResult] = await Promise.all([
+    listAllTestimonialsPublic({ cursor: 0, limit: 20 }).catch(() => ({ items: [] })),
+    listFeaturedTestimonialsPublic({ cursor: 0, limit: 5 }).catch(() => ({ items: [] })),
+  ])
+  const allTestimonials = allTestimonialsResult.items
+  const featuredTestimonials = featuredTestimonialsResult.items
   return (
   <>
    {/* hero section  */}
@@ -265,7 +272,7 @@ export default function page() {
     </div>
 </section>
 
-<TestimonialSection bg="gray"/>
+<TestimonialSection bg="gray" allTestimonials={allTestimonials} featuredTestimonials={featuredTestimonials}/>
 
 
 <section className={`common_section ${style.map_section}`}>

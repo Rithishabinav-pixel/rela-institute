@@ -3,6 +3,7 @@ import { getCenterOfExcellenceCards, getHomepageDepartmentCards } from "@/lib/de
 import { getHomepageDoctorCards } from "@/lib/doctors";
 import { listHeroBannersPublic } from "@/lib/hero-banners";
 import { getHomepageHealthPackageCards } from "@/lib/health-packages";
+import { listAllTestimonialsPublic, listFeaturedTestimonialsPublic } from "@/lib/testimonials";
 import HomeClient from "./HomeClient";
 
 export const revalidate = 3600;
@@ -246,7 +247,7 @@ const FALLBACK_HEALTH_PACKAGES_DATA = [
 ];
 
 export default async function Home() {
-  const [coeDataResult, deptDataResult, doctorsDataResult, heroBanners, healthPackagesResult] = await Promise.all([
+  const [coeDataResult, deptDataResult, doctorsDataResult, heroBanners, healthPackagesResult, allTestimonialsResult, featuredTestimonialsResult] = await Promise.all([
     getCenterOfExcellenceCards().catch(() => []),
     getHomepageDepartmentCards().catch(() => []),
     getHomepageDoctorCards().catch(() => []),
@@ -255,16 +256,20 @@ export default async function Home() {
       return [];
     }),
     getHomepageHealthPackageCards().catch(() => []),
+    listAllTestimonialsPublic({ cursor: 0, limit: 20 }).catch(() => ({ items: [] })),
+    listFeaturedTestimonialsPublic({ cursor: 0, limit: 5 }).catch(() => ({ items: [] })),
   ]);
 
   const coeData = coeDataResult.length > 0 ? coeDataResult : FALLBACK_COE_DATA;
   const deptData = deptDataResult.length > 0 ? deptDataResult : FALLBACK_DEPT_DATA;
   const doctorsData = doctorsDataResult.length > 0 ? doctorsDataResult : FALLBACK_DOCTORS_DATA;
   const healthPackages = healthPackagesResult.length > 0 ? healthPackagesResult : FALLBACK_HEALTH_PACKAGES_DATA;
+  const allTestimonials = allTestimonialsResult.items;
+  const featuredTestimonials = featuredTestimonialsResult.items;
 
   if (heroBanners[0]?.image) {
     preload(heroBanners[0].image, { as: "image" });
   }
 
-  return <HomeClient coeData={coeData} deptData={deptData} doctorsData={doctorsData} heroBanners={heroBanners} healthPackages={healthPackages} />;
+  return <HomeClient coeData={coeData} deptData={deptData} doctorsData={doctorsData} heroBanners={heroBanners} healthPackages={healthPackages} allTestimonials={allTestimonials} featuredTestimonials={featuredTestimonials} />;
 }

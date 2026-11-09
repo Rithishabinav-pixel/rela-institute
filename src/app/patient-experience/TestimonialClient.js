@@ -1,75 +1,121 @@
 "use client"
 
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import style from './testimonial.module.css'
 import Image from 'next/image'
 import Link from 'next/link'
 import TestimonialCard from './TestimonialCard'
 import Popup from './Popup'
 
-const testData = [
-  {
-    featureImage:"/assets/images/test-sample-feature.png",
-    name:"Mr. Jafar Husain",
-    videoLink:`<iframe width="560" height="315" src="https://www.youtube.com/embed/XYNztii436w?si=VUcFFFadu4bPgguQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`
-  },
+const BATCH_SIZE = 3
+const SEARCH_DEBOUNCE_MS = 300
 
-   {
-    featureImage:"/assets/images/test-sample-feature.png",
-    name:"Mr. Jafar Husain",
-    videoLink:`<iframe width="560" height="315" src="https://www.youtube.com/embed/l7t2ZqFTBio?si=znz81wBZMYIhWy27" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`
-  },
-   
+export default function TestimonialClient({ initial, categories }) {
 
-   {
-    featureImage:"/assets/images/test-sample-feature.png",
-    name:"Mr. Jafar Husain",
-    videoLink:`<iframe width="560" height="315" src="https://www.youtube.com/embed/4aqrB0cpK-Q?si=nlISdOHyG4GefU33" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`
-  },
- {
-    featureImage:"/assets/images/test-sample-feature.png",
-    name:"Mr. Jafar Husain",
-    videoLink:`<iframe width="560" height="315" src="https://www.youtube.com/embed/XYNztii436w?si=VUcFFFadu4bPgguQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`
-  },
-
-   {
-    featureImage:"/assets/images/test-sample-feature.png",
-    name:"Mr. Jafar Husain",
-    videoLink:`<iframe width="560" height="315" src="https://www.youtube.com/embed/l7t2ZqFTBio?si=znz81wBZMYIhWy27" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`
-  },
-   
-
-   {
-    featureImage:"/assets/images/test-sample-feature.png",
-    name:"Mr. Jafar Husain",
-    videoLink:`<iframe width="560" height="315" src="https://www.youtube.com/embed/4aqrB0cpK-Q?si=nlISdOHyG4GefU33" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`
-  },
-   
-   
-
-]
-
-export default function TestimonialClient() {
-
- const [mobile,setMobile] = useState(false);
+ const [searchInput, setSearchInput] = useState('')
+ const [search, setSearch] = useState('')
+ const [categoryId, setCategoryId] = useState(null)
+ const [items, setItems] = useState(initial.items)
+ const [hasMore, setHasMore] = useState(initial.hasMore)
+ const [cursor, setCursor] = useState(initial.nextCursor)
+ const [loading, setLoading] = useState(false)
+ const [error, setError] = useState('')
+ const [lastCard, setLastCard] = useState(null)
  const [activeVideo,setActiveVideo] = useState(0);
  const [popup,setPopup] = useState(false)
+ const fetchingRef = useRef(false)
+ const requestId = useRef(0)
 
-   useEffect(()=>{
+  const loadFirstPage = useCallback((nextSearch, nextCategoryId) => {
+    const currentRequest = ++requestId.current
+    fetchingRef.current = true
+    setLoading(true)
+    setError('')
 
-          const checkDevice = () =>{
-              setMobile(window.innerWidth<1200)
-          }
+    const params = new URLSearchParams({ search: nextSearch, cursor: '0', limit: String(BATCH_SIZE) })
+    if (nextCategoryId) params.set('categoryId', nextCategoryId)
 
-          checkDevice();
-
-          window.addEventListener("resize",checkDevice);
-
-          return(()=>{
-              window.removeEventListener("resize",checkDevice)
+    fetch(`/api/patient-experience?${params.toString()}`)
+      .then(async (res) => {
+        if (!res.ok) throw new Error('Could not load patient experiences')
+        return res.json()
       })
+      .then((data) => {
+        if (requestId.current !== currentRequest) return
+        setItems(data.items)
+        setHasMore(data.hasMore)
+        setCursor(data.nextCursor)
+      })
+      .catch(() => {
+        if (requestId.current !== currentRequest) return
+        setError('Could not load patient experiences. Please try again.')
+      })
+      .finally(() => {
+        if (requestId.current !== currentRequest) return
+        setLoading(false)
+        fetchingRef.current = false
+      })
+  }, [])
 
-      },[])
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setSearch(searchInput)
+      loadFirstPage(searchInput, categoryId)
+    }, SEARCH_DEBOUNCE_MS)
+
+    return () => clearTimeout(timer)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchInput])
+
+  const selectCategory = (id) => {
+    setCategoryId(id)
+    loadFirstPage(search, id)
+  }
+
+  const loadMore = useCallback(() => {
+    if (fetchingRef.current || !hasMore) return
+    const currentRequest = ++requestId.current
+    fetchingRef.current = true
+    setLoading(true)
+
+    const params = new URLSearchParams({ search, cursor: String(cursor), limit: String(BATCH_SIZE) })
+    if (categoryId) params.set('categoryId', categoryId)
+
+    fetch(`/api/patient-experience?${params.toString()}`)
+      .then(async (res) => {
+        if (!res.ok) throw new Error('Could not load patient experiences')
+        return res.json()
+      })
+      .then((data) => {
+        if (requestId.current !== currentRequest) return
+        setItems((prev) => {
+          const existingIds = new Set(prev.map((item) => item.id))
+          return [...prev, ...data.items.filter((item) => !existingIds.has(item.id))]
+        })
+        setHasMore(data.hasMore)
+        setCursor(data.nextCursor)
+      })
+      .catch(() => {})
+      .finally(() => {
+        if (requestId.current !== currentRequest) return
+        setLoading(false)
+        fetchingRef.current = false
+      })
+  }, [search, categoryId, cursor, hasMore])
+
+  useEffect(() => {
+    if (!lastCard || !hasMore) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) loadMore()
+      },
+      { rootMargin: '0px 0px 300px 0px' }
+    )
+
+    observer.observe(lastCard)
+    return () => observer.disconnect()
+  }, [lastCard, hasMore, loadMore])
 
 
 
@@ -84,8 +130,10 @@ export default function TestimonialClient() {
       <h2 className='orange_text'>Quick Search</h2>
 
       <div className={style.quickcategories}>
-        <button>All</button>
-
+        <button className={categoryId === null ? style.active : undefined} onClick={() => selectCategory(null)}>All</button>
+        {categories.map((c) => (
+          <button key={c.id} className={categoryId === c.id ? style.active : undefined} onClick={() => selectCategory(c.id)}>{c.name}</button>
+        ))}
       </div>
     </div>
   </div>
@@ -108,29 +156,27 @@ export default function TestimonialClient() {
 <input
   type='text'
   placeholder='Search by Name'
-  value=''
-  onChange={()=>{}}
-  
+  value={searchInput}
+  onChange={(e) => setSearchInput(e.target.value)}
+
 />
 <button type='button'> <Image src="/assets/images/search-normal.svg" width={32} height={32} alt=''/> </button>
       </div>
 
- <div className={`${style.action_button} ${style.sort}`}>
-              <select >
-                <option value="Newest">Newest</option>
-                <option value="Oldest">Oldest</option>
-                <option value="A-Z">A-Z</option>
-              </select>
-            </div>
-
 
     </div>
 
+{error && <p className={style.hint}>{error}</p>}
+{!error && !loading && items.length === 0 && <p className={style.hint}>No patient experiences found.</p>}
+
 <div className={style.testimonialCards}>
-  {testData.map((item,index)=>(
-  <TestimonialCard data={item} key={index} activeVideo={index} setPopup={setPopup} setActiveVideo={setActiveVideo} cardStyle={`testimonial_grid`}/>
+  {items.map((item,index)=>(
+    <TestimonialCard key={item.id} data={{ featureImage: item.featureImage, name: item.patientName }} activeVideo={index} setPopup={setPopup} setActiveVideo={setActiveVideo} cardStyle={`testimonial_grid`}/>
   ))}
 </div>
+<div ref={setLastCard} aria-hidden="true" />
+
+{loading && <p className={style.hint}>Loading…</p>}
 
 
 </div>
@@ -142,8 +188,8 @@ export default function TestimonialClient() {
 </section>
 </div>
 
-{popup && 
-<Popup video={testData[activeVideo].videoLink}  activeVideo={activeVideo} setPopup={setPopup} setActiveVideo={setActiveVideo} length={testData.length}/>
+{popup &&
+<Popup videoUrl={items[activeVideo]?.videoUrl}  activeVideo={activeVideo} setPopup={setPopup} setActiveVideo={setActiveVideo} length={items.length}/>
 }
     </>
   )

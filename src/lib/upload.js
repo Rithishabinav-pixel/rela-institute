@@ -80,3 +80,38 @@ export async function deleteUploadedFile(url) {
   const filePath = path.join(process.cwd(), 'public', url)
   await fs.unlink(filePath).catch(() => {})
 }
+
+export function isAllowedPdfType(mimeType) {
+  return mimeType === 'application/pdf'
+}
+
+function matchesPdfSignature(buffer) {
+  return buffer.length >= 4 && buffer.toString('ascii', 0, 4) === '%PDF'
+}
+
+export async function savePdfBuffer(buffer, destinationFolder) {
+  if (!matchesPdfSignature(buffer)) {
+    throw new Error('The uploaded file does not match a valid PDF document.')
+  }
+
+  const fileName = `${Date.now()}-${crypto.randomBytes(6).toString('hex')}.pdf`
+
+  const destinationDir = path.join(process.cwd(), 'public', 'uploads', destinationFolder)
+  await fs.mkdir(destinationDir, { recursive: true })
+  await fs.writeFile(path.join(destinationDir, fileName), buffer)
+
+  return {
+    fileName,
+    url: `/uploads/${destinationFolder}/${fileName}`,
+    size: buffer.length,
+  }
+}
+
+export async function saveUploadedPdf(file, destinationFolder) {
+  if (!isAllowedPdfType(file.type)) {
+    throw new Error('Unsupported file type. Please upload a PDF file.')
+  }
+
+  const buffer = Buffer.from(await file.arrayBuffer())
+  return savePdfBuffer(buffer, destinationFolder)
+}

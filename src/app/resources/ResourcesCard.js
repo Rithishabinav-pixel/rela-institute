@@ -9,7 +9,7 @@ export default function ResourcesCard({resources,cardStyle}) {
      <div className={`${style.resourcesCard} ${style[cardStyle]}`} >
 
 <div className={style.image}>
-    <Image src={resources.image || "/assets/images/resouces-sample.png.png"} alt={resources.name || ''} width={360} height={423}/>
+    <Image src={resources.image || "/assets/images/resouces-sample.png"} alt={resources.name || ''} width={360} height={423}/>
 </div>
 
 

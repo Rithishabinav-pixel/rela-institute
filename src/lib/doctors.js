@@ -5,6 +5,35 @@ import { prisma } from './prisma.js'
 import { parseCsv } from './csv.js'
 import { sanitizeRichHtml } from './sanitize-html.js'
 import { normalizeWhitespace, slugify } from './slug.js'
+import { extractYoutubeVideoId } from './press-content-helpers.js'
+import { listArticlesForDoctorLinking } from './articles.js'
+import { listMediaArticlesAdmin } from './media-articles.js'
+import { listSuccessStoriesAdmin } from './success-stories.js'
+import { listExpertTalksAdmin } from './expert-talks.js'
+
+const CONTENT_CARD_FALLBACK_IMAGE = '/assets/images/sample-article-img.png'
+
+function formatContentCardDate(value) {
+  if (!value) return ''
+  return new Date(value).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+}
+
+function resolveContentCardImage({ featureType, featureImage, youtubeUrl }) {
+  if (featureType === 'video') {
+    const videoId = extractYoutubeVideoId(youtubeUrl)
+    return videoId ? `https://img.youtube.com/vi/${videoId}/hqdefault.jpg` : CONTENT_CARD_FALLBACK_IMAGE
+  }
+  return featureImage || CONTENT_CARD_FALLBACK_IMAGE
+}
+
+function buildContentCard(item, basePath) {
+  return {
+    image: resolveContentCardImage(item),
+    date: formatContentCardDate(item.publishedAt),
+    title: item.title,
+    link: `${basePath}/${item.slug}`,
+  }
+}
 
 const DOCTORS_CACHE_TAG = 'doctors'
 const PUBLIC_DOCTORS_REVALIDATE_SECONDS = 3600
@@ -177,6 +206,28 @@ const doctorDetailSelect = {
   speciality: { select: { id: true, departmentId: true, name: true } },
   departments: { select: { department: { select: { id: true, departmentId: true, name: true } } } },
   tabs: { orderBy: { sortOrder: 'asc' }, select: { id: true, heading: true, content: true, sortOrder: true } },
+  mediaArticles: {
+    select: {
+      mediaArticle: {
+        select: { id: true, slug: true, title: true, publishedAt: true, featureType: true, featureImage: true, youtubeUrl: true },
+      },
+    },
+  },
+  successStories: {
+    select: {
+      successStory: {
+        select: { id: true, slug: true, title: true, publishedAt: true, featureType: true, featureImage: true, youtubeUrl: true },
+      },
+    },
+  },
+  expertTalks: {
+    select: {
+      expertTalk: {
+        select: { id: true, slug: true, title: true, publishedAt: true, featureType: true, featureImage: true, youtubeUrl: true },
+      },
+    },
+  },
+  articles: { select: { articleSlug: true } },
 }
 
 function serializeDoctor(doctor) {
@@ -218,6 +269,24 @@ export async function listDoctorsPublic({ search = '', departmentId = '' } = {})
   return cachedListDoctorsPublic(search, departmentId)
 }
 
+async function resolveDoctorArticleCards(doctorArticles) {
+  if (!doctorArticles || doctorArticles.length === 0) return []
+
+  const slugs = new Set(doctorArticles.map((link) => link.articleSlug))
+  const allArticles = await listArticlesForDoctorLinking()
+  const bySlug = new Map(allArticles.map((article) => [article.slug, article]))
+
+  return [...slugs]
+    .map((slug) => bySlug.get(slug))
+    .filter(Boolean)
+    .map((article) => ({
+      image: article.image,
+      date: article.formattedDate,
+      title: article.title,
+      link: article.link,
+    }))
+}
+
 async function getDoctorBySlugPublicUncached(slug) {
   const doctor = await prisma.doctor.findUnique({ where: { slug }, select: doctorDetailSelect })
   if (!doctor) return null
@@ -233,6 +302,10 @@ async function getDoctorBySlugPublicUncached(slug) {
     speciality: doctor.speciality,
     departments: doctor.departments.map((link) => link.department),
     tabs: doctor.tabs.map((tab) => ({ ...tab, content: sanitizeRichHtml(tab.content) })),
+    mediaArticleCards: doctor.mediaArticles.map((link) => buildContentCard(link.mediaArticle, '/media')),
+    successStoryCards: doctor.successStories.map((link) => buildContentCard(link.successStory, '/success-stories')),
+    expertTalkCards: doctor.expertTalks.map((link) => buildContentCard(link.expertTalk, '/expert-talks')),
+    articleCards: await resolveDoctorArticleCards(doctor.articles),
   }
 }
 
@@ -299,6 +372,10 @@ export async function getDoctorByIdAdmin(id) {
     speciality: doctor.speciality,
     departments: doctor.departments.map((link) => link.department),
     tabs: doctor.tabs,
+    mediaArticleIds: doctor.mediaArticles.map((link) => link.mediaArticle.id),
+    successStoryIds: doctor.successStories.map((link) => link.successStory.id),
+    expertTalkIds: doctor.expertTalks.map((link) => link.expertTalk.id),
+    articleSlugs: doctor.articles.map((link) => link.articleSlug),
   }
 }
 
@@ -309,6 +386,29 @@ async function departmentIdsToInternalIds(departmentIds) {
   })
 
   return departments.map((d) => d.id)
+}
+
+async function mediaArticleIdsToValidIds(ids) {
+  if (!Array.isArray(ids) || ids.length === 0) return []
+  const rows = await prisma.mediaArticle.findMany({ where: { id: { in: ids.map(Number) } }, select: { id: true } })
+  return rows.map((row) => row.id)
+}
+
+async function successStoryIdsToValidIds(ids) {
+  if (!Array.isArray(ids) || ids.length === 0) return []
+  const rows = await prisma.successStory.findMany({ where: { id: { in: ids.map(Number) } }, select: { id: true } })
+  return rows.map((row) => row.id)
+}
+
+async function expertTalkIdsToValidIds(ids) {
+  if (!Array.isArray(ids) || ids.length === 0) return []
+  const rows = await prisma.expertTalk.findMany({ where: { id: { in: ids.map(Number) } }, select: { id: true } })
+  return rows.map((row) => row.id)
+}
+
+function articleSlugsToValid(slugs) {
+  if (!Array.isArray(slugs)) return []
+  return [...new Set(slugs.map((slug) => normalizeWhitespace(slug)).filter(Boolean))]
 }
 
 function validateDoctorInput(input) {
@@ -346,6 +446,13 @@ export async function createDoctorAdmin(input) {
   const internalDepartmentIds = await departmentIdsToInternalIds(input.departmentIds)
   if (internalDepartmentIds.length === 0) throw new Error('No valid departments selected')
 
+  const [validMediaArticleIds, validSuccessStoryIds, validExpertTalkIds] = await Promise.all([
+    mediaArticleIdsToValidIds(input.mediaArticleIds),
+    successStoryIdsToValidIds(input.successStoryIds),
+    expertTalkIdsToValidIds(input.expertTalkIds),
+  ])
+  const validArticleSlugs = articleSlugsToValid(input.articleSlugs)
+
   const baseSlug = slugify(input.slug || input.name)
   const slug = await ensureUniqueSlug(baseSlug)
 
@@ -366,6 +473,10 @@ export async function createDoctorAdmin(input) {
           sortOrder: index,
         })),
       },
+      mediaArticles: { create: validMediaArticleIds.map((mediaArticleId) => ({ mediaArticleId })) },
+      successStories: { create: validSuccessStoryIds.map((successStoryId) => ({ successStoryId })) },
+      expertTalks: { create: validExpertTalkIds.map((expertTalkId) => ({ expertTalkId })) },
+      articles: { create: validArticleSlugs.map((articleSlug) => ({ articleSlug })) },
     },
   })
 
@@ -390,6 +501,13 @@ export async function updateDoctorAdmin(id, input) {
   const internalDepartmentIds = await departmentIdsToInternalIds(input.departmentIds)
   if (internalDepartmentIds.length === 0) throw new Error('No valid departments selected')
 
+  const [validMediaArticleIds, validSuccessStoryIds, validExpertTalkIds] = await Promise.all([
+    mediaArticleIdsToValidIds(input.mediaArticleIds),
+    successStoryIdsToValidIds(input.successStoryIds),
+    expertTalkIdsToValidIds(input.expertTalkIds),
+  ])
+  const validArticleSlugs = articleSlugsToValid(input.articleSlugs)
+
   const existing = await prisma.doctor.findUnique({ where: { id }, select: { slug: true } })
 
   let slug
@@ -400,6 +518,10 @@ export async function updateDoctorAdmin(id, input) {
   await prisma.$transaction([
     prisma.doctorDepartment.deleteMany({ where: { doctorId: id } }),
     prisma.doctorTab.deleteMany({ where: { doctorId: id } }),
+    prisma.mediaArticleDoctor.deleteMany({ where: { doctorId: id } }),
+    prisma.successStoryDoctor.deleteMany({ where: { doctorId: id } }),
+    prisma.expertTalkDoctor.deleteMany({ where: { doctorId: id } }),
+    prisma.doctorArticle.deleteMany({ where: { doctorId: id } }),
     prisma.doctor.update({
       where: { id },
       data: {
@@ -418,6 +540,10 @@ export async function updateDoctorAdmin(id, input) {
             sortOrder: index,
           })),
         },
+        mediaArticles: { create: validMediaArticleIds.map((mediaArticleId) => ({ mediaArticleId })) },
+        successStories: { create: validSuccessStoryIds.map((successStoryId) => ({ successStoryId })) },
+        expertTalks: { create: validExpertTalkIds.map((expertTalkId) => ({ expertTalkId })) },
+        articles: { create: validArticleSlugs.map((articleSlug) => ({ articleSlug })) },
       },
     }),
   ])
@@ -502,4 +628,20 @@ const cachedGetHomepageDoctorCards = unstable_cache(
 
 export async function getHomepageDoctorCards() {
   return cachedGetHomepageDoctorCards()
+}
+
+export async function getDoctorContentLinkingOptions() {
+  const [articles, mediaArticlesResult, successStoriesResult, expertTalksResult] = await Promise.all([
+    listArticlesForDoctorLinking(),
+    listMediaArticlesAdmin({ pageSize: 1000 }),
+    listSuccessStoriesAdmin({ pageSize: 1000 }),
+    listExpertTalksAdmin({ pageSize: 1000 }),
+  ])
+
+  return {
+    articleOptions: articles.map((article) => ({ id: article.slug, name: article.title })),
+    mediaArticleOptions: mediaArticlesResult.articles.map((article) => ({ id: article.id, name: article.title })),
+    successStoryOptions: successStoriesResult.stories.map((story) => ({ id: story.id, name: story.title })),
+    expertTalkOptions: expertTalksResult.items.map((item) => ({ id: item.id, name: item.title })),
+  }
 }

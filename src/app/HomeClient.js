@@ -178,7 +178,7 @@ const locationData = [
   },
 ];
 
-export default function HomeClient({ coeData, deptData, doctorsData, heroBanners, healthPackages }) {
+export default function HomeClient({ coeData, deptData, doctorsData, heroBanners, healthPackages, allTestimonials, featuredTestimonials }) {
 
   const [mobile,setMobile] = useState(false);
   const [strictMobile,setStrictMobile] = useState(false);
@@ -833,7 +833,7 @@ slidesPerView: 1.5,
 
 
 
-<TestimonialSection/>
+<TestimonialSection allTestimonials={allTestimonials} featuredTestimonials={featuredTestimonials}/>
 
 
 

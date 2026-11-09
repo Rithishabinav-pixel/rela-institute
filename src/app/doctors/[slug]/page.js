@@ -56,6 +56,19 @@ export default async function Page({ params }) {
     content: tab.content,
   }));
 
+  if (doctor.articleCards?.length) {
+    sliderTab.push({ button: "Articles", cards: doctor.articleCards });
+  }
+  if (doctor.mediaArticleCards?.length) {
+    sliderTab.push({ button: "Media", cards: doctor.mediaArticleCards });
+  }
+  if (doctor.successStoryCards?.length) {
+    sliderTab.push({ button: "Success Stories", cards: doctor.successStoryCards });
+  }
+  if (doctor.expertTalkCards?.length) {
+    sliderTab.push({ button: "Expert Talk", cards: doctor.expertTalkCards });
+  }
+
   const cardDoctor = {
     image: doctor.image,
     name: doctor.name,
@@ -68,7 +81,7 @@ export default async function Page({ params }) {
     <>
       <section className={style.doctorProfile}>
         <div className={`container ${style.container}`}>
-          <div className={style.content}>
+          <div className={style.docContent}>
 
             <div className={style.doctorMainDetails}>
               {/* notranslate: see src/app/components/UI/DoctorCard.js */}
@@ -111,7 +124,7 @@ export default async function Page({ params }) {
             <DoctorTabs sliderTab={sliderTab} />
           </div>
 
-          <div className={style.image}>
+          <div className={style.docImage}>
             <DoctorCard
               doctor={cardDoctor}
               cardStyle="doctorDetailCard"
