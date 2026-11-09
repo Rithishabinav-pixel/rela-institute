@@ -8,62 +8,49 @@ import TestimonialCard from './TestimonialCard'
 
 const testData = [
   {
+    title:"1Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.",
     content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.",
     name:"John Doe",
     image:"/assets/images/usr.png"
   },
     {
+       title:"2Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.",
     content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.",
     name:"John Doe",
     image:"/assets/images/usr.png"
   },
     {
+       title:"3Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.",
+    content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.",
+    name:"John Doe",
+    image:"/assets/images/usr.png"
+  },
+    
+  {
+    title:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.",
     content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.",
     name:"John Doe",
     image:"/assets/images/usr.png"
   },
     {
+       title:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.",
     content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.",
     name:"John Doe",
     image:"/assets/images/usr.png"
   },
     {
+       title:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.",
     content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.",
     name:"John Doe",
     image:"/assets/images/usr.png"
   },
-    {
-    content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.",
-    name:"John Doe",
-    image:"/assets/images/usr.png"
-  },
-    {
-    content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.",
-    name:"John Doe l",
-    image:"/assets/images/usr.png"
-  },
-
+    
 ]
 
 export default function TestimonialClient() {
 
- const [mobile,setMobile] = useState(false);
 
-   useEffect(()=>{
-
-          const checkDevice = () =>{
-              setMobile(window.innerWidth<1200)
-          }
-
-          checkDevice();
-
-          window.addEventListener("resize",checkDevice);
-
-          return(()=>{
-              window.removeEventListener("resize",checkDevice)
-      })
-
-      },[])
+  const [activePopup,setActivePopup] = useState(null)
 
 
 
@@ -73,7 +60,7 @@ export default function TestimonialClient() {
 <div className={`static_page`}>
 <section className={style.topSection}>
   <div className={`container ${style.container}`}>
-    <h1 className='common_heading'>Find a <span>Doctor</span></h1>
+    <h1 className='common_heading'>Real Stories. <span>Real Care.</span></h1>
     <div className={style.quickSearch_container}>
       <h2 className='orange_text'>Quick Search</h2>
 
@@ -122,7 +109,7 @@ export default function TestimonialClient() {
 
 <div className={style.testimonialCards}>
   {testData.map((item,index)=>(
-  <TestimonialCard data={item} key={index} cardStyle={`testimonial_grid`}/>
+  <TestimonialCard data={item} key={index} index={testData.indexOf(item)} setActivePopup={setActivePopup} cardStyle={`testimonial_grid`}/>
   ))}
 </div>
 
@@ -135,6 +122,26 @@ export default function TestimonialClient() {
 
 </section>
 </div>
+
+
+{/* popup --------------------- */}
+
+{activePopup !== null &&
+    <div className={style.popup}>
+      <div className={style.overlay} onClick={()=>setActivePopup(null)}></div>
+
+      <div className={style.container}>
+
+        <button  className={style.closeBtn} onClick={()=>setActivePopup(null)}> <Image src="/assets/images/close.svg" width={24} height={24} alt="Close" /> </button>
+
+     
+        <TestimonialCard data={testData[activePopup]}/>
+
+      </div>
+    </div>
+
+}
+
     </>
   )
 }

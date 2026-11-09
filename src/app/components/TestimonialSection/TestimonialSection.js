@@ -79,6 +79,8 @@ export default function TestimonialSection({bg}) {
     <Button link="/" classname="orange_btn" text="Discover Rela Hospital"/>
   </div>
 
+
+{/* featured testimonial */}
   <div className={style.featureTestimonial} data-aos="fade-up" style={{backgroundImage:`url(/assets/images/testimonial_bg.png)`}}>
     <div className={style.content}>
     <Image src="/assets/images/quote.svg" className={style.quote} width={78} height={55} alt="" />

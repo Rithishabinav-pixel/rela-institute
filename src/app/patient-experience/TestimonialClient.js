@@ -79,7 +79,7 @@ export default function TestimonialClient() {
 <div className={`static_page`}>
 <section className={style.topSection}>
   <div className={`container ${style.container}`}>
-    <h1 className='common_heading'>Find a <span>Doctor</span></h1>
+      <h1 className='common_heading'>Real Stories. <span>Real Care.</span></h1>
     <div className={style.quickSearch_container}>
       <h2 className='orange_text'>Quick Search</h2>
 

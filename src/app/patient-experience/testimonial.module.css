@@ -273,6 +273,7 @@ color: black;
 
 .articlesGrid .container .actions{
     flex-direction: column;
+    gap: 20px;
 }
 
 .articlesGrid .container .actions>div{

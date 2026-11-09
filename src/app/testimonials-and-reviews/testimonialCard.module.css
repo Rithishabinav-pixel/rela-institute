@@ -7,10 +7,11 @@
   flex-direction: column;
   justify-content: space-between;
   gap: 16px;
-  padding: 16px;
+  padding: 36px 16px 16px 16px;
   background-color: #f6f6f6;
   border-radius: 24px;
   position: relative;
+  overflow: hidden;
 }
 
 .testimonial_grid.testSlide{
@@ -31,7 +32,14 @@
   aspect-ratio: 78 / 55;
  background-image: url(/assets/images/quote.svg);
  background-size: cover;
- opacity: 0.7;
+ opacity: 0.3;
+}
+
+.testSlide h3{
+  font-size: 24px;
+  line-height: 32px;
+  font-style: italic;
+  font-weight: 500;
 }
 
 .testSlide p {
@@ -41,7 +49,8 @@
   z-index: 2;
 
     display: -webkit-box;
-  -webkit-line-clamp: 7;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;  
   overflow: hidden;
   text-overflow: ellipsis; 
@@ -59,7 +68,9 @@
   border-radius: 40px;
 }
 
-.testUser h3{
+
+
+.testUser h4{
   font-size: 16px;
   line-height: 24px;
   font-weight: 600;
@@ -71,6 +82,12 @@
   .testimonial_grid.testSlide{
   width: calc(50% - 10px);
 }
+
+.testSlide h3{
+  font-size: 20px;
+  line-height: 28px;
+}
+
 }
 
 

@@ -49,6 +49,7 @@
 .testimonialSection .featureTestimonial .content p{
     display: -webkit-box;
   -webkit-line-clamp: 9;
+  line-clamp: 9;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -167,6 +168,7 @@
   z-index: 2;
       display: -webkit-box;
   -webkit-line-clamp: 5;
+  line-clamp: 5;
   -webkit-box-orient: vertical;  
   overflow: hidden;
   text-overflow: ellipsis;
@@ -223,6 +225,7 @@
 
       .testimonialSection .featureTestimonial .content p{
   -webkit-line-clamp:4;
+  line-clamp: 4;
 }
 
 .testimonialSection .featureTestimonial .quote{

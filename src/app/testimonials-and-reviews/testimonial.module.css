@@ -160,16 +160,114 @@ color: black;
     padding: 40px 0 120px 0;
 }
 
-.doctorsCards{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-}
 
 .articlesGrid .doctorsListing{
     width: 100%;
 }
 
+
+.popup{
+    position: fixed;
+    z-index: 9999;
+    padding: 0 20px;
+}
+
+.popup,
+.popup .container button.closeBtn,
+.popup .container button.button{
+display: grid;
+    place-items: center;
+}
+
+.popup .overlay,
+.popup{
+    inset: 0;
+}
+
+.popup .overlay{
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+.popup .container button.closeBtn,
+.popup .overlay{
+    position: absolute;
+}
+
+.popup .container button{
+    cursor: pointer;
+    border: none;
+}
+
+.popup .container{
+position: relative;
+z-index: 2;
+width: 100%;
+max-width: 800px;
+overflow: hidden;
+border-radius: 24px;
+}
+
+.popup .container iframe{
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+}
+
+.popup .container .closeBtn,
+.popup .container .button{
+    height: auto;
+    aspect-ratio: 1 / 1;
+}
+
+.popup .container .closeBtn{
+    background-color: var(--light-orange);
+    border-radius: 0 0 4px 0;
+}
+
+.popup .container .button{
+    border-radius: 100%;
+  background-color: white;
+    top: 50%;
+    transition: var(--transition);
+    width: 40px;
+}
+
+.popup .container .button:disabled{
+    opacity: 0.75;
+}
+
+.popup .container .closeBtn{
+    top: 0;
+    right: 0;
+    width: 32px;
+    z-index: 3;
+}
+
+
+.popup .container .button.prev{
+    left: 0;
+    transform: translateX(-75px) translateY(-50%);
+}
+
+.popup .container .button.prev:hover{
+    transform: translateX(-75px) translateY(-50%) scale(0.975);
+background-color: rgb(225, 225, 225);
+}
+
+.popup .container .button.next{
+    right: 0;
+    transform: translateX(75px) translateY(-50%);
+}
+
+.popup .container .button.next:hover{
+    transform:  translateX(75px) translateY(-50%) scale(0.975);
+background-color: rgb(225, 225, 225);
+}
+
+.popup .container .closeBtn img,
+.popup .container .button img{
+    width: 24px;
+}
 
 
 
@@ -211,9 +309,46 @@ color: black;
 /* tablet  */
 @media screen and (max-width:1200px){
 
+     .popup .container .button{
+    top: unset;
+    bottom: -60px;
+    width: 40px;
+}
 
+.popup .container .button.prev{
+    left: 50%;
+    transform: translateX(-75px) translateY(0%);
+}
+
+.popup .container .button.prev:hover{
+    transform: translateX(-75px) translateY(0%) scale(0.95);
+}
+
+
+.popup .container .button.next{
+    right: 50%;
+    transform: translateX(75px) translateY(0%);
+}
+
+
+.popup .container .button.next:hover{
+    right: 50%;
+    transform: translateX(75px) translateY(0%) scale(0.95);
+}
+
+
+    .articlesGrid .container .actions{
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .articlesGrid .container .actions>div.action_button.tabs,
         .articlesGrid .doctorsListing{
     width: 100%;
+}
+
+.articlesGrid .container .actions>div.action_button.search{
+    margin-left: unset
 }
 
     .topSection .container{
@@ -248,15 +383,44 @@ color: black;
 
 @media screen and (max-width:992px) {
     
-.doctorsCards{
-    gap: 20px;
-}
 
 }
 
 
 /* mobile  */
 @media screen and (max-width:767px){
+
+      .popup .container .button{
+    width: 32px;
+    bottom: -45px;
+}
+
+  .popup .container .button img{
+    width: 20px;
+  }
+
+  .popup .container .button.prev{
+    transform: translateX(-50px) translateY(0%);
+}
+
+.popup .container .button.prev:hover{
+    transform: translateX(-50px) translateY(0%) scale(0.95);
+}
+
+
+.popup .container .button.next{
+    transform: translateX(50px) translateY(0%);
+}
+
+
+.popup .container .button.next:hover{
+    right: 50%;
+    transform: translateX(50px) translateY(0%) scale(0.95);
+}
+
+.popup .container{
+    border-radius: 16px;
+}
 
 
       .articlesGrid .container .actions>div.action_button.tabs{
@@ -274,6 +438,7 @@ color: black;
 
 .articlesGrid .container .actions{
     flex-direction: column;
+    gap: 20px;
 }
 
 .articlesGrid .container .actions>div{
