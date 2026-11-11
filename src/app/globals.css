@@ -328,7 +328,6 @@ background-color: var(--bg-gray);
   flex-direction: column;
   gap: 24px;
   align-items: flex-start;
-  max-width: 680px;
 }
 
 .top_heading.inner{
@@ -340,6 +339,9 @@ background-color: var(--bg-gray);
   text-align: center;
   margin: auto;
   width: 100%;
+}
+
+.top_heading:not(.split){
   max-width: 680px;
 }
 

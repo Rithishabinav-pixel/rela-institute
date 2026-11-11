@@ -9,7 +9,8 @@
     "lint": "eslint",
     "postinstall": "prisma generate",
     "db:migrate": "prisma migrate dev",
-    "db:seed": "node --import ./prisma/register-hooks.mjs prisma/seed.js"
+    "db:seed": "node --import ./prisma/register-hooks.mjs prisma/seed.js",
+    "import:doctors-website": "node --import ./prisma/register-hooks.mjs scripts/import-doctors-from-rela-website.mjs"
   },
   "prisma": {
     "seed": "node --import ./prisma/register-hooks.mjs prisma/seed.js"
@@ -18,9 +19,11 @@
     "@gsap/react": "^2.1.2",
     "@prisma/client": "^6.19.3",
     "aos": "^2.3.4",
+    "cheerio": "^1.2.0",
     "country-state-city": "^3.2.1",
     "gsap": "^3.15.0",
     "isomorphic-dompurify": "^4.5.0",
+    "lenis": "^1.3.27",
     "libphonenumber-js": "^1.13.15",
     "next": "16.3.8",
     "nodemailer": "^10.2.0",

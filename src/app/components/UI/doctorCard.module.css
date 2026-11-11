@@ -2,11 +2,17 @@
     height: auto;
 }
 
+
+
 .doctorCard{
     display: flex;
     flex-direction: column;
     border-radius: 32px;
     border: solid var(--orange) 1px;
+    height: auto;
+}
+
+:global(.swiper-slide) .doctorCard{
     height: 100%;
 }
 
@@ -80,21 +86,33 @@ position: relative;
 }
 
 
-.doctorCard .content a{
+.doctorCard .content a,
+.doctorCard .content button{
     width: fit-content;
 }
 
-.doctorCard .content a img{
+.doctorCard .content button{
+    background: none;
+    border: none;
+}
+
+.doctorCard .content a img,
+.doctorCard .content button img{
     width: 40px;
 }
 
-.doctorCard .content a:hover{
+.doctorCard .content a:hover,
+.doctorCard .content button:hover{
     transform: rotate(45deg);
 }
 
 .doctorGridCard{
     width: calc(33.33% - 20px);
     height: auto;
+}
+
+.doctorGridCard_4{
+    width: calc(25% - 22.5px);
 }
 
 .doctorDetailCard{
@@ -110,6 +128,10 @@ position: relative;
     .doctorCard .image,
     .doctorCard{
     border-radius: 24px;
+}
+
+.doctorGridCard_4{
+    width: calc(50% - 10px);
 }
 
 }
@@ -137,8 +159,10 @@ position: relative;
 
 @media screen and (max-width:670px){
     
+    .doctorGridCard_4,
     .doctorGridCard{
     width: 100%;
 }
+
 
 }

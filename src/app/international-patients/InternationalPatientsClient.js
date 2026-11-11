@@ -479,7 +479,7 @@ slidesPerView: 1.5,
 
 <TestimonialSection allTestimonials={allTestimonials} featuredTestimonials={featuredTestimonials}/>
 
-<section className={`common_section no_padding_top ${style.faq_section}`}>
+<section className={`common_section gray_bg  ${style.faq_section}`}>
 <div className={`container ${style.container}`}>
     <div className={style.title}  data-aos="fade-right">
         <h2 className='common_heading'>Common Questions About Liver Transplantation</h2>

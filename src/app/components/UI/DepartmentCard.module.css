@@ -5,6 +5,10 @@
 .deptCard{
     width: 100%;
     background-color:var(--brown);
+    height: auto;
+}
+
+:global(.swiper-slide) .deptCard{
     height: 100%;
 }
 
@@ -27,6 +31,10 @@
 
 .deptCard.threeCard{
     width: calc(33.33% - 20px);
+}
+
+.deptCard.fourCard{
+    width: calc(25% - 22.5px);
 }
 
 .deptCard .icon img{
@@ -96,6 +104,10 @@ flex-wrap: wrap;
     .deptCard.threeCard{
     width: calc(50% - 10px);
 }
+.deptCard.fourCard{
+    width: calc(33.33% - 13.33px);
+}
+
 }
 
 /* mobile  */
@@ -111,6 +123,7 @@ flex-wrap: wrap;
     border-radius: 16px;
 }
 
+.deptCard.fourCard,
     .deptCard.threeCard{
     width: 100%;
 }

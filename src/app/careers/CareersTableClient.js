@@ -66,6 +66,44 @@ export default function CareersTableClient({ jobs }) {
         </tbody>
       </table>
 
+      <div className={style.mobileCardList}>
+        {jobs.length === 0 && <p>No open positions at the moment.</p>}
+
+        {visibleJobs.map((job) => (
+          <div key={job.id} className={style.mobileCard}>
+            <div className={style.mobileCardHeader}>
+              <p className={style.mobileCardTitle}>{job.title}</p>
+              <span className={style.category}>{job.category}</span>
+            </div>
+
+            <div className={style.mobileCardRow}>
+              <span className={style.mobileCardLabel}>
+                <Image src="/assets/images/location.svg" width={20} height={20} alt="" /> Location
+              </span>
+              <span className={style.mobileCardValue}>{job.location}</span>
+            </div>
+
+            <div className={style.mobileCardRow}>
+              <span className={style.mobileCardLabel}>
+                <Image src="/assets/images/experience.svg" width={20} height={20} alt="" /> Experience
+              </span>
+              <span className={style.mobileCardValue}>{job.experience}</span>
+            </div>
+
+            <div className={style.mobileCardRow}>
+              <span className={style.mobileCardLabel}>
+                <Image src="/assets/images/education.svg" width={20} height={20} alt="" /> Education
+              </span>
+              <span className={style.mobileCardValue}>{job.education}</span>
+            </div>
+
+            <div className={style.mobileCardActions}>
+              <Button link={`/careers/${job.slug}`} classname="orange_btn" text="Apply Now" />
+            </div>
+          </div>
+        ))}
+      </div>
+
       {jobs.length > PAGE_SIZE && (
         <LoadMoreButton label={allShown ? 'Show Less' : 'Load More'} onClick={handleClick} />
       )}

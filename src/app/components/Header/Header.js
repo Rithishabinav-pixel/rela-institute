@@ -13,44 +13,44 @@ import WomenChildrenMegaMenu, {
 
 
 const coeMenu = [
-  { label: "Liver Disease & Transplantation", link: "/" },
-  { label: "Advanced Paediatrics", link: "/" },
-  { label: "Anaesthesia & Critical Care", link: "/" },
-  { label: "Cardiac Sciences", link: "/" },
-  { label: "Gastro Sciences", link: "/" },
-  { label: "Neuroscience", link: "/" },
-  { label: "Cancer Centre", link: "/" },
-  { label: "Orthopaedics", link: "/" },
-  { label: "Renal Sciences", link: "/" },
-  { label: "Trauma Centre and Care", link: "/" },
-  { label: "Reproductive Medicine", link: "/" },
-  { label: "Women’s Health", link: "/" },
-  { label: "Intensive Care Unit", link: "/" },
-  { label: "Intestine Rehabilitation Unit", link: "/" },
+  { label: "Liver Disease & Transplantation", link: "/doctors" },
+  { label: "Advanced Paediatrics", link: "/doctors" },
+  { label: "Anaesthesia & Critical Care", link: "/doctors" },
+  { label: "Cardiac Sciences", link: "/doctors" },
+  { label: "Gastro Sciences", link: "/doctors" },
+  { label: "Neuroscience", link: "/doctors" },
+  { label: "Cancer Centre", link: "/doctors" },
+  { label: "Orthopaedics", link: "/doctors" },
+  { label: "Renal Sciences", link: "/doctors" },
+  { label: "Trauma Centre and Care", link: "/doctors" },
+  { label: "Reproductive Medicine", link: "/doctors" },
+  { label: "Women’s Health", link: "/doctors" },
+  { label: "Intensive Care Unit", link: "/doctors" },
+  { label: "Intestine Rehabilitation Unit", link: "/doctors" },
 ];
 
 const departmentMenu = [
-  { label: "Pulmonary Medicine", link: "/" },
-  { label: "Ear, Nose & Throat", link: "/" },
-  { label: "Ophthalmology", link: "/" },
-  { label: "Bariatric and Metabolic Surgeon", link: "/" },
-  { label: "Vascular surgery", link: "/" },
-  { label: "Infectious Disease", link: "/" },
-  { label: "Plastic and Reconstructive Surgery", link: "/" },
+  { label: "Pulmonary Medicine", link: "/doctors" },
+  { label: "Ear, Nose & Throat", link: "/doctors" },
+  { label: "Ophthalmology", link: "/doctors" },
+  { label: "Bariatric and Metabolic Surgeon", link: "/doctors" },
+  { label: "Vascular surgery", link: "/doctors" },
+  { label: "Infectious Disease", link: "/doctors" },
+  { label: "Plastic and Reconstructive Surgery", link: "/doctors" },
   {
     label: "Interventional Radiology and Imaging Services",
-    link: "/",
+    link: "/doctors",
   },
-  { label: "Internal Medicine", link: "/" },
-  { label: "Endocrinology and Diabetology", link: "/" },
-  { label: "Dermatology", link: "/" },
-  { label: "Urology", link: "/" },
-  { label: "Dental Surgery", link: "/" },
-  { label: "Psychiatry and Psychotherapy", link: "/" },
-  { label: "Clinical Laboratory", link: "/" },
-  { label: "Transfusion Medicine", link: "/" },
-  { label: "Nuclear Medicine", link: "/" },
-  { label: "Hearing, communication & swallow sciences", link: "/" },
+  { label: "Internal Medicine", link: "/doctors" },
+  { label: "Endocrinology and Diabetology", link: "/doctors" },
+  { label: "Dermatology", link: "/doctors" },
+  { label: "Urology", link: "/doctors" },
+  { label: "Dental Surgery", link: "/doctors" },
+  { label: "Psychiatry and Psychotherapy", link: "/doctors" },
+  { label: "Clinical Laboratory", link: "/doctors" },
+  { label: "Transfusion Medicine", link: "/doctors" },
+  { label: "Nuclear Medicine", link: "/doctors" },
+  { label: "Hearing, communication & swallow sciences", link: "/doctors" },
 ];
 
 const specialitiesFeatureMenu = {
@@ -58,12 +58,12 @@ const specialitiesFeatureMenu = {
   ceo:{
     image:"/assets/images/megamenu-img.svg",
     label:"Liver Disease & Transplantation",
-    link:"/"
+    link:"/doctors"
   },
   department:{
     image:"/assets/images/megamenu-img.svg",
     label:"Liver Disease & Transplantation",
-    link:"/"
+    link:"/doctors"
   },
 
 }
@@ -71,41 +71,41 @@ const specialitiesFeatureMenu = {
 
 const womenMenu = {
   "Obstetrics": [
-    { label: "Painless Labour and Delivery", link: "/" },
-    { label: "High Risk Pregnancy", link: "/" },
-    { label: "Vaginal Birth After C Section", link: "/" },
-    { label: "Lactation Counselling", link: "/" },
-    { label: "Antenatal Classes", link: "/" },
+    { label: "Painless Labour and Delivery", link: "/doctors" },
+    { label: "High Risk Pregnancy", link: "/doctors" },
+    { label: "Vaginal Birth After C Section", link: "/doctors" },
+    { label: "Lactation Counselling", link: "/doctors" },
+    { label: "Antenatal Classes", link: "/doctors" },
   ],
   "Cosmetology": [
-    { label: "Cosmetology", link: "/" },
+    { label: "Cosmetology", link: "/doctors" },
   ],
 
   "Breast Care": [
-    { label: "Breast Care", link: "/" },
+    { label: "Breast Care", link: "/doctors" },
   ],
   "Gynaecology": [
-    { label: "Gynaecology", link: "/" },
-    { label: "Robotic Surgeries", link: "/" },
-    { label: "Laparoscopic Surgeries", link: "/" },
-    { label: "Endoscopic Surgeries", link: "/" },
-    { label: "Uro-Gynecology", link: "/" },
-    { label: "Gynae-Oncology", link: "/" },
+    { label: "Gynaecology", link: "/doctors" },
+    { label: "Robotic Surgeries", link: "/doctors" },
+    { label: "Laparoscopic Surgeries", link: "/doctors" },
+    { label: "Endoscopic Surgeries", link: "/doctors" },
+    { label: "Uro-Gynecology", link: "/doctors" },
+    { label: "Gynae-Oncology", link: "/doctors" },
   ],
    "Fetal Medicine": [
-    { label: "Fetal Medicine", link: "/" },
+    { label: "Fetal Medicine", link: "/doctors" },
   ],
 
   "Reproductive Medicine": [
-    { label: "Reproductive Medicine", link: "/" },
-    { label: "Ovulation Induction", link: "/" },
-    { label: "In Vitro Fertilization (IVF) Treatment", link: "/" },
-    { label: "Intrauterine Insemination (IUI) Treatment", link: "/" },
-    { label: "Intracytoplasmic Sperm Injection (ICSI)", link: "/" },
-    { label: "Cryopreservation", link: "/" },
-    { label: "Frozen Embryo Transfer", link: "/" },
-    { label: "Preconception Counselling", link: "/" },
-    { label: "Infertility", link: "/" },
+    { label: "Reproductive Medicine", link: "/doctors" },
+    { label: "Ovulation Induction", link: "/doctors" },
+    { label: "In Vitro Fertilization (IVF) Treatment", link: "/doctors" },
+    { label: "Intrauterine Insemination (IUI) Treatment", link: "/doctors" },
+    { label: "Intracytoplasmic Sperm Injection (ICSI)", link: "/doctors" },
+    { label: "Cryopreservation", link: "/doctors" },
+    { label: "Frozen Embryo Transfer", link: "/doctors" },
+    { label: "Preconception Counselling", link: "/doctors" },
+    { label: "Infertility", link: "/doctors" },
   ],
 
  
@@ -115,39 +115,39 @@ const womenMenu = {
 
 const childrenMenu = {
   "Paediatric Specialities": [
-    { label: "Paediatric Gastroenterology & Hepatology", link: "/" },
-    { label: "Paediatric Hematology", link: "/" },
-    { label: "Paediatric Hemato Oncology", link: "/" },
-    { label: "Paediatric Cardiology", link: "/" },
-    { label: "Paediatric Endocrinology", link: "/" },
-    { label: "Paediatric Infectious Disease", link: "/" },
-    { label: "Paediatric Intensive Care Unit", link: "/" },
-    { label: "Paediatric Nephrology", link: "/" },
-    { label: "Paediatric Neurology", link: "/" },
-    { label: "Paediatric Orthopaedics", link: "/" },
-    { label: "Paediatric Trauma", link: "/" },
-    { label: "Pediatric Surgery and Urology", link: "/" },
+    { label: "Paediatric Gastroenterology & Hepatology", link: "/doctors" },
+    { label: "Paediatric Hematology", link: "/doctors" },
+    { label: "Paediatric Hemato Oncology", link: "/doctors" },
+    { label: "Paediatric Cardiology", link: "/doctors" },
+    { label: "Paediatric Endocrinology", link: "/doctors" },
+    { label: "Paediatric Infectious Disease", link: "/doctors" },
+    { label: "Paediatric Intensive Care Unit", link: "/doctors" },
+    { label: "Paediatric Nephrology", link: "/doctors" },
+    { label: "Paediatric Neurology", link: "/doctors" },
+    { label: "Paediatric Orthopaedics", link: "/doctors" },
+    { label: "Paediatric Trauma", link: "/doctors" },
+    { label: "Pediatric Surgery and Urology", link: "/doctors" },
   ],
 
   "Paediatrics Transplantation": [
     {
       label: "Paediatric Liver Transplant at Rela Hospital: Care, Process & Recovery",
-      link: "/",
+      link: "/doctors",
     },
-    { label: "Paediatric Bone Marrow Transplantation", link: "/" },
-    { label: "Paediatric Kidney Transplantation", link: "/" },
-    { label: "Paediatric Small Bowel Transplantation", link: "/" },
+    { label: "Paediatric Bone Marrow Transplantation", link: "/doctors" },
+    { label: "Paediatric Kidney Transplantation", link: "/doctors" },
+    { label: "Paediatric Small Bowel Transplantation", link: "/doctors" },
   ],
 
   "Paediatric Faciomaxillary Surgery": [
-    { label: "Paediatric Faciomaxillary Surgery", link: "/" },
+    { label: "Paediatric Faciomaxillary Surgery", link: "/doctors" },
   ],
     "General Paediatrics": [
-    { label: "General Paediatrics", link: "/" },
+    { label: "General Paediatrics", link: "/doctors" },
   ],
 
   Newborn: [
-    { label: "Neonatology", link: "/" },
+    { label: "Neonatology", link: "/doctors" },
   ],
 };
 
@@ -474,7 +474,7 @@ useEffect(() => {
 
 
             <li className={style.menuItem}> <Link href="#">Robotic Surgery</Link></li>
-            <li className={style.menuItem}> <Link href="#">Find a Doctor</Link> </li>
+            <li className={style.menuItem}> <Link href="/doctors">Find a Doctor</Link> </li>
             <li className={style.menuItem} onClick={() => { if (mobile) { setSubMenu(subMenu === "women-children" ? "" : "women-children"); } }} onMouseEnter={()=>{setActiveMenu("women-children");setMegaMenuTab("women")}} onMouseLeave={()=>setActiveMenu("")}> <Link href="#" onClick={(e) => mobile && e.preventDefault()} className={style.hasMenu}>Women & Children’s Hospital</Link> {mobile && <button></button>}
             {mobile && 
             <ul className={`${style.subMenu} ${subMenu==="women-children"?style.active:""}`}>
@@ -492,35 +492,35 @@ useEffect(() => {
             </ul>
             }
             </li>
-            <li className={style.menuItem}> <Link href="#">Health Packages</Link></li>
+            <li className={style.menuItem}> <Link href="/health-packages">Health Packages</Link></li>
 
             <li className={style.menuItem} onClick={() => { if (mobile) { setSubMenu( subMenu === "patient-service" ? "" : "patient-service" ); } }} onMouseEnter={() => { if (!mobile) setSubMenu("patient-service"); }} onMouseLeave={() => { if (!mobile) setSubMenu(""); }}> <Link href="#" onClick={(e) => e.preventDefault()} className={style.hasMenu}>Patient Services </Link> {mobile && <button></button>}
             <ul className={`${style.subMenu} ${subMenu==="patient-service"?style.active:""}`}>
                 <li className={style.subMenuItem}> <Link href="#">Evening Clinic</Link>  </li>
-                <li className={style.subMenuItem}> <Link href="#">International Patients</Link>  </li>
-                <li className={style.subMenuItem}> <Link href="#">Patient Care</Link>  </li>
+                <li className={style.subMenuItem}> <Link href="/international-patients">International Patients</Link>  </li>
+                <li className={style.subMenuItem}> <Link href="/patient-care">Patient Care</Link>  </li>
                 <li className={style.subMenuItem}> <Link href="#">Emergency Care</Link>  </li>
                 <li className={style.subMenuItem}> <Link href="#">Second Opinion</Link>  </li>
             </ul>
              </li>
 
 {!laptop && 
-            <li className={style.menuItem}> <Link href="#">Loaction</Link> </li>
+            <li className={style.menuItem}> <Link href="/locations">Location</Link> </li>
             }
 
            
 
           <li className={style.menuItem} onClick={() => { if (mobile) { setSubMenu((prev) => prev === "about-rela" ? "" : "about-rela"); } }} onMouseEnter={()=>{if (!mobile) setSubMenu("about-rela")}} onMouseLeave={()=>{if (!mobile) setSubMenu("")}}> <Link href="#" onClick={(e) => e.preventDefault()} className={style.hasMenu}>About Rela </Link> {mobile && <button type="button"></button>} 
             <ul className={`${style.subMenu} ${subMenu==="about-rela"?style.active:""}`}>
-                <li className={style.subMenuItem}> <Link href="#">Overview </Link>  </li>
-                <li className={style.subMenuItem}> <Link href="#">Leadership Team</Link>  </li>
-                <li className={style.subMenuItem}> <Link href="#">Awards</Link>  </li>
-                <li className={style.subMenuItem}> <Link href="#">Academics</Link>  </li>
+                <li className={style.subMenuItem}> <Link href="/about-us">Overview </Link>  </li>
+                <li className={style.subMenuItem}> <Link href="/leadership-team">Leadership Team</Link>  </li>
+                <li className={style.subMenuItem}> <Link href="/about-us/awards-honors">Awards</Link>  </li>
+                <li className={style.subMenuItem}> <Link href="/academics">Academics</Link>  </li>
                  {laptop && 
-            <li className={style.menuItem}> <Link href="#">Loaction</Link> </li>
+            <li className={style.menuItem}> <Link href="/locations">Location</Link> </li>
             }
-                <li className={style.subMenuItem}> <Link href="#">Careers</Link>  </li>
-                <li className={style.subMenuItem}> <Link href="#">Contact Us</Link>  </li>
+                <li className={style.subMenuItem}> <Link href="/careers">Careers</Link>  </li>
+                <li className={style.subMenuItem}> <Link href="/contact-us">Contact Us</Link>  </li>
             </ul>
              </li>
         </ul>

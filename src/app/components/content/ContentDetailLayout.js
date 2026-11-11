@@ -9,7 +9,6 @@ import Button from '@/app/components/UI/Button'
 import DepartmentCard from '@/app/components/UI/DepartmentCard'
 import DoctorCard from '@/app/components/UI/DoctorCard'
 import GalleryLightbox from '@/app/components/GalleryLightbox'
-import { slugify } from '@/lib/slug'
 import ContentForm from '../ContentForm/ContentForm'
 
 const FEATURE_FALLBACK_IMAGE = '/assets/images/sample-article-img.png'
@@ -39,7 +38,6 @@ function getShareLinks(url, title) {
 }
 
 function mapDepartmentToCard(department, doctors) {
-  const departmentSlug = department.slug || slugify(department.name)
   const matchedDoctor = doctors.find((doctor) => doctor.speciality?.id === department.id)
 
   return {
@@ -47,7 +45,8 @@ function mapDepartmentToCard(department, doctors) {
     icon: department.icon || '/assets/images/dept-sample-icon.svg',
     specialities: department.symptoms?.map((symptom) => symptom.name) ?? [],
     doctorLink: matchedDoctor ? `/doctors/${matchedDoctor.slug}` : '/doctors',
-    departmentLink: `/departments/${departmentSlug}`,
+    // No standalone department detail page exists in this app.
+    departmentLink: '/doctors',
   }
 }
 

@@ -1,0 +1,264 @@
+.awards_section .cards,
+.card,
+.card .content{
+    display: flex;
+}
+
+.card .content{
+    flex-direction: column;
+}
+
+.bannerSection{
+    background-image: url('/assets/images/awards-bg.png');
+    background-size: cover;
+    min-height: 500px;
+    display: grid;
+    place-items: center;
+    position: relative;
+    background-position: right center;
+}
+
+.bannerSection::before{
+    position: absolute;
+    inset: 0;
+    content: '';
+background:linear-gradient(to right,#242424 0%,transparent 80%);
+}
+
+.bannerSection .container{
+    position: relative;
+    z-index: 2;
+}
+
+.bannerSection .container .top_heading{
+    max-width: 620px;
+}
+
+.bannerSection .container h1{
+    margin-bottom: -24px;
+}
+
+.awards_section .cards{
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.awards_section .cards .card{
+    width: calc(50% - 15px);
+}
+
+.card{
+    border: solid var(--orange) 1px;
+    background-color: white;
+} 
+
+.popup .container .card{
+    width: 100%;
+}
+
+ .awards_section .cards .card .image,
+.awards_section .cards .card .content{
+width: 50%;
+}
+
+ .popup .container .card .image{
+    width: 40%;
+
+ }
+ .popup .container .card .content{
+    width: 60%;
+    max-height: 500px;
+    overflow: auto;
+ }
+
+ .card .image img,
+ .card{
+    border-radius: 32px;
+ }
+
+  .card{
+    align-items: flex-start;
+    overflow: hidden;
+  }
+
+ .card .image img{
+    width: 100%;
+ }
+
+.card .content{
+    gap: 16px;
+    padding: 24px;
+}
+
+.awards_section .cards .card .content h3{
+      font-size: 20px;
+    line-height: 28px;
+    font-weight: 600;
+}
+
+.popup .container .card .content h3{
+    margin-top: 20px;
+}
+
+.awards_section .cards .card .content p{
+   display: -webkit-box;
+    -webkit-line-clamp: 10;
+    line-clamp: 10;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* popup  */
+
+.popup{
+    position: fixed;
+    z-index: 9999;
+    padding: 0 20px;
+    display: grid;
+    place-items: center;
+}
+
+
+.popup .overlay,
+.popup{
+    inset: 0;
+}
+
+.popup .overlay{
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+.popup .container button,
+.popup .overlay{
+    position: absolute;
+}
+
+.popup .container button{
+    cursor: pointer;
+    border: none;
+}
+
+.popup .container{
+position: relative;
+z-index: 2;
+width: 100%;
+max-width: 800px;
+}
+
+
+.popup .container .closeBtn{
+  background: none;
+    height: auto;
+    aspect-ratio: 1 / 1;
+      top: 10px;
+    right: 10px;
+    width: 32px;
+}
+
+
+/* responsive  */
+
+/* laptop  */
+
+@media screen and (max-width:1600px){
+
+    .bannerSection{
+    min-height: 400px;
+}
+
+}
+
+
+/* tablet  */
+
+@media screen and (max-width:1200px) {
+
+     .bannerSection {
+        background-position: 70% 0;
+          min-height: 400px;
+    padding: 50px 0;
+     }
+
+    .bannerSection .container .top_heading{
+    max-width: 500px;
+}
+
+.awards_section .cards{
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.awards_section .cards .card{
+    width: 100%;
+}
+
+.awards_section .cards .card:nth-child(even) .image{
+    order: 2;
+}
+
+ .card .image img,
+ .card{
+    border-radius: 24px;
+ }
+
+ .awards_section .cards .card .content{
+    padding: 20px;
+ }
+
+}
+
+/* mobile  */
+
+@media screen and (max-width:767px) {
+
+
+.card{
+    flex-direction: column;
+}
+
+.popup .container .card .image,
+.popup .container .card .content,
+ .awards_section .cards .card .image,
+.awards_section .cards .card .content{
+width: 100%;
+}
+
+.popup .container .card .content{
+    max-height: unset;
+    overflow: unset;
+}
+
+.popup .container .card .content h3{
+    margin-top: 0px;
+}
+
+.popup .container .card{
+    max-height: 80vh;
+    overflow: auto;
+}
+
+.popup .container .closeBtn{
+    background: white;
+    display: grid;
+    place-items: center;
+}
+
+.card .image img,
+ .card{
+    border-radius: 16px;
+ }
+
+ .awards_section .cards .card .content h3{
+      font-size: 18px;
+    line-height: 26px;
+}
+
+.awards_section .cards .card:nth-child(even) .image{
+    order:1;
+}
+
+.awards_section .cards .card:nth-child(even) .content{
+    order:2;
+}
+
+}

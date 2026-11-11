@@ -358,6 +358,8 @@ transform: scale(1);
 
      .bannerSection {
         background-position: 70% 0;
+          min-height: 400px;
+    padding: 50px 0;
      }
 
     .bannerSection .container .top_heading{
@@ -372,10 +374,6 @@ transform: scale(1);
 }
 
 
-     .bannerSection{
-    min-height: 400px;
-    padding: 50px 0;
-}
 
  .decision_section .container .cards .card img{
     margin-bottom: 4px;

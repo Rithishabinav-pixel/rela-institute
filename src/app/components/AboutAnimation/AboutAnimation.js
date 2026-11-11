@@ -64,6 +64,8 @@ useGSAP(() => {
             self.progress * (points.length + 1)
           );
 
+          console.log(activeIndex)
+
           points.forEach((point, index) => {
             point.classList.toggle("active", index < activeIndex);
           });

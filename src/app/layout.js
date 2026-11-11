@@ -4,6 +4,7 @@ import localFont from 'next/font/local'
 import Script from 'next/script'
 import Footer from "./components/Footer/Footer";
 import AOSInit from "./components/AOSInit";
+import LenisInit from "./components/LenisInit";
 
 const myCustomFont = localFont({
   src: [
@@ -27,6 +28,7 @@ export default function RootLayout({ children }) {
 </head>
       <body>
         <AOSInit/>
+        <LenisInit/>
 
         <div
           className="gtranslate_wrapper"

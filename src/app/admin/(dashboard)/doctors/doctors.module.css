@@ -362,3 +362,56 @@
   gap: 12px;
   margin-top: 24px;
 }
+
+.rearrangeGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.rearrangeCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: #fff;
+  border: 1px solid #ebebeb;
+  border-radius: 12px;
+  padding: 16px;
+  cursor: grab;
+  transition: border-color 0.12s ease-in-out, box-shadow 0.12s ease-in-out, transform 0.12s ease-in-out;
+}
+
+.rearrangeCard:active {
+  cursor: grabbing;
+}
+
+.rearrangeCardDragging {
+  opacity: 0.5;
+}
+
+.rearrangeCardOver {
+  border-color: var(--orange);
+  box-shadow: 0 0 0 2px rgba(249, 155, 44, 0.25);
+  transform: translateY(-2px);
+}
+
+.rearrangeHandle {
+  flex-shrink: 0;
+  font-size: 18px;
+  line-height: 1;
+  color: #b5b5b5;
+  margin-top: 2px;
+}
+
+.rearrangeName {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1c1f26;
+  margin-bottom: 2px;
+}
+
+.rearrangeSpeciality {
+  font-size: 13px;
+  color: #8a8a8a;
+  margin-bottom: 6px;
+}

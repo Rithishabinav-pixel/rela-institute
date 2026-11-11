@@ -1,0 +1,315 @@
+.faq_section .container,
+.faq_section .faq,
+.faq_section .faq .card,
+.faq_section .faq .card .head,
+.doctors_section .container .doctorsCards,
+.buttons,
+.text{
+    display: flex;
+}
+
+.doctors_section .container .doctorsCards{
+    flex-wrap: wrap;
+}
+
+.faq_section .faq,
+.faq_section .faq .card,
+.text{
+    flex-direction: column;
+}
+
+.faq_section .faq,
+.faq_section .faq .card .head,
+.text{
+    gap: 16px;
+}
+
+.buttons{
+    gap: 24px;
+}
+
+.doctors_section .container .doctorsCards{
+    gap: 30px;
+}
+
+.about_section .container,
+.faq_section .faq .card .head{
+    align-items: center;
+}
+
+.doctors_section .container .doctorsCards,
+.about_section .container .image img{
+    width: 100%;
+}
+
+.about_section .container{
+    justify-content: space-between;
+}
+
+.bannerSection{
+    background-image: url('/assets/images/leadership-bg.png');
+    background-size: cover;
+    min-height: 500px;
+    display: grid;
+    place-items: center;
+    position: relative;
+    background-position: right center;
+}
+
+.bannerSection::before{
+    position: absolute;
+    inset: 0;
+    content: '';
+background:linear-gradient(to right,#242424,transparent);
+}
+
+.bannerSection .container{
+    position: relative;
+    z-index: 2;
+}
+
+.bannerSection .container .top_heading{
+    max-width: 620px;
+}
+
+.bannerSection .container h1{
+    margin-bottom: -24px;
+}
+
+.about_section.rela .container .image{
+    width: 42%;
+}
+
+.about_section.rela .container .content{
+    width: 42%;
+}
+
+.about_section.rela{
+    background-image: url(/assets/images/rela-vector-gray.svg);
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position-x: -9%;
+}
+
+.about_section.rela .container .image{
+    margin-left: 5%;
+}
+
+.about_section.gomathy .container .image{
+    width: 37%;
+}
+
+.about_section.gomathy .container .content{
+    width: 42%;
+}
+
+.about_section.gomathy .container .image{
+    margin-right: 5%;
+}
+
+.about_section.gomathy{
+    position: relative;
+    overflow: hidden;
+}
+
+.about_section.gomathy::before{
+    position: absolute;
+    content: '';
+    height: 90%;
+    width: auto;
+    aspect-ratio: 1 / 1;
+    background-color: var(--bg-gray);
+    top: 0;
+    right: 0;
+    border-radius: 100%;
+    transform-origin: bottom left;
+    transform: scale(1.2);
+    box-shadow: -20px 10px 0px var(--orange);
+}
+
+
+
+.faq_section .container .faq{
+    width: 50%;
+}
+.faq_section .container,
+.faq_section .faq .card .head{
+    justify-content: space-between;
+}
+
+.faq_section .container .title{
+    width: 40%;
+}
+
+.faq_section .faq .card{
+    padding: 16px 24px;
+    border-radius: 16px;
+    background-color:white;
+}
+
+.faq_section .faq .card .head h3{
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 600;
+}
+
+.faq_section .faq .card.active .head h3{
+    color: var(--orange);
+    transition: var(--transition);
+}
+
+.faq_section .faq .card .head button{
+    background: none;
+    border: none;
+    transition: var(--transition);
+}
+
+.faq_section .faq .card.active .head button{
+    transform: rotate(180deg);
+}
+
+.faq_section .faq .card .head button img{
+    width: 32px;
+}
+
+.faq_section .faq .card .body{
+    padding-right: 50px;
+    max-height: 0;
+    overflow: hidden;
+}
+
+.faq_section .faq .card.active .body{
+animation: openFaq 3s forwards;
+}
+
+@keyframes openFaq {
+    to{
+max-height: 2500px;
+
+    }
+}
+
+.faq_section .faq .card .body div{
+    padding-top: 12px;
+}
+
+.faq_section .faq .card .head {
+    cursor: pointer;
+}
+
+
+/* responsive  */
+
+/* laptop  */
+
+@media screen and (max-width:1600px){
+
+    .bannerSection{
+    min-height: 400px;
+}
+
+}
+
+/* tablet  */
+
+@media screen and (max-width:1200px) {
+
+     .buttons,
+    .doctors_section .container .doctorsCards{
+    gap: 20px;
+}
+
+      .bannerSection {
+        background-position: 70% 0;
+          min-height: 400px;
+    padding: 50px 0;
+     }
+
+    .bannerSection .container .top_heading{
+    max-width: 500px;
+}
+
+ .faq_section .faq .card{
+    padding: 16px 20px;
+}
+
+.about_section.gomathy .container ,
+    .faq_section .container{
+        flex-direction: column;
+    }
+
+    .about_section.rela .container{
+        flex-direction: column-reverse;
+    }
+
+     .faq_section .container{
+        gap: 30px;
+     }
+
+     .about_section.gomathy .container .image,
+          .about_section.gomathy .container .content,
+      .about_section.rela .container .image,
+          .about_section.rela .container .content,
+    .faq_section .container .title,
+.faq_section .container .faq{
+          width: 100%;
+          max-width: 100%;
+        }
+
+        .about_section.rela .container .image{
+    margin-left: 0%;
+}
+
+.about_section.gomathy .container .image{
+    margin-right: 0;
+}
+
+
+
+        .about_section.rela .container .image,
+         .about_section.gomathy .container .image{
+            max-width: 500px;
+         }
+
+
+
+
+
+ .about_section.rela{
+    background-image: none;
+ }
+
+ .about_section.gomathy::before{
+    width: 60%;
+    height: auto;
+    bottom: -5%;
+    right: -5%;
+    top: unset;
+    box-shadow: -15px -15px 0px var(--orange);
+ }
+
+}
+
+
+/* mobile  */
+@media screen and (max-width:767px) {
+
+   .faq_section .faq .card .head h3{
+    font-size: 18px;
+    line-height: 26px;
+}
+
+.faq_section .faq .card .head button img{
+    width: 24px;
+}
+
+.faq_section .faq .card .body{
+    padding-right: 30px;
+}
+
+.buttons{
+    flex-direction: column;
+    gap: 16px;
+}
+
+}

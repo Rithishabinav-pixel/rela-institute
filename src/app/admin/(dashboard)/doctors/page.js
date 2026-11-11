@@ -14,9 +14,14 @@ export default async function DoctorsPage() {
     <>
       <div className={style.pageHeader}>
         <h1 className={style.pageTitle}>Doctors</h1>
-        <Link href="/admin/doctors/new" className={style.primaryButton}>
-          + Add Doctor
-        </Link>
+        <div className={style.headerActions}>
+          <Link href="/admin/doctors/rearrange" className={style.secondaryButton}>
+            Rearrange Order
+          </Link>
+          <Link href="/admin/doctors/new" className={style.primaryButton}>
+            + Add Doctor
+          </Link>
+        </div>
       </div>
       <DoctorsClient initial={initial} />
     </>

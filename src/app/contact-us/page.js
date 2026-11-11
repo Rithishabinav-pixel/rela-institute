@@ -77,7 +77,7 @@ const stats = [
   },
     {
     icon:"/assets/images/locat.svg",
-    title:"Find a Loaction",
+    title:"Find a Location",
     link:"/"
   },
 

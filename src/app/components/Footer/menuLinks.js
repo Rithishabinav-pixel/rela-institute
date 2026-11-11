@@ -1,48 +1,48 @@
 // Main menu links
 const mainMenuLinks = [
-  {
-    heading: "Quick Links",
-    links: [
-      {
-        label: "About Rela",
-        link: "/",
-      },
-      {
-        label: "Our Locations",
-        link: "/",
-      },
-      {
-        label: "Academics",
-        link: "/",
-      },
-      {
-        label: "Careers",
-        link: "/",
-      },
-      {
-        label: "Media",
-        link: "/",
-      },
-      {
-        label: "Newsletter",
-        link: "/",
-      },
-      {
-        label: "Offers",
-        link: "/",
-      },
-      {
-        label: "Contact Us",
-        link: "/",
-      },
-    ],
-  },
+  // {
+  //   heading: "Quick Links",
+  //   links: [
+  //     {
+  //       label: "About Rela",
+  //       link: "/about-us",
+  //     },
+  //     {
+  //       label: "Our Locations",
+  //       link: "/locations",
+  //     },
+  //     {
+  //       label: "Academics",
+  //       link: "/academics",
+  //     },
+  //     {
+  //       label: "Careers",
+  //       link: "/careers",
+  //     },
+  //     {
+  //       label: "Media",
+  //       link: "/media",
+  //     },
+  //     {
+  //       label: "Newsletter",
+  //       link: "/newsletters",
+  //     },
+  //     {
+  //       label: "Offers",
+  //       link: "/",
+  //     },
+  //     {
+  //       label: "Contact Us",
+  //       link: "/contact-us",
+  //     },
+  //   ],
+  // },
   {
     heading: "Patient Services",
     links: [
       {
         label: "Find a Doctor",
-        link: "/",
+        link: "/doctors",
       },
       {
         label: "Book an Appointment",
@@ -50,7 +50,7 @@ const mainMenuLinks = [
       },
       {
         label: "Health Check Packages",
-        link: "/",
+        link: "/health-packages",
       },
       {
         label: "Emergency Care",
@@ -58,7 +58,7 @@ const mainMenuLinks = [
       },
       {
         label: "International Patients",
-        link: "/",
+        link: "/international-patients",
       },
       {
         label: "Search by symptom",
@@ -79,35 +79,35 @@ const mainMenuLinks = [
     links: [
       {
         label: "Advanced Pediatrics",
-        link: "/",
+        link: "/doctors",
       },
       {
         label: "Anaesthesia & Critical Care",
-        link: "/",
+        link: "/doctors",
       },
       {
         label: "Cardiac Sciences",
-        link: "/",
+        link: "/doctors",
       },
       {
         label: "Gastro Sciences",
-        link: "/",
+        link: "/doctors",
       },
       {
         label: "Neuroscience",
-        link: "/",
+        link: "/doctors",
       },
       {
         label: "Cancer Centre",
-        link: "/",
+        link: "/doctors",
       },
       {
         label: "Orthopaedics",
-        link: "/",
+        link: "/doctors",
       },
       {
         label: "View All Specialties",
-        link: "/",
+        link: "/department",
       },
     ],
   },
@@ -116,39 +116,84 @@ const mainMenuLinks = [
     links: [
       {
         label: "Pulmonary Medicine",
-        link: "/",
+        link: "/doctors",
       },
       {
         label: "Ear, Nose & Throat",
-        link: "/",
+        link: "/doctors",
       },
       {
         label: "Ophthalmology",
-        link: "/",
+        link: "/doctors",
       },
       {
         label: "Bariatric and Metabolic Surgeon",
-        link: "/",
+        link: "/doctors",
       },
       {
         label: "Vascular surgery",
-        link: "/",
+        link: "/doctors",
       },
       {
         label: "Infectious Disease",
-        link: "/",
+        link: "/doctors",
       },
       {
         label: "Plastic and Reconstructive Surgery",
-        link: "/",
+        link: "/doctors",
       },
       {
         label: "Interventional Radiology and Imaging Services",
-        link: "/",
+        link: "/doctors",
       },
       {
         label: "View All Specialties",
-        link: "/",
+        link: "/department",
+      },
+    ],
+  },
+   {
+    heading: "Resources",
+    links: [
+      {
+        label: "Patient Experience",
+        link: "/patient-experience",
+      },
+      {
+        label: "Expert Talks",
+        link: "/expert-talks",
+      },
+      {
+        label: "Resource Centre",
+        link: "/resources",
+      },
+      {
+        label: "Wellness Network",
+        link: "/wellness-network",
+      },
+      {
+        label: "Testimonials and Reviews",
+        link: "/testimonials-and-reviews",
+      },
+      {
+        label: "Newsletter",
+        link: "/newsletters",
+      },
+      {
+        label: "Media",
+        link: "/media",
+      },
+      {
+        label: "Success Stories",
+        link: "/success-stories",
+      },
+      {
+        label: "Events",
+        link: "/events",
+      },
+        {
+        label: "Articles",
+        link: "/articles",
       },
     ],
   },
@@ -161,49 +206,49 @@ const otherLinks = [
   {
     heading: "Key Medical Specialities",
     links: [
-      { label: "Liver Disease & Transplantation", link: "/" },
-      { label: "Cardiology", link: "/" },
-      { label: "Gastroenterology", link: "/" },
-      { label: "Medical Oncology", link: "/" },
-      { label: "Surgical Oncology", link: "/" },
-      { label: "Neurology", link: "/" },
-      { label: "Neurosurgery", link: "/" },
-      { label: "Orthopaedics", link: "/" },
-      { label: "Nephrology", link: "/" },
-      { label: "Pulmonary Medicine", link: "/" },
-      { label: "Urology", link: "/" },
-      { label: "Obstetrics & Gynaecology", link: "/" },
-      { label: "Paediatrics", link: "/" },
-      { label: "Emergency Medicine", link: "/" },
+      { label: "Liver Disease & Transplantation", link: "/doctors" },
+      { label: "Cardiology", link: "/doctors" },
+      { label: "Gastroenterology", link: "/doctors" },
+      { label: "Medical Oncology", link: "/doctors" },
+      { label: "Surgical Oncology", link: "/doctors" },
+      { label: "Neurology", link: "/doctors" },
+      { label: "Neurosurgery", link: "/doctors" },
+      { label: "Orthopaedics", link: "/doctors" },
+      { label: "Nephrology", link: "/doctors" },
+      { label: "Pulmonary Medicine", link: "/doctors" },
+      { label: "Urology", link: "/doctors" },
+      { label: "Obstetrics & Gynaecology", link: "/doctors" },
+      { label: "Paediatrics", link: "/doctors" },
+      { label: "Emergency Medicine", link: "/doctors" },
     ],
   },
   {
     heading: "Advanced Treatments and Services",
     links: [
-      { label: "Liver Transplantation", link: "/" },
-      { label: "Kidney Transplantation", link: "/" },
-      { label: "Heart & Lung Transplantation", link: "/" },
-      { label: "Bone Marrow Transplantation", link: "/" },
-      { label: "Robotic Surgery", link: "/" },
-      { label: "Joint Replacement", link: "/" },
-      { label: "Cancer Treatment", link: "/" },
-      { label: "Cardiac Care", link: "/" },
-      { label: "Critical Care", link: "/" },
-      { label: "Fertility Treatment", link: "/" },
-      { label: "Second Medical Opinion", link: "/" },
-      { label: "Video Consultation", link: "/" },
+      { label: "Liver Transplantation", link: "/doctors" },
+      { label: "Kidney Transplantation", link: "/doctors" },
+      { label: "Heart & Lung Transplantation", link: "/doctors" },
+      { label: "Bone Marrow Transplantation", link: "/doctors" },
+      { label: "Robotic Surgery", link: "/doctors" },
+      { label: "Joint Replacement", link: "/doctors" },
+      { label: "Cancer Treatment", link: "/doctors" },
+      { label: "Cardiac Care", link: "/doctors" },
+      { label: "Critical Care", link: "/doctors" },
+      { label: "Fertility Treatment", link: "/doctors" },
+      { label: "Second Medical Opinion", link: "/doctors" },
+      { label: "Video Consultation", link: "/doctors" },
     ],
   },
   {
     heading: "Preventive Health Check Packages",
     links: [
-      { label: "Essential Health Check", link: "/" },
-      { label: "Essential+ Health Check", link: "/" },
-      { label: "Advanced Health Check", link: "/" },
-      { label: "360° Health Check", link: "/" },
-      { label: "Elite Plus Wellness Check", link: "/" },
-      { label: "Bone Wellness Check", link: "/" },
-      { label: "Colonoscopy Screening", link: "/" },
+      { label: "Essential Health Check", link: "/health-packages/essential-health-check" },
+      { label: "Essential+ Health Check", link: "/health-packages/essential-plus-health-check" },
+      { label: "Advanced Health Check", link: "/health-packages/advanced-health-check" },
+      { label: "360° Health Check", link: "/health-packages/360-health-check" },
+      { label: "Elite Plus Wellness Check", link: "/health-packages/elite-plus-wellness-check-for-a-holistic-well-being" },
+      { label: "Bone Wellness Check", link: "/health-packages/bone-wellness-check-building-a-solid-foundation" },
+      { label: "Colonoscopy Screening", link: "/health-packages/colonoscopy-screening-for-a-healthier-gut-journey" },
     ],
   },
   {
@@ -223,10 +268,10 @@ const otherLinks = [
     heading: "Rela Hospital Locations",
     links: [
       { label: "Rela Hospital Chromepet", link: "/" },
-      { label: "Rela RIMS Hospital Red Hills", link: "/" },
-      { label: "Kumaran Hospitals & Rela Institute Kilpauk", link: "/" },
-      { label: "Rela Clinic Nanganallur", link: "/" },
-      { label: "Rela Clinic Adyar", link: "/" },
+      { label: "Rela RIMS Hospital Red Hills", link: "/locations/red-hills" },
+      { label: "Kumaran Hospitals & Rela Institute Kilpauk", link: "/locations/kumaran" },
+      { label: "Rela Clinic Nanganallur", link: "/locations/nanganallur" },
+      { label: "Rela Clinic Adyar", link: "/locations/adyar" },
     ],
   },
   {
@@ -240,7 +285,7 @@ const otherLinks = [
       { label: "Emergency Care", link: "/" },
       { label: "Ambulance Service", link: "/" },
       { label: "Frequently Asked Questions", link: "/" },
-      { label: "Health Articles", link: "/" },
+      { label: "Health Articles", link: "/articles" },
       { label: "Contact Patient Support", link: "/" },
     ],
   },

@@ -23,7 +23,7 @@ const locationData = [
     locationLink: "",
     contact: ["+91 98410 04625"],
     mail: "kumaranhospitals@hotmail.com",
-    link:"/"
+    link:"/locations/kumaran"
   },
   {
     name: "Rela MS Hospital - Red Hills",
@@ -34,7 +34,7 @@ const locationData = [
     locationLink: "",
     contact: ["044-7111 1111"],
     mail: "info@rimshospitals.com",
-    link:"/"
+    link:"/locations/red-hills"
   },
   {
     name: "Rela Clinics, Nanganallur",
@@ -45,7 +45,29 @@ const locationData = [
     locationLink: "",
     contact: ["044 66667777", "044 71111117"],
     mail: "nanganallur@relainstitute.com",
-    link:"/"
+    link:"/locations/nanganallur"
+  },
+    {
+    name: "Rela Clinic, Adyar",
+    unit: "A unit of JR Super Speciality Ltd.",
+    image: "/assets/images/rela-clinic-adyar.png",
+    location:
+      "34, 29, Second Main Rd, Kasturba Nagar, Adyar, Chennai, Tamil Nadu 600 020.",
+    locationLink: "",
+    contact: ["93846 02201"],
+    mail: "adyar@relainstitute.com",
+    link:"/locations/adyar"
+  },
+  {
+    name: "Rela Clinic, Pallikaranai",
+    unit: "A unit of JR Super Speciality Ltd.",
+    image: "/assets/images/rela-clinic-pallikaranai.png",
+    location:
+      "144, 6th St, Kamakoti Nagar, Pallikaranai, Chennai, Tamil Nadu 600100",
+    locationLink: "",
+    contact: ["93846 02718"],
+    mail: "pallikaranai@relainstitute.com",
+    link:"/locations/pallikaranai"
   },
 ];
 

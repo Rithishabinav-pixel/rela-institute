@@ -29,7 +29,15 @@
     border-radius: 50px;
     font-size: 12px;
     line-height: 12px;
+    opacity: 0;
+    transition: var(--transition);
+    transform: translateY(10px);
 } 
+
+.points span:global(.active){
+    opacity: 1;
+    transform: translateY(0px);
+}
 
 .points1{
     top: 0;

@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useEffect, useState } from 'react'
+import { usePathname } from 'next/navigation'
 import style from "./footer.module.css"
 import Button from '../UI/Button'
 import Link from 'next/link'
@@ -15,6 +16,7 @@ const { mainMenuLinks, otherLinks } = menuLinks;
 
 export default function Footer() {
 
+    const pathname = usePathname();
 
     const [activeMenu,setActiveMenu] = useState();
 
@@ -43,6 +45,9 @@ export default function Footer() {
 
 
 
+    if (pathname && pathname.startsWith('/admin')) {
+        return null;
+    }
 
   return (
     <footer id={style.footer}>
@@ -59,7 +64,7 @@ export default function Footer() {
         <p className='white_text'>Speak with our patient-care team for appointments, medical enquiries and treatment assistance.</p>
     </div>
 
-    <Button classname="orange_btn" link="#" text="Discover Rela Hospital"/>
+    <Button classname="orange_btn" link="/about-us" text="Discover Rela Hospital"/>
 </div>
         </div>
 

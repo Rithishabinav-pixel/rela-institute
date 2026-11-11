@@ -314,7 +314,10 @@ async function getHomepageDepartmentCardsUncached() {
     icon: department.icon || '/assets/images/sample-ceo-icon.svg',
     name: department.name,
     specialities: department.symptoms.map((s) => s.name),
-    departmentLink: `/departments/${department.slug || slugify(department.name)}`,
+    // No standalone department detail page exists in this app, so this
+    // falls back to the doctors directory — the same convention already
+    // used by doctorLink below.
+    departmentLink: '/doctors',
     doctorLink: doctorSlugBySpeciality.has(department.id)
       ? `/doctors/${doctorSlugBySpeciality.get(department.id)}`
       : '/doctors',
@@ -342,7 +345,8 @@ async function getCenterOfExcellenceCardsUncached() {
   return departments.map((department) => ({
     icon: department.icon || '/assets/images/sample-ceo-icon.svg',
     title: department.name,
-    link: `/departments/${department.slug || slugify(department.name)}`,
+    // No standalone department detail page exists in this app.
+    link: '/doctors',
   }))
 }
 
@@ -354,6 +358,33 @@ const cachedGetCenterOfExcellenceCards = unstable_cache(
 
 export async function getCenterOfExcellenceCards() {
   return cachedGetCenterOfExcellenceCards()
+}
+
+async function getDepartmentListingCardsUncached() {
+  const departments = await prisma.department.findMany({
+    orderBy: { name: 'asc' },
+    select: {
+      name: true,
+      icon: true,
+      symptoms: { select: { name: true }, orderBy: { sortOrder: 'asc' } },
+    },
+  })
+
+  return departments.map((department) => ({
+    name: department.name,
+    icon: department.icon || '/assets/images/sample-ceo-icon.svg',
+    specialities: department.symptoms.map((symptom) => symptom.name),
+  }))
+}
+
+const cachedGetDepartmentListingCards = unstable_cache(
+  getDepartmentListingCardsUncached,
+  ['departments-listing-cards'],
+  { tags: ['departments'], revalidate: PUBLIC_DEPARTMENTS_REVALIDATE_SECONDS }
+)
+
+export async function getDepartmentListingCards() {
+  return cachedGetDepartmentListingCards()
 }
 
 export async function getDepartmentUsage(id) {

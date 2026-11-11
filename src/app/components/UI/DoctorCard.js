@@ -3,7 +3,7 @@ import style from './doctorCard.module.css'
 import Image from 'next/image'
 import Link from 'next/link'
 
-export default function DoctorCard({doctor,cardStyle}) {
+export default function DoctorCard({doctor,cardStyle,type}) {
   return (
     <div className={`${style.doctorCard} ${style[cardStyle]}`} >
 
@@ -21,9 +21,15 @@ export default function DoctorCard({doctor,cardStyle}) {
     <p className={style.position}>{doctor.position}</p>
 </div>
 
+{type?
+<button>
+<Image src="/assets/images/doctor-arrow.svg" width={40} height={40} alt=''/>
+</button>
+:
 <Link href={doctor.link} aria-label={doctor.name ? `View ${doctor.name}'s profile` : 'View doctor profile'}>
 <Image src="/assets/images/doctor-arrow.svg" width={40} height={40} alt=''/>
 </Link>
+}
 
 </div>
 

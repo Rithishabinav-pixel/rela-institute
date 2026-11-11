@@ -75,7 +75,11 @@
 .doctorProfile .container .docImage{
    width:calc(22.483% - 15px);
    position: sticky;
-   top: 0;
+   top: 65px;
+}
+
+:global(body:has(header[class*="__fixedHeader"])) .doctorProfile .container .docImage {
+  top: 136px;
 }
 
 .doctorProfile .container .docContent hr{
@@ -159,7 +163,8 @@ transition: var(--transition);
 }
 
 .tabContainer .slide.active::before{
-width: 90px;
+width: 90%;
+max-width: 90px;
 }
 
 .tabContainer .slide.active{
@@ -171,6 +176,14 @@ width: 90px;
 font-size: 32px;
 line-height: 40px;
 font-weight: 400;
+}
+
+.tabContainer .tabContent .tabDetail a{
+    color: black;
+}
+
+.tabContainer .tabContent .tabDetail a:hover{
+    color: var(--orange);
 }
 
 
@@ -219,6 +232,13 @@ width: 100%;
 /* tablet  */
 
 @media screen and (max-width:1200px) {
+
+    :global(body:has(header[class*="__fixedHeader"])) .doctorProfile .container .docImage,
+    .doctorProfile .container .docImage{
+   position: static;
+   top: 0px;
+}
+
 
     .contentCards .card .image img{
 border-radius: 0 0 24px 24px;

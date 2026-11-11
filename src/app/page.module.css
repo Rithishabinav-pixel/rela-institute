@@ -299,7 +299,11 @@ opacity: 0.2;
   padding-top: 80px;
   background-color: white;
 position: relative;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
 }
+
 
 .packageSection .content p{
   margin-top: -20px;
@@ -380,7 +384,7 @@ right: -20%;
 .packageSection .container{
   display: flex;
   justify-content: space-between;
-  align-items:center;
+  align-items:stretch;
 }
 
 .packageSection .container .packages{
@@ -766,16 +770,13 @@ gap: 16px;
 }
 
 
-
-.locationCards{
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
+.locationCards :global(.swiper-slide){
+  height: auto;
 }
 
 .locationCards .card{
-width: calc(25% - 22.5px);
 display: flex;
+height: 100%;
 flex-direction: column;
 background-color: var(--brown);
 box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.075);

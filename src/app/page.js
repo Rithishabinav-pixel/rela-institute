@@ -13,57 +13,57 @@ const FALLBACK_COE_DATA = [
   {
     icon:"/assets/images/sample-ceo-icon.svg",
     title:"Liver & Digestive Health",
-    link:"/"
+    link:"/doctors"
   },
    {
     icon:"/assets/images/sample-ceo-icon.svg",
     title:"Women's Health",
-    link:"/"
+    link:"/doctors"
   },
    {
     icon:"/assets/images/sample-ceo-icon.svg",
     title:"Heart Health",
-    link:"/"
+    link:"/doctors"
   },
    {
     icon:"/assets/images/sample-ceo-icon.svg",
     title:"Children's Health",
-    link:"/"
+    link:"/doctors"
   },
    {
     icon:"/assets/images/sample-ceo-icon.svg",
     title:"Cancer Care",
-    link:"/"
+    link:"/doctors"
   },
    {
     icon:"/assets/images/sample-ceo-icon.svg",
     title:"Brain & Spine",
-    link:"/"
+    link:"/doctors"
   },
    {
     icon:"/assets/images/sample-ceo-icon.svg",
     title:"Bone & Joint Care",
-    link:"/"
+    link:"/doctors"
   },
    {
     icon:"/assets/images/sample-ceo-icon.svg",
     title:"Kidney Care",
-    link:"/"
+    link:"/doctors"
   },
    {
     icon:"/assets/images/sample-ceo-icon.svg",
     title:"Bone & Joint Care",
-    link:"/"
+    link:"/doctors"
   },
    {
     icon:"/assets/images/sample-ceo-icon.svg",
     title:"Bone & Joint Care",
-    link:"/"
+    link:"/doctors"
   },
    {
     icon:"/assets/images/sample-ceo-icon.svg",
     title:"Liver & Digestive Health",
-    link:"/"
+    link:"/doctors"
   },
 ];
 
@@ -72,50 +72,50 @@ const FALLBACK_DEPT_DATA = [
     icon:"/assets/images/sample-ceo-icon.svg",
     name:"Liver & Digestive Health",
     specialities:["Liver Transplantation","Biliary Reconstruction","Hepatocellular Carcinoma"],
-    departmentLink:"/",
-    doctorLink:"/"
+    departmentLink:"/doctors",
+    doctorLink:"/doctors"
   },
   {
     icon:"/assets/images/sample-ceo-icon.svg",
     name:"Liver & Digestive Health",
     specialities:["Liver Transplantation","Biliary Reconstruction","Hepatocellular Carcinoma"],
-    departmentLink:"/",
-    doctorLink:"/"
+    departmentLink:"/doctors",
+    doctorLink:"/doctors"
   },
   {
     icon:"/assets/images/sample-ceo-icon.svg",
     name:"Liver & Digestive Health",
     specialities:["Liver Transplantation","Biliary Reconstruction","Hepatocellular Carcinoma"],
-    departmentLink:"/",
-    doctorLink:"/"
+    departmentLink:"/doctors",
+    doctorLink:"/doctors"
   },
   {
     icon:"/assets/images/sample-ceo-icon.svg",
     name:"Liver & Digestive Health",
     specialities:["Liver Transplantation","Biliary Reconstruction","Hepatocellular Carcinoma"],
-    departmentLink:"/",
-    doctorLink:"/"
+    departmentLink:"/doctors",
+    doctorLink:"/doctors"
   },
   {
     icon:"/assets/images/sample-ceo-icon.svg",
     name:"Liver & Digestive Health",
     specialities:["Liver Transplantation","Biliary Reconstruction","Hepatocellular Carcinoma"],
-    departmentLink:"/",
-    doctorLink:"/"
+    departmentLink:"/doctors",
+    doctorLink:"/doctors"
   },
   {
     icon:"/assets/images/sample-ceo-icon.svg",
     name:"Liver & Digestive Health",
     specialities:["Liver Transplantation","Biliary Reconstruction","Hepatocellular Carcinoma"],
-    departmentLink:"/",
-    doctorLink:"/"
+    departmentLink:"/doctors",
+    doctorLink:"/doctors"
   },
   {
     icon:"/assets/images/sample-ceo-icon.svg",
     name:"Liver & Digestive Health",
     specialities:["Liver Transplantation","Biliary Reconstruction","Hepatocellular Carcinoma"],
-    departmentLink:"/",
-    doctorLink:"/"
+    departmentLink:"/doctors",
+    doctorLink:"/doctors"
   },
 ];
 
@@ -125,49 +125,49 @@ const FALLBACK_DOCTORS_DATA = [
     name:"Prof. Mohamed Rela",
     speciality:"Liver Transplant Surgery",
     position:"Chairman & Chief Surgeon",
-    link:"/"
+    link:"/doctors"
   },
   {
     image:"/assets/images/doc-sample-img.png",
     name:"Prof. Mohamed Rela",
     speciality:"Liver Transplant Surgery",
     position:"Chairman & Chief Surgeon",
-    link:"/"
+    link:"/doctors"
   },
   {
     image:"/assets/images/doc-sample-img.png",
     name:"Prof. Mohamed Rela",
     speciality:"Liver Transplant Surgery",
     position:"Chairman & Chief Surgeon",
-    link:"/"
+    link:"/doctors"
   },
   {
     image:"/assets/images/doc-sample-img.png",
     name:"Prof. Mohamed Rela",
     speciality:"Liver Transplant Surgery",
     position:"Chairman & Chief Surgeon",
-    link:"/"
+    link:"/doctors"
   },
   {
     image:"/assets/images/doc-sample-img.png",
     name:"Prof. Mohamed Rela",
     speciality:"Liver Transplant Surgery",
     position:"Chairman & Chief Surgeon",
-    link:"/"
+    link:"/doctors"
   },
   {
     image:"/assets/images/doc-sample-img.png",
     name:"Prof. Mohamed Rela",
     speciality:"Liver Transplant Surgery",
     position:"Chairman & Chief Surgeon",
-    link:"/"
+    link:"/doctors"
   },
   {
     image:"/assets/images/doc-sample-img.png",
     name:"Prof. Mohamed Rela",
     speciality:"Liver Transplant Surgery",
     position:"Chairman & Chief Surgeon",
-    link:"/"
+    link:"/doctors"
   },
 ];
 
@@ -177,7 +177,7 @@ const FALLBACK_HEALTH_PACKAGES_DATA = [
     tests:"7 tests with consultations",
     actualPrice:"2,500",
     offerPrice:"1,800",
-    link:"/",
+    link:"/health-packages/essential-health-check",
     special:false
   },
   {
@@ -185,7 +185,7 @@ const FALLBACK_HEALTH_PACKAGES_DATA = [
     tests:"7 tests with consultations",
     actualPrice:"2,500",
     offerPrice:"1,800",
-    link:"/",
+    link:"/health-packages/essential-health-check",
     special:false
   },
   {
@@ -193,7 +193,7 @@ const FALLBACK_HEALTH_PACKAGES_DATA = [
     tests:"7 tests with consultations",
     actualPrice:"2,500",
     offerPrice:"1,800",
-    link:"/",
+    link:"/health-packages/essential-health-check",
     special:false
   },
   {
@@ -201,7 +201,7 @@ const FALLBACK_HEALTH_PACKAGES_DATA = [
     tests:"7 tests with consultations",
     actualPrice:"2,500",
     offerPrice:"1,800",
-    link:"/",
+    link:"/health-packages/essential-health-check",
     special:false
   },
   {
@@ -209,7 +209,7 @@ const FALLBACK_HEALTH_PACKAGES_DATA = [
     tests:"7 tests with consultations",
     actualPrice:"2,500",
     offerPrice:"1,800",
-    link:"/",
+    link:"/health-packages/essential-health-check",
     special:false
   },
   {
@@ -217,7 +217,7 @@ const FALLBACK_HEALTH_PACKAGES_DATA = [
     tests:"7 tests with consultations",
     actualPrice:"2,500",
     offerPrice:"1,800",
-    link:"/",
+    link:"/health-packages/essential-health-check",
     special:false
   },
   {
@@ -225,7 +225,7 @@ const FALLBACK_HEALTH_PACKAGES_DATA = [
     tests:"7 tests with consultations",
     actualPrice:"2,500",
     offerPrice:"1,800",
-    link:"/",
+    link:"/health-packages/essential-health-check",
     special:false
   },
   {
@@ -233,7 +233,7 @@ const FALLBACK_HEALTH_PACKAGES_DATA = [
     tests:"7 tests with consultations",
     actualPrice:"2,500",
     offerPrice:"1,800",
-    link:"/",
+    link:"/health-packages/essential-health-check",
     special:true
   },
   {
@@ -241,7 +241,7 @@ const FALLBACK_HEALTH_PACKAGES_DATA = [
     tests:"7 tests with consultations",
     actualPrice:"2,500",
     offerPrice:"1,800",
-    link:"/",
+    link:"/health-packages/essential-health-check",
     special:true
   },
 ];

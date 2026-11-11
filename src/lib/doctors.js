@@ -253,7 +253,7 @@ async function listDoctorsPublicUncached(search, departmentId) {
         ? { departments: { some: { department: { departmentId: deptId } } } }
         : {}),
     },
-    orderBy: { name: 'asc' },
+    orderBy: { sortOrder: 'asc' },
     select: doctorCardSelect,
   })
 
@@ -326,7 +326,7 @@ export async function listDoctorsAdmin({ search = '', page = 1, pageSize = 20 } 
     prisma.doctor.count({ where }),
     prisma.doctor.findMany({
       where,
-      orderBy: { name: 'asc' },
+      orderBy: { sortOrder: 'asc' },
       skip: (page - 1) * pageSize,
       take: pageSize,
       select: {
@@ -607,7 +607,7 @@ export async function getQuickSearchDepartments() {
 async function getHomepageDoctorCardsUncached() {
   const doctors = await prisma.doctor.findMany({
     where: { showInHomepage: true },
-    orderBy: { name: 'asc' },
+    orderBy: { sortOrder: 'asc' },
     select: { slug: true, name: true, image: true, position: true, speciality: { select: { name: true } } },
   })
 
@@ -644,4 +644,39 @@ export async function getDoctorContentLinkingOptions() {
     successStoryOptions: successStoriesResult.stories.map((story) => ({ id: story.id, name: story.title })),
     expertTalkOptions: expertTalksResult.items.map((item) => ({ id: item.id, name: item.title })),
   }
+}
+
+export async function listDoctorsForRearrangeAdmin() {
+  const doctors = await prisma.doctor.findMany({
+    orderBy: { sortOrder: 'asc' },
+    select: {
+      id: true,
+      name: true,
+      speciality: { select: { id: true, name: true } },
+      departments: { select: { department: { select: { id: true, name: true } } } },
+    },
+  })
+
+  return doctors.map((doctor) => ({
+    id: doctor.id,
+    name: doctor.name,
+    speciality: doctor.speciality,
+    departments: doctor.departments.map((link) => link.department),
+  }))
+}
+
+export async function reorderDoctorsAdmin(orderedIds) {
+  if (!Array.isArray(orderedIds) || orderedIds.length === 0) {
+    throw new Error('orderedIds must be a non-empty array')
+  }
+
+  await prisma.$transaction(
+    orderedIds.map((id, index) =>
+      prisma.doctor.update({ where: { id: Number(id) }, data: { sortOrder: index } })
+    )
+  )
+
+  revalidateDoctorPaths([])
+
+  return listDoctorsForRearrangeAdmin()
 }

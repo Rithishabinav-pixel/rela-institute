@@ -49,7 +49,7 @@
 .faq_section .faq .card{
     padding: 16px 24px;
     border-radius: 16px;
-    background-color: var(--gray);
+    background-color:white;
 }
 
 .faq_section .faq .card .head h3{

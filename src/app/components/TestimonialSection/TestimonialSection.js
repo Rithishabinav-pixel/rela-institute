@@ -38,8 +38,8 @@ export default function TestimonialSection({bg, allTestimonials = [], featuredTe
 
 <div className={`section_container column ${style.left}`}>
   <div className="top_heading" data-aos="fade-right">
-    <h2 className="common_heading">Trusted Care, Shared Experiences</h2>
-    <Button link="/" classname="orange_btn" text="Discover Rela Hospital"/>
+    <h2 className="common_heading">Hear It from Those Who've Been Here.</h2>
+    <Button link="/testimonials-and-reviews" classname="orange_btn" text="Read More Patient Reviews"/>
   </div>
 
 

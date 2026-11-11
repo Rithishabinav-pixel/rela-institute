@@ -1,0 +1,281 @@
+  .philosopy_section .container .cards,
+    .philosopy_section .container .cards .innerCard,
+ .advancement_section .container .cards .card,
+.advancement_section .container .cards,
+.buttons,
+.text{
+    display: flex;
+}
+
+ .philosopy_section .container .cards .innerCard,
+ .advancement_section .container .cards .card,
+.text{
+    flex-direction: column;
+}
+
+ .advancement_section .container .cards .card,
+.text{
+    gap: 16px;
+}
+
+.buttons{
+    gap: 24px;
+}
+
+.advancement_section .container .cards{
+    gap: 30px;
+}
+
+.about_section .container{
+    align-items: center;
+}
+
+  .philosopy_section .container .cards,
+      .advancement_section .container .cards{
+        flex-wrap: wrap;
+      }
+
+.vision_section .container .image img,
+.about_section .container .image img{
+    width: 100%;
+}
+
+.about_section .container{
+    justify-content: space-between;
+}
+
+
+.about_section.rela .container .image{
+    width: 42%;
+}
+
+.about_section.rela .container .content{
+    width: 42%;
+}
+
+.about_section.rela .container .content .detail h3{
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 600;
+}
+
+.about_section.rela{
+    background-image: url(/assets/images/rela_vector.svg);
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position-x:110%;
+}
+
+.about_section.rela .container .image{
+    margin-right: 5%;
+}
+
+
+
+.vision_section .container .content{
+    width: 42%;
+    margin-left: auto;
+}
+
+ .philosopy_section .container .cards .card,
+   .vision_section .container .image{
+        width: 50%;
+      }
+
+      .advancement_section .container .top_heading{
+        max-width: 750px;
+      }
+
+       .advancement_section .container .cards .card{
+        background-color: white;
+        width: calc(25% - 22.5px);
+        border-radius: 32px;
+        padding: 16px 24px;
+       }
+
+       .advancement_section .container .cards .card img{
+        width: 80px;
+        margin-bottom: 8px;
+       }
+
+       .advancement_section .container .cards .card h3{
+        font-weight: 600;
+       }
+         .advancement_section .container .cards .card h3,
+           .advancement_section .container .cards .card p{
+            font-size: 20px;
+            line-height: 28px;
+           }
+
+  .philosopy_section .container .top_heading{
+    max-width: 900px;
+  }
+
+    .philosopy_section .container .top_heading p{
+        max-width: 500px;
+    }
+
+     .philosopy_section .container .cards{
+        position: relative;
+     }
+
+     .philosopy_section .container .cards .card{
+        padding: 40px;
+     }
+
+       .philosopy_section .container .cards .card.vision{
+        background-color: var(--gray);
+       }
+
+        .philosopy_section .container .cards .card.mission{
+        background-color: var(--light-orange);
+        
+       }
+
+     .philosopy_section .container .cards .card .innerCard{
+width: 70%;
+     }
+
+      .philosopy_section .container .cards .card.mission .innerCard{
+        margin-left: auto;
+      }
+
+       .philosopy_section .container .cards .image{
+        position: absolute;
+        height: 100%;
+        width: auto;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: flex-end;
+        z-index: 2;
+       }
+
+        .philosopy_section .container .cards .image::before{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: url(/assets/images/rela-vector-fill.svg);
+            background-size: 100% auto;
+            background-position: bottom center;
+            background-repeat: no-repeat;
+            z-index: -1;
+        }
+
+/* responsive */
+
+@media screen and (min-width:1501px) {
+    .vision_section{
+    background-image: url(/assets/images/rela-vision-bg.png);
+    background-size: auto 100% ;
+    background-position:  0 0;
+    background-repeat: no-repeat;
+}
+}
+
+@media screen and (max-width:1500px){
+    .vision_section .container {
+        justify-content: space-between;
+    }
+   
+.vision_section .container .content{
+    width: 50%;
+}
+}
+
+/* tablet  */
+@media screen and (max-width:1200px) {
+
+
+  
+    .about_section.rela .container{
+        flex-direction: column;
+    }
+
+    .vision_section .container{
+        flex-direction: column-reverse;
+    }
+
+        .philosopy_section .container .cards .card .innerCard,
+        .philosopy_section .container .cards .card,
+.vision_section .container .content,
+.vision_section .container .image,
+      .about_section.rela .container .image,
+          .about_section.rela .container .content{
+          width: 100%;
+          max-width: 100%;
+        }
+
+        .about_section.rela .container .image{
+    margin-right: 0%;
+}
+
+
+.about_section.rela .container .content .detail h3{
+    font-size: 20px;
+    line-height: 28px;
+}
+
+
+
+        .about_section.rela .container .image{
+            max-width: 500px;
+         }
+
+
+.advancement_section .container .cards ,
+ .buttons{
+    gap: 20px;
+ }
+
+
+ .about_section.rela{
+    background-image: none;
+ }
+
+   .advancement_section .container .cards .card{
+        width: calc(50% - 10px);
+        border-radius: 24px;
+        padding: 16px 20px;
+       }
+
+   .advancement_section .container .cards .card img{
+    margin-bottom: 4px;
+   }
+   .philosopy_section .container .cards .card{
+        padding: 30px;
+     }
+    
+}
+
+/* mobile  */
+@media screen and (max-width:767px) {
+
+         .advancement_section .container .cards .card img{
+        width: 60px;
+       }
+
+          .advancement_section .container .cards .card{
+        width:100%;
+        border-radius: 16px;
+       }
+
+    .buttons{
+    flex-direction: column;
+    gap: 16px;
+}
+
+   .philosopy_section .container .cards .card{
+        padding: 20px;
+     }
+
+  .advancement_section .container .cards .card h3,
+           .advancement_section .container .cards .card p{
+            font-size: 16px;
+            line-height: 24px;
+           }
+
+
+}

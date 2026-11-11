@@ -47,7 +47,7 @@ const stats = [
   },
     {
     icon:"/assets/images/locat.svg",
-    title:"Find a Loaction",
+    title:"Find a Location",
     link:"/"
   },
 
@@ -152,7 +152,7 @@ const locationData = [
     locationLink: "",
     contact: ["+91 98410 04625"],
     mail: "kumaranhospitals@hotmail.com",
-    link:"/"
+    link:"/locations/kumaran"
   },
   {
     name: "Rela MS Hospital - Red Hills",
@@ -163,7 +163,7 @@ const locationData = [
     locationLink: "",
     contact: ["044-7111 1111"],
     mail: "info@rimshospitals.com",
-    link:"/"
+    link:"/locations/red-hills"
   },
   {
     name: "Rela Clinics, Nanganallur",
@@ -174,7 +174,29 @@ const locationData = [
     locationLink: "",
     contact: ["044 66667777", "044 71111117"],
     mail: "nanganallur@relainstitute.com",
-    link:"/"
+    link:"/locations/nanganallur"
+  },
+    {
+    name: "Rela Clinic, Adyar",
+    unit: "A unit of JR Super Speciality Ltd.",
+    image: "/assets/images/rela-clinic-adyar.png",
+    location:
+      "34, 29, Second Main Rd, Kasturba Nagar, Adyar, Chennai, Tamil Nadu 600 020.",
+    locationLink: "",
+    contact: ["93846 02201"],
+    mail: "adyar@relainstitute.com",
+    link:"/locations/adyar"
+  },
+  {
+    name: "Rela Clinic, Pallikaranai",
+    unit: "A unit of JR Super Speciality Ltd.",
+    image: "/assets/images/rela-clinic-pallikaranai.png",
+    location:
+      "144, 6th St, Kamakoti Nagar, Pallikaranai, Chennai, Tamil Nadu 600100",
+    locationLink: "",
+    contact: ["93846 02718"],
+    mail: "pallikaranai@relainstitute.com",
+    link:"/locations/pallikaranai"
   },
 ];
 
@@ -319,9 +341,9 @@ export default function HomeClient({ coeData, deptData, doctorsData, heroBanners
 <div className={`section_container ${style.section_container}`}>
     <div className={style.left} data-aos="fade-right">
       <div className={`top_heading ${style.top_heading}`}>
-<h2 className="common_heading">Complete Care, Connected Across Specialities</h2>
-<p>Our specialists collaborate across departments to provide coordinated care for both everyday and complex health conditions.</p>
-<Button link="" classname="orange_btn" text="Explore Specialities"/>
+<h2 className="common_heading">The Strength of Specialised Care.</h2>
+<p>Our specialists work across disciplines to provide coordinated care for a wide range of health conditions, from routine consultations to complex treatments.</p>
+<Button link="/department" classname="orange_btn" text="Explore All Specialities"/>
       </div>
     </div>
 
@@ -347,8 +369,9 @@ export default function HomeClient({ coeData, deptData, doctorsData, heroBanners
 <div className={`section_container column ${style.section_container}`}>
  <div className={`container ${style.container}`}>
       <div className={`top_heading center ${style.top_heading}`} data-aos="fade-up">
-<h2 className="common_heading">Where Expertise Comes Together</h2>
-<Button link="/" classname="orange_btn" text="Explore Specialities"/>
+<h2 className="common_heading">The Strength of Specialised Care.</h2>
+<p>Our specialists work across disciplines to provide coordinated care for a wide range of health conditions, from routine consultations to complex treatments.</p>
+<Button link="/department" classname="orange_btn" text="Explore All Specialities"/>
       </div>
     </div>
 
@@ -440,7 +463,8 @@ slidesPerView: 1.5,
 <div className={`section_container column ${style.section_container}`}>
  <div className={`container ${style.container}`}>
       <div className={`top_heading split ${style.top_heading}`} data-aos="fade-right">
-<h2 className="common_heading">Trusted Doctors. Advanced Care.</h2>
+<h2 className="common_heading">Advanced Medical Care In Trusted Hands</h2>
+
 <Button link="/" classname="orange_btn" text="See All Doctors" data-aos="fade-left"/>
       </div>
     </div>
@@ -533,10 +557,10 @@ slidesPerView: 1.8,
   <div className={style.content}>
     <div className={`top_heading`} data-aos="fade-right">
       <h2 className="common_heading">
-        A Simple Check Today Can Make a <span>Difference Tomorrow</span>
+        A Healthier Tomorrow Starts <span>Today</span>
       </h2>
-      <p>Take a proactive step towards better health with screening packages designed for individuals, families and different lifestyle needs.</p>
-      <Button classname="orange_btn" link="/" text="Book a Health Check"/>
+      <p>Take a proactive approach to your health with preventive screening packages designed to help you stay informed.</p>
+      <Button classname="orange_btn" link="/health-packages" text="Explore Health Packages"/>
     </div>
     <div className={style.image} data-aos="fade-up">
       <span>Comprehensive<br/>Screening Packages</span>
@@ -671,11 +695,12 @@ slidesPerView: 1.5,
 
   <div className={style.left} data-aos="fade-right">
       <div className={`top_heading column ${style.top_heading}`}>
-<h2 className="common_heading">Advanced Medicine, Delivered With Compassion</h2>
-<Button link="/" classname="orange_btn" text="Discover Rela Hospital"/>
+<h2 className="common_heading">At the Heart of Everything We Do</h2>
+<Button link="/about-us" classname="orange_btn" text="Discover Rela Hospital"/>
       </div>
       {!mobile &&
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p>Rela Hospital brings together highly qualified medical professionals, advanced infrastructure and modern technology to provide comprehensive healthcare across more than 50 disciplines. Our focus is on clinical excellence, innovation and compassionate care.
+</p>
    }
       </div>
 
@@ -705,7 +730,8 @@ slidesPerView: 1.5,
 
 
   {mobile &&
-      <p data-aos="fade-up">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p data-aos="fade-up">Rela Hospital brings together highly qualified medical professionals, advanced infrastructure and modern technology to provide comprehensive healthcare across more than 50 disciplines. Our focus is on clinical excellence, innovation and compassionate care.
+</p>
    }
 
     </div>
@@ -725,6 +751,7 @@ slidesPerView: 1.5,
   <div className={style.left} data-aos="fade-right">
       <div className={`top_heading column ${style.top_heading}`}>
 <h2 className="common_heading">From the Desk Of<br/><span>Prof. Mohamed Rela</span></h2>
+<Button text={"Read more"} classname={`orange_btn`} link={`/about-us/from-the-desk-of-prof-mohamed-rela`}/>
       </div>
       </div>
 
@@ -734,10 +761,9 @@ slidesPerView: 1.5,
 
 <div className={style.right} data-aos="fade-left">
 <strong>Dear Friends and Colleagues,</strong>
-<p>Rela Hospital was founded with a clear purpose: to make advanced healthcare more accessible, precise and compassionate.</p>
-<p>Our specialists work across disciplines, supported by modern technology and clinical infrastructure, to provide care tailored to every patient. From early diagnosis to complex treatments and recovery, we remain committed to delivering the highest standards of medical excellence.</p>
-<p>Innovation continues to shape how we treat, heal and improve outcomes. Yet, technology alone does not define great healthcare. It is the trust we build, the compassion we show and the responsibility we carry for every life entrusted to us.</p>
-<p>At Rela Hospital, expertise guides our decisions, and compassion remains at the heart of everything we do.</p>
+<p>Rela Hospital was established with a vision to provide outstanding clinical care by bringing together highly qualified medical professionals and state-of-the-art infrastructure.</p>
+<p>We remain committed to transforming the health of the people we serve through innovation, high standards of patient care and the dedication of our doctors and employees.</p>
+<p>We believe technology can bridge therapeutic gaps. Above all, we believe that compassion cures.</p>
 <p><strong>Prof. Mohamed Rela</strong><br/>Chairman and Managing Director<br/>Rela Hospital</p>
 </div>
 
@@ -757,10 +783,10 @@ slidesPerView: 1.5,
 
   <div className={style.left} data-aos="fade-right">
       <div className={`top_heading column ${style.top_heading}`}>
-<h2 className="common_heading white_text">International Healthcare, Closer to You</h2>
+<h2 className="common_heading white_text">World-Class Care, Wherever You Call Home.</h2>
 <Image src="/assets/images/flags.svg" width={284} height={39} alt="Flags of countries we serve"/>
-<p className="white_text">Share your medical reports, receive expert guidance and get dedicated assistance with appointments, travel, accommodation and treatment coordination.</p>
-<Button text="Request a Medical Opinion" link="/" classname="orange_btn"/>
+<p className="white_text">At Rela Hospital, care knows no borders. Looking for specialised medical care in India? Our team is here to guide you through your treatment journey.</p>
+<Button text="Explore International Patient Services" link="/international-patients" classname="orange_btn"/>
       </div>
 
       <div className={style.trusted}>
@@ -821,9 +847,9 @@ slidesPerView: 1.5,
 <section className={`common_section gray_bg ${style.roboticSection}`}>
 <div className={`container section_container column ${style.container}`}>
   <div className={`top_heading ${style.content}`} data-aos="fade-left">
-<h2 className="common_heading">ROBOTIC <br className="desktop_break"/>Surgery for More <br className="desktop_break"/>Precise Care </h2>
-<Button link="" classname="orange_btn" text="Consult a Specialist"/>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<h2 className="common_heading">Robotic <br className="desktop_break"/>Surgery for More <br className="desktop_break"/>Precise Care </h2>
+<Button link="" classname="orange_btn" text="Explore Robotic Surgery"/>
+<p>Explore robotic-assisted surgical procedures and the technology supporting advanced treatment at Rela Hospital.</p>
   </div>
   {mobile &&
   <Image className={style.roboticImage} data-aos="fade-right" src="/assets/images/robotic-img.png" width={945} height={625} alt="Robotic surgery system"/>
@@ -846,11 +872,11 @@ slidesPerView: 1.5,
 
 <div className={`section_container column`}>
   <div className={`top_heading center ${style.top_heading}`} data-aos="fade-up">
-    <h2 className="common_heading">Care Across Every Location </h2>
+    <h2 className="common_heading">We're Here When You Need Us</h2>
   </div>
 
 
-  {mobile &&
+
 <div className={style.locationCards} data-aos="fade-up">
 
 
@@ -875,7 +901,13 @@ slidesPerView: 1.5,
 slidesPerView: 1.1,
             },
           700: {
-            slidesPerView: 2.3,
+            slidesPerView: 1.9,
+          },
+          1200:{
+            slidesPerView: 3,
+          },
+          1600:{
+            slidesPerView: 4,
           }
 
         }}
@@ -953,57 +985,9 @@ slidesPerView: 1.1,
 
 
 </div>
-}
 
-    {!mobile &&
-<div className={style.locationCards} data-aos="fade-up">
 
-  {locationData && locationData.map((item,i)=>(
-<div className={style.card} key={i}>
-
-    <div className={style.top}>
-      <div className={style.image}>
-        <Image src={item.image} width={360} height={375} alt={item.name} />
-      </div>
-      <div className={style.content}>
-        <h3 className="white_text">{item.name}</h3>
-        <p className="white_text">{item.unit}</p>
-      </div>
-    </div>
-
-    <div className={style.detail}>
-      <ul>
-        <li>
-           <div className={style.icon}> <Image src="/assets/images/map-pin.svg" width={32} height={32} alt=""/></div>
-          <div className={style.link}><a href={item.locationLink} target="_blank" rel="noopener noreferrer">{item.location}</a></div>
-
-          </li>
-          <li>
-            <div className={style.icon}> <Image src="/assets/images/call-pin.svg" width={32} height={32} alt=""/></div>
-          <div className={style.link}>
-            {item.contact && item.contact.map((tel,i)=>(
-              <React.Fragment key={i}>
-<a href={`tel:${tel.replaceAll(" ","")}`}>{tel}</a>
-              </React.Fragment>
-            ))}
-
-            </div>
-          </li>
-           <li>
-           <div className={style.icon}> <Image src="/assets/images/mail-pin.svg" width={32} height={32} alt=""/></div>
-          <div className={style.link}><a href={`mailto:${item.mail}`}>{item.mail}</a></div>
-
-          </li>
-      </ul>
-            <Button type="link" link={item.link} classname={`orange_btn ${style.locationLink}`} text="View location"/>
-
-    </div>
-
-  </div>
-  ))}
-
-</div>
-}
+ 
 
 
 </div>
