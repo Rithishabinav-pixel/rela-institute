@@ -17,6 +17,8 @@
 /.next/
 /out/
 
+/rela-db.sql
+
 # production
 /build
 
