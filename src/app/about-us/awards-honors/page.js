@@ -42,7 +42,7 @@ export default function page() {
         <div className={`${style.container} container`}>
             <div className={`top_heading ${style.top_heading} left`} data-aos="fade-up">
                 <h1 className='white_text common_heading'>Achievement at <br className='desktop_break'/><span>Rela Hospital</span></h1>
-                <p className='white_text'>Meet the leaders who set the direction for patient care at Rela Hospital. Their work spans clinical standards, specialist services and the day-to-day operations that support patients and their families.</p>
+                <p className='white_text'>Celebrating the honours earned by Rela Hospital, recognising distinguished leadership, achievements in liver transplantation and the dedication of our clinical teams.</p>
             </div>
         </div>
     </section>

@@ -151,10 +151,10 @@ export default function Footer() {
         </ul>
         <p className='white_text'>Copyrights © {new Date().getFullYear()} Rela Institute & Medical Centre. All Rights Reserved.</p>
         <ul className={style.bottomLinks}>
-            <li> <Link href="/">Terms and Conditions </Link>  </li>
-            <li> <Link href="/">Cancellation and Refund Policy</Link>  </li>
-            <li> <Link href="/">Privacy Policy</Link>  </li>
-            <li> <Link href="/">Disclaimer</Link>  </li>
+            <li> <Link href="/terms-and-conditions">Terms and Conditions </Link>  </li>
+            <li> <Link href="/cancellation-refund-policy">Cancellation and Refund Policy</Link>  </li>
+            <li> <Link href="/privacy-policy">Privacy Policy</Link>  </li>
+            <li> <Link href="/disclaimer">Disclaimer</Link>  </li>
 
         </ul>
     </div>

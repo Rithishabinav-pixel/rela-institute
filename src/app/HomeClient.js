@@ -369,7 +369,7 @@ export default function HomeClient({ coeData, deptData, doctorsData, heroBanners
 <div className={`section_container column ${style.section_container}`}>
  <div className={`container ${style.container}`}>
       <div className={`top_heading center ${style.top_heading}`} data-aos="fade-up">
-<h2 className="common_heading">The Strength of Specialised Care.</h2>
+<h2 className="common_heading">Where Expertise Comes Together</h2>
 <p>Our specialists work across disciplines to provide coordinated care for a wide range of health conditions, from routine consultations to complex treatments.</p>
 <Button link="/department" classname="orange_btn" text="Explore All Specialities"/>
       </div>

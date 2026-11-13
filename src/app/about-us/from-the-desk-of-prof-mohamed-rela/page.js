@@ -91,8 +91,8 @@ export default function page() {
     <p>Prof. Mohamed Rela has many accolades to his credit. He stood first in the first ever state level postgraduate entrance examination, as he enrolled for the Masters in Surgery course at Stanley Medical College, Chennai. After completing another Masters in Surgery, he cleared the Fellowship exams of the Royal College of Surgeons in the UK. He spent his initial few years in the UK rotating across surgical specialities fine tuning his surgical skills.</p>
 </div>
  <div className={style.buttons}>
-                    <Button classname="orange_btn" link="#" text={`View Profile`}/>
-                    <Button classname="white_btn orange_stroke" link="#" text={`Book an Appointment`}/>
+                    <Button classname="orange_btn" link="/doctors/prof-dr-mohamed-rela" text={`View Profile`}/>
+                    <Button classname="white_btn orange_stroke" link="/prof-mohamed-rela-appointment" text={`Book an Appointment`}/>
 
                 </div>
 </div>

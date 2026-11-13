@@ -324,31 +324,31 @@ useEffect(() => {
             <div className={`${style.topbarCta} ${searchBar?style.hide:""} `}>
                 <ul>
                     <li> 
-                        <a href='tel:04422006001'>
+                        <a href='tel:+914466667788'>
                             <div className={style.icon}> <Image src="/assets/images/ambulance.svg" width={40} height={40} alt=''/></div>
 
                             <div className={style.content}>
                                 <p className={style.label}>Ambulance:</p>
-                                <p className={style.text}>044 2200 6001</p>
+                                <p className={style.text}>+91 44 66667788</p>
                                 </div>
                         </a>
                          </li>
                          <li> 
-                        <a href='tel:04422006000'>
+                        <a href='tel:+914466667777'>
                             <div className={style.icon}> <Image src="/assets/images/emergency.svg" width={40} height={40} alt=''/></div>
                             <div className={style.content}>
                                 <p className={style.label}>Emergency:</p>
-                                <p className={style.text}>044 2200 6000</p>
+                                <p className={style.text}>+91 44 66667777</p>
                                 </div>
                              
                         </a>
                          </li>
                          <li> 
-                        <a href='tel:+911234567890'>
+                        <a href='tel:+919384681770'>
                             <div className={style.icon}> <Image src="/assets/images/apointment.svg" width={40} height={40} alt=''/></div>
                             <div className={style.content}>
                                 <p className={style.label}>Appointment:</p>
-                                <p className={style.text}>+91 1234567890</p>
+                                <p className={style.text}>+91 9384681770</p>
                                 </div>
                              
                         </a>
@@ -376,31 +376,31 @@ useEffect(() => {
             <div className={`${style.topbarCta} ${searchBar?style.hide:""}`}>
                 <ul>
                     <li> 
-                        <a href='tel:04422006001'>
+                        <a href='tel:+914466667788'>
                             <div className={style.icon}> <Image src="/assets/images/ambulance.svg" width={40} height={40} alt=''/></div>
 
                             <div className={style.content}>
                                 <p className={style.label}>Ambulance:</p>
-                                <p className={style.text}>044 2200 6001</p>
+                                <p className={style.text}>+91 44 66667788</p>
                                 </div>
                         </a>
                          </li>
                          <li> 
-                        <a href='tel:04422006000'>
+                        <a href='tel:+914466667777'>
                             <div className={style.icon}> <Image src="/assets/images/emergency.svg" width={40} height={40} alt=''/></div>
                             <div className={style.content}>
                                 <p className={style.label}>Emergency:</p>
-                                <p className={style.text}>044 2200 6000</p>
+                                <p className={style.text}>+91 44 66667777</p>
                                 </div>
                              
                         </a>
                          </li>
                          <li> 
-                        <a href='tel:+911234567890'>
+                        <a href='tel:++919384681770'>
                             <div className={style.icon}> <Image src="/assets/images/apointment.svg" width={40} height={40} alt=''/></div>
                             <div className={style.content}>
                                 <p className={style.label}>Appointment:</p>
-                                <p className={style.text}>+91 1234567890</p>
+                                <p className={style.text}>+91 9384681770</p>
                                 </div>
                              
                         </a>

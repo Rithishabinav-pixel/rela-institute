@@ -53,7 +53,7 @@ const doctorsData = [
         link:"#"
     },
      {
-        image:"/assets/images/leader-mohd-rela.png",
+        image:"/assets/images/farouk-l.png",
         name:"Mr. Mohammed Farouk",
         speciality:"",
         position:"Chief Operating Officer",

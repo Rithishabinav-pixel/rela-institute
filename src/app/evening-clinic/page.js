@@ -331,7 +331,7 @@ slidesPerView: 1.8,
     <p>At Rela Hospital, we know that life doesn’t pause for health concerns, and getting care during regular hours isn’t always possible.</p>
     <p>Maalai Maruthuvam, our Evening Clinics initiative, offers a flexible and accessible solution. Operating from Monday to Saturday, 5:30 PM to 8:30 PM, the clinic brings together a team of experienced specialists across multiple departments—all under one roof, in a patient-friendly environment.</p>
     <p>Whether it’s a routine consultation, follow-up, or first-time evaluation, our evening clinics are designed to ensure you receive timely, expert care without disrupting your day.</p>
-    <Button classname="orange_btn" link="#" text="Get a Second Opinion"/>
+    <Button classname="orange_btn" link="/second-opinion" text="Get a Second Opinion"/>
     </div>
         </div>
     </div>
