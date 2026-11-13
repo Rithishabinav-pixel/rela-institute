@@ -199,7 +199,7 @@ export default function page() {
         <div className={`${style.container} container`}>
             <div className={`top_heading ${style.top_heading} left`} data-aos="fade-up">
                 <h1 className='white_text common_heading'>Fellowships at Rela Hospital <br className='desktop_break'/><span>Learn. Lead. Innovate.</span></h1>
-                <p className='white_text'>From specialised critical care units and modern diagnostic facilities to integrated outpatient and inpatient services, Rela Hospital is equipped with advanced infrastructure designed to support complex care, accurate diagnosis and better patient outcomes.</p>
+                <p className='white_text'>Rela Institute & Medical Centre is dedicated to advancing medical education through structured training, clinical excellence, and research-driven learning. Our Academic Department offers a wide range of postgraduate and fellowship programs aimed at shaping the next generation of healthcare professionals.</p>
            <Button classname="orange_btn" text="Book a Health Check-up" link="/health-packages"/>
             </div>
         </div>
