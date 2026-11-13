@@ -25,6 +25,11 @@
     padding-top: 136px;
 }
 
+#header{
+    position: relative;
+    z-index: 9;
+}
+
 .navigations.navFixed,
 #header.fixedHeader{
     position: fixed;

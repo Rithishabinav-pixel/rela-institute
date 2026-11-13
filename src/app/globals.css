@@ -85,7 +85,7 @@ a,button,select{
 }
 
 a,button,button img{
-  transition:var(--transition);
+  transition:var(--transition) !important;
 }
 
 

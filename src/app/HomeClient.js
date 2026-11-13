@@ -23,7 +23,7 @@ const stats = [
   {
     icon:"/assets/images/doctor.svg",
     title:"Find a Doctor",
-    link:"/"
+    link:"/doctors"
   },
     {
     icon:"/assets/images/b_app.svg",
@@ -38,7 +38,7 @@ const stats = [
     {
     icon:"/assets/images/health_pack.svg",
     title:"Health Packages",
-    link:"/"
+    link:"/health-packages"
   },
     {
     icon:"/assets/images/inter_patients.svg",
@@ -48,7 +48,7 @@ const stats = [
     {
     icon:"/assets/images/locat.svg",
     title:"Find a Location",
-    link:"/"
+    link:"/locations"
   },
 
 ]

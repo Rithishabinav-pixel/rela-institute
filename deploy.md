@@ -217,3 +217,15 @@ Keep this order for deployments:
 **Remember:** Code deployment does not automatically transfer local
 database data to the server. Database schema migrations, data imports,
 and full database backups/restores are separate operations.
+
+
+
+
+age -r age1j7k3z28yleuyfy4c7kgm8j5fr88cldncuyuz0tvd9cy0cz578u6qd7e7rw -o rela-db.sql.age rela-db.sql
+<!-- ------------------------------ -->
+git add .
+git add -f rela-db.sql.age
+
+git commit -m "Update Rela database and application"
+
+git push origin main

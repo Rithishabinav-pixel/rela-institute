@@ -100,12 +100,10 @@
 
        .advancement_section .container .cards .card h3{
         font-weight: 600;
-       }
-         .advancement_section .container .cards .card h3,
-           .advancement_section .container .cards .card p{
-            font-size: 20px;
+         font-size: 20px;
             line-height: 28px;
-           }
+       }
+
 
   .philosopy_section .container .top_heading{
     max-width: 900px;
@@ -271,8 +269,7 @@ width: 70%;
         padding: 20px;
      }
 
-  .advancement_section .container .cards .card h3,
-           .advancement_section .container .cards .card p{
+  .advancement_section .container .cards .card h3{
             font-size: 16px;
             line-height: 24px;
            }

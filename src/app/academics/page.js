@@ -48,12 +48,12 @@ const biherData = [
   },
   {
     icon: "/assets/images/sample-ceo-icon.svg",
-    title: "Gynec Surgery (Minimal Access)",
+    title: "Gynaec Surgery (Minimal Access)",
     link: "/"
   },
   {
     icon: "/assets/images/sample-ceo-icon.svg",
-    title: "High-Risk Obstetrics",
+    title: "High-Rish Obstretrics",
     link: "/"
   },
   {
@@ -112,22 +112,7 @@ const biherData = [
 const NBEMSData = [
   {
     icon: "/assets/images/sample-ceo-icon.svg",
-    title: "General Anaesthesia (DNB)",
-    link: "/"
-  },
-  {
-    icon: "/assets/images/sample-ceo-icon.svg",
-    title: "Internal Medicine (DNB)",
-    link: "/"
-  },
-  {
-    icon: "/assets/images/sample-ceo-icon.svg",
-    title: "Surgical Gastroenterology (DrNB)",
-    link: "/"
-  },
-  {
-    icon: "/assets/images/sample-ceo-icon.svg",
-    title: "Critical Care (DrNB)",
+    title: "General Anaethesia (DNB)",
     link: "/"
   },
   {
@@ -137,12 +122,27 @@ const NBEMSData = [
   },
   {
     icon: "/assets/images/sample-ceo-icon.svg",
+    title: "Internal Medicine (DNB)",
+    link: "/"
+  },
+  {
+    icon: "/assets/images/sample-ceo-icon.svg",
     title: "Radiology (DNB)",
     link: "/"
   },
   {
     icon: "/assets/images/sample-ceo-icon.svg",
+    title: "Surgical Gastroenterology (DrNB)",
+    link: "/"
+  },
+  {
+    icon: "/assets/images/sample-ceo-icon.svg",
     title: "Medical Gastroenterology (DrNB)",
+    link: "/"
+  },
+  {
+    icon: "/assets/images/sample-ceo-icon.svg",
+    title: "Critical Care (DrNB)",
     link: "/"
   },
   {
@@ -200,7 +200,7 @@ export default function page() {
             <div className={`top_heading ${style.top_heading} left`} data-aos="fade-up">
                 <h1 className='white_text common_heading'>Infrastructure Built for <br className='desktop_break'/><span>Advanced Care</span></h1>
                 <p className='white_text'>From specialised critical care units and modern diagnostic facilities to integrated outpatient and inpatient services, Rela Hospital is equipped with advanced infrastructure designed to support complex care, accurate diagnosis and better patient outcomes.</p>
-           <Button classname="orange_btn" text="Book a Health Check-up" link="#"/>
+           <Button classname="orange_btn" text="Book a Health Check-up" link="/health-packages"/>
             </div>
         </div>
     </section>

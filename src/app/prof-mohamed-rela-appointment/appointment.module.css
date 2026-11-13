@@ -1,0 +1,160 @@
+
+.about_section.rela .container .content .stats,
+.about_section.rela .container .content .stats .card,
+.about_section.rela .container .content .buttons{
+  display: flex;
+}
+
+.about_section.rela .container .content .stats .card{
+  flex-direction: column;
+}
+
+.about_section.rela .container .content .stats .card{
+  gap: 16px;
+}
+
+.about_section.rela .container .content .stats .card h3{
+  font-size: 40px;
+  line-height: 48px;
+  font-weight: 600;
+}
+
+.about_section.rela .container .content .buttons{
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.about_section .container{
+    align-items: center;
+}
+
+
+.about_section.rela .container .content .stats,
+.about_section .container .image img{
+    width: 100%;
+}
+
+.about_section.rela .container .content .stats .card{
+  width: 40%;
+}
+
+.about_section.rela .container .content .stats{
+  max-width: 450px;
+  gap: 40px;
+}
+
+.about_section.rela .container .content .stats .card p{
+  opacity: 0.5;
+}
+
+.about_section.rela .container .content .stats,
+.about_section .container{
+    justify-content: space-between;
+}
+
+
+.about_section.rela .container .image{
+    width: 42%;
+}
+
+.about_section.rela .container .content{
+    width: 45%;
+}
+
+.about_section.rela .container .content h3{
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 600;
+}
+
+
+.about_section.rela .container .image{
+    margin-right: 7%;
+}
+
+
+/* responsive */
+
+@media screen and (min-width:1501px) {
+
+}
+
+@media screen and (max-width:1500px){
+
+}
+
+/* tablet  */
+@media screen and (max-width:1200px) {
+
+
+  
+    .about_section.rela .container{
+        flex-direction: column;
+    }
+
+  
+      .about_section.rela .container .image,
+          .about_section.rela .container .content{
+          width: 100%;
+          max-width: 100%;
+        }
+
+        .about_section.rela .container .image{
+    margin-right: 0%;
+}
+
+
+.about_section.rela .container .content  h3{
+    font-size: 20px;
+    line-height: 28px;
+}
+
+.about_section.rela .container .content {
+  padding: 50px 0 0 0;
+}
+
+
+.about_section.rela .container .content .stats .card h3{
+  font-size: 32px;
+  line-height: 40px;
+}
+
+        .about_section.rela .container .image{
+            max-width: 500px;
+         }
+
+
+ .about_section.rela{
+    background-image: none;
+ }
+
+ .about_section.rela .container .content .stats{
+  gap: 30px;
+ }
+ .about_section.rela .container .content .buttons{
+  gap: 20px;
+}
+
+.about_section.rela .container .content .stats .card{
+  gap:8px;
+}
+    
+}
+
+/* mobile  */
+@media screen and (max-width:767px) {
+
+  .about_section.rela .container .content .stats .card{
+  width: 50%;
+}
+
+ .about_section.rela .container .content .buttons{
+  gap: 16px;
+}
+
+.about_section.rela .container .content  h3{
+    font-size: 18px;
+    line-height: 26px;
+}
+       
+}

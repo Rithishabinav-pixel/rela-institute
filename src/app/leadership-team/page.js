@@ -29,33 +29,35 @@ const faq = [
     }
 ]
 
+
 const doctorsData = [
     {
-        image:"/assets/images/doc-sample-img.png",
-        name:"Mohammed Rela",
-        // speciality:"MS, FRCS, DSc",
-        position:"Chairman and Managing Director",
-        link:"/"
+        image:"/assets/images/rela-l.png",
+        name:"Prof. Mohamed Rela",
+        speciality:"Liver Transplant Surgery",
+        position:"Chairman & Chief Surgeon",
+        link:"#"
     },
      {
-        image:"/assets/images/doc-sample-img.png",
+        image:"/assets/images/gauthaman-l.png",
         name:"Dr. DC Gauthaman",
-        // speciality:"MBBS, MS (Ortho), MBA",
+        speciality:"MBBS, MS (Ortho), MBA",
         position:"Medical Director",
-        link:"/"
+        link:"#"
     },
      {
-        image:"/assets/images/doc-sample-img.png",
+        image:"/assets/images/gomathy-l.png",
         name:"Dr. Gomathy Narasimhan",
-        // speciality:"MBBS, MS, ASTS Fellowship (USA), GMHE (IIMB)",
+        speciality:"MBBS, MS, ASTS Fellowship (USA), GMHE (IIMB)",
         position:"Chairman, Medical Advisory Board",
-        link:"/"
+        link:"#"
     },
      {
-        image:"/assets/images/doc-sample-img.png",
+        image:"/assets/images/leader-mohd-rela.png",
         name:"Mr. Mohammed Farouk",
+        speciality:"",
         position:"Chief Operating Officer",
-        link:"/"
+        link:"#"
     },
 ]
 
@@ -107,11 +109,10 @@ export default function page() {
                     <p className='orange_text'>Chairman and Managing Director, Dr. Rela Institute & Medical Centre</p>
                 </div>
                 <div className={style.text}>
-                    <p>Lorem ipsum dolor sit amet consectetur. Mauris fermentum consectetur dictum felis dolor imperdiet libero amet. Eget egestas rhoncus nec dignissim at ipsum id nulla. Pellentesque bibendum justo aliquam metus. Pretium gravida lorem morbi viverra pretium dis ultrices. Egestas facilisi potenti ullamcorper feugiat at. Amet habitant et dignissim malesuada mi ut imperdiet arcu dolor.</p>
-                    <p>Pellentesque elementum placerat varius convallis. Vulputate magna massa suspendisse tristique hac orci pellentesque cras. Quis nisi consectetur cursus risus dignissim quisque odio semper. Commodo nulla volutpat commodo enim pharetra quis felis nunc facilisis. Nibh dignissim lacus non potenti. Aliquet habitant praesent id aliquam tempor in egestas pulvinar libero.</p>
+                    <p>Prof. Mohamed Rela is a pioneering figure in liver transplantation with over three decades of experience. He started India’s largest liver transplant program in 2009, and has been performing over 300 liver transplants annually since then. In 2018, he founded Rela Hospital to provide high-quality, affordable medical care, including advanced multi-organ transplantation.</p>
                 </div>
                 <div className={style.buttons}>
-                    <Button classname="orange_btn" link="#" text={`View Profile`}/>
+                    <Button classname="orange_btn" link="/prof-mohamed-rela-appointment" text={`View Profile`}/>
                     <Button classname="white_btn orange_stroke" link="#" text={`Book an Appointment`}/>
 
                 </div>

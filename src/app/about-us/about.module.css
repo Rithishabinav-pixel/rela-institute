@@ -249,6 +249,10 @@ width: 50%;
     max-width: 900px;
 }
 
+.sprit_section .animatesContainer .mobileImg{
+  width: 100%;
+}
+
 .better_section {
     background-image: url(/assets/images/rela_vector.svg);
    background-size: auto 100%;
@@ -387,9 +391,12 @@ width: 100%;
 
 .better_section .container,
 .misvis_section .boxContainer,
-  .behind_section .container,
-.transform_section .container{
+  .behind_section .container{
    flex-direction: column;
+}
+
+.transform_section .container{
+  flex-direction: column-reverse;
 }
 
   .misvis_section .boxContainer .left{
@@ -435,7 +442,7 @@ width: 100%;
 
 .transform_section{
     background-size: 60% auto;
-    background-position: top center;
+    background-position: bottom center;
 }
 
 
@@ -444,6 +451,7 @@ width: 100%;
     padding: 50px 0;
 }
 
+.transform_section,
     .behind_section .container .content{
     padding: 50px 0 0px 0;
 }

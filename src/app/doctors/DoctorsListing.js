@@ -101,7 +101,7 @@ export default function DoctorsListing({ doctors, departments, quickSearchDepart
 </select>
       </div>
 
-       <div className={`${style.action_button} ${style.dropdown}`}>
+       {/* <div className={`${style.action_button} ${style.dropdown}`}>
 <select>
   <option disabled value="">Branch</option>
   <option   value="Branch">Branch</option>
@@ -109,7 +109,7 @@ export default function DoctorsListing({ doctors, departments, quickSearchDepart
   <option   value="Branch">Branch</option>
 
 </select>
-      </div>
+      </div> */}
 
     </div>
 

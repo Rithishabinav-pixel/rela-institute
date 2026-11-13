@@ -496,11 +496,11 @@ useEffect(() => {
 
             <li className={style.menuItem} onClick={() => { if (mobile) { setSubMenu( subMenu === "patient-service" ? "" : "patient-service" ); } }} onMouseEnter={() => { if (!mobile) setSubMenu("patient-service"); }} onMouseLeave={() => { if (!mobile) setSubMenu(""); }}> <Link href="#" onClick={(e) => e.preventDefault()} className={style.hasMenu}>Patient Services </Link> {mobile && <button></button>}
             <ul className={`${style.subMenu} ${subMenu==="patient-service"?style.active:""}`}>
-                <li className={style.subMenuItem}> <Link href="#">Evening Clinic</Link>  </li>
+                <li className={style.subMenuItem}> <Link href="/evening-clinic">Evening Clinic</Link>  </li>
                 <li className={style.subMenuItem}> <Link href="/international-patients">International Patients</Link>  </li>
                 <li className={style.subMenuItem}> <Link href="/patient-care">Patient Care</Link>  </li>
                 <li className={style.subMenuItem}> <Link href="#">Emergency Care</Link>  </li>
-                <li className={style.subMenuItem}> <Link href="#">Second Opinion</Link>  </li>
+                <li className={style.subMenuItem}> <Link href="/second-opinion">Second Opinion</Link>  </li>
             </ul>
              </li>
 
@@ -513,6 +513,7 @@ useEffect(() => {
           <li className={style.menuItem} onClick={() => { if (mobile) { setSubMenu((prev) => prev === "about-rela" ? "" : "about-rela"); } }} onMouseEnter={()=>{if (!mobile) setSubMenu("about-rela")}} onMouseLeave={()=>{if (!mobile) setSubMenu("")}}> <Link href="#" onClick={(e) => e.preventDefault()} className={style.hasMenu}>About Rela </Link> {mobile && <button type="button"></button>} 
             <ul className={`${style.subMenu} ${subMenu==="about-rela"?style.active:""}`}>
                 <li className={style.subMenuItem}> <Link href="/about-us">Overview </Link>  </li>
+                <li className={style.subMenuItem}> <Link href="/about-us/from-the-desk-of-prof-mohamed-rela">From the desk of Prof. Mohamed Rela </Link>  </li>
                 <li className={style.subMenuItem}> <Link href="/leadership-team">Leadership Team</Link>  </li>
                 <li className={style.subMenuItem}> <Link href="/about-us/awards-honors">Awards</Link>  </li>
                 <li className={style.subMenuItem}> <Link href="/academics">Academics</Link>  </li>

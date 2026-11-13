@@ -125,8 +125,17 @@ export default function HealthPackagesClient({ packages }) {
                 <h1 className='white_text common_heading'>Stay One Step <br className='desktop_break'/><span>Ahead of Your Health</span></h1>
                 <p className='white_text'>Regular health check-ups can help identify potential health risks early, monitor important health indicators, and support timely medical care. Our comprehensive health check-up packages are designed for individuals of different ages, lifestyles, and healthcare needs.</p>
                 <div className={style.buttons}>
-                    <Button classname="white_btn orange_btn" text="Book a Health Check-up" link=""/>
-                </div>
+<button onClick={() => {
+    document.getElementById("packages")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }}
+  className="common_btn white_btn orange_btn">
+  Book a Health Check-up
+  <Image src="/assets/images/btn-arrow.svg" width={24} height={24} alt="" />
+</button>                
+</div>
             </div>
         </div>
     </section>
@@ -167,7 +176,7 @@ export default function HealthPackagesClient({ packages }) {
 
 
 {/* packages  */}
-<section className={`common_section ${style.packages_section}`}>
+<section className={`common_section ${style.packages_section}`} id='packages'>
     <div className={`container section_container column ${style.container}`}>
         <div className={`top_heading center`} data-aos="fade-up">
             <h2 className='common_heading'>Find the Right Health Check for You</h2>

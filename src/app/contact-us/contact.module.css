@@ -6,8 +6,7 @@
 .faq_section .container,
 .faq_section .faq,
 .faq_section .faq .card,
-.faq_section .faq .card .head
-{
+.faq_section .faq .card .head{
     display: flex;
 }
 

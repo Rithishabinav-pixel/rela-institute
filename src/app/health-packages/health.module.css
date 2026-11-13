@@ -314,11 +314,13 @@ max-height: 2500px;
 @media screen and (max-width:1200px) {
 
     .faq_section .container .faq,
-    .checkup_section .container,
     .faq_section .container{
             flex-direction: column;
-
 }
+
+ .checkup_section .container{
+    flex-direction: column-reverse;
+ }
 
     .faq_section .faq .card{
     padding: 16px 20px;

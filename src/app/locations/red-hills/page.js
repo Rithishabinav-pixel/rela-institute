@@ -25,107 +25,115 @@ const stats = [
 
 
 const coeData = [
-    {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-    
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-    
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-    
-
-]
+  {
+    icon: "/assets/images/sample-l.svg",
+    title: "Liver Transplantation & Gastro care Services"
+  },
+  {
+    icon: "/assets/images/sample-l.svg",
+    title: "Emergency and Trauma"
+  },
+  {
+    icon: "/assets/images/sample-l.svg",
+    title: "Orthopaedics & Spine Surgery"
+  },
+  {
+    icon: "/assets/images/sample-l.svg",
+    title: "ENT"
+  },
+  {
+    icon: "/assets/images/sample-l.svg",
+    title: "General Surgery & Minimal Access Surgery"
+  },
+  {
+    icon: "/assets/images/sample-l.svg",
+    title: "General Medicine & Internal Medicine"
+  },
+  {
+    icon: "/assets/images/sample-l.svg",
+    title: "Plastic Surgery"
+  },
+  {
+    icon: "/assets/images/sample-l.svg",
+    title: "Nephrology and Urology"
+  },
+  {
+    icon: "/assets/images/sample-l.svg",
+    title: "Dermatology"
+  },
+  {
+    icon: "/assets/images/sample-l.svg",
+    title: "Vascular Surgery"
+  },
+  {
+    icon: "/assets/images/sample-l.svg",
+    title: "ICU and Critical Care Services"
+  },
+  {
+    icon: "/assets/images/sample-l.svg",
+    title: "Obstetrics & Gynaecology"
+  },
+  {
+    icon: "/assets/images/sample-l.svg",
+    title: "Psychiatry"
+  },
+  {
+    icon: "/assets/images/sample-l.svg",
+    title: "Neurology & Neurosurgery"
+  },
+  {
+    icon: "/assets/images/sample-l.svg",
+    title: "Cardiology"
+  },
+  {
+    icon: "/assets/images/sample-l.svg",
+    title: "Diabetology"
+  },
+  {
+    icon: "/assets/images/sample-l.svg",
+    title: "Oncology"
+  },
+  {
+    icon: "/assets/images/sample-l.svg",
+    title: "Pediatrics"
+  },
+  {
+    icon: "/assets/images/sample-l.svg",
+    title: "Pulmonology"
+  },
+  {
+    icon: "/assets/images/sample-l.svg",
+    title: "Pharmacy"
+  },
+  {
+    icon: "/assets/images/sample-l.svg",
+    title: "CT Scan"
+  },
+  {
+    icon: "/assets/images/sample-l.svg",
+    title: "X-Ray"
+  },
+  {
+    icon: "/assets/images/sample-l.svg",
+    title: "ECHO"
+  },
+  {
+    icon: "/assets/images/sample-l.svg",
+    title: "TMT"
+  },
+  {
+    icon: "/assets/images/sample-l.svg",
+    title: "ECG"
+  },
+  {
+    icon: "/assets/images/sample-l.svg",
+    title: "Cath Lab"
+  },
+  {
+    icon: "/assets/images/sample-l.svg",
+    title: "Ultrasound Scan"
+  }
+];
 
 const whyChooseData = [
     {

@@ -19,12 +19,12 @@ const awardsDatas = [
 {
         image:"/assets/images/award3.png",
     title:"Best Liver Transplant Unit (2018-2019)",
-    content:"Rela Hospital was honoured with the Best Liver Transplant Unit by the Honourable Minister in appreciation of the excellent performance by Rela Hospital team in the field of Liver Transplant Surgery. The award was received by Dr. Gomathy Narasimhan and Dr. Dinesh Jothimani on behalf of Prof. Mohamed Rela and his team. The awards were presented during the Organ Donation Awareness Week Celebration organized by the Transplant Authority of Tamil Nadu on August 14th, 2019."
+    content:"Rela Hospital was honoured with the Best Liver Transplant Unit by the Honourable Minister in appreciation of the excellent performance by Rela Hospital team in the field of Liver Transplant Surgery. The award was received by Dr. Gomathy Narasimhan and Dr. Dinesh Jothimani on behalf of Prof. Mohamed Rela and his team. The awards were presented during the Organ Donation Awareness Week Celebration organized by the Transplant Authority of Tamil Nadu on August 14th, 2019. We believe in continuing the good work and providing excellent patient care and medical excellence. We are confident of our expertise in the field, but awards always augment our desire to create new milestones because it is truly an honour to be honoured!"
 },
  {
         image:"/assets/images/award4.png",
     title:"Best Performing Live Liver Transplant Team (2019-2020)",
-    content:"The liver transplant program at Dr. Rela Hospital, headed by Prof. Mohamed Rela has been awarded the Best Performing Live Liver Transplant Team by the Transplant Authority of Tamilnadu (TRANSTAN) on the occasion of 11th National Organ Donation day on Nov 27th, 2020. The award was received by Dr. Dinesh Jothimani, Director of Hepatology and Dr. Naresh Shanmugam, Director of Pediatric Hepatology on behalf of the team."
+    content:"The liver transplant program at Dr. Rela Hospital, headed by Prof. Mohamed Rela has been awarded the Best Performing Live Liver Transplant Team by the Transplant Authority of Tamilnadu (TRANSTAN) on the occasion of 11th National Organ Donation day on Nov 27th, 2020. The award was received by Dr. Dinesh Jothimani, Director of Hepatology and Dr. Naresh Shanmugam, Director of Pediatric Hepatology on behalf of the team. Prof. Rela and his energetic team have performed close to 2500 liver transplants in India in the last decade and currently close to 25 liver transplants are performed per month at Dr. Rela Hospital, Chromepet, Chennai. It is the largest pediatric liver transplant centre in South Asia. Rela Hospital has a 32 bedded liver transplant ICU with all the advanced monitoring and therapeutic technologies and dedicated specialists to take care of adults and children with liver problems."
 },
 ]
 

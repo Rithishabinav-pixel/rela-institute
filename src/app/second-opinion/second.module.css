@@ -1,0 +1,485 @@
+.decision_section .container .cards .card,
+.decision_section .container .cards,
+.about_section .container .stats,
+.diagnosis_section .container .content .points,
+.diagnosis_section .container .content .points .point,
+.why_section .container,
+.why_section .faq,
+.why_section .faq .card,
+.why_section .faq .card .head,
+.text,
+.why_section .faq.wrap .column{
+    display: flex;
+}
+
+
+
+.decision_section .container .cards .card,
+.diagnosis_section .container .content .points,
+.diagnosis_section .container .content .points .point,
+.why_section .faq.wrap .column,
+.why_section .faq:not(.wrap),
+.why_section .faq .card,
+.text{
+    flex-direction: column;
+}
+
+.why_section .faq.wrap{
+    flex-wrap: wrap;
+}
+
+.form_section .container,
+.about_section .container{
+    justify-content: space-between;
+}
+
+.transform_section .container .image img,
+.about_section .container .image img,
+.diagnosis_section .container .image img{
+    width: 100%;
+}
+
+.diagnosis_section .container .content .points .point,
+.why_section .faq.wrap .column,
+.why_section .faq:not(.wrap),
+.why_section .faq .card .head,
+.text{
+    gap: 16px;
+}
+
+.why_section .faq.wrap{
+    gap: 16px 30px;
+}
+
+
+
+.behind_section .container,
+.transform_section .container{
+    justify-content: space-between;
+}
+
+
+.why_section .faq .card .head,
+.transform_section .container{
+    align-items: center;
+}
+
+
+.transform_section .container .image{
+    display: grid;
+    place-items: center;
+}
+
+.bannerSection{
+    background-image: url('/assets/images/so-bg.png');
+    background-size: cover;
+    min-height: 500px;
+    display: grid;
+    place-items: center;
+    position: relative;
+    background-position: center;
+}
+
+.bannerSection::before{
+    position: absolute;
+    inset: 0;
+    content: '';
+background:linear-gradient(to right,#242424,transparent);
+}
+
+.bannerSection .container{
+    position: relative;
+    z-index: 2;
+}
+
+.bannerSection .container .top_heading{
+    max-width: 685px;
+}
+
+.bannerSection .container h1{
+    margin-bottom: -24px;
+}
+
+.transform_section{
+    background-image: url(/assets/images/fill-vector.svg);
+    background-size: auto calc(100% - 80px);
+    background-position: top left;
+    background-repeat: no-repeat;
+}
+
+
+
+.transform_section .container .image img{
+    max-width: 827px;
+}
+
+
+.why_section .container,
+.why_section .faq .card .head{
+    justify-content: space-between;
+}
+
+.why_section .container .title{
+    width: 40%;
+}
+
+
+
+.why_section .faq .card{
+    padding: 16px 24px;
+    border-radius: 16px;
+    background-color: white;
+}
+
+.why_section.faq_section .faq .card{
+    background-color: var(--gray);
+}
+
+.why_section .faq.wrap .column{
+    width: calc(50% - 15px);
+}
+
+
+
+.why_section .faq .card.active .head h3{
+    color: var(--orange);
+    transition: var(--transition);
+}
+
+.why_section .faq .card .head button{
+    background: none;
+    border: none;
+    transition: var(--transition);
+}
+
+.why_section .faq .card.active .head button{
+    transform: rotate(180deg);
+}
+
+.why_section .faq .card .head button img{
+    width: 32px;
+}
+
+.why_section .faq .card .body{
+    padding-right: 50px;
+    max-height: 0;
+    overflow: hidden;
+}
+
+.why_section .faq .card.active .body{
+animation: openFaq 3s forwards;
+}
+
+@keyframes openFaq {
+    to{
+max-height: 2500px;
+
+    }
+}
+
+.why_section .faq .card .body div{
+    padding-top: 12px;
+}
+
+.why_section .faq .card .head {
+    cursor: pointer;
+}
+
+
+.diagnosis_section{
+    background-image: url(/assets/images/so-sec-bg.png);
+    background-size: auto 100%;
+    background-position: top right;
+    background-repeat: no-repeat;
+}
+
+.diagnosis_section .container .content{
+    width: 40%;
+}
+
+
+.diagnosis_section .container .points .point h3,
+.why_section .faq .card .head h3{
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 600;
+}
+
+.diagnosis_section .container .points {
+    margin-top: 16px;
+}
+
+.diagnosis_section .container .points .point{
+    padding:0px 0 40px 45px;
+    position: relative;
+}
+
+.diagnosis_section .container .points .point:last-child{
+    padding-bottom: 0;
+}
+
+.diagnosis_section .container .points .point::before,
+.diagnosis_section .container .points .point::after{
+    position: absolute;
+    content: '';
+}
+
+.diagnosis_section .container .points .point::before{
+    width: 30px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+   background-image:url(/assets/images/point.svg);
+   background-size: cover;
+    left: 0;
+    border-radius: 50px;
+}
+
+.diagnosis_section .container .points .point:not(:last-child)::after{
+    left: 15px;
+    top: 5px;
+    height: 100%;
+    border: dashed 1px var(--orange);
+}
+
+.about_section .container{
+    align-items: center;
+}
+
+.about_section .container .image img{
+    border-radius: 24px;
+}
+
+
+
+.decision_section .container .top_heading{
+    max-width: 900px;
+}
+
+.decision_section .container .cards{
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.decision_section .container .cards .card{
+    width: calc(25% - 22.5px);
+    padding: 16px 24px;
+    gap: 16px;
+    border-radius: 32px;
+    border: solid #CCCCCC 1px;
+    transition: var(--transition);
+    background-color: white;
+}
+
+.decision_section .container .cards .card img{
+    width: 80px;
+    margin-bottom: 8px;
+    transition: var(--transition);
+}
+
+.decision_section .container .cards .card:hover img{
+    transform: scaleX(-1);
+}
+
+.decision_section .container .cards .card h3{
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 600;
+}
+ 
+
+.form_section .container .formArea :global(.note),
+.why_section .container .faq:not(.wrap) ,
+.transform_section .container .image,
+.about_section .container .image,
+.form_section .container .content{
+    width: 50%;
+}
+
+.form_section .container .formArea,
+.transform_section .container .content,
+.about_section .container .content{
+    width: 42%;
+}
+
+
+.form_section .container .formArea{
+    max-width: 745px;
+}
+
+.form_section .container .formArea :global(.note){
+    margin-left: auto;
+}
+
+.form_section{
+    background-image: url(/assets/images/rela_vector.svg);
+    background-size: auto 60%;
+    background-repeat: no-repeat;
+    background-position: calc((100vw - var(--container)) / 2) 100%;
+}
+
+.faq_section .container .content{
+    width: 40%;
+}
+
+/* responsive  */
+
+/* laptop  */
+
+@media screen and (max-width:1400px){
+
+    .diagnosis_section{
+    background-size: 50% auto;
+    background-position: right center;
+}
+.diagnosis_section .container .content{
+    width: 40%;
+}
+
+}
+
+
+/* tablet  */
+
+@media screen and (max-width:1200px) {
+
+
+    .faq_section .container .content,
+    .why_section .container .faq:not(.wrap),
+    .form_section .container .content,
+    .form_section .container .formArea,
+    .why_section .faq.wrap .column,
+    .about_section .container .image,
+    .about_section .container .content,
+    .diagnosis_section .container .content,
+  .why_section .container .title,
+.why_section .container .faq,
+  .transform_section .container .image,
+   .transform_section .container .content{
+width: 100%;
+}
+
+
+
+.form_section .container,
+     .about_section .container,
+    .why_section .container{
+   flex-direction: column;
+}
+
+.transform_section .container {
+    align-items: flex-start;
+}
+
+.transform_section .container{
+    flex-direction: column-reverse;
+}
+
+.why_section .faq .card{
+    padding: 16px 20px;
+}
+
+
+.decision_section .container .cards .card,
+.diagnosis_section .container .image img{
+    border-radius: 24px;
+}
+
+.form_section,
+.diagnosis_section{
+    background-image: none;
+}
+
+.diagnosis_section{
+    min-height: unset;
+}
+
+    .why_section .container{
+        gap: 30px;
+    }
+
+
+.why_section .container .title{
+max-width: 500px;
+}
+
+
+.transform_section{
+    background-size: 60% auto;
+    background-position: bottom center;
+}
+
+
+
+  .bannerSection{
+    min-height: 400px;
+    padding: 50px 0;
+}
+
+.decision_section .container .cards{
+    gap: 20px;
+}
+
+.decision_section .container .cards .card{
+    width: calc(50% - 10px);
+    padding: 16px 20px;
+}
+
+ .decision_section .container .cards .card img{
+    margin-bottom: 4px;
+ }
+  
+}
+
+
+/* mobile  */
+
+@media screen and (max-width:767px) {
+
+    .diagnosis_section .container .points .point{
+    padding:0px 0 30px 20px;
+    position: relative;
+}
+
+
+.diagnosis_section .container .points .point::before{
+    width: 15px;
+    top: 5px;
+}
+
+.diagnosis_section .container .points .point:not(:last-child)::after{
+    left: 7px;
+    top: 7px;
+}
+
+.form_section .container .formArea :global(.note),
+        .decision_section .container .cards .card{
+     width: 100%;
+}
+
+.diagnosis_section .container .points .point h3,
+.why_section .faq .card .head h3{
+    font-size: 18px;
+    line-height: 26px;
+}
+
+.why_section .faq .card .head button img{
+    width: 24px;
+}
+
+   .decision_section .container .cards .card img{
+    width: 60px;
+}
+
+.why_section .faq .card .body{
+    padding-right: 30px;
+}
+
+
+.decision_section .container .cards .card,
+     .diagnosis_section .container .image img{
+    border-radius: 16px;
+}
+
+
+
+}

@@ -41,9 +41,9 @@ const locationData = [
     unit: "A unit of JR Super Speciality Ltd.",
     image: "/assets/images/rela-clinic-nanganallur.png",
     location:
-      "No 35, 1st Main Rd, Opp. to Bata Showroom, Nanganallur, Chennai-600 061.",
+      "Sri Vari Illam, No. 35, 1st Main Road, opposite Bata Showroom, Nanganallur, Chennai, Tamil Nadu 600 061.",
     locationLink: "",
-    contact: ["044 66667777", "044 71111117"],
+    contact: ["93846 02207"],
     mail: "nanganallur@relainstitute.com",
     link:"/locations/nanganallur"
   },
@@ -52,7 +52,7 @@ const locationData = [
     unit: "A unit of JR Super Speciality Ltd.",
     image: "/assets/images/rela-clinic-adyar.png",
     location:
-      "34, 29, Second Main Rd, Kasturba Nagar, Adyar, Chennai, Tamil Nadu 600 020.",
+      "34, 29, Second Main Road, Kasturba Nagar, Adyar, Chennai, Tamil Nadu 600 020.",
     locationLink: "",
     contact: ["93846 02201"],
     mail: "adyar@relainstitute.com",
@@ -63,7 +63,7 @@ const locationData = [
     unit: "A unit of JR Super Speciality Ltd.",
     image: "/assets/images/rela-clinic-pallikaranai.png",
     location:
-      "144, 6th St, Kamakoti Nagar, Pallikaranai, Chennai, Tamil Nadu 600100",
+      "144, 6th Street, Kamakoti Nagar, Pallikaranai, Chennai, Tamil Nadu 600100.",
     locationLink: "",
     contact: ["93846 02718"],
     mail: "pallikaranai@relainstitute.com",
@@ -93,7 +93,8 @@ const cardData = [
         title:"Personalised Care",
         text:"Your medical needs, treatment plan and circumstances are considered throughout the care journey."
     },
-]
+];
+
 
 export default function page() {
   return (
@@ -105,8 +106,8 @@ export default function page() {
 
 <div className={`section_container column`}>
   <div className={`top_heading left ${style.top_heading}`} data-aos="fade-up">
-    <h2 className="common_heading">Find Rela Care <span>Near You</span> </h2>
-    <p>Whether you need help with an appointment, medical enquiry, location, or patient support, our team is here to assist you.</p>
+    <h2 className="common_heading">Closer to You. <span>Here When You Need Us.</span> </h2>
+    <p>Explore Rela's network of hospitals and clinics to find a location that works for you.</p>
   </div>
 
 

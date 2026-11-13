@@ -18,31 +18,31 @@ import DoctorCard from '../components/UI/DoctorCard'
 
 const leadersData = [
     {
-        image:"/assets/images/leader-mohd-rela.png",
+        image:"/assets/images/rela-l.png",
         name:"Prof. Mohamed Rela",
         speciality:"Liver Transplant Surgery",
         position:"Chairman & Chief Surgeon",
         link:"#"
     },
      {
-        image:"/assets/images/leader-mohd-rela.png",
-        name:"Prof. Mohamed Rela",
-        speciality:"Liver Transplant Surgery",
-        position:"Chairman & Chief Surgeon",
+        image:"/assets/images/gauthaman-l.png",
+        name:"Dr. DC Gauthaman",
+        speciality:"MBBS, MS (Ortho), MBA",
+        position:"Medical Director",
+        link:"#"
+    },
+     {
+        image:"/assets/images/gomathy-l.png",
+        name:"Dr. Gomathy Narasimhan",
+        speciality:"MBBS, MS, ASTS Fellowship (USA), GMHE (IIMB)",
+        position:"Chairman, Medical Advisory Board",
         link:"#"
     },
      {
         image:"/assets/images/leader-mohd-rela.png",
-        name:"Prof. Mohamed Rela",
-        speciality:"Liver Transplant Surgery",
-        position:"Chairman & Chief Surgeon",
-        link:"#"
-    },
-     {
-        image:"/assets/images/leader-mohd-rela.png",
-        name:"Prof. Mohamed Rela",
-        speciality:"Liver Transplant Surgery",
-        position:"Chairman & Chief Surgeon",
+        name:"Mr. Mohammed Farouk",
+        speciality:"",
+        position:"Chief Operating Officer",
         link:"#"
     },
 ]
@@ -154,11 +154,11 @@ export default function page() {
 
   <div className={style.left} data-aos="fade-right">
       <div className={`top_heading column ${style.top_heading}`}>
-<h2 className="common_heading">Advanced Medicine, Delivered With Compassion</h2>
+<h2 className="common_heading">At the Heart of Everything We Do</h2>
 <Button link="/" classname="orange_btn" text="Discover Rela Hospital"/>
       </div>
       {!mobile &&
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p>Rela Hospital brings together highly qualified medical professionals, advanced infrastructure and modern technology to provide comprehensive healthcare across more than 50 disciplines. Our focus is on clinical excellence, innovation and compassionate care.</p>
    }
       </div>
 
@@ -188,7 +188,7 @@ export default function page() {
 
 
   {mobile &&
-      <p data-aos="fade-up">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p data-aos="fade-up">Rela Hospital brings together highly qualified medical professionals, advanced infrastructure and modern technology to provide comprehensive healthcare across more than 50 disciplines. Our focus is on clinical excellence, innovation and compassionate care.</p>
    }
 
     </div>
@@ -252,6 +252,9 @@ export default function page() {
 
 <div className={style.animatesContainer}>
     <AboutAnimation/>
+    {mobile && 
+    <Image className={style.mobileImg} src="/assets/images/rela-text-mobile.svg" width={1916} height={598} alt=''/>
+    }
 </div>
 
 
@@ -327,9 +330,9 @@ slidesPerView: 2,
         >
           {leadersData.map((slide, i) => (
             <SwiperSlide key={i}>
-              <div className={`${style.slide}`}>
+              
              <DoctorCard doctor={slide}/>
-              </div>
+          
             </SwiperSlide>
           ))}
         </Swiper>
@@ -390,8 +393,7 @@ slidesPerView: 2,
 <section className={`common_section gray_bg ${style.partner_section}`}>
     <div className={`container section_container column ${style.container}`}>
         <div className={`top_heading center ${style.top_heading}`} data-aos="fade-up">
-            <h2 className='common_heading'>Recognitions That Reflect Our Commitment</h2>
-            <Button classname="orange_btn" link="/" text="View more awards"/>
+            <h2 className='common_heading'>Academic Partnerships That Support Learning and Research</h2>
         </div>
 
 <div className={style.cards} data-aos="fade-up">
@@ -414,7 +416,7 @@ slidesPerView: 2,
     <div className={`container section_container column ${style.container}`}>
         <div className={`top_heading center ${style.top_heading}`} data-aos="fade-up">
             <h2 className='common_heading'>Recognitions That Reflect Our Commitment</h2>
-            <Button classname="orange_btn" link="/" text="View more awards"/>
+            <Button classname="orange_btn" link="/about-us/awards-honors" text="View more awards"/>
         </div>
 
 <div className={style.cards} data-aos="fade-up">

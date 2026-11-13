@@ -1,12 +1,20 @@
 .formContainer{
     padding: 24px;
-    background-color: var(--gray);
     border-radius: 24px;
 }
 
+.formContainer:not(.white_form){
+    background-color: var(--gray);
+}
+
+.formContainer.white_form{
+    background-color: white;
+}
+
+
 .formContainer form{
  display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     align-items: flex-start;
     gap: 16px;
 }
@@ -26,6 +34,10 @@ color: var(--orange);
     background: none;
     border: none;
     padding: 12px 0;
+}
+
+.formContainer form .inputCont.half_cont{
+    width: calc(50% - 8px);
 }
 
 .formContainer form .inputCont{
@@ -142,6 +154,15 @@ color: var(--orange);
     
     .formContainer{
     border-radius: 16px;
+}
+
+.formContainer form h2{
+font-size: 20px;
+line-height: 28px;
+}
+
+.formContainer form .inputCont.half_cont{
+    width: 100%;
 }
 
 }
