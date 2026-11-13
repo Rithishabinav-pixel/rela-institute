@@ -526,7 +526,7 @@ useEffect(() => {
              </li>
         </ul>
         </nav>
-        <Button link="#" classname={`white_btn`} text="Book an Appointment" type="call"/>
+        <Button link="https://appointments.relainstitute.com:8080/" classname={`white_btn`} text="Book an Appointment" type="call"/>
     </div>
 </div>
 

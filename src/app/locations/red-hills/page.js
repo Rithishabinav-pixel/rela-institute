@@ -100,38 +100,6 @@ const coeData = [
   {
     icon: "/assets/images/sample-l.svg",
     title: "Pulmonology"
-  },
-  {
-    icon: "/assets/images/sample-l.svg",
-    title: "Pharmacy"
-  },
-  {
-    icon: "/assets/images/sample-l.svg",
-    title: "CT Scan"
-  },
-  {
-    icon: "/assets/images/sample-l.svg",
-    title: "X-Ray"
-  },
-  {
-    icon: "/assets/images/sample-l.svg",
-    title: "ECHO"
-  },
-  {
-    icon: "/assets/images/sample-l.svg",
-    title: "TMT"
-  },
-  {
-    icon: "/assets/images/sample-l.svg",
-    title: "ECG"
-  },
-  {
-    icon: "/assets/images/sample-l.svg",
-    title: "Cath Lab"
-  },
-  {
-    icon: "/assets/images/sample-l.svg",
-    title: "Ultrasound Scan"
   }
 ];
 
@@ -141,37 +109,37 @@ const whyChooseData = [
         title:"Pharmacy",
         text:'Lorem ipsum dolor sit amet consectetur.'
     },
-     {
+    {
         icon:"/assets/images/ct.svg",
         title:"CT Scan",
         text:'Lorem ipsum dolor sit amet consectetur.'
     },
-     {
+    {
         icon:"/assets/images/xray.svg",
         title:"X-Ray",
         text:'Lorem ipsum dolor sit amet consectetur.'
     },
-     {
+    {
         icon:"/assets/images/echo.svg",
         title:"ECHO",
         text:'Lorem ipsum dolor sit amet consectetur.'
     },
-     {
+    {
         icon:"/assets/images/tmt.svg",
         title:"TMT",
         text:'Lorem ipsum dolor sit amet consectetur.'
     },
-     {
+    {
         icon:"/assets/images/ecg.svg",
         title:"ECG",
         text:'Lorem ipsum dolor sit amet consectetur.'
     },
-     {
+    {
         icon:"/assets/images/cathlab.svg",
         title:"Cath Lab",
         text:'Lorem ipsum dolor sit amet consectetur.'
     },
-     {
+    {
         icon:"/assets/images/uss.svg",
         title:"Ultrasound Scan",
         text:'Lorem ipsum dolor sit amet consectetur.'
@@ -242,7 +210,7 @@ export default async function page() {
       <div className={`top_heading ${style.top_heading}`}>
 <h2 className="common_heading">Services & Facilities Designed Around Your Care</h2>
 <p>Our specialists collaborate across departments to provide coordinated care for both everyday and complex health conditions.</p>
-<Button link="" classname="orange_btn" text="Book an Appointment"/>
+<Button link="https://appointments.relainstitute.com:8080/" classname="orange_btn" text="Book an Appointment"/>
       </div>
     </div>
 

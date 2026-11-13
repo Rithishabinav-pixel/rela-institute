@@ -120,7 +120,18 @@ const whyChooseSecondColumn = whyChooseData.slice(Math.ceil(whyChooseData.length
             <div className={`top_heading ${style.top_heading} left`} data-aos="fade-up">
                 <h1 className='white_text common_heading'>Before You Decide, <br className='desktop_break'/><span>Get Another Perspective.</span></h1>
                 <p className='white_text'>Make informed decisions about your health with guidance from Rela's medical specialists.</p>
-<Button classname="orange_btn" link={`#`} text={`Get a Second Opinion`}/>
+{/* <Button classname="orange_btn" link={`#`} text={`Get a Second Opinion`}/> */}
+
+<button onClick={() => {
+    document.getElementById("book")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }}
+  className="common_btn white_btn orange_btn">
+ Get a Second Opinion
+  <Image src="/assets/images/btn-arrow.svg" width={24} height={24} alt="" />
+</button> 
             </div>
         </div>
     </section>
@@ -288,7 +299,7 @@ const whyChooseSecondColumn = whyChooseData.slice(Math.ceil(whyChooseData.length
 
   {/* form secrtion  */}
 
-<section className={`common_section gray_bg ${style.form_section}`}>
+<section className={`common_section gray_bg ${style.form_section}`} id='book'>
     <div className={`container section_container ${style.container}`}>
         <div className={style.content}>
             <div className={`top_heading`}>

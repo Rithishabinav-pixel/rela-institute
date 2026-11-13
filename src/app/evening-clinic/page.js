@@ -19,53 +19,52 @@ const coeData = [
         title:"General Paediatrics",
         link:"/"
     },
-     {
+    {
         icon:"/assets/images/sample-l.svg",
-        title:"General Paediatrics",
+        title:"Cardiology",
         link:"/"
     },
-       {
+    {
         icon:"/assets/images/sample-l.svg",
-        title:"General Paediatrics",
+        title:"Internal Medicine",
         link:"/"
     },
-     {
+    {
         icon:"/assets/images/sample-l.svg",
-        title:"General Paediatrics",
+        title:"General Surgery",
         link:"/"
     },
-       {
+    {
         icon:"/assets/images/sample-l.svg",
-        title:"General Paediatrics",
+        title:"Obstetrics and Gynaecology",
         link:"/"
     },
-     {
+    {
         icon:"/assets/images/sample-l.svg",
-        title:"General Paediatrics",
+        title:"Psychiatry",
         link:"/"
     },
-       {
+    {
         icon:"/assets/images/sample-l.svg",
-        title:"General Paediatrics",
+        title:"Neonatology",
         link:"/"
     },
-     {
+    {
         icon:"/assets/images/sample-l.svg",
-        title:"General Paediatrics",
+        title:"Paediatric Neurology",
         link:"/"
     },
-       {
+    {
         icon:"/assets/images/sample-l.svg",
-        title:"General Paediatrics",
+        title:"Pulmonology",
         link:"/"
     },
-     {
+    {
         icon:"/assets/images/sample-l.svg",
-        title:"General Paediatrics",
+        title:"Urology",
         link:"/"
     },
-
-]
+];
 
 
 const decisionsData = [

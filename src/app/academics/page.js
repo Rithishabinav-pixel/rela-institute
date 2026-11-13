@@ -198,7 +198,7 @@ export default function page() {
          <section className={`${style.bannerSection}`}>
         <div className={`${style.container} container`}>
             <div className={`top_heading ${style.top_heading} left`} data-aos="fade-up">
-                <h1 className='white_text common_heading'>Infrastructure Built for <br className='desktop_break'/><span>Advanced Care</span></h1>
+                <h1 className='white_text common_heading'>Fellowships at Rela Hospital <br className='desktop_break'/><span>Learn. Lead. Innovate.</span></h1>
                 <p className='white_text'>From specialised critical care units and modern diagnostic facilities to integrated outpatient and inpatient services, Rela Hospital is equipped with advanced infrastructure designed to support complex care, accurate diagnosis and better patient outcomes.</p>
            <Button classname="orange_btn" text="Book a Health Check-up" link="/health-packages"/>
             </div>

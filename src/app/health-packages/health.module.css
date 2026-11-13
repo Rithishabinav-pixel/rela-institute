@@ -339,10 +339,6 @@ max-height: 2500px;
         gap: 30px;
     }
 
-    .checkup_section:global(.no_padding_bottom){
-        padding-bottom: 50px;
-    }
-
 
      .faq_section .container .faq .cards,
     .yourCare_section .container .content,

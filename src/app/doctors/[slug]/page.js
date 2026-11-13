@@ -109,7 +109,7 @@ export default async function Page({ params }) {
 
             <div className={style.buttons}>
               <Button
-                link="#"
+                link="https://appointments.relainstitute.com:8080/"
                 classname="orange_btn"
                 text="Book an Appointment"
               />

@@ -23,7 +23,7 @@ export default function Button({ link, classname, text, type, aos }) {
 
   if (type === 'link') {
     return (
-      <Link href={link?link:"/"} className={`link_btn ${classname}`} data-aos={aos || ''}>
+      <Link href={link?link:"/"} target={link.includes("https")?"_blank":""} className={`link_btn ${classname}`} data-aos={aos || ''}>
         {text}
         <Image src="/assets/images/btn-arrow.svg" width={24} height={24} alt='' />
       </Link>
@@ -31,7 +31,7 @@ export default function Button({ link, classname, text, type, aos }) {
   }
 
   return (
-    <Link href={link?link:"/"} className={`common_btn ${classname}`} data-aos={aos || ''}>
+    <Link href={link?link:"/"} target={link.includes("https")?"_blank":""} className={`common_btn ${classname}`} data-aos={aos || ''}>
       {text}
       <Image src="/assets/images/btn-arrow.svg" width={24} height={24} alt='' />
     </Link>

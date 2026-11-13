@@ -28,7 +28,7 @@ const stats = [
     {
     icon:"/assets/images/b_app.svg",
     title:"Book an Appointment",
-    link:"/"
+    link:"https://appointments.relainstitute.com:8080/"
   },
     {
     icon:"/assets/images/emer_core.svg",
@@ -43,7 +43,7 @@ const stats = [
     {
     icon:"/assets/images/inter_patients.svg",
     title:"International Patients",
-    link:"/"
+    link:"/international-patients"
   },
     {
     icon:"/assets/images/locat.svg",
@@ -323,7 +323,7 @@ export default function HomeClient({ coeData, deptData, doctorsData, heroBanners
     </div>
     <div className={style.stats} data-aos="fade-left">
       {stats.map((item,index)=>(
-        <Link key={index} href={item.link} className={style.card} >
+        <Link key={index} href={item.link} target={item.link.includes("https")?"_blank":""} className={style.card} >
           <Image src={item.icon} width={40} height={40} alt={item.title}/>
           <p className="white_text">{item.title}</p>
         </Link>
@@ -341,7 +341,8 @@ export default function HomeClient({ coeData, deptData, doctorsData, heroBanners
 <div className={`section_container ${style.section_container}`}>
     <div className={style.left} data-aos="fade-right">
       <div className={`top_heading ${style.top_heading}`}>
-<h2 className="common_heading">The Strength of Specialised Care.</h2>
+        <h2 className="common_heading">Where Expertise Comes Together</h2>
+
 <p>Our specialists work across disciplines to provide coordinated care for a wide range of health conditions, from routine consultations to complex treatments.</p>
 <Button link="/department" classname="orange_btn" text="Explore All Specialities"/>
       </div>
@@ -369,7 +370,7 @@ export default function HomeClient({ coeData, deptData, doctorsData, heroBanners
 <div className={`section_container column ${style.section_container}`}>
  <div className={`container ${style.container}`}>
       <div className={`top_heading center ${style.top_heading}`} data-aos="fade-up">
-<h2 className="common_heading">Where Expertise Comes Together</h2>
+<h2 className="common_heading">The Strength of Specialised Care.</h2>
 <p>Our specialists work across disciplines to provide coordinated care for a wide range of health conditions, from routine consultations to complex treatments.</p>
 <Button link="/department" classname="orange_btn" text="Explore All Specialities"/>
       </div>
@@ -465,7 +466,7 @@ slidesPerView: 1.5,
       <div className={`top_heading split ${style.top_heading}`} data-aos="fade-right">
 <h2 className="common_heading">Advanced Medical Care In Trusted Hands</h2>
 
-<Button link="/" classname="orange_btn" text="See All Doctors" data-aos="fade-left"/>
+<Button link="/doctors" classname="orange_btn" text="See All Doctors" data-aos="fade-left"/>
       </div>
     </div>
 

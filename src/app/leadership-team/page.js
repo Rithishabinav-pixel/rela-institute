@@ -113,7 +113,7 @@ export default function page() {
                 </div>
                 <div className={style.buttons}>
                     <Button classname="orange_btn" link="/prof-mohamed-rela-appointment" text={`View Profile`}/>
-                    <Button classname="white_btn orange_stroke" link="#" text={`Book an Appointment`}/>
+                    <Button classname="white_btn orange_stroke" link="https://appointments.relainstitute.com:8080/" text={`Book an Appointment`}/>
 
                 </div>
             </div>
@@ -136,7 +136,7 @@ export default function page() {
                 </div>
                 <div className={style.buttons}>
                     <Button classname="orange_btn" link="#" text={`View Profile`}/>
-                    <Button classname="white_btn orange_stroke" link="#" text={`Book an Appointment`}/>
+                    <Button classname="white_btn orange_stroke" link="https://appointments.relainstitute.com:8080/" text={`Book an Appointment`}/>
 
                 </div>
             </div>

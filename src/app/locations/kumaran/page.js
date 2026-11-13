@@ -27,148 +27,81 @@ const stats = [
 const coeData = [
     {
         icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
+        title:"Anesthesiologist, 24 hrs a day"
     },
-     {
+    {
         icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
+        title:"Pain care center experts in pre & post operative pain management services"
     },
-     {
+    {
         icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
+        title:"Sophisticated post operative case with laminar air flow and HEPA filters"
     },
-     {
+    {
         icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
+        title:"24 hrs Information Center"
     },
-     {
+    {
         icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
+        title:"Dietary Center"
     },
-     {
+    {
         icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
+        title:"House-keeping"
     },
-     {
+    {
         icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-    
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-    
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-    
-
-]
+        title:"Maintenance & Engg. Dept."
+    }
+];
 
 const whyChooseData = [
     {
         icon:"/assets/images/pharma.svg",
-        title:"Pharmacy",
-        text:'Lorem ipsum dolor sit amet consectetur.'
+        title:"Accredited Quality Standards",
+        text:"NABH Accredited Hospital"
     },
-     {
-        icon:"/assets/images/ct.svg",
-        title:"CT Scan",
-        text:'Lorem ipsum dolor sit amet consectetur.'
+    {
+        icon:"/assets/images/pharma.svg",
+        title:"Nursing Excellence",
+        text:"NABH for Nursing Excellence"
     },
-     {
-        icon:"/assets/images/xray.svg",
-        title:"X-Ray",
-        text:'Lorem ipsum dolor sit amet consectetur.'
+    {
+        icon:"/assets/images/pharma.svg",
+        title:"Certified Laboratory Services",
+        text:"NABL for Laboratory Services"
     },
-     {
-        icon:"/assets/images/echo.svg",
-        title:"ECHO",
-        text:'Lorem ipsum dolor sit amet consectetur.'
+    {
+        icon:"/assets/images/pharma.svg",
+        title:"Comprehensive Medical Care",
+        text:"125 bed super speciality & multi-speciality 24/7 medical care"
     },
-     {
-        icon:"/assets/images/tmt.svg",
-        title:"TMT",
-        text:'Lorem ipsum dolor sit amet consectetur.'
+    {
+        icon:"/assets/images/pharma.svg",
+        title:"Advanced Medical Infrastructure",
+        text:"15 consultation rooms and 4 operation theaters equipped with cutting-edge tools in medicine"
     },
-     {
-        icon:"/assets/images/ecg.svg",
-        title:"ECG",
-        text:'Lorem ipsum dolor sit amet consectetur.'
+    {
+        icon:"/assets/images/pharma.svg",
+        title:"Expert Medical Professionals",
+        text:"Super speciality care with best medical professionals in their fields"
     },
-     {
-        icon:"/assets/images/cathlab.svg",
-        title:"Cath Lab",
-        text:'Lorem ipsum dolor sit amet consectetur.'
+    {
+        icon:"/assets/images/pharma.svg",
+        title:"Experienced Nursing & Support Team",
+        text:"High caliber nursing professionals and paramedical staff, with performance driven by a dynamic managerial team"
     },
-     {
-        icon:"/assets/images/uss.svg",
-        title:"Ultrasound Scan",
-        text:'Lorem ipsum dolor sit amet consectetur.'
+    {
+        icon:"/assets/images/pharma.svg",
+        title:"Patient-Centric Dietary Services",
+        text:"Dietary services for patients and attendants"
     },
-]
+    {
+        icon:"/assets/images/pharma.svg",
+        title:"Clinical Research & Innovation",
+        text:"Multiple Drug / Clinical Trials and Research Programs are conducted"
+    }
+];
 
 const locationData={
     address:`4/833, GNT Road,<br>Padiyanallur, Redhills,<br>Chennai 600052`,
@@ -189,7 +122,7 @@ export default async function page() {
          <section className={`${style.bannerSection}`} style={{backgroundImage:`url(/assets/images/adyar-bg.png)`}}>
         <div className={`${style.container} container`}>
             <div className={`top_heading ${style.top_heading} left`} data-aos="fade-up">
-                <p className={`${style.locationName} white_text`}>Rela MS Hospital, Red Hills</p>
+                <p className={`${style.locationName} white_text`}>Kumaran Hospitals & Rela Institute</p>
                 <h1 className='white_text common_heading'>One Stop Destination for <br className='desktop_break'/><span>Complete Health Care</span></h1>
                 <Image className={style.ratingImg} src="/assets/images/rating-img-adyar.svg" width={231} height={76} alt=''/>
             </div>
@@ -203,7 +136,7 @@ export default async function page() {
             <div className='top_heading left'>
             <h2 className='common_heading'>Comprehensive Care, Closer to You</h2>
             <div className={style.text}>
-                <p>Rela MS Hospital, Red Hills was established to extend advanced healthcare services to North Chennai and neighbouring communities. By bringing together Rela's clinical expertise with the established infrastructure of MS Hospital, the centre offers coordinated care across medical, surgical, critical care and emergency services.</p>
+                <p>Kumaran Hospitals & Rela Institute was established to extend advanced healthcare services to North Chennai and neighbouring communities. By bringing together Rela's clinical expertise with the established infrastructure of MS Hospital, the centre offers coordinated care across medical, surgical, critical care and emergency services.</p>
                 <p>With specialists across multiple disciplines and facilities equipped to manage both routine and complex conditions, the hospital is focused on delivering timely, accessible and high-quality care for every patient.</p>
             </div>
             <div className={style.stats}>
@@ -234,7 +167,7 @@ export default async function page() {
       <div className={`top_heading ${style.top_heading}`}>
 <h2 className="common_heading">Services & Facilities Designed Around Your Care</h2>
 <p>Our specialists collaborate across departments to provide coordinated care for both everyday and complex health conditions.</p>
-<Button link="" classname="orange_btn" text="Book an Appointment"/>
+<Button link="https://appointments.relainstitute.com:8080/" classname="orange_btn" text="Book an Appointment"/>
       </div>
     </div>
 
@@ -280,8 +213,8 @@ export default async function page() {
 <div className={`container ${style.container}`} data-aos="fade-up">
         <div className={style.content} >
             <div className="top_heading left">
-                <h2 className='common_heading'>Your Route to Rela MS Hospital, Red Hills</h2>
-                <p>Conveniently located on GNT Road, Rela MS Hospital, Red Hills provides multispeciality and emergency healthcare services for patients across North Chennai and surrounding areas.</p>
+                <h2 className='common_heading'>Your Route to Kumaran Hospitals & Rela Institute</h2>
+                <p>Conveniently located on GNT Road, Kumaran Hospitals & Rela Institute provides multispeciality and emergency healthcare services for patients across North Chennai and surrounding areas.</p>
                 <strong>Dr. Rela Institute & MS Hospital</strong>
                 <ul>
                     <li>

@@ -260,6 +260,8 @@ export default async function Home() {
     listFeaturedTestimonialsPublic({ cursor: 0, limit: 5 }).catch(() => ({ items: [] })),
   ]);
 
+  console.log(deptDataResult,"cccccccccccc")
+
   const coeData = coeDataResult.length > 0 ? coeDataResult : FALLBACK_COE_DATA;
   const deptData = deptDataResult.length > 0 ? deptDataResult : FALLBACK_DEPT_DATA;
   const doctorsData = doctorsDataResult.length > 0 ? doctorsDataResult : FALLBACK_DOCTORS_DATA;
