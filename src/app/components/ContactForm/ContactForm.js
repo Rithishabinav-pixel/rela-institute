@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import style from "../UI/form.module.css";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
@@ -11,6 +12,7 @@ const PREFERRED_LOCATIONS = ["Chennai", "Kilpauk", "Nanganallur", "Red Hills"];
 const LOOKING_FOR_OPTIONS = ["Appointment", "Second Opinion", "Health Package", "General Enquiry"];
 
 export default function ContactForm() {
+  const router = useRouter();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -53,13 +55,8 @@ export default function ContactForm() {
         return;
       }
 
-      setStatus({ type: "success", text: "Thank you! Your enquiry has been submitted successfully." });
-      setName("");
-      setEmail("");
-      setPhone("");
-      setPreferredLocation("");
-      setLookingFor("");
-      setMessage("");
+      router.push("/contact-us/thank-you");
+      return;
     } catch {
       setStatus({ type: "error", text: "Could not submit your enquiry. Please try again." });
     } finally {

@@ -1,0 +1,294 @@
+.diagnosis_section .container .content div,
+.tableContainer,
+.tableContainer .table,
+.tableContainer .table .row{
+    display: flex;
+}
+
+.diagnosis_section .container .content div,
+.tableContainer .table ,
+.tableContainer{
+    flex-direction: column;
+}
+
+.diagnosis_section .container .image img{
+    width: 100%;
+}
+
+.tableContainer .table .row{
+    align-items: stretch;
+}
+
+.tableContainer{
+    gap: 24px;
+}
+
+
+.bannerSection{
+    background-image: url('/assets/images/eligibility-banner.png');
+    background-size: cover;
+    min-height: 500px;
+    display: grid;
+    place-items: center;
+    position: relative;
+    background-position: center;
+}
+
+.bannerSection::before{
+    position: absolute;
+    inset: 0;
+    content: '';
+background:linear-gradient(to right,#242424,transparent);
+}
+
+.bannerSection .container{
+    position: relative;
+    z-index: 2;
+}
+
+.bannerSection .container .top_heading{
+    max-width: 750px;
+}
+
+.bannerSection .container .top_heading p{
+    max-width: 600px;
+}
+
+.bannerSection .container h1{
+    margin-bottom: -24px;
+}
+
+.tableContainer h3{
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 500;
+}
+
+.tableContainer .table .row .col:nth-child(1){
+    width: 10%;
+}
+.tableContainer .table .row .col:nth-child(2){
+    width: 25%;
+}
+.tableContainer .table .row .col:nth-child(3){
+    width: 40%;
+}
+.tableContainer .table .row .col:nth-child(4){
+    width: 25%;
+}
+
+.tableContainer .table .fullRow,
+.tableContainer .table .row .col{
+    padding: 16px;
+}
+
+.tableContainer .table .fullRow{
+    text-align: center;
+    background-color: var(--light-orange);
+color: var(--orange);
+}
+
+
+.tableContainer .table .row.head{
+    background-color: var(--bg-gray);
+}
+
+
+.tableContainer .table .row{
+    padding: 0 20px;
+}
+
+.tableContainer .table .fullRow,
+.tableContainer .table .row{
+    border-bottom: solid #DEDEDE 1px;
+}
+
+.tableContainer .table{
+    border: solid #DEDEDE 1px;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.tableContainer .table .fullRow,
+.tableContainer .table .row .col{
+    font-size: 16px;
+    line-height: 24px;
+}
+
+
+.tableContainer .table .row.head .col{
+    color: white;
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 500;
+}
+
+
+.diagnosis_section{
+    background-image: url(/assets/images/f-apply-bg.png);
+    background-size: auto 100%;
+    background-position: top right;
+    background-repeat: no-repeat;
+}
+
+.diagnosis_section .container .content{
+    width: 45%;
+}
+
+.diagnosis_section .container .content .text{
+    gap: 8px;
+}
+
+.diagnosis_section .container .content .text,
+.diagnosis_section .container .content ul li strong{
+    font-size: 18px;
+    line-height: 26px;
+}
+
+.diagnosis_section .container .content ul li strong{
+    font-weight: 600;
+}
+
+.diagnosis_section .container .content .text .mail{
+    font-weight: 600;
+    color: black;
+    position: relative;
+    padding-left: 42px;
+}
+
+.diagnosis_section .container .content .text .mail::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    width: 32px;
+    height: auto;
+    aspect-ratio: 1/1;
+    background-image: url(/assets/images/mail-pin.svg);
+    background-size: cover;
+}
+
+.diagnosis_section .container .content .text .mail:hover{
+    color: var(--orange)
+}
+
+
+
+/* responsive  */
+
+/* laptop  */
+
+@media screen and (max-width:1400px){
+    .diagnosis_section{
+    background-size: 50% auto;
+    background-position: right center;
+}
+.diagnosis_section .container .content{
+    width: 40%;
+}
+
+.diagnosis_section .container .content .text,
+.diagnosis_section .container .content ul li strong{
+    font-size: 16px;
+    line-height: 24px;
+}
+
+
+}
+
+
+/* tablet  */
+
+@media screen and (max-width:1200px) {
+
+      .bannerSection{
+    min-height: 400px;
+    padding: 50px 0;
+}
+
+ .diagnosis_section .container .content{
+    width: 100%;
+ }
+
+
+.diagnosis_section .container .image img{
+    border-radius: 24px;
+}
+
+
+.diagnosis_section{
+    background-image: none;
+}
+
+.diagnosis_section{
+    min-height: unset;
+}
+
+.tableContainer{
+    gap: 20px;
+}
+
+.tableContainer h3{
+    font-size: 20px;
+    line-height: 28px;
+}
+
+.tableContainer .table .row.head .col{
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.tableContainer .table .row.head{
+    display: none;
+}
+
+.tableContainer .table .row{
+    flex-direction: column;
+    align-items: stretch;
+    padding: 16px 20px;
+    gap: 10px;
+}
+
+.tableContainer .table .row .col:nth-child(1),
+.tableContainer .table .row .col:nth-child(2),
+.tableContainer .table .row .col:nth-child(3),
+.tableContainer .table .row .col:nth-child(4){
+    width: 100%;
+    padding: 0;
+}
+
+.tableContainer .table .row .col::before{
+    content: attr(data-label);
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--orange);
+    margin-bottom: 2px;
+}
+
+}
+
+@media screen and (max-width:767px) {
+
+        .diagnosis_section .container .image img{
+    border-radius: 16px;
+}
+
+.tableContainer .table .row{
+    padding: 12px 16px;
+    gap: 8px;
+}
+
+.tableContainer .table .row .col{
+    font-size: 14px;
+    line-height: 20px;
+    word-break: break-word;
+}
+
+.tableContainer .table .fullRow{
+    font-size: 14px;
+    line-height: 20px;
+}
+
+}

@@ -253,6 +253,7 @@ async function listDoctorsPublicUncached(search, departmentId) {
         ? { departments: { some: { department: { departmentId: deptId } } } }
         : {}),
     },
+    // orderBy: { name: 'asc' },
     orderBy: { sortOrder: 'asc' },
     select: doctorCardSelect,
   })

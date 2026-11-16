@@ -1,0 +1,134 @@
+.searchCards,
+.searchCards .card .inner,
+.searchCards .card .inner .content,
+.searchBox,
+.searchBox button{
+    display: flex;
+}
+
+.searchCards .card .inner .content,
+.searchCards{
+    flex-direction: column;
+}
+
+.searchCards{
+    gap: 24px;
+    width: 100%;
+}
+
+.container{
+    align-items: center;
+}
+
+.searchBox{
+    width: 100%;
+    border: solid rgba(0, 0, 0, 0.25) 1px;
+    border-radius: 8px;
+    overflow: hidden;
+    align-items: center;
+}
+
+.searchBox input{
+    flex-grow: 1;
+    padding: 16px 0 16px 16px;
+    border: none;
+}
+
+.searchBox input:focus{
+    outline: none;
+}
+
+.searchBox button{
+    height: 100%;
+    width: auto;
+    aspect-ratio: 1 / 1;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: none;
+    margin-right: 16px;
+}
+
+.searchBox button img{
+    width: 32px;
+}
+
+.searchCards{
+    background-color: var(--brown);
+    padding: 40px;
+}
+
+
+
+
+.searchCards .card .inner{
+    background-color: white;
+    padding: 20px;
+    gap: 16px;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.searchCards .card .inner .content{
+    gap: 16px;
+    width: 80%;
+    align-items: flex-start;
+}
+
+.searchCards,
+.searchCards .card .inner{
+    border-radius: 16px;
+}
+
+.searchCards .card .inner h3{
+    font-size: 28px;
+    line-height: 36px;
+    font-weight: 600;
+}
+
+.searchCards .card .inner span{
+padding: 4px 20px;
+background-color: var(--light-orange);
+border-radius: 5px;
+}
+
+/* responsive  */
+
+/* laptop  */
+
+@media screen and (max-width:1200px) {
+    
+    .searchCards{
+    padding: 20px;
+}
+
+.searchCards .card .inner h3{
+    font-size: 20px;
+    line-height: 28px;
+}
+
+}
+
+/* mobile  */
+@media screen and (max-width:767px){
+    .searchCards .card .inner{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+      .searchCards .card .inner .content{
+        width: 100%;
+        gap: 8px;
+      }
+
+      .searchCards .card .inner h3{
+    font-size: 18px;
+    line-height: 26px;
+}
+
+         .searchCards .card .inner .content span{
+            font-size: 14px;
+            line-height: 18px;
+            padding: 4px 6px;
+         }
+}

@@ -207,7 +207,7 @@ color: white;
 }
 
 .navigations .container nav ul li a.hasMenu{
-    padding-right: 32px
+    padding-right: 26px
 }
 
 
@@ -803,10 +803,14 @@ color: white;
     padding-top: 105.7px;
 }
 
-    .searchBar .searchBtn img,
+   
     .translator::before{
         width: 24px;
     }
+
+     .searchBar .searchBtn img{
+        width: 32px;
+     }
 
     .translator select{
     padding: 8px ;
@@ -834,6 +838,7 @@ color: white;
     padding: 0;
 }
 
+ .searchBar,
  .searchBar:has(button){
     border: none;
  }

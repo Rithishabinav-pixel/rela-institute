@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import style from "../UI/form.module.css";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
@@ -8,6 +9,7 @@ import Image from "next/image";
 import { validateMobileNumber } from "@/lib/phone-validation";
 
 export default function CareerForm({ job }) {
+  const router = useRouter();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -63,12 +65,8 @@ export default function CareerForm({ job }) {
         return;
       }
 
-      setStatus({ type: "success", text: "Thank you! Your application has been submitted successfully." });
-      setName("");
-      setEmail("");
-      setPhone("");
-      setResume(null);
-      setMessage("");
+      router.push("/careers/thank-you");
+      return;
     } catch {
       setStatus({ type: "error", text: "Could not submit your application. Please try again." });
     } finally {

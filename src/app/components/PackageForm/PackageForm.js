@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import style from "../UI/form.module.css";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
@@ -10,6 +11,7 @@ import { validateMobileNumber } from "@/lib/phone-validation";
 const PREFERRED_LOCATIONS = ["Chennai", "Kilpauk", "Nanganallur", "Red Hills"];
 
 export default function PackageForm({ package: pkg }) {
+  const router = useRouter();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -61,12 +63,8 @@ export default function PackageForm({ package: pkg }) {
         return;
       }
 
-      setStatus({ type: "success", text: "Thank you! Your enquiry has been submitted successfully." });
-      setName("");
-      setEmail("");
-      setPhone("");
-      setPreferredLocation("");
-      setMessage("");
+      router.push("/health-packages/thank-you");
+      return;
     } catch {
       setStatus({ type: "error", text: "Could not submit your enquiry. Please try again." });
     } finally {

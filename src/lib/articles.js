@@ -37,3 +37,20 @@ export async function listArticlesForDoctorLinking() {
     }
   })
 }
+
+export async function listArticlesForSearch() {
+  const categoryId = await getArticlesCategoryId()
+  if (!categoryId) return []
+
+  const posts = await fetchAll('posts', {
+    categories: categoryId,
+    status: 'publish',
+    _fields: 'slug,title,excerpt',
+  })
+
+  return posts.map((post) => ({
+    title: decodeEntities(post.title?.rendered),
+    content: post.excerpt?.rendered || '',
+    link: getArticlePath(post.slug),
+  }))
+}

@@ -412,13 +412,18 @@ useEffect(() => {
 
             <div className={style.actions}>
 
-<div className={`${style.searchBar} ${searchBar?style.active:""}`} ref={desktopSearchContainer}>
+{/* <div className={`${style.searchBar} ${searchBar?style.active:""}`} ref={desktopSearchContainer}>
     {!mobile && <input type='text' placeholder='Search...' aria-label='Search' value={search} onChange={(e)=>setSearch(e.target.value)}/>}
     <button onClick={()=>setSearchBar(true)} className={style.searchBtn} aria-label='Open search' aria-expanded={searchBar}> <Image src="/assets/images/search.svg" width={32} height={32} alt=''/>  </button>
 
     {search && searchBar && !mobile && <button className={style.searchClose} aria-label='Close search' onClick={()=>{setSearch("");setSearchBar(false);}}> <Image src="/assets/images/menu-close.svg" width={12} height={12} alt=''/> </button>}
-</div>
+</div> */}
 
+<div className={`${style.searchBar} ${searchBar?style.active:""}`} ref={desktopSearchContainer}>
+    {/* {!mobile && <input type='text' placeholder='Search...' aria-label='Search' value={search} onChange={(e)=>setSearch(e.target.value)}/>} */}
+        <Link href={`/search`} className={style.searchBtn}> <Image src="/assets/images/search.svg" width={32} height={32} alt=''/>  </Link>
+
+</div>
 
 <div className={style.translator}>
     <select value={currentLocale} onChange={handleLanguageChange} aria-label='Select language'>

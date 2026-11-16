@@ -1,3 +1,5 @@
+
+
 "use client"
 
 import React, { useEffect, useState } from 'react'
@@ -95,7 +97,7 @@ export default function page() {
            useEffect(()=>{
          
              const checkDevice = () =>{
-             setMobile(window.innerWidth<767);
+             setMobile(window.innerWidth<1200);
              }
          
              checkDevice();
