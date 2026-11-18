@@ -46,7 +46,7 @@ const mainMenuLinks = [
       },
       {
         label: "Book an Appointment",
-        link: "/",
+        link: "https://appointments.relainstitute.com:8080/",
       },
       {
         label: "Health Check Packages",
@@ -66,7 +66,7 @@ const mainMenuLinks = [
       },
       {
         label: "Second opinion",
-        link: "/",
+        link: "/second-opinion",
       },
       {
         label: "Video consultation",

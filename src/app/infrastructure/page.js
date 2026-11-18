@@ -74,7 +74,7 @@ export default function page() {
         
                 <h2 className='common_heading'>Designed to Support <span>Care at Every Step</span></h2>
                 <p>Rela Hospital brings together thoughtfully planned outpatient, inpatient and critical care facilities to support patients through every stage of their healthcare journey. From dedicated consultation suites and integrated diagnostic services to comfortable inpatient spaces and specialised intensive care units, the hospital infrastructure is designed to make care more coordinated, accessible and efficient.</p>
-                <Button classname="orange_btn" link="#" text="Book an Appointment"/>
+                <Button classname="orange_btn" link="https://appointments.relainstitute.com:8080/" text="Book an Appointment"/>
      
         </div>
         <div className={style.image} ref={advancedSectionRef} data-aos="fade-left">
@@ -154,7 +154,7 @@ export default function page() {
 <div className={`top_heading left`}>
     <h2 className='common_heading white_text'>Comprehensive Support for Transfusion Care</h2>
     <p className='white_text'>Rela Hospital's blood bank and transfusion medicine facility is equipped to support routine, surgical and complex clinical requirements with specialised blood processing and therapeutic services.</p>
-                    <Button classname="orange_btn" link="#" text="Book an Appointment"/>
+                    <Button classname="orange_btn" link="https://appointments.relainstitute.com:8080/" text="Book an Appointment"/>
 
     <ul className='common_list'>
         <li className='white_text'>Automated 1H500 Analyzer</li>

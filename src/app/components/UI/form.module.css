@@ -112,6 +112,28 @@ color: var(--orange);
     width: 100%;
 }
 
+.agreeCont,.agreeCont label{
+    width: 100%;
+}
+.agreeCont label,
+.agreeCont label span{
+    display: flex;
+}
+
+.agreeCont label{
+    align-items: baseline;
+    gap: 16px;
+}
+
+.agreeCont label span{
+    flex-wrap: wrap;
+    gap:0 8px;
+}
+
+.agreeCont label span a{
+    color: var(--orange);
+}
+
 
 /* responsive */
 

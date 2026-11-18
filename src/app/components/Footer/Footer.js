@@ -80,7 +80,7 @@ export default function Footer() {
                      </h3>
                 <ul className={activeMenu===i?style.active:""}>
                     {menu.links.map((link,index)=>(
-                    <li key={index}> <Link href={link.link}>{link.label}</Link> </li>
+                    <li key={index}> <Link href={link.link} target={link.link.includes("https")?"_blank":""} >{link.label}</Link> </li>
 
                     ))}
                     

@@ -1,4 +1,4 @@
-export const SMOOTH_SCROLL_ENABLED = false
+export const SMOOTH_SCROLL_ENABLED = true
 
 export const SMOOTH_SCROLL_OPTIONS = {
   duration: 1.9,

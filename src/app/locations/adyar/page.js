@@ -27,105 +27,33 @@ const stats = [
 const coeData = [
     {
         icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
+        title:"General Medicine"
     },
-     {
+    {
         icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
+        title:"Neuro Care"
     },
-     {
+    {
         icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
+        title:"Lung Care"
     },
-     {
+    {
         icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
+        title:"Orthopaedic Care"
     },
-     {
+    {
         icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
+        title:"Gastro Care"
     },
-     {
+    {
         icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
+        title:"Cancer Care"
     },
-     {
+    {
         icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-    
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-    
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-     {
-        icon:"/assets/images/sample-l.svg",
-        title:"Liver Transplantation & Gastro care Services"
-    },
-    
-
-]
+        title:"Vascular Care"
+    }
+];
 
 const whyChooseData = [
     {
@@ -189,7 +117,7 @@ export default async function page() {
          <section className={`${style.bannerSection}`} style={{backgroundImage:`url(/assets/images/adyar-bg.png)`}}>
         <div className={`${style.container} container`}>
             <div className={`top_heading ${style.top_heading} left`} data-aos="fade-up">
-                <p className={`${style.locationName} white_text`}>Rela MS Hospital, Red Hills</p>
+                <p className={`${style.locationName} white_text`}>Rela Clinic, Adyar</p>
                 <h1 className='white_text common_heading'>One Stop Destination for <br className='desktop_break'/><span>Complete Health Care</span></h1>
                 <Image className={style.ratingImg} src="/assets/images/rating-img-adyar.svg" width={231} height={76} alt=''/>
             </div>
@@ -203,7 +131,7 @@ export default async function page() {
             <div className='top_heading left'>
             <h2 className='common_heading'>Comprehensive Care, Closer to You</h2>
             <div className={style.text}>
-                <p>Rela MS Hospital, Red Hills was established to extend advanced healthcare services to North Chennai and neighbouring communities. By bringing together Rela's clinical expertise with the established infrastructure of MS Hospital, the centre offers coordinated care across medical, surgical, critical care and emergency services.</p>
+                <p>Rela Clinic, Adyar was established to extend advanced healthcare services to North Chennai and neighbouring communities. By bringing together Rela's clinical expertise with the established infrastructure of MS Hospital, the centre offers coordinated care across medical, surgical, critical care and emergency services.</p>
                 <p>With specialists across multiple disciplines and facilities equipped to manage both routine and complex conditions, the hospital is focused on delivering timely, accessible and high-quality care for every patient.</p>
             </div>
             <div className={style.stats}>
@@ -234,7 +162,7 @@ export default async function page() {
       <div className={`top_heading ${style.top_heading}`}>
 <h2 className="common_heading">Services & Facilities Designed Around Your Care</h2>
 <p>Our specialists collaborate across departments to provide coordinated care for both everyday and complex health conditions.</p>
-<Button link="" classname="orange_btn" text="Book an Appointment"/>
+<Button link="https://appointments.relainstitute.com:8080/" classname="orange_btn" text="Book an Appointment"/>
       </div>
     </div>
 
@@ -280,8 +208,8 @@ export default async function page() {
 <div className={`container ${style.container}`} data-aos="fade-up">
         <div className={style.content} >
             <div className="top_heading left">
-                <h2 className='common_heading'>Your Route to Rela MS Hospital, Red Hills</h2>
-                <p>Conveniently located on GNT Road, Rela MS Hospital, Red Hills provides multispeciality and emergency healthcare services for patients across North Chennai and surrounding areas.</p>
+                <h2 className='common_heading'>Your Route to Rela Clinic, Adyar</h2>
+                <p>Conveniently located on GNT Road, Rela Clinic, Adyar provides multispeciality and emergency healthcare services for patients across North Chennai and surrounding areas.</p>
                 <strong>Dr. Rela Institute & MS Hospital</strong>
                 <ul>
                     <li>

@@ -44,6 +44,7 @@ padding: 24px;
 border: solid var(--orange) 1px;
 background-color: white;
 position: relative;
+gap: 16px;
 }
 
 .cardTop .tag,
@@ -144,7 +145,7 @@ margin:16px 0 8px 0;
 
 .cardTop .detail{
     padding-top: 16px;
-    margin-top: 16px;
+    margin-top: auto;
     border-top: solid #CCCCCC 1px;
 }
 

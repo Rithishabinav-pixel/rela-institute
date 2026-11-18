@@ -5,6 +5,8 @@ const nextConfig = {
   images: {
     remotePatterns: [
       new URL('https://www.relainstitute.com/wp-content/uploads/**'),
+      new URL('https://www.relainstitute.com/wp-content/themes/**'),
+      new URL('https://www.relainstitute.com/wp-content/cache/**'),
       new URL('https://img.youtube.com/vi/**'),
     ],
     // Needed so next/image can serve uploaded Department Icon SVGs (see

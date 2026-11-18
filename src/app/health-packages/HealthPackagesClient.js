@@ -89,7 +89,7 @@ const faq = [
     }
 ]
 
-const splitIndex = Math.max(7, Math.ceil(faq.length / 2));
+const splitIndex = Math.max(5, Math.ceil(faq.length / 2));
 
 const firstFaq = faq.slice(0, splitIndex);
 const secondFaq = faq.slice(splitIndex);
@@ -151,7 +151,7 @@ export default function HealthPackagesClient({ packages }) {
         <div className={`${style.content} ${style.top_heading} top_heading inner`}  data-aos="fade-left">
             <h2 className='common_heading'>More Than a Checkup. A Step Towards Better Health.</h2>
             <p>At present, people ignore minor health problems and don’t consider them a big deal that later becomes a significant cause of major diseases. Therefore, everyone should pay attention to every symptom and sign the body shows. When the body reacts differently often, it is essential to take a full body checkup. It is a routine test in which all the body systems are tested, such as blood tests, urine tests, stool tests, diabetes tests, thyroid tests, etc. However, by getting the entire body examined, diseases can be detected in advance. Over and above that, to keep the body healthy, a complete body check-up must be done at least once a year.</p>
-            <Button classname="orange_btn" type="download" text="Download Brochure" link="#"/>
+            <Button classname="orange_btn" type="download" text="Download Brochure" link="/assets/pdf/MHC.pdf"/>
         </div>
     </div>
 </section>

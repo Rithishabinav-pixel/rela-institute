@@ -1,0 +1,473 @@
+.bannerSection{
+    background-size: cover;
+    background-position: right center;
+    min-height: 500px;
+    display: grid;
+    place-items: center;
+    position: relative;
+    padding: 80px 0;
+}
+
+.bannerSection::before{
+    position: absolute;
+    inset: 0;
+    content: '';
+    background: linear-gradient(to right, #242424, transparent);
+}
+
+.bannerSection :global(.container){
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    width: 100%;
+}
+
+.heroContent{
+    max-width: 640px;
+}
+
+.heroContent ul{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.heroContent ul li{
+    position: relative;
+    padding-left: 32px;
+    color: white;
+}
+
+.heroContent ul li::before{
+    position: absolute;
+    content: '';
+    width: 24px;
+    height: 24px;
+    left: 0;
+    top: 2px;
+    background-image: url(/assets/images/list-icon.svg);
+    background-size: cover;
+    filter: invert(1) brightness(100);
+}
+
+.heroFormWrap{
+    width: 420px;
+    min-width: 360px;
+}
+
+.doctorStrip{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: rgba(255,255,255,0.08);
+    border: solid rgba(255,255,255,0.25) 1px;
+    border-radius: 24px;
+    padding: 16px 20px;
+    margin-top: 20px;
+}
+
+.doctorStrip .avatar{
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    width: 72px;
+    height: 72px;
+}
+
+.doctorStrip .avatar img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    float: none;
+}
+
+.doctorStrip h4{
+    color: white;
+    font-size: 18px;
+    line-height: 26px;
+}
+
+.doctorStrip p{
+    color: rgba(255,255,255,0.75);
+}
+
+/* two-column content / image section, matching about-us .transform_section
+   and academics .about_section */
+.contentHalf,
+.imageHalf{
+    width: calc(50% - 20px);
+}
+
+.imageHalf img{
+    width: 100%;
+    height: auto;
+    border-radius: 24px;
+    float: none;
+}
+
+/* icon-feature cards, matching infrastructure .decision_section
+   and careers .careerCards exactly */
+.featureCards{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.featureCard{
+    width: calc(25% - 22.5px);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px 24px;
+    border: solid #CCCCCC 1px;
+    border-radius: 32px;
+    transition: var(--transition);
+}
+
+.featureCard img{
+    width: 80px;
+    margin-bottom: 8px;
+    transition: var(--transition);
+    float: none;
+}
+
+.featureCard:hover img{
+    transform: scaleX(-1);
+}
+
+.featureCard h3{
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 600;
+}
+
+.featureCard p{
+    color: var(--dark-gray);
+}
+
+/* divider-row icon + title + arrow cards, matching academics .excellenceSection .right .card */
+.linkCards{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px 30px;
+}
+
+.linkCard{
+    width: calc(50% - 15px);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-top: 24px;
+    border-top: solid rgba(0,0,0,0.2) 1px;
+    color: black;
+    transition: var(--transition);
+}
+
+.linkCard:nth-child(1),
+.linkCard:nth-child(2){
+    padding-top: 0;
+    border-top: none;
+}
+
+.linkCard:hover{
+    transform: translateX(5px);
+}
+
+.linkCard .icon{
+    width: 40px;
+    min-width: 40px;
+}
+
+.linkCard .icon img{
+    width: 100%;
+    float: none;
+}
+
+.linkCard h3{
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    flex: 1;
+}
+
+/* animated stat counters, matching infrastructure .support_section and about-us .advancedSection */
+.statRow{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+}
+
+.statItem h3{
+    font-size: 48px;
+    line-height: 56px;
+    font-family: "shelby";
+}
+
+.statItem p{
+    opacity: 0.75;
+    margin-top: 4px;
+}
+
+.award_section h2{
+    margin: auto;
+    text-align: center;
+}
+/* award / partner style cards, matching about-us .partner_section and .recognition_section */
+.awardCards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.awardCard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+    width: 220px;
+}
+
+.awardCard img{
+    width: auto;
+    height: 90px;
+}
+
+/* chip list, for long enumerations with no natural card/counter shape */
+.chipList{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.chipList li{
+    background-color: white;
+    border: solid #ebebeb 1px;
+    border-radius: 100px;
+    padding: 10px 20px;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+/* quote-style testimonial cards, matching TestimonialSection's .testSlide */
+.testimonialGrid{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.testimonialCard{
+    flex: 1;
+    min-width: 300px;
+    background-color: #f6f6f6;
+    border-radius: 24px;
+    padding: 24px;
+    position: relative;
+}
+
+.testimonialCard::before{
+    position: absolute;
+    content: '';
+    top: 20px;
+    left: 20px;
+    width: 48px;
+    height: auto;
+    aspect-ratio: 78 / 55;
+    background-image: url(/assets/images/quote.svg);
+    background-size: cover;
+    opacity: 0.5;
+}
+
+.testimonialCard p{
+    position: relative;
+    z-index: 2;
+    margin-top: 48px;
+    color: var(--dark-gray);
+}
+
+.testimonialCard .author{
+    margin-top: 16px;
+    font-weight: 600;
+    color: black;
+}
+
+.testimonialMediaGrid{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.testimonialMediaCard{
+    flex: 1;
+    min-width: 280px;
+    border-radius: 24px;
+    overflow: hidden;
+}
+
+.testimonialMediaCard img{
+    width: 100%;
+    height: auto;
+    float: none;
+}
+
+/* floating highlight cards over an image, matching academics .liver_section/.isccm_section pattern */
+.floatImageWrap{
+    position: relative;
+}
+
+.floatCard{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    border: solid var(--orange) 1px;
+    border-radius: 24px;
+    width: fit-content;
+    max-width: 220px;
+    color: black;
+    background-color: white;
+    animation: floatLink 2s infinite linear alternate;
+}
+
+@keyframes floatLink{
+    to{
+        transform: scale(0.97);
+    }
+}
+
+.floatCard img{
+    width: 36px;
+    float: none;
+}
+
+.floatCard h3{
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: 600;
+}
+
+.floatCard.topRight{
+    top: -24px;
+    right: -24px;
+}
+
+.floatCard.bottomLeft{
+    bottom: -24px;
+    left: -24px;
+}
+
+.ctaSection{
+    background-color: var(--orange);
+    text-align: center;
+}
+
+.ctaSection h2{
+    color: white;
+    margin-bottom: 24px;
+}
+
+.ctaButtons{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.teamGroupHeading{
+    margin-bottom: 20px;
+}
+
+.teamGroupWrap{
+    margin-bottom: 48px;
+}
+
+.chip_section a:global(.common_btn){
+    margin: auto;
+}
+
+@media screen and (max-width: 1600px){
+    .bannerSection{
+        min-height: 400px;
+    }
+}
+
+@media screen and (max-width: 1200px){
+
+    :global(.section_container){
+        flex-direction: column;
+    }
+
+    .bannerSection .container{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .heroFormWrap{
+        width: 100%;
+        min-width: 0;
+    }
+
+    .contentHalf,
+    .imageHalf{
+        width: 100%;
+    }
+
+    .featureCard{
+        width: calc(50% - 15px);
+    }
+
+    .floatCard{
+        max-width: 160px;
+        padding: 14px;
+    }
+
+    .floatCard.topRight{
+        top: -16px;
+        right: -16px;
+    }
+
+    .floatCard.bottomLeft{
+        bottom: -16px;
+        left: -16px;
+    }
+}
+
+@media screen and (max-width: 767px){
+    .bannerSection{
+        min-height: 400px;
+        padding: 50px 0;
+    }
+
+    .featureCard,
+    .linkCard{
+        width: 100%;
+    }
+
+    .statRow{
+        gap: 24px;
+    }
+
+    .statItem h3{
+        font-size: 36px;
+        line-height: 44px;
+    }
+
+    .doctorStrip{
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .floatCard{
+        position: static;
+        margin-top: 16px;
+    }
+}
